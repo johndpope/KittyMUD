@@ -132,6 +132,16 @@
 			3A462290105D1C8400740FF4 = 3A462290105D1C8400740FF4 /* PBXTextBookmark */;
 			3A4CDCBD105BC307008C7F65 = 3A4CDCBD105BC307008C7F65 /* PBXTextBookmark */;
 			3A6585B51060357C00F4605E = 3A6585B51060357C00F4605E /* PBXTextBookmark */;
+			3AF1E03910603F05009A9806 /* PBXTextBookmark */ = 3AF1E03910603F05009A9806 /* PBXTextBookmark */;
+			3AF1E03A10603F05009A9806 /* PBXTextBookmark */ = 3AF1E03A10603F05009A9806 /* PBXTextBookmark */;
+			3AF1E04110603F18009A9806 /* PBXTextBookmark */ = 3AF1E04110603F18009A9806 /* PBXTextBookmark */;
+			3AF1E04210603F18009A9806 /* PBXBookmark */ = 3AF1E04210603F18009A9806 /* PBXBookmark */;
+			3AF1E04310603F18009A9806 /* PBXTextBookmark */ = 3AF1E04310603F18009A9806 /* PBXTextBookmark */;
+			3AF1E04E10603F1E009A9806 /* PBXTextBookmark */ = 3AF1E04E10603F1E009A9806 /* PBXTextBookmark */;
+			3AF1E04F10603F1E009A9806 /* PBXTextBookmark */ = 3AF1E04F10603F1E009A9806 /* PBXTextBookmark */;
+			3AF1E05010603F1E009A9806 /* PBXTextBookmark */ = 3AF1E05010603F1E009A9806 /* PBXTextBookmark */;
+			3AF1E05110603F1E009A9806 /* PBXTextBookmark */ = 3AF1E05110603F1E009A9806 /* PBXTextBookmark */;
+			3AF1E05210603F1E009A9806 /* PBXTextBookmark */ = 3AF1E05210603F1E009A9806 /* PBXTextBookmark */;
 			3AFF3ED2105D3A5D00F51EC6 = 3AFF3ED2105D3A5D00F51EC6 /* PBXTextBookmark */;
 			3AFF3ED3105D3A5D00F51EC6 = 3AFF3ED3105D3A5D00F51EC6 /* PBXTextBookmark */;
 			3AFF3ED4105D3A5D00F51EC6 = 3AFF3ED4105D3A5D00F51EC6 /* PBXTextBookmark */;
@@ -613,9 +623,9 @@
 	};
 	3A4CDC3E105AF40D008C7F65 /* KMServer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1195, 1326}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1195, 1261}}";
 			sepNavSelRange = "{762, 0}";
-			sepNavVisRange = "{898, 268}";
+			sepNavVisRange = "{887, 446}";
 		};
 	};
 	3A4CDC4C105B0137008C7F65 /* KMConnectionPool.h */ = {
@@ -665,6 +675,100 @@
 		rType = 0;
 		vrLen = 1791;
 		vrLoc = 0;
+	};
+	3AF1E03910603F05009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */;
+		name = "KMServer.m: 32";
+		rLen = 0;
+		rLoc = 762;
+		rType = 0;
+		vrLen = 446;
+		vrLoc = 887;
+	};
+	3AF1E03A10603F05009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */;
+		name = "KMServer.m: 32";
+		rLen = 0;
+		rLoc = 762;
+		rType = 0;
+		vrLen = 446;
+		vrLoc = 887;
+	};
+	3AF1E04110603F18009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */;
+		name = "KMServer.m: 32";
+		rLen = 0;
+		rLoc = 762;
+		rType = 0;
+		vrLen = 446;
+		vrLoc = 887;
+	};
+	3AF1E04210603F18009A9806 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */;
+	};
+	3AF1E04310603F18009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */;
+		name = "KMColorProcessWriteHook.m: 54";
+		rLen = 0;
+		rLoc = 1249;
+		rType = 0;
+		vrLen = 157;
+		vrLoc = 1249;
+	};
+	3AF1E04E10603F1E009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 18";
+		rLen = 0;
+		rLoc = 400;
+		rType = 0;
+		vrLen = 1791;
+		vrLoc = 0;
+	};
+	3AF1E04F10603F1E009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF41711060148E00F51EC6 /* KMMudVariablesExtensions.h */;
+		name = "KMMudVariablesExtensions.h: 14";
+		rLen = 0;
+		rLoc = 265;
+		rType = 0;
+		vrLen = 423;
+		vrLoc = 0;
+	};
+	3AF1E05010603F1E009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */;
+		name = "KMServer.m: 12";
+		rLen = 0;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 1454;
+		vrLoc = 31;
+	};
+	3AF1E05110603F1E009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF41721060148E00F51EC6 /* KMMudVariablesExtensions.m */;
+		name = "KMMudVariablesExtensions.m: 38";
+		rLen = 0;
+		rLoc = 959;
+		rType = 0;
+		vrLen = 1134;
+		vrLoc = 0;
+	};
+	3AF1E05210603F1E009A9806 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */;
+		name = "KMColorProcessWriteHook.m: 52";
+		rLen = 202;
+		rLoc = 1205;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 91;
 	};
 	3AFF3ED2105D3A5D00F51EC6 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -2079,9 +2183,9 @@
 	};
 	3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {968, 819}}";
-			sepNavSelRange = "{1249, 0}";
-			sepNavVisRange = "{1131, 277}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 793}}";
+			sepNavSelRange = "{1205, 202}";
+			sepNavVisRange = "{91, 1323}";
 		};
 	};
 	3AFF4069105EC4AC00F51EC6 /* PBXTextBookmark */ = {
@@ -3035,8 +3139,8 @@
 	};
 	3AFF41721060148E00F51EC6 /* KMMudVariablesExtensions.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 765}}";
-			sepNavSelRange = "{1127, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
+			sepNavSelRange = "{959, 0}";
 			sepNavVisRange = "{0, 1134}";
 		};
 	};
