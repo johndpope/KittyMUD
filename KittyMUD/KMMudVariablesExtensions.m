@@ -33,7 +33,7 @@ static NSMutableDictionary* kmMudVariables = nil;
 	NSString* current = [self copy];
 	NSString* (^replaceVariablesHelper)(NSString*) = ^(NSString* input){
 		for(NSString* key in [kmMudVariables allKeys]) {
-			input = [input stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"$(%@)",key] withString:[kmMudVariables objectForKey:key]];
+			input = [input stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"$(%@)",key] withString:[kmMudVariables objectForKey:key] options:NSCaseInsensitiveSearch range:NSMakeRange(0,[input length])];
 		}
 		return input;
 	};

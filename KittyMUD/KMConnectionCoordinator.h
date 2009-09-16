@@ -14,7 +14,18 @@
 	NSString* inputBuffer;
 	NSString* outputBuffer;
 	NSDate* lastReadTime;
+	unsigned long long flagbase;
+	NSMutableDictionary* flags;
+	unsigned int currentbitpower;
 }
+
+-(id) init;
+
+-(BOOL) isFlagSet:(NSString*)flagName;
+
+-(void) setFlag:(NSString*)flagName;
+
+-(void) clearFlag:(NSString*)flagName;
 
 -(BOOL) sendMessage:(NSString*)message;
 

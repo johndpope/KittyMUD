@@ -17,6 +17,7 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 {
 	connections = [[NSMutableArray alloc] init];
 	hooks = [[NSMutableArray alloc] init];
+	readCallback = nil;
 	return self;
 }
 
@@ -52,8 +53,10 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	NSLog(inputString);
 	[coordinator setInputBuffer:inputString];
 	[coordinator setLastReadTime:[NSDate date]];
-	if([[coordinator getInputBuffer] isEqualToString:@"testwriteall"])
-		[pool writeToAllConnections:@"Test Write All (whitespace trim)"];
+	if([pool readCallback] != nil) {
+		KMConnectionReadCallback cb = [pool readCallback];
+		cb(coordinator);
+	}
 }
 
 -(BOOL) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle
@@ -108,6 +111,8 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		CFRelease([connection getSocket]);
 	}
 }
+
 @synthesize connections;
 @synthesize hooks;
+@synthesize readCallback;
 @end

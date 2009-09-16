@@ -83,9 +83,21 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);
 	CFRunLoopAddSource(currentRunLoop, serverRunLoopSource, kCFRunLoopCommonModes);
 	CFRelease(serverRunLoopSource);
+	[self setIsRunning:YES];
 	return YES;
 }
+
+-(void) shutdown
+{
+	CFSocketNativeHandle serverNative = CFSocketGetNative(serverSocket);
+	CFSocketInvalidate(serverSocket);
+	close(serverNative);
+	CFRelease(serverSocket);
+	[self setIsRunning:NO];
+}
+
 @synthesize serverSocket;
 @synthesize currentPoolId;
 @synthesize connectionPool;
+@synthesize isRunning;
 @end

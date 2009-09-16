@@ -17,6 +17,73 @@
 
 @implementation KMConnectionCoordinator
 
+-(id) init
+{
+	self = [super init];
+	if( self ) {
+		flags = [[NSMutableDictionary alloc] init];
+		currentbitpower = 0; // this will be saved in the save file so we make sure we dont overwrite existing flags
+	}
+	return self;
+}
+
+static unsigned long long kmpow(int power) {
+	int cur = 1;
+	while (power-- > 0) {
+		cur = cur * 2;
+	}
+	return cur;
+}
+
+-(BOOL) isFlagSet:(NSString*)flagName
+{
+	NSString* fp = [flags objectForKey:flagName];
+	int flagpower = -1;
+	if(fp == nil)
+		return NO;
+	flagpower = [fp intValue];
+	int ffp = kmpow(flagpower);
+	
+	return ffp == (flagbase & ffp);
+}
+
+-(void) setFlag:(NSString*)flagName
+{
+	NSString* fp = [flags objectForKey:flagName];
+	int flagpower = -1;
+	if( fp != nil )
+		flagpower = [fp intValue];
+	else {
+		[flags setObject:[NSString stringWithFormat:@"%d", currentbitpower] forKey:flagName];
+		flagpower = currentbitpower++;
+	}
+	flagbase |= (kmpow(flagpower));
+}
+
+-(void) clearFlag:(NSString*)flagName
+{
+	NSString* fp = [flags objectForKey:flagName];
+	int flagpower = -1;
+	if( fp == nil )
+		return;
+	flagpower = [fp intValue];
+	if([self isFlagSet:flagName])
+		flagbase ^= (kmpow(flagpower));
+}
+
+-(void) debugPrintFlagStatus
+{
+	for(NSString* flag in [flags allKeys])
+	{
+		NSString* flagstatus;
+		if([self isFlagSet:flag])
+			flagstatus = @"SET";
+		else
+			flagstatus = @"CLEAR";
+		NSLog(@"Flag %@: %@", flag, flagstatus);
+	}
+}
+
 static NSString* sendMessageBase(NSString* message) {
 	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"])
 		message = [message stringByAppendingFormat:@"\n\r"];

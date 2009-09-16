@@ -16,11 +16,12 @@ typedef enum {
 	kKMConnectionPoolCouldNotCreateSocket = 1,
 } KMConnectionPoolErrorCodes;
 
-typedef void (*KMConnectionReadCallback) (id,id);
+typedef void (^KMConnectionReadCallback) (id);
 
 @interface KMConnectionPool : NSObject {
 	NSMutableArray* connections;
 	NSMutableArray* hooks;
+	KMConnectionReadCallback readCallback;
 }
 
 -(id) init;
@@ -39,4 +40,5 @@ typedef void (*KMConnectionReadCallback) (id,id);
 
 @property (retain) NSMutableArray* connections;
 @property (retain) NSMutableArray* hooks;
+@property (copy) KMConnectionReadCallback readCallback;
 @end

@@ -11,6 +11,8 @@
 		3A4CDC3F105AF40D008C7F65 /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */; };
 		3A4CDC4E105B0137008C7F65 /* KMConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */; };
 		3A4CDC55105B07F9008C7F65 /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC54105B07F9008C7F65 /* KMConnectionCoordinator.m */; };
+		3AF1E09C10611C97009A9806 /* sys.conf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1E09B10611C97009A9806 /* sys.conf */; };
+		3AF1E0B710611DC5009A9806 /* KMVariableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1E0B610611DC5009A9806 /* KMVariableManager.m */; };
 		3AFF4068105EBFC000F51EC6 /* KMColorProcessWriteHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */; };
 		3AFF416B1060138D00F51EC6 /* KMAccountNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF416A1060138D00F51EC6 /* KMAccountNameState.m */; };
 		3AFF41731060148E00F51EC6 /* KMMudVariablesExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF41721060148E00F51EC6 /* KMMudVariablesExtensions.m */; };
@@ -35,6 +37,10 @@
 		3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConnectionPool.m; sourceTree = "<group>"; };
 		3A4CDC53105B07F9008C7F65 /* KMConnectionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConnectionCoordinator.h; sourceTree = "<group>"; };
 		3A4CDC54105B07F9008C7F65 /* KMConnectionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConnectionCoordinator.m; sourceTree = "<group>"; };
+		3AF1E05510608F8D009A9806 /* KMWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWriteHook.h; sourceTree = "<group>"; };
+		3AF1E09B10611C97009A9806 /* sys.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sys.conf; sourceTree = "<group>"; };
+		3AF1E0B510611DC5009A9806 /* KMVariableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMVariableManager.h; sourceTree = "<group>"; };
+		3AF1E0B610611DC5009A9806 /* KMVariableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMVariableManager.m; sourceTree = "<group>"; };
 		3AFF4066105EBFC000F51EC6 /* KMColorProcessWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMColorProcessWriteHook.h; sourceTree = "<group>"; };
 		3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMColorProcessWriteHook.m; sourceTree = "<group>"; };
 		3AFF41621060103500F51EC6 /* KMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMState.h; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				3AF1E09B10611C97009A9806 /* sys.conf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -157,6 +164,9 @@
 				3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */,
 				3AFF41B610601CD800F51EC6 /* KMVariableHook.h */,
 				3AFF41B710601CD800F51EC6 /* KMVariableHook.m */,
+				3AF1E05510608F8D009A9806 /* KMWriteHook.h */,
+				3AF1E0B510611DC5009A9806 /* KMVariableManager.h */,
+				3AF1E0B610611DC5009A9806 /* KMVariableManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -208,7 +218,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = "Gravinity Games";
+				ORGANIZATIONNAME = "Gravinity Studios";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KittyMUD" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -229,6 +239,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				3AF1E09C10611C97009A9806 /* sys.conf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${BUILD_DIR}/Debug/${PRODUCT_NAME}.app/Saves/";
+			shellScript = "mkdir -p ${BUILD_DIR}/Debug/${PRODUCT_NAME}.app/Saves/\nmkdir -p ${BUILD_DIR}/Debug/${PRODUCT_NAME}.app/config/\ncp -v ${BUILD_DIR}/../sys.conf ${BUILD_DIR}/Debug/${PRODUCT_NAME}.app/config";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -263,6 +274,7 @@
 				3AFF416B1060138D00F51EC6 /* KMAccountNameState.m in Sources */,
 				3AFF41731060148E00F51EC6 /* KMMudVariablesExtensions.m in Sources */,
 				3AFF41B810601CD800F51EC6 /* KMVariableHook.m in Sources */,
+				3AF1E0B710611DC5009A9806 /* KMVariableManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
