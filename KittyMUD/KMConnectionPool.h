@@ -3,11 +3,12 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/12/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import "KMConnectionCoordinator.h"
+#import "KMWriteHook.h"
 
 NSString* const KMConnectionPoolErrorDomain;
 
@@ -16,17 +17,6 @@ typedef enum {
 } KMConnectionPoolErrorCodes;
 
 typedef void (*KMConnectionReadCallback) (id,id);
-
-@interface KMWriteHook : NSObject {
-	id target;
-	SEL selector;
-}
-
--(KMWriteHook*) initializeWithTarget:(id)itarget andSelector:(SEL)iselector;
-
-@property (retain) id target;
-@property SEL selector;
-@end
 
 @interface KMConnectionPool : NSObject {
 	NSMutableArray* connections;
@@ -43,9 +33,9 @@ typedef void (*KMConnectionReadCallback) (id,id);
 
 -(void) checkOutputBuffers:(NSTimer*)timer;
 
--(void) addHook:(KMWriteHook*)hook;
+-(void) addHook:(id<KMWriteHook>)hook;
 
--(void) removeHook:(KMWriteHook*)hook;
+-(void) removeHook:(id<KMWriteHook>)hook;
 
 @property (retain) NSMutableArray* connections;
 @property (retain) NSMutableArray* hooks;

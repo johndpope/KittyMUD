@@ -3,7 +3,7 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 8/21/09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright Gravinity Studios 2009. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -26,12 +26,8 @@ int main(int argc, char *argv[])
 		NSLog(@"Error starting server, exiting.");
 		return NO;
 	}
-	KMColorProcessWriteHook* hook = [[KMColorProcessWriteHook alloc] init];
-	KMVariableHook* vhook = [[KMVariableHook alloc] init];
-	KMWriteHook* colorHook = [[KMWriteHook alloc] initializeWithTarget:hook andSelector:@selector(processHook:)];
-	KMWriteHook* variableHook = [[KMWriteHook alloc] initializeWithTarget:vhook andSelector:@selector(processHook:)];
-	[[server getConnectionPool] addHook:colorHook];
-	[[server getConnectionPool] addHook:variableHook];
+	[[server getConnectionPool] addHook:[[KMColorProcessWriteHook alloc] init]];
+	[[server getConnectionPool] addHook:[[KMVariableHook alloc] init]];
 	NSLog(@"Starting server on port 7000...\n");
 	NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 	NSTimer* timer = [NSTimer timerWithTimeInterval:0.5 target:[server getConnectionPool] selector:@selector(checkOutputBuffers:) userInfo:nil repeats:YES];

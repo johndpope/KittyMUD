@@ -2,8 +2,8 @@
 //  KMWriteHook.h
 //  KittyMUD
 //
-//  Created by Michael Tindal on 9/15/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Created by Michael Tindal on 9/16/09.
+//  Copyright 2009 Gravinity Games. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

@@ -3,7 +3,7 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/12/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
 #import "KMConnectionCoordinator.h"
@@ -21,8 +21,8 @@ static NSString* sendMessageBase(NSString* message) {
 	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"])
 		message = [message stringByAppendingFormat:@"\n\r"];
 	NSString* (^sendMessageHelper)(NSString*) = ^(NSString* input){
-		for(KMWriteHook* hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
-			input = [[hook target] performSelector:[hook selector] withObject:input];
+		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
+			input = [hook processHook:input];
 		}
 		return input;
 	};

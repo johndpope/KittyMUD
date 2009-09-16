@@ -3,28 +3,11 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/12/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
 #import "KMConnectionPool.h"
 #import "KMServer.h"
-
-@implementation KMWriteHook
-
--(KMWriteHook*) initializeWithTarget:(id)itarget andSelector:(SEL)iselector
-{
-	self = [super init];
-	if(self)
-	{
-		[self setTarget:itarget];
-		[self setSelector:iselector];
-	}
-	return self;
-}
-
-@synthesize target;
-@synthesize selector;
-@end
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
@@ -95,13 +78,13 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 }
 
 
--(void) addHook:(KMWriteHook*)hook
+-(void) addHook:(id<KMWriteHook>)hook
 {
 	if(![hooks containsObject:hook])
 		[hooks addObject:hook];
 }
 
--(void) removeHook:(KMWriteHook*)hook
+-(void) removeHook:(id<KMWriteHook>)hook
 {
 	if([hooks containsObject:hook])
 		[hooks removeObjectIdenticalTo:hook];
