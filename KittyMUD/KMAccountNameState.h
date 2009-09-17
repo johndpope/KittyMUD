@@ -6,7 +6,7 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import "KMState.h"
 
 @interface KMAccountNameState : NSObject <KMState> {

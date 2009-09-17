@@ -50,7 +50,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 	// This next line will remove new-lines and extra whitespace so when we compare it to the commands it will work
 	inputString = [[inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
-	NSLog(inputString);
+	NSLog(@"%@",inputString);
 	[coordinator setInputBuffer:inputString];
 	[coordinator setLastReadTime:[NSDate date]];
 	if([pool readCallback] != nil) {
@@ -75,7 +75,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	CFRunLoopRef rl = CFRunLoopGetCurrent();
 	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
 	CFRelease(connRLS);
-	[coordinator sendMessageToBuffer:@"`RWelcome to $(Name)."];
+	[coordinator sendMessageToBuffer:@"`RWelcome to $(Name) `w(dynamic soft reboot build)."];
 	[coordinator sendMessage:@"Test new-line without buffer"];
 	return YES;
 }

@@ -1,11 +1,3 @@
-//
-//  main.m
-//  KittyMUD
-//
-//  Created by Michael Tindal on 8/21/09.
-//  Copyright Gravinity Studios 2009. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import "KMServer.h"
 #import "KMColorProcessWriteHook.h"
@@ -16,8 +8,16 @@
 int main(int argc, char *argv[])
 {
 	BOOL softreboot = NO;
+	int port = 7000;
 	if(argc > 1 && !strcmp(argv[1], "softreboot"))
 		softreboot = YES;
+	if(argc > 1 && !softreboot) {
+		for(int i = 0; i < argc; i++) {
+			if(!strcmp(argv[i], "port") && argc > i + 1) {
+				port = [[[NSString alloc] initWithCString:argv[i+1]] intValue];
+			}
+		}
+	}
 	[NSString initializeVariableDictionary];
 	[NSString addVariableWithKey:@"BundleDir" andValue:[[NSBundle mainBundle] bundlePath]];
 	KMVariableManager* varManager = [[KMVariableManager alloc] initializeWithConfigFile:[NSString stringWithFormat:@"%@/config/sys.conf",[[NSBundle mainBundle] bundlePath]]];
@@ -48,3 +48,4 @@ int main(int argc, char *argv[])
 	while([server isRunning]) { [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]]; }
 	return YES;
 }
+

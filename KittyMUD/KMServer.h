@@ -6,7 +6,7 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import <CoreFoundation/CoreFoundation.h>
 #import "KMConnectionPool.h"
 
@@ -34,6 +34,10 @@ typedef enum {
 -(BOOL) initializeServerWithPort:(int)port error:(NSError**)error;
 
 -(void) shutdown;
+
+-(void) softReboot;
+
+-(void) softRebootRecovery:(CFSocketNativeHandle)socketHandle;
 
 @property CFSocketRef serverSocket;
 @property int currentPoolId;

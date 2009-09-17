@@ -6,12 +6,11 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import "KMConnectionCoordinator.h"
+#import <Foundation/Foundation.h>
 
 @protocol KMState <NSObject>
 
--(id<KMState>) processState:(KMConnectionCoordinator*)coordinator withInput:(NSString*)input;
+-(id<KMState>) processState:(id)coordinator;
 
 -(NSString*) getName;
 

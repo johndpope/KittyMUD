@@ -99,13 +99,15 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 
 -(void) softReboot
 {
-	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables]];
+	NSString* sr = [@"$(BundleDir)/tmp/sr" replaceAllVariables];
+	[[NSFileManager defaultManager] createFileAtPath:sr contents:nil attributes:nil];
+	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:sr];
 	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
 		//[coordinator saveToXmlWithState];
 		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),@"NULL"/*[[coordinator getAccount] name]*/] dataUsingEncoding:NSASCIIStringEncoding]];
 	}
 	[softRebootFile closeFile];
-	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/Contents/MacOS/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSASCIIStringEncoding];
+	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSASCIIStringEncoding];
 	execl(executable_name, executable_name, "softreboot", [[NSString stringWithFormat:@"%d",CFSocketGetNative(serverSocket)] cStringUsingEncoding:NSASCIIStringEncoding], (char*)NULL);
 	NSLog(@"Error running execl, soft reboot aborted.");
 }
@@ -130,6 +132,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	CFRelease(serverRunLoopSource);
 	[connectionPool writeToAllConnections:@"Soft reboot completed."];	
 	[self setIsRunning:YES];
+	[[NSFileManager defaultManager] removeItemAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables] error:NULL];
 }
 
 @synthesize serverSocket;

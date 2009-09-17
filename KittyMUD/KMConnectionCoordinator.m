@@ -153,4 +153,5 @@ static NSString* sendMessageBase(NSString* message) {
 }
 
 @synthesize outputBuffer;
+@synthesize currentState;
 @end

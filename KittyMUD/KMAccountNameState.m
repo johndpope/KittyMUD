@@ -7,13 +7,24 @@
 //
 
 #import "KMAccountNameState.h"
-
+#import "KMConnectionCoordinator.h"
+#import "KMMudVariablesExtensions.h"
 
 @implementation KMAccountNameState
 
--(id<KMState>) processState:(KMConnectionCoordinator*)coordinator withInput:(NSString*)input
+-(id<KMState>) processState:(id)coordinator 
 {
-	return nil;
+	KMConnectionCoordinator* coord = (KMConnectionCoordinator*)coordinator;
+	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.acct", [coordinator getInputBuffer]] replaceAllVariables];
+	NSFileHandle* saveFile = [NSFileHandle fileHandleForReadingAtPath:fileName];
+	if (saveFile != nil) {
+		//KMConfirmPasswordState* cps = [[KMConfirmPasswordState alloc] init];
+		//return cps;
+	} else {
+		[coordinator setFlag:@"new_password"];
+		//KMNewPasswordState* nps = [[KMNewPasswordState alloc] init];
+		//return nps;
+	}
 }
 
 -(NSString*) getName

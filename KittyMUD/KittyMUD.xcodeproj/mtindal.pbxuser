@@ -1,29 +1,20 @@
 // !$*UTF8*$!
 {
-	29B97313FDCFA39411CA2CEA /* Project object */ = {
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
-		activeExecutable = 3A331059103F0BEC004EAEFC /* KittyMUD */;
-		activeSDKPreference = macosx10.6;
-		activeTarget = 8D1107260486CEB800E47090 /* KittyMUD */;
+		activeExecutable = 3AC38BA910627BB30011EBD4 /* KittyMUD */;
+		activeTarget = 8DD76F960486AA7600D96B5E /* KittyMUD */;
 		addToTargets = (
-			8D1107260486CEB800E47090 /* KittyMUD */,
+			8DD76F960486AA7600D96B5E /* KittyMUD */,
 		);
 		breakpoints = (
-			3AFF40B3105EC78100F51EC6 /* KMColorProcessWriteHook.m:54 */,
-			3AFF4104105FD24700F51EC6 /* KMConnectionPool.m:44 */,
-			3AFF41CD10601E1300F51EC6 /* KMVariableHook.m:15 */,
-			3AFF4208106024CE00F51EC6 /* KMConnectionCoordinator.m:88 */,
-			3AF1E111106128CD009A9806 /* KMServer.m:90 */,
-			3AF1E17910612FB8009A9806 /* main.m:43 */,
-			3AF1E1A910613188009A9806 /* KMConnectionPool.m:55 */,
-			3AF1E20D1061580B009A9806 /* KMConnectionPool.m:78 */,
+			3AC38C57106283DF0011EBD4 /* KMVariableManager.m:35 */,
+			3AC38C73106285C30011EBD4 /* KMServer.m:103 */,
+			3AC38C76106285C90011EBD4 /* KMServer.m:103 */,
 		);
-		codeSenseManager = 3A331068103F0BFA004EAEFC /* Code sense */;
+		codeSenseManager = 3AC38BB010627BD20011EBD4 /* Code sense */;
 		executables = (
-			3A331059103F0BEC004EAEFC /* KittyMUD */,
-		);
-		expressions = (
-			coordinator,
+			3AC38BA910627BB30011EBD4 /* KittyMUD */,
 		);
 		perUserDictionary = {
 			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
@@ -73,14 +64,14 @@
 				);
 			};
 			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
-				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
-				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_SCM_ColumnID;
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
 					20,
 					1449,
 					20,
-					48,
+					48.16259765625,
 					43,
 					43,
 					20,
@@ -118,56 +109,62 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 274820920;
-			PBXWorkspaceStateSaveDate = 274820920;
+			PBXPerProjectTemplateStateSaveDate = 274890484;
+			PBXWorkspaceStateSaveDate = 274890484;
 		};
 		perUserProjectItems = {
-			3ADCEF1810616F4A0062D464 /* PBXTextBookmark */ = 3ADCEF1810616F4A0062D464 /* PBXTextBookmark */;
-			3AF1E04F10603F1E009A9806 = 3AF1E04F10603F1E009A9806 /* PBXTextBookmark */;
-			3AF1E0711060903E009A9806 = 3AF1E0711060903E009A9806 /* PBXTextBookmark */;
-			3AF1E08E10609A12009A9806 = 3AF1E08E10609A12009A9806 /* PBXTextBookmark */;
-			3AF1E0C110612344009A9806 = 3AF1E0C110612344009A9806 /* PBXTextBookmark */;
-			3AF1E0C210612344009A9806 = 3AF1E0C210612344009A9806 /* PBXTextBookmark */;
-			3AF1E0C310612344009A9806 = 3AF1E0C310612344009A9806 /* PBXTextBookmark */;
-			3AF1E0C510612344009A9806 = 3AF1E0C510612344009A9806 /* PBXTextBookmark */;
-			3AF1E0EE10612565009A9806 = 3AF1E0EE10612565009A9806 /* PBXTextBookmark */;
-			3AF1E0EF10612565009A9806 = 3AF1E0EF10612565009A9806 /* PBXTextBookmark */;
-			3AF1E0F110612565009A9806 = 3AF1E0F110612565009A9806 /* PBXTextBookmark */;
-			3AF1E15410612DD8009A9806 = 3AF1E15410612DD8009A9806 /* PBXTextBookmark */;
-			3AF1E1EA1061552B009A9806 = 3AF1E1EA1061552B009A9806 /* PBXTextBookmark */;
-			3AF1E1ED1061552B009A9806 = 3AF1E1ED1061552B009A9806 /* PBXTextBookmark */;
-			3AF1E25410615CC2009A9806 = 3AF1E25410615CC2009A9806 /* PBXTextBookmark */;
-			3AF1E27910616006009A9806 = 3AF1E27910616006009A9806 /* PBXTextBookmark */;
-			3AF1E27A10616006009A9806 = 3AF1E27A10616006009A9806 /* PBXTextBookmark */;
-			3AF1E28210616612009A9806 = 3AF1E28210616612009A9806 /* PBXTextBookmark */;
-			3AF1E28310616612009A9806 = 3AF1E28310616612009A9806 /* PBXTextBookmark */;
-			3AF1E28410616612009A9806 = 3AF1E28410616612009A9806 /* PBXTextBookmark */;
-			3AF1E28510616612009A9806 = 3AF1E28510616612009A9806 /* PBXTextBookmark */;
-			3AF1E28610616612009A9806 = 3AF1E28610616612009A9806 /* PBXTextBookmark */;
-			3AFF3FE4105EB3F900F51EC6 = 3AFF3FE4105EB3F900F51EC6 /* PBXTextBookmark */;
-			3AFF4097105EC68700F51EC6 = 3AFF4097105EC68700F51EC6 /* PBXTextBookmark */;
-			3AFF4098105EC68700F51EC6 = 3AFF4098105EC68700F51EC6 /* PBXTextBookmark */;
+			3AC38BB210627BEA0011EBD4 = 3AC38BB210627BEA0011EBD4 /* PBXTextBookmark */;
+			3AC38BF910627DC30011EBD4 = 3AC38BF910627DC30011EBD4 /* PBXTextBookmark */;
+			3AC38BFA10627DC30011EBD4 = 3AC38BFA10627DC30011EBD4 /* PBXTextBookmark */;
+			3AC38BFB10627DC30011EBD4 = 3AC38BFB10627DC30011EBD4 /* PBXTextBookmark */;
+			3AC38C0710627E3E0011EBD4 = 3AC38C0710627E3E0011EBD4 /* PBXTextBookmark */;
+			3AC38C0810627E3E0011EBD4 = 3AC38C0810627E3E0011EBD4 /* PBXTextBookmark */;
+			3AC38C0910627E3E0011EBD4 = 3AC38C0910627E3E0011EBD4 /* PBXTextBookmark */;
+			3AC38C0A10627E3E0011EBD4 = 3AC38C0A10627E3E0011EBD4 /* PBXTextBookmark */;
+			3AC38C2A106283570011EBD4 /* PBXTextBookmark */ = 3AC38C2A106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C2B106283570011EBD4 /* PBXTextBookmark */ = 3AC38C2B106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C2C106283570011EBD4 /* PBXTextBookmark */ = 3AC38C2C106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C2D106283570011EBD4 /* PBXTextBookmark */ = 3AC38C2D106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C2E106283570011EBD4 /* PBXTextBookmark */ = 3AC38C2E106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C2F106283570011EBD4 /* PBXTextBookmark */ = 3AC38C2F106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C30106283570011EBD4 /* PBXTextBookmark */ = 3AC38C30106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C31106283570011EBD4 /* PBXTextBookmark */ = 3AC38C31106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C32106283570011EBD4 /* PBXTextBookmark */ = 3AC38C32106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C33106283570011EBD4 /* PBXTextBookmark */ = 3AC38C33106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C34106283570011EBD4 /* PBXTextBookmark */ = 3AC38C34106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C35106283570011EBD4 /* PBXTextBookmark */ = 3AC38C35106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C36106283570011EBD4 /* PBXTextBookmark */ = 3AC38C36106283570011EBD4 /* PBXTextBookmark */;
+			3AC38C511062838D0011EBD4 /* PBXTextBookmark */ = 3AC38C511062838D0011EBD4 /* PBXTextBookmark */;
+			3AC38C5B106284040011EBD4 /* PBXTextBookmark */ = 3AC38C5B106284040011EBD4 /* PBXTextBookmark */;
+			3AC38C5C106284040011EBD4 /* PBXTextBookmark */ = 3AC38C5C106284040011EBD4 /* PBXTextBookmark */;
+			3AC38C5D106284040011EBD4 /* PBXTextBookmark */ = 3AC38C5D106284040011EBD4 /* PBXTextBookmark */;
+			3AC38C60106284490011EBD4 /* PBXTextBookmark */ = 3AC38C60106284490011EBD4 /* PBXTextBookmark */;
+			3AC38C61106284490011EBD4 /* PBXTextBookmark */ = 3AC38C61106284490011EBD4 /* PBXTextBookmark */;
+			3AC38C64106284880011EBD4 /* PBXTextBookmark */ = 3AC38C64106284880011EBD4 /* PBXTextBookmark */;
+			3AC38C68106284A80011EBD4 /* PBXTextBookmark */ = 3AC38C68106284A80011EBD4 /* PBXTextBookmark */;
+			3AC38C69106284A80011EBD4 /* PBXTextBookmark */ = 3AC38C69106284A80011EBD4 /* PBXTextBookmark */;
+			3AC38C6E106285B10011EBD4 /* PBXTextBookmark */ = 3AC38C6E106285B10011EBD4 /* PBXTextBookmark */;
+			3AC38C78106285CB0011EBD4 /* PBXTextBookmark */ = 3AC38C78106285CB0011EBD4 /* PBXTextBookmark */;
+			3AC38C79106285CB0011EBD4 /* PBXTextBookmark */ = 3AC38C79106285CB0011EBD4 /* PBXTextBookmark */;
+			3AC38C7F106285F60011EBD4 /* PBXTextBookmark */ = 3AC38C7F106285F60011EBD4 /* PBXTextBookmark */;
+			3AC38C82106287000011EBD4 /* PBXTextBookmark */ = 3AC38C82106287000011EBD4 /* PBXTextBookmark */;
+			3AC38C87106287120011EBD4 /* PBXTextBookmark */ = 3AC38C87106287120011EBD4 /* PBXTextBookmark */;
+			3AC38C9310628A710011EBD4 /* PBXTextBookmark */ = 3AC38C9310628A710011EBD4 /* PBXTextBookmark */;
+			3AC38C9410628A710011EBD4 /* PBXTextBookmark */ = 3AC38C9410628A710011EBD4 /* PBXTextBookmark */;
+			3AC38C9510628A710011EBD4 /* PBXTextBookmark */ = 3AC38C9510628A710011EBD4 /* PBXTextBookmark */;
 		};
-		sourceControlManager = 3A331067103F0BFA004EAEFC /* Source Control */;
+		sourceControlManager = 3AC38BAF10627BD20011EBD4 /* Source Control */;
 		userBuildSettings = {
 		};
 	};
-	29B97316FDCFA39411CA2CEA /* main.m */ = {
+	08FB7796FE84155DC02AAC07 /* KittyMUD.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1230, 572}}";
-			sepNavSelRange = "{1945, 0}";
-			sepNavVisRange = "{1154, 807}";
-			sepNavWindowFrame = "{{15, 615}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{524, 0}";
+			sepNavVisRange = "{0, 1965}";
 		};
 	};
-	32CA4F630368D1EE00C91783 /* KittyMUD_Prefix.pch */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 765}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 147}";
-		};
-	};
-	3A331059103F0BEC004EAEFC /* KittyMUD */ = {
+	3AC38BA910627BB30011EBD4 /* KittyMUD */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
 		);
@@ -199,7 +196,7 @@
 		variableFormatDictionary = {
 		};
 	};
-	3A331067103F0BFA004EAEFC /* Source Control */ = {
+	3AC38BAF10627BD20011EBD4 /* Source Control */ = {
 		isa = PBXSourceControlManager;
 		fallbackIsa = XCSourceControlManager;
 		isSCMEnabled = 0;
@@ -209,164 +206,290 @@
 			};
 		};
 	};
-	3A331068103F0BFA004EAEFC /* Code sense */ = {
+	3AC38BB010627BD20011EBD4 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	3A4CDC3D105AF40D008C7F65 /* KMServer.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{528, 0}";
-			sepNavVisRange = "{0, 878}";
-			sepNavWindowFrame = "{{15, 615}, {750, 558}}";
-		};
-	};
-	3A4CDC3E105AF40D008C7F65 /* KMServer.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1195, 1391}}";
-			sepNavSelRange = "{762, 0}";
-			sepNavVisRange = "{887, 446}";
-		};
-	};
-	3A4CDC4C105B0137008C7F65 /* KMConnectionPool.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{1030, 1}";
-			sepNavVisRange = "{0, 1031}";
-		};
-	};
-	3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 1547}}";
-			sepNavSelRange = "{2934, 0}";
-			sepNavVisRange = "{2140, 1552}";
-		};
-	};
-	3A4CDC53105B07F9008C7F65 /* KMConnectionCoordinator.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 686}}";
-			sepNavSelRange = "{503, 0}";
-			sepNavVisRange = "{0, 1038}";
-		};
-	};
-	3A4CDC54105B07F9008C7F65 /* KMConnectionCoordinator.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {968, 2106}}";
-			sepNavSelRange = "{1648, 0}";
-			sepNavVisRange = "{1426, 222}";
-		};
-	};
-	3ADCEF1810616F4A0062D464 /* PBXTextBookmark */ = {
+	3AC38BB210627BEA0011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AF1E09B10611C97009A9806 /* sys.conf */;
-		name = "sys.conf: 1";
+		fRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */;
+		name = "KittyMUD.1: 5";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 229;
 		rType = 0;
-		vrLen = 89;
+		vrLen = 2524;
 		vrLoc = 0;
 	};
-	3AF1E04F10603F1E009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AFF41711060148E00F51EC6 /* KMMudVariablesExtensions.h */;
-		name = "KMMudVariablesExtensions.h: 14";
-		rLen = 0;
-		rLoc = 265;
-		rType = 0;
-		vrLen = 423;
-		vrLoc = 0;
-	};
-	3AF1E05510608F8D009A9806 /* KMWriteHook.h */ = {
+	3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{139, 0}";
-			sepNavVisRange = "{0, 239}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 266}";
 		};
 	};
-	3AF1E0711060903E009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AFF41B610601CD800F51EC6 /* KMVariableHook.h */;
-		name = "KMVariableHook.h: 10";
-		rLen = 0;
-		rLoc = 192;
-		rType = 0;
-		vrLen = 250;
-		vrLoc = 0;
-	};
-	3AF1E08E10609A12009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AF1E05510608F8D009A9806 /* KMWriteHook.h */;
-		name = "KMWriteHook.h: 8";
-		rLen = 0;
-		rLoc = 139;
-		rType = 0;
-		vrLen = 239;
-		vrLoc = 0;
-	};
-	3AF1E09B10611C97009A9806 /* sys.conf */ = {
+	3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 753}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 318}";
+		};
+	};
+	3AC38BC810627D1F0011EBD4 /* KMConnectionCoordinator.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1071}";
+		};
+	};
+	3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1885}}";
+			sepNavSelRange = "{448, 0}";
+			sepNavVisRange = "{215, 1402}";
+		};
+	};
+	3AC38BCA10627D1F0011EBD4 /* KMConnectionPool.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1041}";
+		};
+	};
+	3AC38BCF10627D1F0011EBD4 /* KMMudVariablesExtensions.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1545, 598}}";
+			sepNavSelRange = "{642, 0}";
+			sepNavVisRange = "{489, 539}";
+		};
+	};
+	3AC38BD010627D1F0011EBD4 /* KMServer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{723, 0}";
+			sepNavVisRange = "{0, 973}";
+		};
+	};
+	3AC38BD110627D1F0011EBD4 /* KMServer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1859}}";
+			sepNavSelRange = "{4234, 0}";
+			sepNavVisRange = "{1072, 2711}";
+		};
+	};
+	3AC38BD210627D1F0011EBD4 /* KMState.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 284}";
+		};
+	};
+	3AC38BD510627D1F0011EBD4 /* KMVariableManager.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 483}";
+		};
+	};
+	3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {782, 1014}}";
+			sepNavSelRange = "{555, 0}";
+			sepNavVisRange = "{508, 265}";
+		};
+	};
+	3AC38BD810627D1F0011EBD4 /* main.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = main.m;
+		path = /Users/mtindal/Documents/KittyMUD/main.m;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
+			sepNavSelRange = "{135, 0}";
+			sepNavVisRange = "{0, 135}";
+		};
+	};
+	3AC38BD910627D1F0011EBD4 /* sys.conf */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 769}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 89}";
 		};
 	};
-	3AF1E0B510611DC5009A9806 /* KMVariableManager.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{312, 0}";
-			sepNavVisRange = "{0, 473}";
-		};
-	};
-	3AF1E0B610611DC5009A9806 /* KMVariableManager.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 936}}";
-			sepNavSelRange = "{1182, 0}";
-			sepNavVisRange = "{286, 1654}";
-		};
-	};
-	3AF1E0C110612344009A9806 /* PBXTextBookmark */ = {
+	3AC38BF910627DC30011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AFF41621060103500F51EC6 /* KMState.h */;
-		name = "KMState.h: 14";
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 1";
 		rLen = 0;
-		rLoc = 312;
+		rLoc = 0;
 		rType = 0;
-		vrLen = 359;
-		vrLoc = 0;
+		vrLen = 1862;
+		vrLoc = 762;
 	};
-	3AF1E0C210612344009A9806 /* PBXTextBookmark */ = {
+	3AC38BFA10627DC30011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AFF41691060138D00F51EC6 /* KMAccountNameState.h */;
-		name = "KMAccountNameState.h: 10";
+		fRef = 3AC38BD010627D1F0011EBD4 /* KMServer.h */;
+		name = "KMServer.h: 35";
 		rLen = 0;
-		rLoc = 192;
+		rLoc = 723;
 		rType = 0;
-		vrLen = 256;
+		vrLen = 815;
 		vrLoc = 0;
 	};
-	3AF1E0C310612344009A9806 /* PBXTextBookmark */ = {
+	3AC38BFB10627DC30011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AFF41721060148E00F51EC6 /* KMMudVariablesExtensions.m */;
-		name = "KMMudVariablesExtensions.m: 41";
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 12";
 		rLen = 0;
-		rLoc = 1112;
+		rLoc = 34;
 		rType = 0;
-		vrLen = 1202;
+		vrLen = 1635;
 		vrLoc = 0;
 	};
-	3AF1E0C510612344009A9806 /* PBXTextBookmark */ = {
+	3AC38C0710627E3E0011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AFF41B710601CD800F51EC6 /* KMVariableHook.m */;
-		name = "KMVariableHook.m: 15";
-		rLen = 2;
-		rLoc = 284;
+		fRef = 3AC38BD810627D1F0011EBD4 /* main.m */;
+		name = "main.m: 29";
+		rLen = 0;
+		rLoc = 939;
 		rType = 0;
-		vrLen = 330;
+		vrLen = 1791;
 		vrLoc = 0;
 	};
-	3AF1E0EE10612565009A9806 /* PBXTextBookmark */ = {
+	3AC38C0810627E3E0011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AF1E09B10611C97009A9806 /* sys.conf */;
+		fRef = 3AC38BC810627D1F0011EBD4 /* KMConnectionCoordinator.h */;
+		name = "KMConnectionCoordinator.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 817;
+		vrLoc = 0;
+	};
+	3AC38C0910627E3E0011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */;
+		name = "KMConnectionCoordinator.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 0;
+	};
+	3AC38C0A10627E3E0011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */;
+		name = "KMConnectionCoordinator.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 0;
+	};
+	3AC38C2A106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */;
+		name = "KMConnectionCoordinator.m: 16";
+		rLen = 0;
+		rLoc = 448;
+		rType = 0;
+		vrLen = 1402;
+		vrLoc = 215;
+	};
+	3AC38C2B106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2813;
+		vrLoc = 2267;
+	};
+	3AC38C2C106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */;
+		name = "KMVariableManager.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1594;
+		vrLoc = 0;
+	};
+	3AC38C2D106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD510627D1F0011EBD4 /* KMVariableManager.h */;
+		name = "KMVariableManager.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 483;
+		vrLoc = 0;
+	};
+	3AC38C2E106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BCA10627D1F0011EBD4 /* KMConnectionPool.h */;
+		name = "KMConnectionPool.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	3AC38C2F106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BC810627D1F0011EBD4 /* KMConnectionCoordinator.h */;
+		name = "KMConnectionCoordinator.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1071;
+		vrLoc = 0;
+	};
+	3AC38C30106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD010627D1F0011EBD4 /* KMServer.h */;
+		name = "KMServer.h: 38";
+		rLen = 0;
+		rLoc = 723;
+		rType = 0;
+		vrLen = 973;
+		vrLoc = 0;
+	};
+	3AC38C31106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */;
+		name = "KMAccountNameState.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 266;
+		vrLoc = 0;
+	};
+	3AC38C32106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD210627D1F0011EBD4 /* KMState.h */;
+		name = "KMState.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 284;
+		vrLoc = 0;
+	};
+	3AC38C33106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */;
+		name = "KMColorProcessWriteHook.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 318;
+		vrLoc = 0;
+	};
+	3AC38C34106283570011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD910627D1F0011EBD4 /* sys.conf */;
 		name = "sys.conf: 1";
 		rLen = 0;
 		rLoc = 0;
@@ -374,27 +497,37 @@
 		vrLen = 89;
 		vrLoc = 0;
 	};
-	3AF1E0EF10612565009A9806 /* PBXTextBookmark */ = {
+	3AC38C35106283570011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AFF4066105EBFC000F51EC6 /* KMColorProcessWriteHook.h */;
-		name = "KMColorProcessWriteHook.h: 10";
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
 		rLen = 0;
-		rLoc = 201;
+		rLoc = 914;
 		rType = 0;
-		vrLen = 308;
+		vrLen = 1752;
 		vrLoc = 0;
 	};
-	3AF1E0F110612565009A9806 /* PBXTextBookmark */ = {
+	3AC38C36106283570011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */;
-		name = "KMColorProcessWriteHook.m: 30";
-		rLen = 10;
-		rLoc = 679;
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
+		rLen = 0;
+		rLoc = 914;
 		rType = 0;
-		vrLen = 1388;
+		vrLen = 1752;
 		vrLoc = 0;
 	};
-	3AF1E111106128CD009A9806 /* KMServer.m:90 */ = {
+	3AC38C511062838D0011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
+		rLen = 0;
+		rLoc = 914;
+		rType = 0;
+		vrLen = 1752;
+		vrLoc = 0;
+	};
+	3AC38C57106283DF0011EBD4 /* KMVariableManager.m:35 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -402,365 +535,233 @@
 		continueAfterActions = 0;
 		countType = 0;
 		delayBeforeContinue = 0;
-		fileReference = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */;
-		functionName = "-shutdown";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 90;
-		location = KittyMUD;
-		modificationTime = 274816233.1708339;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
-	3AF1E15410612DD8009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3A4CDC3D105AF40D008C7F65 /* KMServer.h */;
-		name = "KMServer.h: 25";
-		rLen = 0;
-		rLoc = 528;
-		rType = 0;
-		vrLen = 878;
-		vrLoc = 0;
-	};
-	3AF1E17910612FB8009A9806 /* main.m:43 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 29B97316FDCFA39411CA2CEA /* main.m */;
-		functionName = "main()";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 43;
-		location = KittyMUD;
-		modificationTime = 274816232.602789;
-		originalNumberOfMultipleMatches = 1;
-		state = 2;
-	};
-	3AF1E1A910613188009A9806 /* KMConnectionPool.m:55 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */;
-		functionName = "ConnectionBaseCallback()";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 55;
-		location = KittyMUD;
-		modificationTime = 274816232.60284;
-		originalNumberOfMultipleMatches = 1;
-		state = 2;
-	};
-	3AF1E1EA1061552B009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AFF416A1060138D00F51EC6 /* KMAccountNameState.m */;
-		name = "KMAccountNameState.m: 17";
-		rLen = 0;
-		rLoc = 327;
-		rType = 0;
-		vrLen = 384;
-		vrLoc = 0;
-	};
-	3AF1E1ED1061552B009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3A4CDC3E105AF40D008C7F65 /* KMServer.m */;
-		name = "KMServer.m: 95";
-		rLen = 0;
-		rLoc = 2736;
-		rType = 0;
-		vrLen = 1763;
-		vrLoc = 760;
-	};
-	3AF1E20D1061580B009A9806 /* KMConnectionPool.m:78 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */;
-		functionName = "-newConnectionWithSocketHandle:";
+		fileReference = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */;
+		functionName = "-loadAllVariables";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 78;
+		lineNumber = 35;
 		location = KittyMUD;
-		modificationTime = 274816234.452543;
+		modificationTime = 274892560.438395;
 		originalNumberOfMultipleMatches = 1;
-		state = 1;
+		state = 2;
 	};
-	3AF1E25410615CC2009A9806 /* PBXTextBookmark */ = {
+	3AC38C5B106284040011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
-		name = "main.m: 35";
+		fRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */;
+		name = "KMVariableManager.m: 39";
 		rLen = 0;
-		rLoc = 1153;
+		rLoc = 826;
 		rType = 0;
-		vrLen = 1961;
+		vrLen = 1671;
+		vrLoc = 3;
+	};
+	3AC38C5C106284040011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
+		rLen = 0;
+		rLoc = 914;
+		rType = 0;
+		vrLen = 1752;
 		vrLoc = 0;
 	};
-	3AF1E27910616006009A9806 /* PBXTextBookmark */ = {
+	3AC38C5D106284040011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3A4CDC54105B07F9008C7F65 /* KMConnectionCoordinator.m */;
-		name = "KMConnectionCoordinator.m: 33";
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
 		rLen = 0;
-		rLoc = 814;
+		rLoc = 914;
 		rType = 0;
-		vrLen = 1125;
-		vrLoc = 491;
-	};
-	3AF1E27A10616006009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3A4CDC53105B07F9008C7F65 /* KMConnectionCoordinator.h */;
-		name = "KMConnectionCoordinator.h: 23";
-		rLen = 0;
-		rLoc = 503;
-		rType = 0;
-		vrLen = 1038;
+		vrLen = 1752;
 		vrLoc = 0;
 	};
-	3AF1E28210616612009A9806 /* PBXTextBookmark */ = {
+	3AC38C60106284490011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */;
-		name = "KMConnectionPool.m: 81";
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
 		rLen = 0;
-		rLoc = 2934;
+		rLoc = 914;
 		rType = 0;
-		vrLen = 1552;
-		vrLoc = 2140;
+		vrLen = 1752;
+		vrLoc = 0;
 	};
-	3AF1E28310616612009A9806 /* PBXTextBookmark */ = {
+	3AC38C61106284490011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3A4CDC4C105B0137008C7F65 /* KMConnectionPool.h */;
-		name = "KMConnectionPool.h: 44";
+		fRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */;
+		name = "KMVariableManager.m: 36";
+		rLen = 0;
+		rLoc = 665;
+		rType = 0;
+		vrLen = 1742;
+		vrLoc = 147;
+	};
+	3AC38C64106284880011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */;
+		name = "KMVariableManager.m: 36";
+		rLen = 0;
+		rLoc = 665;
+		rType = 0;
+		vrLen = 1739;
+		vrLoc = 147;
+	};
+	3AC38C68106284A80011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */;
+		name = "KMVariableManager.m: 36";
+		rLen = 0;
+		rLoc = 665;
+		rType = 0;
+		vrLen = 1742;
+		vrLoc = 147;
+	};
+	3AC38C69106284A80011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 108";
+		rLen = 0;
+		rLoc = 3472;
+		rType = 0;
+		vrLen = 2816;
+		vrLoc = 2244;
+	};
+	3AC38C6E106285B10011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 103";
+		rLen = 0;
+		rLoc = 2967;
+		rType = 0;
+		vrLen = 2916;
+		vrLoc = 2267;
+	};
+	3AC38C73106285C30011EBD4 /* KMServer.m:103 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		functionName = "-softReboot";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 103;
+		location = KittyMUD;
+		modificationTime = 274892556.760475;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	3AC38C76106285C90011EBD4 /* KMServer.m:103 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		functionName = "-softReboot";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 103;
+		location = KittyMUD;
+		modificationTime = 274892556.761216;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	3AC38C78106285CB0011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 103";
 		rLen = 1;
-		rLoc = 1030;
+		rLoc = 2967;
 		rType = 0;
-		vrLen = 1031;
+		vrLen = 2916;
+		vrLoc = 2267;
+	};
+	3AC38C79106285CB0011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 103";
+		rLen = 1;
+		rLoc = 2967;
+		rType = 0;
+		vrLen = 2916;
+		vrLoc = 2267;
+	};
+	3AC38C7F106285F60011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 103";
+		rLen = 0;
+		rLoc = 2967;
+		rType = 0;
+		vrLen = 2939;
+		vrLoc = 2267;
+	};
+	3AC38C82106287000011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 143";
+		rLen = 0;
+		rLoc = 5276;
+		rType = 0;
+		vrLen = 2939;
+		vrLoc = 2337;
+	};
+	3AC38C87106287120011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 143";
+		rLen = 0;
+		rLoc = 5276;
+		rType = 0;
+		vrLen = 2939;
+		vrLoc = 2337;
+	};
+	3AC38C9310628A710011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */;
+		name = "KMServer.m: 120";
+		rLen = 0;
+		rLoc = 4234;
+		rType = 0;
+		vrLen = 2711;
+		vrLoc = 1072;
+	};
+	3AC38C9410628A710011EBD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 17";
+		rLen = 0;
+		rLoc = 914;
+		rType = 0;
+		vrLen = 1752;
 		vrLoc = 0;
 	};
-	3AF1E28410616612009A9806 /* PBXTextBookmark */ = {
+	3AC38C9510628A710011EBD4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 3AF1E0B510611DC5009A9806 /* KMVariableManager.h */;
-		name = "KMVariableManager.h: 19";
+		fRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */;
+		name = "KittyMUD.m: 20";
 		rLen = 0;
-		rLoc = 312;
+		rLoc = 524;
 		rType = 0;
-		vrLen = 473;
+		vrLen = 1965;
 		vrLoc = 0;
 	};
-	3AF1E28510616612009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AF1E0B610611DC5009A9806 /* KMVariableManager.m */;
-		name = "KMVariableManager.m: 46";
-		rLen = 0;
-		rLoc = 1182;
-		rType = 0;
-		vrLen = 1654;
-		vrLoc = 286;
-	};
-	3AF1E28610616612009A9806 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AF1E09B10611C97009A9806 /* sys.conf */;
-		name = "sys.conf: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 89;
-		vrLoc = 0;
-	};
-	3AFF3FE4105EB3F900F51EC6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 32CA4F630368D1EE00C91783 /* KittyMUD_Prefix.pch */;
-		name = "KittyMUD_Prefix.pch: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 147;
-		vrLoc = 0;
-	};
-	3AFF4066105EBFC000F51EC6 /* KMColorProcessWriteHook.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{201, 0}";
-			sepNavVisRange = "{0, 308}";
-		};
-	};
-	3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {726, 845}}";
-			sepNavSelRange = "{1249, 0}";
-			sepNavVisRange = "{1249, 92}";
-		};
-	};
-	3AFF408B105EC60E00F51EC6 /* _string.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = _string.h;
-		path = /Developer/SDKs/MacOSX10.6.sdk/usr/include/secure/_string.h;
-		sourceTree = "<absolute>";
-	};
-	3AFF408D105EC60E00F51EC6 /* _OSByteOrder.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = _OSByteOrder.h;
-		path = /Developer/SDKs/MacOSX10.6.sdk/usr/include/libkern/i386/_OSByteOrder.h;
-		sourceTree = "<absolute>";
-	};
-	3AFF4097105EC68700F51EC6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AFF408B105EC60E00F51EC6 /* _string.h */;
-		name = "_string.h: 80";
-		rLen = 0;
-		rLoc = 2558;
-		rType = 0;
-		vrLen = 1972;
-		vrLoc = 1676;
-	};
-	3AFF4098105EC68700F51EC6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 3AFF408D105EC60E00F51EC6 /* _OSByteOrder.h */;
-		name = "_OSByteOrder.h: 50";
-		rLen = 0;
-		rLoc = 1834;
-		rType = 0;
-		vrLen = 1955;
-		vrLoc = 0;
-	};
-	3AFF40B3105EC78100F51EC6 /* KMColorProcessWriteHook.m:54 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 3AFF4067105EBFC000F51EC6 /* KMColorProcessWriteHook.m */;
-		functionName = "-processHook:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 54;
-		location = KittyMUD;
-		modificationTime = 274816232.602461;
-		originalNumberOfMultipleMatches = 1;
-		state = 2;
-	};
-	3AFF4104105FD24700F51EC6 /* KMConnectionPool.m:44 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 3A4CDC4D105B0137008C7F65 /* KMConnectionPool.m */;
-		functionName = "ConnectionBaseCallback()";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 44;
-		location = KittyMUD;
-		modificationTime = 274816232.602529;
-		originalNumberOfMultipleMatches = 1;
-		state = 2;
-	};
-	3AFF41621060103500F51EC6 /* KMState.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{312, 0}";
-			sepNavVisRange = "{0, 359}";
-			sepNavWindowFrame = "{{15, 615}, {750, 558}}";
-		};
-	};
-	3AFF41691060138D00F51EC6 /* KMAccountNameState.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{192, 0}";
-			sepNavVisRange = "{0, 256}";
-		};
-	};
-	3AFF416A1060138D00F51EC6 /* KMAccountNameState.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{327, 0}";
-			sepNavVisRange = "{0, 384}";
-			sepNavWindowFrame = "{{38, 594}, {750, 558}}";
-		};
-	};
-	3AFF41711060148E00F51EC6 /* KMMudVariablesExtensions.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{265, 0}";
-			sepNavVisRange = "{0, 423}";
-		};
-	};
-	3AFF41721060148E00F51EC6 /* KMMudVariablesExtensions.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 709}}";
-			sepNavSelRange = "{1112, 0}";
-			sepNavVisRange = "{0, 1202}";
-		};
-	};
-	3AFF41B610601CD800F51EC6 /* KMVariableHook.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {439, 186}}";
-			sepNavSelRange = "{232, 0}";
-			sepNavVisRange = "{0, 250}";
-		};
-	};
-	3AFF41B710601CD800F51EC6 /* KMVariableHook.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {968, 247}}";
-			sepNavSelRange = "{286, 0}";
-			sepNavVisRange = "{144, 186}";
-		};
-	};
-	3AFF41CD10601E1300F51EC6 /* KMVariableHook.m:15 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 3AFF41B710601CD800F51EC6 /* KMVariableHook.m */;
-		functionName = "-processHook:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 15;
-		location = KittyMUD;
-		modificationTime = 274816232.602547;
-		originalNumberOfMultipleMatches = 1;
-		state = 2;
-	};
-	3AFF4208106024CE00F51EC6 /* KMConnectionCoordinator.m:88 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 3A4CDC54105B07F9008C7F65 /* KMConnectionCoordinator.m */;
-		functionName = "sendMessageBase()";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 88;
-		location = KittyMUD;
-		modificationTime = 274816232.602592;
-		originalNumberOfMultipleMatches = 1;
-		state = 2;
-	};
-	8D1107260486CEB800E47090 /* KittyMUD */ = {
+	8DD76F960486AA7600D96B5E /* KittyMUD */ = {
 		activeExec = 0;
 		executables = (
-			3A331059103F0BEC004EAEFC /* KittyMUD */,
+			3AC38BA910627BB30011EBD4 /* KittyMUD */,
 		);
+	};
+	C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1027}}";
+			sepNavSelRange = "{229, 0}";
+			sepNavVisRange = "{0, 2524}";
+		};
 	};
 }
