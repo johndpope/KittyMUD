@@ -7,6 +7,7 @@
 //
 
 #import "KMServer.h"
+#import "KMMudVariablesExtensions.h"
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
@@ -94,6 +95,41 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	close(serverNative);
 	CFRelease(serverSocket);
 	[self setIsRunning:NO];
+}
+
+-(void) softReboot
+{
+	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables]];
+	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
+		//[coordinator saveToXmlWithState];
+		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),@"NULL"/*[[coordinator getAccount] name]*/] dataUsingEncoding:NSASCIIStringEncoding]];
+	}
+	[softRebootFile closeFile];
+	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/Contents/MacOS/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSASCIIStringEncoding];
+	execl(executable_name, executable_name, "softreboot", [[NSString stringWithFormat:@"%d",CFSocketGetNative(serverSocket)] cStringUsingEncoding:NSASCIIStringEncoding], (char*)NULL);
+	NSLog(@"Error running execl, soft reboot aborted.");
+}
+
+-(void) softRebootRecovery:(CFSocketNativeHandle)socketHandle
+{
+	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables]];
+	NSArray* lines = [[[NSString alloc] initWithData:[softRebootFile readDataToEndOfFile] encoding:NSASCIIStringEncoding] 
+					  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+	CFSocketContext serverContext = {0, self, NULL, NULL, NULL};
+	[self setServerSocket:CFSocketCreateWithNative(kCFAllocatorDefault, socketHandle, kCFSocketAcceptCallBack, (CFSocketCallBack)&ServerBaseCallout, (CFSocketContext const*)&serverContext)];
+	for(NSString* line in lines) {
+		if([line length] <= 0)
+			continue;
+		NSArray* components = [line componentsSeparatedByString:@" "];
+		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
+		[connectionPool newConnectionWithSocketHandle:cfs];
+	}
+	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();
+	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);
+	CFRunLoopAddSource(currentRunLoop, serverRunLoopSource, kCFRunLoopCommonModes);
+	CFRelease(serverRunLoopSource);
+	[connectionPool writeToAllConnections:@"Soft reboot completed."];	
+	[self setIsRunning:YES];
 }
 
 @synthesize serverSocket;
