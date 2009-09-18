@@ -50,7 +50,7 @@ static inline unsigned long long kmpow(int power) {
 	if(fp == nil)
 		return NO;
 	flagpower = [fp intValue];
-	int ffp = kmpow(flagpower % 64);
+	unsigned long long ffp = kmpow(flagpower % 64);
 	
 	return ffp == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & ffp);
 }
@@ -63,7 +63,7 @@ static inline unsigned long long kmpow(int power) {
 		flagpower = [fp intValue];
 	else {
 		[flags setObject:[NSString stringWithFormat:@"%d", currentbitpower] forKey:flagName];
-		if([flagbase count] < (currentbitpower < 64))
+		if([flagbase count] <= ((currentbitpower) / 64))
 			[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
 		flagpower = currentbitpower++;
 	}
@@ -87,7 +87,7 @@ static inline unsigned long long kmpow(int power) {
 	{
 		NSString* flagstatus;
 		if([self isFlagSet:flag])
-			flagstatus = @"SET";
+			continue;
 		else
 			flagstatus = @"CLEAR";
 		NSLog(@"Flag %@: %@", flag, flagstatus);

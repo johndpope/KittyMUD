@@ -77,6 +77,10 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	CFRunLoopRef rl = CFRunLoopGetCurrent();
 	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
 	CFRelease(connRLS);
+	for(int f = 0; f < 256; f++) {
+		NSString* flagName = [NSString stringWithFormat:@"flag%d",f];
+		[coordinator setFlag:flagName];
+	}
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:@"`RWelcome to $(Name)."];
 		[coordinator sendMessageToBuffer:@"Please enter your account name:"];

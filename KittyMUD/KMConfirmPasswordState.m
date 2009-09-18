@@ -11,13 +11,14 @@
 #import "KMConnectionCoordinator.h"
 #import "KMMudVariablesExtensions.h"
 #import "KMServer.h"
+#import "KMAccountMenuState.h"
 
 @implementation KMConfirmPasswordState
 
 -(id<KMState>) processState:(id)coordinator
 {
 	NSString* hash = [[coordinator getInputBuffer] MD5];
-	if(![[[coordinator properties] objectForKey:@"password"] isEqualToString:hash])
+	if(![[[coordinator getProperties] objectForKey:@"password"] isEqualToString:hash])
 	{
 		if([coordinator isFlagSet:@"new-password"])
 		{
@@ -40,7 +41,7 @@
 	}
 	[coordinator clearFlag:@"new-password"];
 	[[coordinator getProperties] setObject:@"0" forKey:@"password-attempts"];
-	return nil;
+	return [[KMAccountMenuState alloc] initializeWithCoordinator:coordinator];
 }
 
 -(NSString*) getName

@@ -7,10 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KMMessageState.h"
 
-
-@interface KMAccountMenuState : NSObject {
+@interface KMAccountMenuState : NSObject <KMMessageState> {
 	NSMutableArray* myItems;
 }
+
+-(id) initializeWithCoordinator:(id)coordinator;
 
 @end
