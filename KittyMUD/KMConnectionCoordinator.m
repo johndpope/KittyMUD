@@ -22,13 +22,21 @@
 	self = [super init];
 	if( self ) {
 		flags = [[NSMutableDictionary alloc] init];
+		flagbase = [[NSMutableArray alloc] init];
+		[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
+		properties = [[NSMutableDictionary alloc] init];
 		currentbitpower = 0; // this will be saved in the save file so we make sure we dont overwrite existing flags
 	}
 	return self;
 }
 
-static unsigned long long kmpow(int power) {
-	int cur = 1;
+/*
+ * kmpow( int power )
+ *
+ * Returns 2 ^ power;
+ */
+static inline unsigned long long kmpow(int power) {
+	unsigned long long cur = 1;
 	while (power-- > 0) {
 		cur = cur * 2;
 	}
@@ -42,9 +50,9 @@ static unsigned long long kmpow(int power) {
 	if(fp == nil)
 		return NO;
 	flagpower = [fp intValue];
-	int ffp = kmpow(flagpower);
+	int ffp = kmpow(flagpower % 64);
 	
-	return ffp == (flagbase & ffp);
+	return ffp == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & ffp);
 }
 
 -(void) setFlag:(NSString*)flagName
@@ -55,9 +63,11 @@ static unsigned long long kmpow(int power) {
 		flagpower = [fp intValue];
 	else {
 		[flags setObject:[NSString stringWithFormat:@"%d", currentbitpower] forKey:flagName];
+		if([flagbase count] < (currentbitpower < 64))
+			[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
 		flagpower = currentbitpower++;
 	}
-	flagbase |= (kmpow(flagpower));
+	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (kmpow(flagpower % 64))]];
 }
 
 -(void) clearFlag:(NSString*)flagName
@@ -68,7 +78,7 @@ static unsigned long long kmpow(int power) {
 		return;
 	flagpower = [fp intValue];
 	if([self isFlagSet:flagName])
-		flagbase ^= (kmpow(flagpower));
+		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (kmpow(flagpower % 64))]];
 }
 
 -(void) debugPrintFlagStatus
@@ -85,8 +95,11 @@ static unsigned long long kmpow(int power) {
 }
 
 static NSString* sendMessageBase(NSString* message) {
-	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"])
-		message = [message stringByAppendingFormat:@"\n\r"];
+	BOOL isEntry = [[message substringFromIndex:([message length] - 1)] isEqualToString:@":"];
+	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"] && !isEntry)
+		message = [message stringByAppendingString:@"\n\r"];
+	else if (isEntry)
+		message = [message stringByAppendingString:@" "];
 	NSString* (^sendMessageHelper)(NSString*) = ^(NSString* input){
 		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
 			input = [hook processHook:input];
@@ -152,6 +165,18 @@ static NSString* sendMessageBase(NSString* message) {
 	return lastReadTime;
 }
 
+
+-(NSMutableDictionary*) getProperties
+{
+	return properties;
+}
+
+-(void) setProperties:(NSMutableDictionary *)value
+{
+	return; // no-op properties is read-only
+}
+
 @synthesize outputBuffer;
 @synthesize currentState;
+@synthesize interpreter;
 @end

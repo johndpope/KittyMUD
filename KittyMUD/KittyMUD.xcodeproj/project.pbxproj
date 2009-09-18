@@ -15,6 +15,11 @@
 		3AC38BE010627D1F0011EBD4 /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */; };
 		3AC38BE110627D1F0011EBD4 /* KMVariableHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD410627D1F0011EBD4 /* KMVariableHook.m */; };
 		3AC38BE210627D1F0011EBD4 /* KMVariableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */; };
+		3AC38CCF1062ABA50011EBD4 /* KMNewPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CCE1062ABA50011EBD4 /* KMNewPasswordState.m */; };
+		3AC38CD41062B1B20011EBD4 /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */; };
+		3AC38CFD1062B8620011EBD4 /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */; };
+		3AC38D3D1062BECF0011EBD4 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC38D3C1062BECF0011EBD4 /* libcrypto.dylib */; };
+		3AC38D821063BD5C0011EBD4 /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */; };
 		8DD76F9A0486AA7600D96B5E /* KittyMUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* KittyMUD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */; };
@@ -34,7 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08FB7796FE84155DC02AAC07 /* KittyMUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KittyMUD.m; sourceTree = "<group>"; };
+		08FB7796FE84155DC02AAC07 /* KittyMUD.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = KittyMUD.m; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* KittyMUD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD_Prefix.pch; sourceTree = "<group>"; };
 		3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountNameState.h; sourceTree = "<group>"; };
@@ -56,6 +61,17 @@
 		3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMVariableManager.m; sourceTree = "<group>"; };
 		3AC38BD710627D1F0011EBD4 /* KMWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWriteHook.h; sourceTree = "<group>"; };
 		3AC38BD910627D1F0011EBD4 /* sys.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sys.conf; sourceTree = "<group>"; };
+		3AC38CCD1062ABA50011EBD4 /* KMNewPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMNewPasswordState.h; sourceTree = "<group>"; };
+		3AC38CCE1062ABA50011EBD4 /* KMNewPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNewPasswordState.m; sourceTree = "<group>"; };
+		3AC38CD11062ACC10011EBD4 /* KMInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInterpreter.h; sourceTree = "<group>"; };
+		3AC38CD21062B1B20011EBD4 /* KMBasicInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBasicInterpreter.h; sourceTree = "<group>"; };
+		3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBasicInterpreter.m; sourceTree = "<group>"; };
+		3AC38CFB1062B8620011EBD4 /* KMConfirmPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConfirmPasswordState.h; sourceTree = "<group>"; };
+		3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConfirmPasswordState.m; sourceTree = "<group>"; };
+		3AC38D3C1062BECF0011EBD4 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
+		3AC38D791063B7100011EBD4 /* KMAccountMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenu.h; sourceTree = "<group>"; };
+		3AC38D801063BD5C0011EBD4 /* KMAccountMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenuState.h; sourceTree = "<group>"; };
+		3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountMenuState.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* KittyMUD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KittyMUD; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				3AC38D3D1062BECF0011EBD4 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +103,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3AC38CD01062ACAF0011EBD4 /* Interpreters */,
 				3AC38C1A10627FF30011EBD4 /* Utility */,
 				3AC38C1910627FE00011EBD4 /* StateMachine */,
 				3AC38BE810627D330011EBD4 /* Network */,
@@ -100,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				3AC38D3C1062BECF0011EBD4 /* libcrypto.dylib */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -131,6 +150,13 @@
 				3AC38BD210627D1F0011EBD4 /* KMState.h */,
 				3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */,
 				3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */,
+				3AC38CCD1062ABA50011EBD4 /* KMNewPasswordState.h */,
+				3AC38CCE1062ABA50011EBD4 /* KMNewPasswordState.m */,
+				3AC38CFB1062B8620011EBD4 /* KMConfirmPasswordState.h */,
+				3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */,
+				3AC38D791063B7100011EBD4 /* KMAccountMenu.h */,
+				3AC38D801063BD5C0011EBD4 /* KMAccountMenuState.h */,
+				3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */,
 			);
 			name = StateMachine;
 			sourceTree = "<group>";
@@ -149,6 +175,16 @@
 				3AC38BD710627D1F0011EBD4 /* KMWriteHook.h */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		3AC38CD01062ACAF0011EBD4 /* Interpreters */ = {
+			isa = PBXGroup;
+			children = (
+				3AC38CD11062ACC10011EBD4 /* KMInterpreter.h */,
+				3AC38CD21062B1B20011EBD4 /* KMBasicInterpreter.h */,
+				3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */,
+			);
+			name = Interpreters;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -228,6 +264,10 @@
 				3AC38BE010627D1F0011EBD4 /* KMServer.m in Sources */,
 				3AC38BE110627D1F0011EBD4 /* KMVariableHook.m in Sources */,
 				3AC38BE210627D1F0011EBD4 /* KMVariableManager.m in Sources */,
+				3AC38CCF1062ABA50011EBD4 /* KMNewPasswordState.m in Sources */,
+				3AC38CD41062B1B20011EBD4 /* KMBasicInterpreter.m in Sources */,
+				3AC38CFD1062B8620011EBD4 /* KMConfirmPasswordState.m in Sources */,
+				3AC38D821063BD5C0011EBD4 /* KMAccountMenuState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

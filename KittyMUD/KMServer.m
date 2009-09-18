@@ -23,7 +23,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	KMServer* server = (KMServer*)info;
 	CFSocketNativeHandle nativeHandle = *(CFSocketNativeHandle*)data;
 	
-	[[server getConnectionPool] newConnectionWithSocketHandle:nativeHandle];
+	[[server getConnectionPool] newConnectionWithSocketHandle:nativeHandle softReboot:NO];
 }
 
 @implementation KMServer
@@ -124,13 +124,13 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 			continue;
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
-		[connectionPool newConnectionWithSocketHandle:cfs];
+		[connectionPool newConnectionWithSocketHandle:cfs softReboot:YES];
 	}
 	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();
 	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);
 	CFRunLoopAddSource(currentRunLoop, serverRunLoopSource, kCFRunLoopCommonModes);
 	CFRelease(serverRunLoopSource);
-	[connectionPool writeToAllConnections:@"Soft reboot completed."];	
+	[connectionPool writeToAllConnections:@"Soft reboot completed."];
 	[self setIsRunning:YES];
 	[[NSFileManager defaultManager] removeItemAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables] error:NULL];
 }

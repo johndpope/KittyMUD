@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	if(softreboot)
 		[server softRebootRecovery:[[[NSString alloc] initWithCString:argv[2]] intValue]];
 	else {
-		BOOL result = [server initializeServerWithPort:7000 error:&error];
+		BOOL result = [server initializeServerWithPort:port error:&error];
 		if (!result) {
 			NSLog(@"Error starting server, exiting.");
 			return NO;
@@ -35,13 +35,9 @@ int main(int argc, char *argv[])
 	[[server getConnectionPool] addHook:[[KMColorProcessWriteHook alloc] init]];
 	[[server getConnectionPool] addHook:[[KMVariableHook alloc] init]];
 	[[server getConnectionPool] setReadCallback:^(id coordinator){
-		if([[coordinator getInputBuffer] isEqualToString:@"softreboot"])
-			[server softReboot];
-		else {
-			NSLog(@"%@", [coordinator getInputBuffer]);
-		}
+		[[coordinator interpreter] interpret:coordinator];
 	}];
-	NSLog(@"Starting server on port 7000...\n");
+	NSLog(@"Starting server on port %d...\n", port);
 	NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 	NSTimer* timer = [NSTimer timerWithTimeInterval:0.5 target:[server getConnectionPool] selector:@selector(checkOutputBuffers:) userInfo:nil repeats:YES];
 	[runLoop addTimer:timer forMode:NSRunLoopCommonModes];

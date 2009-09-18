@@ -9,21 +9,20 @@
 #import "KMAccountNameState.h"
 #import "KMConnectionCoordinator.h"
 #import "KMMudVariablesExtensions.h"
+#import "KMConfirmPasswordState.h"
+#import "KMNewPasswordState.h"
 
 @implementation KMAccountNameState
 
 -(id<KMState>) processState:(id)coordinator 
 {
-	KMConnectionCoordinator* coord = (KMConnectionCoordinator*)coordinator;
 	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.acct", [coordinator getInputBuffer]] replaceAllVariables];
-	NSFileHandle* saveFile = [NSFileHandle fileHandleForReadingAtPath:fileName];
-	if (saveFile != nil) {
-		//KMConfirmPasswordState* cps = [[KMConfirmPasswordState alloc] init];
-		//return cps;
+	if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
+		[coordinator sendMessageToBuffer:@"Please enter your password:"];
+		return [[KMConfirmPasswordState alloc] init];
 	} else {
-		[coordinator setFlag:@"new_password"];
-		//KMNewPasswordState* nps = [[KMNewPasswordState alloc] init];
-		//return nps;
+		[coordinator sendMessageToBuffer:@"Please enter a password for your account:"];
+		return [[KMNewPasswordState alloc] init];
 	}
 }
 
@@ -32,4 +31,8 @@
 	return @"AccountName";
 }
 
+-(void) softRebootMessage:(id)coordinator
+{
+	[coordinator sendMessageToBuffer:@"Please enter your account name:"];
+}
 @end

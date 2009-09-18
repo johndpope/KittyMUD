@@ -8,6 +8,8 @@
 
 #import "KMConnectionPool.h"
 #import "KMServer.h"
+#import "KMBasicInterpreter.h"
+#import "KMAccountNameState.h"
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
@@ -59,7 +61,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 }
 
--(BOOL) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle
+-(BOOL) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot
 {
 	KMConnectionCoordinator* coordinator = [[KMConnectionCoordinator alloc] init];
 	CFSocketContext newContext = { 0, coordinator, NULL, NULL, NULL };
@@ -75,8 +77,14 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	CFRunLoopRef rl = CFRunLoopGetCurrent();
 	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
 	CFRelease(connRLS);
-	[coordinator sendMessageToBuffer:@"`RWelcome to $(Name) `w(dynamic soft reboot build)."];
-	[coordinator sendMessage:@"Test new-line without buffer"];
+	if(!softReboot) {
+		[coordinator sendMessageToBuffer:@"`RWelcome to $(Name)."];
+		[coordinator sendMessageToBuffer:@"Please enter your account name:"];
+		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
+		[coordinator setCurrentState:[[KMAccountNameState alloc] init]];
+	} else {
+		[[coordinator currentState] softRebootMessage:coordinator];
+	}
 	return YES;
 }
 

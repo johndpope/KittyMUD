@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "KMState.h"
+#import "KMInterpreter.h"
 
 @interface KMConnectionCoordinator : NSObject {
 	@private
@@ -15,10 +16,12 @@
 	NSString* inputBuffer;
 	NSString* outputBuffer;
 	NSDate* lastReadTime;
-	unsigned long long flagbase;
+	NSMutableArray* flagbase;
 	NSMutableDictionary* flags;
 	unsigned int currentbitpower;
 	id<KMState> currentState;
+	id<KMInterpreter> interpreter;
+	NSMutableDictionary* properties;
 }
 
 -(id) init;
@@ -45,7 +48,13 @@
 
 -(NSDate*) getLastReadTime;
 
+-(NSMutableDictionary*) getProperties;
+
+-(void) setProperties:(NSMutableDictionary*)value;
+
 @property (getter=getSocket,setter=setSocket:) CFSocketRef socket;
 @property (retain) NSString* outputBuffer;
-@property (copy) id<KMState> currentState;
+@property (retain) id<KMState> currentState;
+@property (retain) id<KMInterpreter> interpreter;
+@property (retain,getter=getProperties,setter=setProperties:) NSMutableDictionary* properties;
 @end

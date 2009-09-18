@@ -18,4 +18,5 @@
 
 -(NSString*) replaceAllVariables;
 
+-(NSString*) MD5;
 @end
