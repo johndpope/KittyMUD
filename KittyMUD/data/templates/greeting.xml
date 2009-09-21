@@ -4,10 +4,10 @@
 	<text>
 		<![CDATA[
 `g'`G||''''|    `G.                             |`g|    `g.
-`g|`G|  .    `g.`G||.    `g.`G...  `g.`G.. ..  .. ..`g.   `G..`g.  `G.||`g.  `G.... ..`g.
-`g|`G|''|     `g|`G|   `g.`G|...||  `g|`G|' ''  ||  |`g|   `G|`g|   `G|`g|    `G'|.  `g|
-`g|`G|        `g|`G|   `g|`G|       `g|`G|      ||  |`g|   `G|`g|   `G|`g|     `G'|.`g|
-`g|`G|.....| `g'|`G.'  `g'`G|...' `g.|`G|.    .||. ||`g. `G.||`g.  `G'|.`g'    `G'`g|
+ `g|`G|  .    `g.`G||.    `g.`G...  `g.`G.. ..  .. ..`g.   `G..`g.  `G.||`g.  `G.... ..`g.
+ `g|`G|''|     `g|`G|   `g.`G|...||  `g|`G|' ''  ||  |`g|   `G|`g|   `G|`g|    `G'|.  `g|
+ `g|`G|        `g|`G|   `g|`G|       `g|`G|      ||  |`g|   `G|`g|   `G|`g|     `G'|.`g|
+ `g|`G|.....|  `g'|`G.' `g'`G|...'  `g.|`G|.    .||. ||`g. `G.||`g.  `G'|.`g'    `G'`g|
                                                     `G.. `g|
                                                      `G'`g'
 
@@ -19,7 +19,6 @@
 
 `wPowered by $(Name)`x.
 
-Please enter your account name: 
-]]>
+Please enter your account name:]]>
 	</text>
 </greeting>

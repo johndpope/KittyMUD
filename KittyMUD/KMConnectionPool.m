@@ -10,6 +10,7 @@
 #import "KMServer.h"
 #import "KMBasicInterpreter.h"
 #import "KMAccountNameState.h"
+#import "KittyMudStringExtensions.h"
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
@@ -60,8 +61,20 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 }
 
+static NSString* greeting;
+
 -(BOOL) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot
 {
+	if(!greeting) {
+		NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/templates/greeting.xml" replaceAllVariables]];
+		if(!greetingf) {
+			greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
+		} else {
+			NSXMLDocument* greetingxml = [[NSXMLDocument alloc] initWithData:[greetingf readDataToEndOfFile] options:0 error:NULL];
+			NSXMLElement* greetingtext = [[[greetingxml rootElement] elementsForName:@"text"] objectAtIndex:0];
+			greeting = [greetingtext stringValue];
+		}
+	}
 	KMConnectionCoordinator* coordinator = [[KMConnectionCoordinator alloc] init];
 	CFSocketContext newContext = { 0, coordinator, NULL, NULL, NULL };
 	CFSocketRef newSocket = CFSocketCreateWithNative(kCFAllocatorDefault, handle, kCFSocketDataCallBack, (CFSocketCallBack)&ConnectionBaseCallback, &newContext);
@@ -81,8 +94,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		[coordinator setFlag:flagName];
 	}
 	if(!softReboot) {
-		[coordinator sendMessageToBuffer:@"`RWelcome to $(Name)."];
-		[coordinator sendMessageToBuffer:@"Please enter your account name:"];
+		[coordinator sendMessageToBuffer:greeting];
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
 		[coordinator setCurrentState:[[KMAccountNameState alloc] init]];
 	} else {

@@ -82,11 +82,18 @@
 }
 
 static NSString* sendMessageBase(NSString* message) {
-	BOOL isEntry = [[message substringFromIndex:([message length] - 1)] isEqualToString:@":"];
-	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"] && !isEntry)
+	NSString* messageTemp = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	NSRange messageRange = [message rangeOfString:messageTemp];
+	if(messageRange.length != 0)
+		message = [message substringWithRange:NSMakeRange(0, messageRange.location + messageRange.length)];
+	BOOL isEntry = [message characterAtIndex:([message length] - 1)] == ':';
+	BOOL isMenu = [message characterAtIndex:([message length] - 1)] == '>';
+	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"] && !isEntry && !isMenu)
 		message = [message stringByAppendingString:@"\n\r"];
-	else if (isEntry)
+	else if (isEntry && !isMenu)
 		message = [message stringByAppendingString:@" "];
+	else if (isMenu)
+		message = [[message substringToIndex:([message length] - 1)] stringByAppendingString:@"\n\r\n\r"];
 	NSString* (^sendMessageHelper)(NSString*) = ^(NSString* input){
 		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
 			input = [hook processHook:input];

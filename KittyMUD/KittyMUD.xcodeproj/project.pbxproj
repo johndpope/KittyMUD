@@ -13,6 +13,7 @@
 		3A78ED3F10657500002209B6 /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
 		3A78ED5510669D55002209B6 /* KMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78ED5410669D55002209B6 /* KMStat.m */; };
 		3A78EEA71067CA19002209B6 /* KMQuitState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78EEA61067CA19002209B6 /* KMQuitState.m */; };
+		3A78EF461067EC33002209B6 /* KMChooseCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */; };
 		3AC38BDA10627D1F0011EBD4 /* KMAccountNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */; };
 		3AC38BDB10627D1F0011EBD4 /* KMColorProcessWriteHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC710627D1F0011EBD4 /* KMColorProcessWriteHook.m */; };
 		3AC38BDC10627D1F0011EBD4 /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */; };
@@ -74,6 +75,8 @@
 		3A78EDE910672DF1002209B6 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
 		3A78EEA51067CA19002209B6 /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMQuitState.h; sourceTree = "<group>"; };
 		3A78EEA61067CA19002209B6 /* KMQuitState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMQuitState.m; sourceTree = "<group>"; };
+		3A78EF441067EC33002209B6 /* KMChooseCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterState.h; sourceTree = "<group>"; };
+		3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterState.m; sourceTree = "<group>"; };
 		3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountNameState.h; sourceTree = "<group>"; };
 		3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountNameState.m; sourceTree = "<group>"; };
 		3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMColorProcessWriteHook.h; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				3AC38E701063FB950011EBD4 /* KMMessageState.h */,
 				3A78EEA51067CA19002209B6 /* KMQuitState.h */,
 				3A78EEA61067CA19002209B6 /* KMQuitState.m */,
+				3A78EF441067EC33002209B6 /* KMChooseCharacterState.h */,
+				3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */,
 			);
 			name = StateMachine;
 			sourceTree = "<group>";
@@ -363,7 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${BUILD_DIR}/Debug/config\ncp sys.conf ${BUILD_DIR}/Debug/config/\nmkdir -p ${BUILD_DIR}/Debug/saves\nmkdir -p ${BUILD_DIR}/Debug/tmp\ncp -r data ${BUILD_DIR}/Debug";
+			shellScript = "mkdir -p ${BUILD_DIR}/Debug/config\ncp -v sys.conf ${BUILD_DIR}/Debug/config/\nmkdir -p ${BUILD_DIR}/Debug/saves\nmkdir -p ${BUILD_DIR}/Debug/tmp\nrm -rf ${BUILD_DIR}/Debug/data\nmkdir -p ${BUILD_DIR}/Debug/data\ncp -rv data ${BUILD_DIR}/Debug";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -389,6 +394,7 @@
 				3AE80B6A1064874800B86C4B /* KMCharacter.m in Sources */,
 				3A78ED5510669D55002209B6 /* KMStat.m in Sources */,
 				3A78EEA71067CA19002209B6 /* KMQuitState.m in Sources */,
+				3A78EF461067EC33002209B6 /* KMChooseCharacterState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

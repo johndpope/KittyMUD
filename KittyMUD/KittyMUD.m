@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <RegexKit/RegexKit.h>
 #import "KMServer.h"
 #import "KMColorProcessWriteHook.h"
 #import "KMVariableHook.h"
@@ -9,6 +10,7 @@
 int main(int argc, char *argv[])
 {
 	BOOL softreboot = NO;
+	NSString* greeting;
 	int port = 7000;
 	if(argc > 1 && !strcmp(argv[1], "softreboot"))
 		softreboot = YES;
@@ -22,6 +24,16 @@ int main(int argc, char *argv[])
 	[NSString initializeVariableDictionary];
 	[NSString addVariableWithKey:@"BundleDir" andValue:[[NSBundle mainBundle] bundlePath]];
 	KMVariableManager* varManager = [[KMVariableManager alloc] initializeWithConfigFile:[NSString stringWithFormat:@"%@/config/sys.conf",[[NSBundle mainBundle] bundlePath]]];
+	NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/templates/greeting.xml" replaceAllVariables]];
+	if(!greetingf) {
+		greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
+	} else {
+		NSXMLDocument* greetingxml = [[NSXMLDocument alloc] initWithData:[greetingf readDataToEndOfFile] options:0 error:NULL];
+		NSXMLElement* greetingtext = [[[greetingxml rootElement] elementsForName:@"text"] objectAtIndex:0];
+		greeting = [greetingtext stringValue];
+	}
+	NSString* greeting_plain = [greeting stringByMatching:@"`[rRgG]" replace:RKReplaceAll withReferenceString:@""];
+	NSLog(@"%@", greeting_plain);
 	KMServer* server = [KMServer getDefaultServer];
 	NSError* error = [[NSError alloc] init];
 	if(softreboot)

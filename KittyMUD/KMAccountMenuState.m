@@ -111,13 +111,13 @@ NSInteger ComparePriority(id a, id b, void* c) {
 
 -(void) sendMessageToCoordinator:(id)coordinator
 {
-	[coordinator sendMessageToBuffer:@"Please make a choice from the following selections:\n\r "];
+	[coordinator sendMessageToBuffer:@"Please make a choice from the following selections:>"];
 	[myItems sortUsingFunction:ComparePriority context:NULL];
 	for(int i = 1; i <= [myItems count]; i++) {
 		Class item = [myItems objectAtIndex:(i-1)];
 		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"\t\t`c[`G%d`c] `w%@`x", i, [item menuLine]]];
 	}
 	[coordinator sendMessageToBuffer:@"\n\r"];
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Please make your selection (`c1`x - `c%d`x):", [menuItems count]]];
+	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]]];
 }
 @end

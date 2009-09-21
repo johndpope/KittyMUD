@@ -37,11 +37,12 @@ static NSMutableDictionary* kmMudVariables = nil;
 
 -(NSString*) replaceAllVariablesWithDictionary:(NSDictionary*)dictionary
 {
+	NSMutableDictionary* myDictionary = [[NSMutableDictionary alloc] initWithDictionary:dictionary];
 	if(dictionary != kmMudVariables) {
-		for(NSString* key in [dictionary allKeys])
+		for(NSString* key in [myDictionary allKeys])
 		{
 			if(![[key lowercaseString] isEqualToString:key])
-				[dictionary setObject:[dictionary objectForKey:key] forKey:[key lowercaseString]];
+				[myDictionary setObject:[dictionary objectForKey:key] forKey:[key lowercaseString]];
 		}
 	}
 		
