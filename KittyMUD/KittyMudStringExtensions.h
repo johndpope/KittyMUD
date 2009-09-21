@@ -1,5 +1,5 @@
 //
-//  KMMudVariablesExtensions.h
+//  KittyMudStringExtensions.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/15/09.
@@ -17,6 +17,8 @@
 +(void) addVariableWithKey:(NSString*)key andValue:(NSString*)value;
 
 -(NSString*) replaceAllVariables;
+
+-(NSString*) replaceAllVariablesWithDictionary:(NSDictionary*)dictionary;
 
 -(NSString*) MD5;
 @end

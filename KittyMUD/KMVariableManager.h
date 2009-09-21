@@ -22,7 +22,7 @@
 
 -(BOOL) saveAllVariables;
 
-@property NSString* fileName;
-@property NSMutableDictionary* variables;
+@property (copy) NSString* fileName;
+@property (copy) NSMutableDictionary* variables;
 
 @end

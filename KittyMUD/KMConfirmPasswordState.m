@@ -9,7 +9,7 @@
 #import "KMConfirmPasswordState.h"
 #import "KMNewPasswordState.h"
 #import "KMConnectionCoordinator.h"
-#import "KMMudVariablesExtensions.h"
+#import "KittyMudStringExtensions.h"
 #import "KMServer.h"
 #import "KMAccountMenuState.h"
 

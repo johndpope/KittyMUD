@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<race name="human" abbr="hmn">
+	<statcollection name="main" abbr="main">
+		<statcollection name="special" abbr="spec">
+			<stat name="repbonus" abbr="repb" bonus="10"/>
+			<stat name="expbonus" abbr="expb" bonus="5"/>
+		</statcollection>
+	</statcollection>
+</race>

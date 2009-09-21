@@ -18,18 +18,27 @@ static NSMutableArray* menuItems;
 +(void)load
 {
 	menuItems = [[NSMutableArray alloc] init];
-	Class*__attribute__((objc_gc(strong))) classes;
+	__strong Class* classes;
 	int numClasses = objc_getClassList(NULL, 0);
 	
 	classes = malloc(sizeof(Class) * numClasses);
 	objc_getClassList(classes, numClasses);
 	for(int i = 0; i < numClasses; i++) {
+		@try {
 		Class c = classes[i];
+		if(class_respondsToSelector(c,@selector(className))) {
+			if([[c className] hasPrefix:@"RK"])
+				continue;
+		}
 		if(class_respondsToSelector(c,@selector(conformsToProtocol:))) {
 			if([c conformsToProtocol:@protocol(KMAccountMenu)]) {
 				NSLog(@"Adding %@ to account menu items with priority %d", [c className], [c priority]);
 				[menuItems addObject:c];
 			}
+		}
+		}
+		@catch (id exc) {
+			continue;
 		}
 	}
 }
@@ -73,9 +82,9 @@ NSInteger ComparePriority(id a, id b, void* c) {
 -(id<KMState>) processState:(id)coordinator
 {
 	int selection = [[coordinator getInputBuffer] intValue];
-	if(!selection || selection > [myItems count]) {
+	if(!selection || (selection > [myItems count])) {
 		[coordinator sendMessageToBuffer:@"Invalid selection.\n\r "];
-		[self sendMessageToCoordinator:coordinator];
+		return self;
 	}
 	[myItems sortUsingFunction:ComparePriority context:NULL];
 	Class menuClass = [myItems objectAtIndex:(selection - 1)];

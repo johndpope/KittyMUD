@@ -26,21 +26,9 @@
 		[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
 		properties = [[NSMutableDictionary alloc] init];
 		currentbitpower = 0; // this will be saved in the save file so we make sure we dont overwrite existing flags
+		characters = [[NSMutableArray alloc] init];
 	}
 	return self;
-}
-
-/*
- * kmpow( int power )
- *
- * Returns 2 ^ power;
- */
-static inline unsigned long long kmpow(int power) {
-	unsigned long long cur = 1;
-	while (power-- > 0) {
-		cur = cur * 2;
-	}
-	return cur;
 }
 
 -(BOOL) isFlagSet:(NSString*)flagName
@@ -50,9 +38,8 @@ static inline unsigned long long kmpow(int power) {
 	if(fp == nil)
 		return NO;
 	flagpower = [fp intValue];
-	unsigned long long ffp = kmpow(flagpower % 64);
 	
-	return ffp == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & ffp);
+	return (1 << (flagpower % 64)) == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & (1 << (flagpower % 64)));
 }
 
 -(void) setFlag:(NSString*)flagName
@@ -67,7 +54,7 @@ static inline unsigned long long kmpow(int power) {
 			[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
 		flagpower = currentbitpower++;
 	}
-	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (kmpow(flagpower % 64))]];
+	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (1 << (flagpower % 64))]];
 }
 
 -(void) clearFlag:(NSString*)flagName
@@ -78,7 +65,7 @@ static inline unsigned long long kmpow(int power) {
 		return;
 	flagpower = [fp intValue];
 	if([self isFlagSet:flagName])
-		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (kmpow(flagpower % 64))]];
+		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (1 << (flagpower % 64))]];
 }
 
 -(void) debugPrintFlagStatus
@@ -179,4 +166,5 @@ static NSString* sendMessageBase(NSString* message) {
 @synthesize outputBuffer;
 @synthesize currentState;
 @synthesize interpreter;
+@synthesize characters;
 @end

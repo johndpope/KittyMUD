@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<job name="mage" abbr="mage" tier="1">
+	<spellset>
+		<spellchoice name="school" minlvl="1" choices="1">
+			<spell name="dark" link="[spells:dark]" />
+			<spell name="evocation" link="[spells:evocation" />
+			<spell name="time" link="[spells:time]" />
+			<spell name="divine" link="[spells:divine]" />
+			<spell name="necromancy" link="[spells:necromancy]" />
+		</spellchoice>
+	</spellset>
+	<talentset>
+		<talent name="arcana" minlvl="1" />
+		<talent name="deepknowledge" minlvl="10" req="[arcana:5]" />
+		<talent name="enhancedmagick" minlvl="5" />
+		<talent name="divineknowledge" minlvl="15" req="[enhancedmagic:10;deepkowledge:5]" />
+		<talent name="silentcasting" minlvl="25" req="[divineknowledge:5]" />
+	</talentset>
+	<feats>
+		<feat name="improvedint" minlvl="1" />
+		<feat name="advancedint" minlvl="10" req="[improvedint]" />
+		<feat name="epicint" minlvl="20" req="[epicint]" />
+		<feat name="spellspec (%spell%)" minlvl="5" req="[spell:[%spell%:1]]" />
+		<feat name="advspellspec (%spell%)" minlvl="15" req="[spell:[%spell%:10]]" />
+		<feat name="epicspellspec (%spell%)" minlvl="25" req="[spell:[%spell%:20]]" />
+	</feats>
+	<statcollection name="main" abbr="main">
+		<statcollection name="mental" abbr="mntl" jobreq="15">
+			<stat name="intelligence" abbr="int" jobreq="10" />
+			<stat name="wisdom" abbr="wis" jobreq="5" />
+			<stat name="comprehension" abbr="cmp" jobreq="8" />
+		</statcollection>
+	</statcollection>
+</job>

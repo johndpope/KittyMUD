@@ -52,7 +52,6 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 	// This next line will remove new-lines and extra whitespace so when we compare it to the commands it will work
 	inputString = [[inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
-	NSLog(@"%@",inputString);
 	[coordinator setInputBuffer:inputString];
 	[coordinator setLastReadTime:[NSDate date]];
 	if([pool readCallback] != nil) {
@@ -119,8 +118,10 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 	[connections removeObjectIdenticalTo:connection];
 	if([connection getSocket]) {
+		int native = CFSocketGetNative([connection getSocket]);
 		CFSocketInvalidate([connection getSocket]);
 		CFRelease([connection getSocket]);
+		NSLog(@"Closing socket %d.", native);
 	}
 }
 

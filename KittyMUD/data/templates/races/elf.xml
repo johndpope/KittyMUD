@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<race name="elf" abbr="elf">
+	<statcollection name="main" abbr="main">
+		<statcollection name="physical" abbr="phys" bonus="-3">
+			<stat name="strength" abbr="str" bonus="-2"/>
+			<stat name="dexterity" abbr="dex" bonus="2"/>
+			<stat name="constitution" abbr="con" bonus="-1"/>
+			<stat name="speed" abbr="spd" bonus="2"/>
+		</statcollection>
+		<statcollection name="mental" abbr="mntl" bonus="3">
+			<stat name="intelligence" abbr="int" bonus="2"/>
+			<stat name="wisdom" abbr="wis" bonus="1"/>
+			<stat name="comprehension" abbr="cmp" bonus="1"/>
+			<stat name="inference" abbr="inf" bonus="3"/>
+		</statcollection>
+		<statcollection name="social" abbr="scl" bonus="-4">
+			<stat name="empathy" abbr="emp" bonus="-2"/>
+			<stat name="conversation" abbr="cnv" bonus="-1"/>
+		</statcollection>
+		<statcollection name="resistances" abbr="res" bonus="5">
+			<stat name="shadow" abbr="shadow" bonus="10"/>
+		</statcollection>
+		<statcollection name="special" abbr="spec">
+			<statcollection name="profbonus" abbr="profb">
+				<stat name="enchanting" abbr="ench" bonus="15"/>
+				<stat name="inscription" abbr="insc" bonus="15"/>
+			</statcollection>
+		</statcollection>
+	</statcollection>
+</race>

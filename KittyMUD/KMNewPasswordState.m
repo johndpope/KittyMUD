@@ -8,7 +8,7 @@
 
 #import "KMNewPasswordState.h"
 #import "KMConnectionCoordinator.h"
-#import "KMMudVariablesExtensions.h"
+#import "KittyMudStringExtensions.h"
 #import "KMConfirmPasswordState.h"
 
 @implementation KMNewPasswordState

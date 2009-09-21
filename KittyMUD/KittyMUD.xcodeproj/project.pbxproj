@@ -7,25 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A78ECA21065749C002209B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ECA11065749C002209B6 /* Foundation.framework */; };
+		3A78ED2B106574DF002209B6 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2A106574DF002209B6 /* libcrypto.dylib */; };
+		3A78ED2D106574EA002209B6 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
+		3A78ED3F10657500002209B6 /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
+		3A78ED5510669D55002209B6 /* KMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78ED5410669D55002209B6 /* KMStat.m */; };
+		3A78EEA71067CA19002209B6 /* KMQuitState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78EEA61067CA19002209B6 /* KMQuitState.m */; };
 		3AC38BDA10627D1F0011EBD4 /* KMAccountNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */; };
 		3AC38BDB10627D1F0011EBD4 /* KMColorProcessWriteHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC710627D1F0011EBD4 /* KMColorProcessWriteHook.m */; };
 		3AC38BDC10627D1F0011EBD4 /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */; };
 		3AC38BDD10627D1F0011EBD4 /* KMConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BCB10627D1F0011EBD4 /* KMConnectionPool.m */; };
-		3AC38BDF10627D1F0011EBD4 /* KMMudVariablesExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BCF10627D1F0011EBD4 /* KMMudVariablesExtensions.m */; };
+		3AC38BDF10627D1F0011EBD4 /* KittyMudStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BCF10627D1F0011EBD4 /* KittyMudStringExtensions.m */; };
 		3AC38BE010627D1F0011EBD4 /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */; };
 		3AC38BE110627D1F0011EBD4 /* KMVariableHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD410627D1F0011EBD4 /* KMVariableHook.m */; };
 		3AC38BE210627D1F0011EBD4 /* KMVariableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */; };
 		3AC38CCF1062ABA50011EBD4 /* KMNewPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CCE1062ABA50011EBD4 /* KMNewPasswordState.m */; };
 		3AC38CD41062B1B20011EBD4 /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */; };
 		3AC38CFD1062B8620011EBD4 /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */; };
-		3AC38D3D1062BECF0011EBD4 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC38D3C1062BECF0011EBD4 /* libcrypto.dylib */; };
 		3AC38D821063BD5C0011EBD4 /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */; };
+		3AE80B5F1064770700B86C4B /* KMCreateCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */; };
+		3AE80B6A1064874800B86C4B /* KMCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B691064874800B86C4B /* KMCharacter.m */; };
 		8DD76F9A0486AA7600D96B5E /* KittyMUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */; settings = {ATTRIBUTES = (); }; };
-		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* KittyMUD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3A6CC6321065420C00026BA5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A78ED3F10657500002209B6 /* RegexKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
@@ -40,8 +56,24 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* KittyMUD.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = KittyMUD.m; sourceTree = "<group>"; };
-		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* KittyMUD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD_Prefix.pch; sourceTree = "<group>"; };
+		3A78ECA11065749C002209B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A78ED2A106574DF002209B6 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
+		3A78ED2C106574EA002209B6 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A78ED5310669D55002209B6 /* KMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStat.h; sourceTree = "<group>"; };
+		3A78ED5410669D55002209B6 /* KMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStat.m; sourceTree = "<group>"; };
+		3A78EDDC10672DF1002209B6 /* greeting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = greeting.xml; sourceTree = "<group>"; };
+		3A78EDDE10672DF1002209B6 /* fighter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fighter.xml; sourceTree = "<group>"; };
+		3A78EDDF10672DF1002209B6 /* mage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mage.xml; sourceTree = "<group>"; };
+		3A78EDE010672DF1002209B6 /* squire.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = squire.xml; sourceTree = "<group>"; };
+		3A78EDE210672DF1002209B6 /* dwarf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dwarf.xml; sourceTree = "<group>"; };
+		3A78EDE310672DF1002209B6 /* elf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = elf.xml; sourceTree = "<group>"; };
+		3A78EDE410672DF1002209B6 /* human.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = human.xml; sourceTree = "<group>"; };
+		3A78EDE510672DF1002209B6 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
+		3A78EDE810672DF1002209B6 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
+		3A78EDE910672DF1002209B6 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
+		3A78EEA51067CA19002209B6 /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMQuitState.h; sourceTree = "<group>"; };
+		3A78EEA61067CA19002209B6 /* KMQuitState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMQuitState.m; sourceTree = "<group>"; };
 		3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountNameState.h; sourceTree = "<group>"; };
 		3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountNameState.m; sourceTree = "<group>"; };
 		3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMColorProcessWriteHook.h; sourceTree = "<group>"; };
@@ -50,8 +82,8 @@
 		3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConnectionCoordinator.m; sourceTree = "<group>"; };
 		3AC38BCA10627D1F0011EBD4 /* KMConnectionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConnectionPool.h; sourceTree = "<group>"; };
 		3AC38BCB10627D1F0011EBD4 /* KMConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConnectionPool.m; sourceTree = "<group>"; };
-		3AC38BCE10627D1F0011EBD4 /* KMMudVariablesExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMudVariablesExtensions.h; sourceTree = "<group>"; };
-		3AC38BCF10627D1F0011EBD4 /* KMMudVariablesExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMudVariablesExtensions.m; sourceTree = "<group>"; };
+		3AC38BCE10627D1F0011EBD4 /* KittyMudStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMudStringExtensions.h; sourceTree = "<group>"; };
+		3AC38BCF10627D1F0011EBD4 /* KittyMudStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KittyMudStringExtensions.m; sourceTree = "<group>"; };
 		3AC38BD010627D1F0011EBD4 /* KMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMServer.h; sourceTree = "<group>"; };
 		3AC38BD110627D1F0011EBD4 /* KMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMServer.m; sourceTree = "<group>"; };
 		3AC38BD210627D1F0011EBD4 /* KMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMState.h; sourceTree = "<group>"; };
@@ -68,11 +100,14 @@
 		3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBasicInterpreter.m; sourceTree = "<group>"; };
 		3AC38CFB1062B8620011EBD4 /* KMConfirmPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConfirmPasswordState.h; sourceTree = "<group>"; };
 		3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConfirmPasswordState.m; sourceTree = "<group>"; };
-		3AC38D3C1062BECF0011EBD4 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
 		3AC38D791063B7100011EBD4 /* KMAccountMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenu.h; sourceTree = "<group>"; };
 		3AC38D801063BD5C0011EBD4 /* KMAccountMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenuState.h; sourceTree = "<group>"; };
 		3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountMenuState.m; sourceTree = "<group>"; };
 		3AC38E701063FB950011EBD4 /* KMMessageState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMessageState.h; sourceTree = "<group>"; };
+		3AE80B5D1064770700B86C4B /* KMCreateCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCreateCharacterState.h; sourceTree = "<group>"; };
+		3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCreateCharacterState.m; sourceTree = "<group>"; };
+		3AE80B681064874800B86C4B /* KMCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCharacter.h; sourceTree = "<group>"; };
+		3AE80B691064874800B86C4B /* KMCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCharacter.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* KittyMUD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KittyMUD; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +117,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
-				3AC38D3D1062BECF0011EBD4 /* libcrypto.dylib in Frameworks */,
+				3A78ECA21065749C002209B6 /* Foundation.framework in Frameworks */,
+				3A78ED2B106574DF002209B6 /* libcrypto.dylib in Frameworks */,
+				3A78ED2D106574EA002209B6 /* RegexKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +129,11 @@
 		08FB7794FE84155DC02AAC07 /* KittyMUD */ = {
 			isa = PBXGroup;
 			children = (
+				3A78EDDA10672DF1002209B6 /* data */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
-				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				3A78ECAA106574B4002209B6 /* External Libraries and Frameworks */,
 			);
 			name = KittyMUD;
 			sourceTree = "<group>";
@@ -104,6 +141,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3AE80B641064858600B86C4B /* Character */,
 				3AC38CD01062ACAF0011EBD4 /* Interpreters */,
 				3AC38C1A10627FF30011EBD4 /* Utility */,
 				3AC38C1910627FE00011EBD4 /* StateMachine */,
@@ -115,21 +153,79 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
-		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
-				3AC38D3C1062BECF0011EBD4 /* libcrypto.dylib */,
-			);
-			name = "External Frameworks and Libraries";
-			sourceTree = "<group>";
-		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				8DD76FA10486AA7600D96B5E /* KittyMUD */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3A78ECAA106574B4002209B6 /* External Libraries and Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A78ECA11065749C002209B6 /* Foundation.framework */,
+				3A78ED2A106574DF002209B6 /* libcrypto.dylib */,
+				3A78ED2C106574EA002209B6 /* RegexKit.framework */,
+			);
+			name = "External Libraries and Frameworks";
+			sourceTree = "<group>";
+		};
+		3A78EDDA10672DF1002209B6 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3A78EDDB10672DF1002209B6 /* templates */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		3A78EDDB10672DF1002209B6 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				3A78EDDC10672DF1002209B6 /* greeting.xml */,
+				3A78EDDD10672DF1002209B6 /* jobs */,
+				3A78EDE110672DF1002209B6 /* races */,
+				3A78EDE510672DF1002209B6 /* stat_template.xml */,
+				3A78EDE610672DF1002209B6 /* world */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
+		3A78EDDD10672DF1002209B6 /* jobs */ = {
+			isa = PBXGroup;
+			children = (
+				3A78EDDE10672DF1002209B6 /* fighter.xml */,
+				3A78EDDF10672DF1002209B6 /* mage.xml */,
+				3A78EDE010672DF1002209B6 /* squire.xml */,
+			);
+			path = jobs;
+			sourceTree = "<group>";
+		};
+		3A78EDE110672DF1002209B6 /* races */ = {
+			isa = PBXGroup;
+			children = (
+				3A78EDE210672DF1002209B6 /* dwarf.xml */,
+				3A78EDE310672DF1002209B6 /* elf.xml */,
+				3A78EDE410672DF1002209B6 /* human.xml */,
+			);
+			path = races;
+			sourceTree = "<group>";
+		};
+		3A78EDE610672DF1002209B6 /* world */ = {
+			isa = PBXGroup;
+			children = (
+				3A78EDE710672DF1002209B6 /* start */,
+			);
+			path = world;
+			sourceTree = "<group>";
+		};
+		3A78EDE710672DF1002209B6 /* start */ = {
+			isa = PBXGroup;
+			children = (
+				3A78EDE810672DF1002209B6 /* marketsquare.xml */,
+				3A78EDE910672DF1002209B6 /* submarket.xml */,
+			);
+			path = start;
 			sourceTree = "<group>";
 		};
 		3AC38BE810627D330011EBD4 /* Network */ = {
@@ -148,6 +244,8 @@
 		3AC38C1910627FE00011EBD4 /* StateMachine */ = {
 			isa = PBXGroup;
 			children = (
+				3AE80B5D1064770700B86C4B /* KMCreateCharacterState.h */,
+				3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */,
 				3AC38BD210627D1F0011EBD4 /* KMState.h */,
 				3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */,
 				3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */,
@@ -159,6 +257,8 @@
 				3AC38D801063BD5C0011EBD4 /* KMAccountMenuState.h */,
 				3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */,
 				3AC38E701063FB950011EBD4 /* KMMessageState.h */,
+				3A78EEA51067CA19002209B6 /* KMQuitState.h */,
+				3A78EEA61067CA19002209B6 /* KMQuitState.m */,
 			);
 			name = StateMachine;
 			sourceTree = "<group>";
@@ -168,8 +268,8 @@
 			children = (
 				3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */,
 				3AC38BC710627D1F0011EBD4 /* KMColorProcessWriteHook.m */,
-				3AC38BCE10627D1F0011EBD4 /* KMMudVariablesExtensions.h */,
-				3AC38BCF10627D1F0011EBD4 /* KMMudVariablesExtensions.m */,
+				3AC38BCE10627D1F0011EBD4 /* KittyMudStringExtensions.h */,
+				3AC38BCF10627D1F0011EBD4 /* KittyMudStringExtensions.m */,
 				3AC38BD310627D1F0011EBD4 /* KMVariableHook.h */,
 				3AC38BD410627D1F0011EBD4 /* KMVariableHook.m */,
 				3AC38BD510627D1F0011EBD4 /* KMVariableManager.h */,
@@ -187,6 +287,17 @@
 				3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */,
 			);
 			name = Interpreters;
+			sourceTree = "<group>";
+		};
+		3AE80B641064858600B86C4B /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				3AE80B681064874800B86C4B /* KMCharacter.h */,
+				3AE80B691064874800B86C4B /* KMCharacter.m */,
+				3A78ED5310669D55002209B6 /* KMStat.h */,
+				3A78ED5410669D55002209B6 /* KMStat.m */,
+			);
+			name = Character;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -207,6 +318,7 @@
 				8DD76F990486AA7600D96B5E /* Sources */,
 				8DD76F9B0486AA7600D96B5E /* Frameworks */,
 				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+				3A6CC6321065420C00026BA5 /* CopyFiles */,
 				3AC38C261062831C0011EBD4 /* ShellScript */,
 			);
 			buildRules = (
@@ -224,6 +336,9 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Gravinity Studios";
+			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "KittyMUD" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -248,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${BUILD_DIR}/Debug/config\ncp sys.conf ${BUILD_DIR}/Debug/config/\nmkdir -p ${BUILD_DIR}/Debug/saves\nmkdir -p ${BUILD_DIR}/Debug/tmp";
+			shellScript = "mkdir -p ${BUILD_DIR}/Debug/config\ncp sys.conf ${BUILD_DIR}/Debug/config/\nmkdir -p ${BUILD_DIR}/Debug/saves\nmkdir -p ${BUILD_DIR}/Debug/tmp\ncp -r data ${BUILD_DIR}/Debug";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -262,7 +377,7 @@
 				3AC38BDB10627D1F0011EBD4 /* KMColorProcessWriteHook.m in Sources */,
 				3AC38BDC10627D1F0011EBD4 /* KMConnectionCoordinator.m in Sources */,
 				3AC38BDD10627D1F0011EBD4 /* KMConnectionPool.m in Sources */,
-				3AC38BDF10627D1F0011EBD4 /* KMMudVariablesExtensions.m in Sources */,
+				3AC38BDF10627D1F0011EBD4 /* KittyMudStringExtensions.m in Sources */,
 				3AC38BE010627D1F0011EBD4 /* KMServer.m in Sources */,
 				3AC38BE110627D1F0011EBD4 /* KMVariableHook.m in Sources */,
 				3AC38BE210627D1F0011EBD4 /* KMVariableManager.m in Sources */,
@@ -270,6 +385,10 @@
 				3AC38CD41062B1B20011EBD4 /* KMBasicInterpreter.m in Sources */,
 				3AC38CFD1062B8620011EBD4 /* KMConfirmPasswordState.m in Sources */,
 				3AC38D821063BD5C0011EBD4 /* KMAccountMenuState.m in Sources */,
+				3AE80B5F1064770700B86C4B /* KMCreateCharacterState.m in Sources */,
+				3AE80B6A1064874800B86C4B /* KMCharacter.m in Sources */,
+				3A78ED5510669D55002209B6 /* KMStat.m in Sources */,
+				3A78EEA71067CA19002209B6 /* KMQuitState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +400,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -297,6 +421,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;

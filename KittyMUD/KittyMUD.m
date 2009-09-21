@@ -2,8 +2,9 @@
 #import "KMServer.h"
 #import "KMColorProcessWriteHook.h"
 #import "KMVariableHook.h"
-#import "KMMudVariablesExtensions.h"
+#import "KittyMudStringExtensions.h"
 #import "KMVariableManager.h"
+#import "KMStat.h"
 
 int main(int argc, char *argv[])
 {

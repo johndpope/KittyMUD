@@ -22,6 +22,7 @@
 	id<KMState> currentState;
 	id<KMInterpreter> interpreter;
 	NSMutableDictionary* properties;
+	NSMutableArray* characters;
 }
 
 -(id) init;
@@ -57,4 +58,11 @@
 @property (retain) id<KMState> currentState;
 @property (retain) id<KMInterpreter> interpreter;
 @property (retain,getter=getProperties,setter=setProperties:) NSMutableDictionary* properties;
+@property (copy) NSMutableArray* characters;
+@end
+
+@interface KMConnectionCoordinator ()
+
+-(void) debugPrintFlagStatus;
+
 @end
