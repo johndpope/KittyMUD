@@ -29,9 +29,11 @@ typedef enum
 
 -(id) init;
 
--(id) initializeWithValue:(int)val;
-
 -(id) initializeWithName:(NSString*)sname andValue:(int)val;
+
+-(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr;
+
+-(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr andValue:(int)val;
 
 -(void) addChild:(KMStat*)child;
 
@@ -55,11 +57,12 @@ typedef enum
 
 +(KMStat*) loadFromTemplateWithData:(NSData*)data withType:(KMStatLoadType)loadType;
 
-@property (retain,getter=getChildren,setter=setChildren:) NSArray* children;
+@property (retain,readonly,getter=getChildren) NSArray* children;
 @property (assign) int statvalue;
-@property (retain,getter=getProperties,setter=setProperties:) NSMutableDictionary* properties;
+@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
 @property (copy) NSString* name;
 @property (retain) KMStat* parent;
+@property (retain) NSString* abbreviation;
 @end
 
 @interface KMStat ()

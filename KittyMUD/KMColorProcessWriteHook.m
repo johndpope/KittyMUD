@@ -57,4 +57,5 @@
 	return input;
 }
 
+@synthesize colors;
 @end

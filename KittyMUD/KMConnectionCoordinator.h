@@ -41,24 +41,17 @@
 
 -(void) setSocket:(CFSocketRef)newSocket;
 
--(NSString*) getInputBuffer;
-
--(void) setInputBuffer:(NSString*)buffer;
-
--(void) setLastReadTime:(NSDate*)time;
-
--(NSDate*) getLastReadTime;
-
--(NSMutableDictionary*) getProperties;
-
--(void) setProperties:(NSMutableDictionary*)value;
-
+@property (copy,getter=getLastReadTime) NSDate* lastReadTime;
+@property (copy,getter=getInputBuffer) NSString* inputBuffer;
 @property (getter=getSocket,setter=setSocket:) CFSocketRef socket;
-@property (retain) NSString* outputBuffer;
+@property (copy) NSString* outputBuffer;
 @property (retain) id<KMState> currentState;
 @property (retain) id<KMInterpreter> interpreter;
-@property (retain,getter=getProperties,setter=setProperties:) NSMutableDictionary* properties;
-@property (copy) NSMutableArray* characters;
+@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
+@property (retain,readonly,getter=getCharacters) NSMutableArray* characters;
+@property (retain,readonly) NSMutableArray* flagbase;
+@property (retain,readonly) NSMutableDictionary* flags;
+@property (readonly) unsigned int currentbitpower;
 @end
 
 @interface KMConnectionCoordinator ()

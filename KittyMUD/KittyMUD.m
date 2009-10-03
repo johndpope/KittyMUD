@@ -24,18 +24,18 @@ int main(int argc, char *argv[])
 	[NSString initializeVariableDictionary];
 	[NSString addVariableWithKey:@"BundleDir" andValue:[[NSBundle mainBundle] bundlePath]];
 	KMVariableManager* varManager = [[KMVariableManager alloc] initializeWithConfigFile:[NSString stringWithFormat:@"%@/config/sys.conf",[[NSBundle mainBundle] bundlePath]]];
-	NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/templates/greeting.xml" replaceAllVariables]];
-	if(!greetingf) {
-		greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
-	} else {
-		NSXMLDocument* greetingxml = [[NSXMLDocument alloc] initWithData:[greetingf readDataToEndOfFile] options:0 error:NULL];
-		NSXMLElement* greetingtext = [[[greetingxml rootElement] elementsForName:@"text"] objectAtIndex:0];
-		greeting = [greetingtext stringValue];
-	}
-	NSString* greeting_plain = [greeting stringByMatching:@"`[rRgG]" replace:RKReplaceAll withReferenceString:@""];
-	NSLog(@"%@", greeting_plain);
 	KMServer* server = [KMServer getDefaultServer];
 	NSError* error = [[NSError alloc] init];
+	KMStat* tree = [[KMStat alloc] initializeWithName:@"main" andValue:0];
+	[tree setValueOfChildAtPath:@"physical(phys)::strength(str)" withValue:22];
+	[tree setValueOfChildAtPath:@"phys" withValue:17];
+	[tree debugPrintTree:0];
+	[tree setValueOfChildAtPath:@"physical" withValue:23];
+	[tree setValueOfChildAtPath:@"phys::constitution(con)" withValue:27];
+	[tree debugPrintTree:0];
+	[tree setValueOfChildAtPath:@"physical::con" withValue:18];
+	[tree setValueOfChildAtPath:@"phys" withValue:19];
+	[tree debugPrintTree:0];
 	if(softreboot)
 		[server softRebootRecovery:[[[NSString alloc] initWithCString:argv[2]] intValue]];
 	else {

@@ -22,19 +22,25 @@
 
 -(id) init
 {
-	return [self initializeWithValue:0];
-}
-
--(id) initializeWithValue:(int)val
-{
-	return [self initializeWithName:nil andValue:val];
+	return [self initializeWithName:nil andValue:0];
 }
 
 -(id) initializeWithName:(NSString*)sname andValue:(int)val
 {
+	return [self initializeWithName:sname andAbbreviation:nil andValue:val];
+}
+
+-(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr
+{
+	return [self initializeWithName:sname andAbbreviation:sabbr andValue:0];
+}
+
+-(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr andValue:(int)val
+{
 	self = [super init];
 	if(self) {
 		[self setName:sname];
+		[self setAbbreviation:(sabbr != nil ? sabbr : sname)];
 		[self setStatvalue:val];
 		children = [[NSMutableArray alloc] init];
 		properties = [[NSMutableDictionary alloc] init];
@@ -44,10 +50,22 @@
 
 -(KMStat*) findStatWithPath:(NSString*)path
 {
+	// This regular expression is used to split stat names from abbreviations when they are created in code (form: name(abbr))
+	RKRegex* splitr = [[RKRegex alloc] initWithRegexString:@"(?<statname>\\w+)(\\((?<abbrname>\\w+)\\))?" options:RKCompileNoOptions];
+	
+	// This regular expression is used to split the path of the stat using the :: separator.  We use it as a recursive regular expression,
+	// meaning that for a stat path a::b::c, we would use this regular expression three times.
+	// First pass: parent=a, children=b::c
+	// Second pass: parent=b, children=c
+	// Third pass: parent=c
 	RKRegex* pathr = [[RKRegex alloc] initWithRegexString:@"(?<parent>[^:]*)(::(?<children>.*))*" options:RKCompileNoOptions];
+	
+	// If we have no children, we know were not going to find one, so return nil.
+	if(![self hasChildren])
+		return nil;
+	
+	// Check to make sure the path were given is a valid stat path.
 	if([pathr matchesCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
-		if(![self hasChildren])
-			return nil;
 		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding]
 										   length:[path length]
 										  inRange:NSMakeRange(0,[path length])
@@ -58,8 +76,25 @@
 										  inRange:NSMakeRange(0,[path length])
 									 captureIndex:[pathr captureIndexForCaptureName:@"children"]
 										  options:RKMatchNoOptions];
+		// Get the string representing the name of the parent from the match.
 		NSString* parentString = [path substringWithRange:parentr];
-		NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@", parentString];
+		NSString* statAbbreviation = nil;
+		
+		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+											length:[parentString length]
+										   inRange:NSMakeRange(0,[parentString length])
+									  captureIndex:[splitr captureIndexForCaptureName:@"statname"]
+										   options:RKMatchNoOptions];
+		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+											length:[parentString length]
+										   inRange:NSMakeRange(0,[parentString length])
+									  captureIndex:[splitr captureIndexForCaptureName:@"abbrname"]
+										   options:RKMatchNoOptions];
+		NSString* parentName = [parentString substringWithRange:sname];
+		if(sabbr.length > 0)
+			statAbbreviation = [parentString substringWithRange:sabbr];
+		NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@ or self.abbreviation like[cd] %@", parentName, parentName,
+								   statAbbreviation != nil ? statAbbreviation : @"(null)"];
 		if([[children filteredArrayUsingPredicate:parentTest] count] > 0) {
 			if(child.length > 0)
 				return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] findStatWithPath:[path substringWithRange:child]];
@@ -78,6 +113,7 @@
 	{
 		[[self findStatWithPath:path] setStatvalue:val];
 	}
+	RKRegex* splitr = [[RKRegex alloc] initWithRegexString:@"(?<statname>\\w+)(\\((?<abbrname>\\w+)\\))?" options:RKCompileNoOptions];
 	RKRegex* pathr = [[RKRegex alloc] initWithRegexString:@"(?<parent>[^:]*)(::(?<children>.*))*" options:RKCompileNoOptions];
 	if([pathr matchesCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
 		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding]
@@ -90,10 +126,28 @@
 										  inRange:NSMakeRange(0,[path length])
 									 captureIndex:[pathr captureIndexForCaptureName:@"children"]
 										  options:RKMatchNoOptions];
-		NSString* parentString = [path substringWithRange:parentr];		
+		NSString* parentString = [path substringWithRange:parentr];	
+		NSString* statName;
+		NSString* statAbbreviation = nil;
+		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+											length:[parentString length]
+										   inRange:NSMakeRange(0,[parentString length])
+									  captureIndex:[splitr captureIndexForCaptureName:@"statname"]
+										   options:RKMatchNoOptions];
+		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+											length:[parentString length]
+										   inRange:NSMakeRange(0,[parentString length])
+									  captureIndex:[splitr captureIndexForCaptureName:@"abbrname"]
+										   options:RKMatchNoOptions];
+		
+		statName = [parentString substringWithRange:sname];
+		
+		if(sabbr.length != 0)
+			statAbbreviation = [parentString substringWithRange:sabbr];
+	
 		if(![self hasChildren])
 		{
-			KMStat* parentStat = [[KMStat alloc] initializeWithName:parentString andValue:0];
+			KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
 			if(child.length > 0) {
 				[parentStat setValueOfChildAtPath:[path substringWithRange:child] withValue:val];
 			} else {
@@ -102,14 +156,14 @@
 			[parentStat setParent:self];
 			[self addChild:parentStat];
 		} else {
-			NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@", parentString];
+			NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@ or self.abbreviation like[cd] %@", statName, statName, statAbbreviation];
 			if([[children filteredArrayUsingPredicate:parentTest] count] > 0) {
 				if(child.length > 0)
 					return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setValueOfChildAtPath:[path substringWithRange:child] withValue:val];
 				else
 					return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setStatvalue:val];
 			} else {
-				KMStat* parentStat = [[KMStat alloc] initializeWithName:parentString andValue:0];
+				KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
 				if(child.length > 0) {
 					[parentStat setValueOfChildAtPath:[path substringWithRange:child] withValue:val];
 				} else {
@@ -121,6 +175,7 @@
 		}
 	}
 }
+
 -(int) getValueOfChildAtPath:(NSString*)path
 {
 	KMStat* stat = [self findStatWithPath:path];
@@ -131,30 +186,10 @@
 
 -(void) addChild:(KMStat*)child
 {
-	NSPredicate* nameCheck = [NSPredicate predicateWithFormat:@"self.name like[cd] %@",[child name]];
+	NSPredicate* nameCheck = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@",[child name], [child abbreviation]];
 	if([[children filteredArrayUsingPredicate:nameCheck] count] > 0)
 		return;
 	[children addObject:child];
-}
-
--(NSMutableDictionary*) getProperties
-{
-	return properties;
-}
-
--(void) setProperties:(NSMutableDictionary *)value
-{
-	return; // no-op properties is read-only
-}
-
--(NSArray*) getChildren
-{
-	return [[NSArray alloc] initWithArray:children];
-}
-
--(void) setChildren:(NSArray*)value
-{
-	return;
 }
 
 -(BOOL) hasChildren
@@ -296,8 +331,9 @@
 	NSMutableString* line = [[NSMutableString alloc] init];
 	for(int i = 0; i < tabLevel; i++)
 		[line appendString:@"\t"];
-	[line appendFormat:@"%@ = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self statvalue], [[self parent] name], [[[self getProperties] objectForKey:@"allocatable"] intValue],
+	[line appendFormat:@"%@(%@) = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self abbreviation], [self statvalue], [[self parent] name], [[[self getProperties] objectForKey:@"allocatable"] intValue],
 	 [[[self getProperties] objectForKey:@"changeable"] boolValue] ? @"YES" : @"NO"];
+	NSLog(@"%@", line);
 	if([self hasChildren]) {
 		NSArray* child = [self getChildren];
 		for(int c = 0; c < [child count]; c++)
@@ -309,4 +345,7 @@
 @synthesize name;
 @synthesize parent;
 
+@synthesize abbreviation;
+@synthesize properties;
+@synthesize children;
 @end

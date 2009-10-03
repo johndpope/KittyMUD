@@ -31,7 +31,8 @@
 	}
 	[coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
 	[coordinator setFlag:@"has-character"];
-	[[coordinator characters] addObject:[[KMCharacter alloc] initializeWithName:name]];
+	[[coordinator getCharacters] addObject:[[KMCharacter alloc] initializeWithName:name]];
+	NSLog(@"%@",[[[[coordinator getCharacters] objectAtIndex:0] getProperties] objectForKey:@"name"]);
 	return nil;
 }
 

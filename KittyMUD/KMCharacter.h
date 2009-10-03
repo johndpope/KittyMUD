@@ -20,4 +20,5 @@
 
 @property KMStat* stats;
 
+@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
 @end

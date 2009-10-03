@@ -11,11 +11,6 @@
 
 @implementation KMCharacter
 
--(NSMutableDictionary*)getProperties
-{
-	return properties;
-}
-
 -(id)initializeWithName:(NSString *)name
 {
 	self = [super init];
@@ -29,4 +24,5 @@
 }
 
 @synthesize stats;
+@synthesize properties;
 @end

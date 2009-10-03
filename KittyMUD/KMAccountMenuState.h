@@ -15,4 +15,5 @@
 
 -(id) initializeWithCoordinator:(id)coordinator;
 
+@property (retain) NSMutableArray* myItems;
 @end

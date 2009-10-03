@@ -93,6 +93,14 @@ static NSString* greeting;
 		NSString* flagName = [NSString stringWithFormat:@"flag%d",f];
 		[coordinator setFlag:flagName];
 	}
+	NSNumber* (^m)(int) = ^NSNumber*(int x){
+		return [NSNumber numberWithInt:x];
+	};
+	NSArray* ftc = [NSArray arrayWithObjects:m(15),m(64),m(72),m(84),m(134),m(155),m(255),m(212),m(186),m(92),m(234),nil];
+	for(NSNumber* num in ftc) {
+		[coordinator clearFlag:[NSString stringWithFormat:@"flag%d",[num intValue]]];
+	}
+	[coordinator debugPrintFlagStatus];
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];

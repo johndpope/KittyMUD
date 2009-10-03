@@ -120,4 +120,5 @@ NSInteger ComparePriority(id a, id b, void* c) {
 	[coordinator sendMessageToBuffer:@"\n\r"];
 	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]]];
 }
+@synthesize myItems;
 @end

@@ -39,7 +39,7 @@
 		return NO;
 	flagpower = [fp intValue];
 	
-	return (1 << (flagpower % 64)) == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & (1 << (flagpower % 64)));
+	return (1ULL << (flagpower % 64)) == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & (1ULL << (flagpower % 64)));
 }
 
 -(void) setFlag:(NSString*)flagName
@@ -54,7 +54,7 @@
 			[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
 		flagpower = currentbitpower++;
 	}
-	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (1 << (flagpower % 64))]];
+	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (1ULL << (flagpower % 64))]];
 }
 
 -(void) clearFlag:(NSString*)flagName
@@ -65,7 +65,7 @@
 		return;
 	flagpower = [fp intValue];
 	if([self isFlagSet:flagName])
-		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (1 << (flagpower % 64))]];
+		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (1ULL << (flagpower % 64))]];
 }
 
 -(void) debugPrintFlagStatus
@@ -139,39 +139,14 @@ static NSString* sendMessageBase(NSString* message) {
 	socket = newSocket;
 }
 
--(NSString*) getInputBuffer
-{
-	return inputBuffer;
-}
-
--(void) setInputBuffer:(NSString*)buffer
-{
-	inputBuffer = [buffer copy];
-}
-
--(void) setLastReadTime:(NSDate*)time
-{
-	lastReadTime = [time copy];
-}
-
--(NSDate*) getLastReadTime
-{
-	return lastReadTime;
-}
-
-
--(NSMutableDictionary*) getProperties
-{
-	return properties;
-}
-
--(void) setProperties:(NSMutableDictionary *)value
-{
-	return; // no-op properties is read-only
-}
-
+@synthesize lastReadTime;
 @synthesize outputBuffer;
 @synthesize currentState;
 @synthesize interpreter;
 @synthesize characters;
+@synthesize flagbase;
+@synthesize flags;
+@synthesize currentbitpower;
+@synthesize properties;
+@synthesize inputBuffer;
 @end
