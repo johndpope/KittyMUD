@@ -1,11 +1,43 @@
 #import <Foundation/Foundation.h>
 #import <RegexKit/RegexKit.h>
+#import <objc/runtime.h>
 #import "KMServer.h"
 #import "KMColorProcessWriteHook.h"
 #import "KMVariableHook.h"
 #import "KittyMudStringExtensions.h"
 #import "KMVariableManager.h"
 #import "KMStat.h"
+#import "KMRace.h"
+#import "KMDataStartup.h"
+#import "KMStatAllocationLogic.h"
+#import "KMCommandInterpreter.h"
+#import "KMRoom.h"
+
+void initializeData() {
+	__strong Class* classes;
+	int numClasses = objc_getClassList(NULL, 0);
+	
+	classes = malloc(sizeof(Class) * numClasses);
+	objc_getClassList(classes, numClasses);
+	for(int i = 0; i < numClasses; i++) {
+		@try {
+			Class c = classes[i];
+			if(class_respondsToSelector(c,@selector(className))) {
+				if([[c className] hasPrefix:@"RK"])
+					continue;
+			}
+			if(class_respondsToSelector(c,@selector(conformsToProtocol:))) {
+				if([c conformsToProtocol:@protocol(KMDataStartup)]) {
+					NSLog(@"Initializing data for %@...", [c className]);
+					[c initData];
+				}
+			}
+		}
+		@catch (id exc) {
+			continue;
+		}
+	}
+}
 
 int main(int argc, char *argv[])
 {
@@ -26,16 +58,7 @@ int main(int argc, char *argv[])
 	KMVariableManager* varManager = [[KMVariableManager alloc] initializeWithConfigFile:[NSString stringWithFormat:@"%@/config/sys.conf",[[NSBundle mainBundle] bundlePath]]];
 	KMServer* server = [KMServer getDefaultServer];
 	NSError* error = [[NSError alloc] init];
-	KMStat* tree = [[KMStat alloc] initializeWithName:@"main" andValue:0];
-	[tree setValueOfChildAtPath:@"physical(phys)::strength(str)" withValue:22];
-	[tree setValueOfChildAtPath:@"phys" withValue:17];
-	[tree debugPrintTree:0];
-	[tree setValueOfChildAtPath:@"physical" withValue:23];
-	[tree setValueOfChildAtPath:@"phys::constitution(con)" withValue:27];
-	[tree debugPrintTree:0];
-	[tree setValueOfChildAtPath:@"physical::con" withValue:18];
-	[tree setValueOfChildAtPath:@"phys" withValue:19];
-	[tree debugPrintTree:0];
+	initializeData();
 	if(softreboot)
 		[server softRebootRecovery:[[[NSString alloc] initWithCString:argv[2]] intValue]];
 	else {
@@ -45,6 +68,7 @@ int main(int argc, char *argv[])
 			return NO;
 		}
 	}
+
 	[[server getConnectionPool] addHook:[[KMColorProcessWriteHook alloc] init]];
 	[[server getConnectionPool] addHook:[[KMVariableHook alloc] init]];
 	[[server getConnectionPool] setReadCallback:^(id coordinator){
@@ -55,6 +79,6 @@ int main(int argc, char *argv[])
 	NSTimer* timer = [NSTimer timerWithTimeInterval:0.5 target:[server getConnectionPool] selector:@selector(checkOutputBuffers:) userInfo:nil repeats:YES];
 	[runLoop addTimer:timer forMode:NSRunLoopCommonModes];
 	while([server isRunning]) { [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]]; }
-	return YES;
+	return 0;
 }
 

@@ -7,13 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KMMenu.h"
 
-
-@protocol KMAccountMenu <NSObject>
+@protocol KMAccountMenu <NSObject,KMMenu>
 
 +(NSArray*)requirements;
-
-+(NSString*)menuLine;
 
 +(int) priority;
 

@@ -8,15 +8,29 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMStat.h"
+#import "KMMenu.h"
 
-@interface KMCharacter : NSObject {
+@interface KMCharacter : NSObject <KMMenu> {
 	NSMutableDictionary* properties;
 	KMStat* stats;
+	NSMutableArray* flagbase;
+	NSMutableDictionary* flags;
+	unsigned int currentbitpower;
 }
 
 -(NSMutableDictionary*) getProperties;
 
 -(id)initializeWithName:(NSString*)name;
+
+-(NSXMLElement*) saveToXML;
+
++(KMCharacter*) loadFromXML:(NSXMLElement*)xelem;
+
+-(BOOL) isFlagSet:(NSString*)flagName;
+
+-(void) setFlag:(NSString*)flagName;
+
+-(void) clearFlag:(NSString*)flagName;
 
 @property KMStat* stats;
 

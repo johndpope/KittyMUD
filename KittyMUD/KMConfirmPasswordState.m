@@ -12,8 +12,13 @@
 #import "KittyMudStringExtensions.h"
 #import "KMServer.h"
 #import "KMAccountMenuState.h"
+#import "KMStateMachine.h"
 
 @implementation KMConfirmPasswordState
+
++(void)initialize {
+	[KMStateMachine registerState:[self class]];
+}
 
 -(id<KMState>) processState:(id)coordinator
 {
@@ -44,7 +49,7 @@
 	return [[KMAccountMenuState alloc] initializeWithCoordinator:coordinator];
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"ConfirmPassword";
 }

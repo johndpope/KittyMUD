@@ -8,6 +8,8 @@
 
 #import "KMConnectionCoordinator.h"
 #import "KMServer.h"
+#import "KMCharacter.h"
+#import "KMStateMachine.h"
 
 /*
  * This class represents the abstraction between the socket and the rest of the MUD.
@@ -74,7 +76,7 @@
 	{
 		NSString* flagstatus;
 		if([self isFlagSet:flag])
-			continue;
+			flagstatus = @"SET";
 		else
 			flagstatus = @"CLEAR";
 		NSLog(@"Flag %@: %@", flag, flagstatus);
@@ -82,13 +84,18 @@
 }
 
 static NSString* sendMessageBase(NSString* message) {
-	NSString* messageTemp = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	NSRange messageRange = [message rangeOfString:messageTemp];
-	if(messageRange.length != 0)
-		message = [message substringWithRange:NSMakeRange(0, messageRange.location + messageRange.length)];
-	BOOL isEntry = [message characterAtIndex:([message length] - 1)] == ':';
-	BOOL isMenu = [message characterAtIndex:([message length] - 1)] == '>';
-	if(![[message substringFromIndex:([message length] - 2)] isEqualToString:@"\n\r"] && !isEntry && !isMenu)
+	message = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	NSString* (^sendMessageHelperStrip)(NSString*) = ^(NSString* input){
+		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
+			input = [hook processHook:input replace:NO];
+		}
+		return input;
+	};
+	NSString* msg = [message copy];
+	msg = sendMessageHelperStrip(msg);
+	BOOL isEntry = [msg characterAtIndex:([msg length] - 1)] == ':';
+	BOOL isMenu = [msg characterAtIndex:([msg length] - 1)] == '>';
+	if([msg length] > 2 && ![[msg substringFromIndex:([msg length] - 2)] isEqualToString:@"\n\r"] && !isEntry && !isMenu)
 		message = [message stringByAppendingString:@"\n\r"];
 	else if (isEntry && !isMenu)
 		message = [message stringByAppendingString:@" "];
@@ -123,6 +130,10 @@ static NSString* sendMessageBase(NSString* message) {
 
 -(void) sendMessageToBuffer:(NSString *)message
 {
+	if([self isFlagSet:@"check-output-buffers"]) {
+		[self sendMessage:message];
+		return;
+	}
 	message = sendMessageBase(message);
 	if(!outputBuffer)
 		outputBuffer = [[NSString alloc] init];
@@ -139,6 +150,83 @@ static NSString* sendMessageBase(NSString* message) {
 	socket = newSocket;
 }
 
+-(void) setInterpreter:(id<KMInterpreter>)interp {
+	interpreter = interp;
+	if([interpreter respondsToSelector:@selector(setCoordinator:)])
+		[interpreter setCoordinator:self];
+}
+
+-(void) saveToXML:(NSString*)dirToSave withState:(BOOL)withState
+{
+	if(![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]])
+		[[NSFileManager defaultManager] createFileAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]] contents:nil attributes:nil];
+	NSFileHandle* fh = [NSFileHandle fileHandleForWritingAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]];
+	NSXMLElement* rootElement = [[NSXMLElement alloc] initWithName:@"account"];
+	NSXMLNode* nameAttribute = [NSXMLNode attributeWithName:@"name" stringValue:[self valueForKeyPath:@"properties.name"]];
+	NSXMLNode* passwordAttribute = [NSXMLNode attributeWithName:@"password" stringValue:[self valueForKeyPath:@"properties.password"]];
+	[rootElement addAttribute:nameAttribute];
+	[rootElement addAttribute:passwordAttribute];
+	NSXMLElement* flagsElement = [[NSXMLElement alloc] initWithName:@"flags"];
+	for(NSString* flag in [flags allKeys]) {
+		if([self isFlagSet:flag]) {
+			NSXMLElement* flagElement = [[NSXMLElement alloc] initWithName:@"flag"];
+			NSXMLNode* flagNameAttribute = [NSXMLNode attributeWithName:@"flagname" stringValue:flag];
+			NSXMLNode* isSetAttribute = [NSXMLNode attributeWithName:@"isset" stringValue:@"true"];
+			[flagElement addAttribute:flagNameAttribute];
+			[flagElement addAttribute:isSetAttribute];
+			[flagsElement addChild:flagElement];
+		}
+	}
+	[rootElement addChild:flagsElement];
+	for(KMCharacter* character in [self getCharacters]) {
+		[rootElement addChild:[character saveToXML]];
+	}
+	if(withState) {
+		NSXMLElement* stateElement = [[NSXMLElement alloc] initWithName:@"currentstate"];
+		NSXMLNode* stateAttribute = [NSXMLNode attributeWithName:@"state" stringValue:[[[self currentState] class] getName]];
+		NSXMLNode* currentCharacterAttribute = [NSXMLNode attributeWithName:@"currentcharacter" stringValue:[self valueForKeyPath:@"properties.current-character.properties.name"]];
+		[stateElement addAttribute:stateAttribute];
+		[stateElement addAttribute:currentCharacterAttribute];
+		[rootElement addChild:stateElement];
+	}
+	NSXMLDocument* xdoc = [[NSXMLDocument alloc] initWithRootElement:rootElement];
+	[fh writeData:[xdoc XMLDataWithOptions:NSXMLNodePrettyPrint]];
+	[fh closeFile];
+}
+
+-(void) loadFromXML:(NSString*)dirToSave withState:(BOOL)withState
+{
+	NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]];
+	NSXMLDocument* xdoc = [[NSXMLDocument alloc] initWithData:[fh readDataToEndOfFile] options:0 error:NULL];
+	NSXMLElement* rootElement = [xdoc rootElement];
+	[self setValue:[[rootElement attributeForName:@"password"] stringValue] forKeyPath:@"properties.password"];
+	NSArray* flagElems = [rootElement elementsForName:@"flags"];
+	if([flagElems count] > 0) {
+		NSXMLElement* flagsElement = [flagElems objectAtIndex:0];
+		NSArray* flagElements = [flagsElement elementsForName:@"flag"];
+		for(NSXMLElement* flagElement in flagElements) {
+			NSXMLNode* flagNameAttribute = [flagElement attributeForName:@"flagname"];
+			NSXMLNode* isSetAttribute = [flagElement attributeForName:@"isset"];
+			if([[isSetAttribute stringValue] isEqualToString:@"true"])
+				[self setFlag:[flagNameAttribute stringValue]];
+		}
+	}
+	NSArray* characterElements = [rootElement elementsForName:@"character"];
+	for(NSXMLElement* characterElement in characterElements) {
+		[[self getCharacters] addObject:[KMCharacter loadFromXML:characterElement]];
+	}
+	if(withState) {
+		NSXMLElement* stateElement = [[rootElement elementsForName:@"currentstate"] objectAtIndex:0];
+		id<KMState> state = [[[KMStateMachine getState:[[stateElement attributeForName:@"state"] stringValue]] alloc] init];
+		[self setCurrentState:state];
+		NSString* charName = [[stateElement attributeForName:@"currentcharacter"] stringValue];
+		NSPredicate* charTest = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@", charName];
+		NSArray* chars = [[self getCharacters] filteredArrayUsingPredicate:charTest];
+		if([chars count] > 0)
+			[self setValue:[chars objectAtIndex:0] forKeyPath:@"properties.current-character"];
+	}
+	[fh closeFile];
+}
 @synthesize lastReadTime;
 @synthesize outputBuffer;
 @synthesize currentState;

@@ -11,6 +11,7 @@
 #import "KMBasicInterpreter.h"
 #import "KMAccountNameState.h"
 #import "KittyMudStringExtensions.h"
+#import "KMMessageState.h"
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
@@ -31,9 +32,6 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 		if([output length] > 0) {
 			[coordinator sendMessage:output];
 			[coordinator setOutputBuffer:@""];
-			/*if([[[coordinator state] name] isEqualToString:@"PLAYING"]) {
-				[[[coordinator engineManager] getEngine:@"PROMPT"] displayPrompt:coordinator];
-			}*/
 		}
 	}
 }
@@ -63,7 +61,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 
 static NSString* greeting;
 
--(BOOL) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot
+-(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot
 {
 	if(!greeting) {
 		NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/templates/greeting.xml" replaceAllVariables]];
@@ -81,7 +79,7 @@ static NSString* greeting;
 	if(newSocket == NULL) {
 		NSLog(@"[WARNING] Error creating new socket, not adding to pool and closing...");
 		close( handle );
-		return NO;
+		return nil;
 	}
 	[coordinator setSocket:newSocket];
 	[connections addObject:coordinator];
@@ -89,18 +87,6 @@ static NSString* greeting;
 	CFRunLoopRef rl = CFRunLoopGetCurrent();
 	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
 	CFRelease(connRLS);
-	for(int f = 0; f < 256; f++) {
-		NSString* flagName = [NSString stringWithFormat:@"flag%d",f];
-		[coordinator setFlag:flagName];
-	}
-	NSNumber* (^m)(int) = ^NSNumber*(int x){
-		return [NSNumber numberWithInt:x];
-	};
-	NSArray* ftc = [NSArray arrayWithObjects:m(15),m(64),m(72),m(84),m(134),m(155),m(255),m(212),m(186),m(92),m(234),nil];
-	for(NSNumber* num in ftc) {
-		[coordinator clearFlag:[NSString stringWithFormat:@"flag%d",[num intValue]]];
-	}
-	[coordinator debugPrintFlagStatus];
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
@@ -108,7 +94,7 @@ static NSString* greeting;
 	} else {
 		[[coordinator currentState] softRebootMessage:coordinator];
 	}
-	return YES;
+	return coordinator;
 }
 
 
@@ -127,7 +113,7 @@ static NSString* greeting;
 -(void) writeToAllConnections:(NSString*)message
 {
 	for(KMConnectionCoordinator* coordinator in connections) {
-		[coordinator sendMessageToBuffer:message];
+		[coordinator sendMessage:message];
 	}
 }
 

@@ -8,6 +8,22 @@
 
 #import "KMDataManager.h"
 
+@interface KMDataManagerCustomLoading : NSObject {
+	id<KMDataCustomLoader> loader;
+	void* context;
+	NSString* key;
+}
+
+@property (retain) id<KMDataCustomLoader> loader;
+@property (assign) void* context;
+@property (retain) NSString* key;
+@end
+
+@implementation KMDataManagerCustomLoading
+@synthesize loader;
+@synthesize context;
+@synthesize key;
+@end
 
 @implementation KMDataManager
 
@@ -17,8 +33,7 @@
 	if(self) {
 		tagReferences = [[NSMutableDictionary alloc] init];
 		attributeReferences = [[NSMutableDictionary alloc] init];
-		loadStats = NO;
-		statKey = nil;
+		customLoaders = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
@@ -28,11 +43,19 @@
 	[tagReferences setObject:key forKey:tag];
 }
 
+-(void) registerTag:(NSString*)tag forKey:(NSString*)key forCustomLoading:(id<KMDataCustomLoader>)loader withContext:(void*)context {
+	KMDataManagerCustomLoading* cl = [[KMDataManagerCustomLoading alloc] init];
+	[cl setLoader:loader];
+	[cl setContext:context];
+	[cl setKey:key];
+	[customLoaders setObject:cl forKey:tag];
+}
+
 -(void)registerTag:(NSString*)tag,...
 {
 	va_list args;
 	va_start(args,tag);
-	NSMutableDictionary* attributes = [[NSMutableArray alloc] init];
+	NSMutableDictionary* attributes = [[NSMutableDictionary alloc] init];
 	id attribute,key;
 	while(attribute = va_arg(args,id))
 	{
@@ -42,22 +65,7 @@
 	va_end(args);
 	[attributeReferences setObject:attributes forKey:tag];
 }	
-
--(void)registerStatKey:(NSString*)key
-{
-	statKey = [key copy];
-}
-
--(void)enableStatLoad
-{
-	loadStats = YES;
-}
-
--(void)disableStatLoad
-{
-	loadStats = NO;
-}
-
+	
 -(void)loadFromPath:(NSString*)path toObject:(id*)object
 {
 	NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:path];
@@ -71,7 +79,7 @@
 	
 	for(NSString* tag in [tagReferences allKeys])
 	{
-		NSXMLElement* xelem = [[[xdoc rootElement] elementsForName:tag] count] > 0 ? [[[xdoc rootElement] elementsForName:tag] objectAtIndex:0] : nil;
+		NSXMLElement* xelem = [[[xdoc rootElement] nodesForXPath:tag error:NULL] count] > 0 ? [[[xdoc rootElement] nodesForXPath:tag error:NULL] objectAtIndex:0] : nil;
 		if(xelem == nil)
 			continue;
 		
@@ -80,7 +88,10 @@
 	
 	for(NSString* tag in [attributeReferences allKeys])
 	{
-		NSXMLElement* xelem = [[[xdoc rootElement] elementsForName:tag] count] > 0 ? [[[xdoc rootElement] elementsForName:tag] objectAtIndex:0] : nil;
+		NSXMLElement* xelem = [[[xdoc rootElement] nodesForXPath:tag error:NULL] count] > 0 ? [[[xdoc rootElement] nodesForXPath:tag error:NULL] objectAtIndex:0] : nil;
+		if([[[xdoc rootElement] name] isEqualToString:tag])
+			xelem = [xdoc rootElement];
+		
 		if(xelem == nil)
 			continue;
 		
@@ -92,14 +103,19 @@
 		}
 	}
 	
-	if(loadStats)
+	for(NSString* tag in [customLoaders allKeys])
 	{
-		[*object setValue:[KMStat loadFromTemplateUsingXmlDocument:xdoc withType:statLoadType]];
+		NSXMLElement* xelem = [[[xdoc rootElement] nodesForXPath:tag error:NULL] count] > 0 ? [[[xdoc rootElement] nodesForXPath:tag error:NULL] objectAtIndex:0] : nil;
+		if([[[xdoc rootElement] name] isEqualToString:tag])
+			xelem = [xdoc rootElement];
+		
+		if(xelem == nil)
+			continue;
+
+		KMDataManagerCustomLoading* cl = [customLoaders objectForKey:tag];
+		id loadedObject = [[cl loader] customLoader:xelem withContext:[cl context]];
+		[loadedObject debugPrintTree:0];
+		[*object setValue:loadedObject forKey:[cl key]];
 	}
 }
-
-@synthesize loadStats;
-@synthesize statKey;
-@synthesize statLoadType;
-
 @end

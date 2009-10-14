@@ -11,6 +11,7 @@
 #import "KittyMudStringExtensions.h"
 #import "KMServer.h"
 #import "KMCharacter.h"
+#import "KMChooseRaceState.h"
 
 @implementation KMCreateCharacterState
 
@@ -24,6 +25,7 @@
 		NSPredicate* pred = [NSPredicate predicateWithFormat:@"self like[cd] %@", name];
 		if([[names filteredArrayUsingPredicate:pred] count] > 0) {
 			[coordinator sendMessageToBuffer:@"Character name already in use, please choose another."];
+			[self softRebootMessage:coordinator];
 			return self;
 		}
 	} else {
@@ -31,12 +33,13 @@
 	}
 	[coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
 	[coordinator setFlag:@"has-character"];
-	[[coordinator getCharacters] addObject:[[KMCharacter alloc] initializeWithName:name]];
-	NSLog(@"%@",[[[[coordinator getCharacters] objectAtIndex:0] getProperties] objectForKey:@"name"]);
-	return nil;
+	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
+	[[coordinator getCharacters] addObject:character];
+	[[coordinator getProperties] setObject:character forKey:@"current-character"];
+	return [[KMChooseRaceState alloc] init];
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"CreateCharacter";
 }

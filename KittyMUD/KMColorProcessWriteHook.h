@@ -14,5 +14,6 @@
 }
 
 -(id) init;
+
 @property (retain) NSDictionary* colors;
 @end

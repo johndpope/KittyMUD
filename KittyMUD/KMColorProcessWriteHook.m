@@ -45,14 +45,21 @@
 			  @"\x1B[1;46m", @"!C",
 			  @"\x1B[0;47m", @"!w",
 			  @"\x1B[1;47m", @"!W",
+			  @"\t", @"`#",
+			  @"\n\r", @"`@",
 			  @"\x1B[0m", @"`x", nil];
 	return self;
 }
 
 -(NSString*) processHook:(NSString*)input
 {
+	return [self processHook:input replace:YES];
+}
+
+-(NSString*) processHook:(NSString*)input replace:(BOOL)rep
+{
 	for(NSString* key in [colors allKeys]) {
-		input = [input stringByReplacingOccurrencesOfString:key withString:[colors objectForKey:key]];
+		input = [input stringByReplacingOccurrencesOfString:key withString:(rep ? [colors objectForKey:key] : @"")];
 	}
 	return input;
 }

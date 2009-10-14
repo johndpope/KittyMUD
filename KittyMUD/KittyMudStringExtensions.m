@@ -7,6 +7,7 @@
 //
 
 #import "KittyMudStringExtensions.h"
+#import "KMColorProcessWriteHook.h"
 #import <openssl/md5.h>
 #import <RegexKit/RegexKit.h>
 
@@ -55,7 +56,7 @@ static NSMutableDictionary* kmMudVariables = nil;
 											 captureIndex:[regex captureIndexForCaptureName:@"varname"]
 												 options:RKMatchNoOptions];
 		NSString* match = [[self substringWithRange:captureRange] lowercaseString];
-		NSString* replaceString = [dictionary objectForKey:match] != nil ? [dictionary objectForKey:match] : [kmMudVariables objectForKey:match] ? [kmMudVariables objectForKey:match] : nil;
+		NSString* replaceString = [myDictionary objectForKey:match] != nil ? [myDictionary objectForKey:match] : [kmMudVariables objectForKey:match] ? [kmMudVariables objectForKey:match] : nil;
 		if(replaceString != nil)
 			self = [self stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"$(%@)",match] withString:replaceString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [self length])];
 	}
@@ -75,6 +76,28 @@ static NSMutableDictionary* kmMudVariables = nil;
 				   digest[10], digest[11],
 				   digest[12], digest[13],
 				   digest[14], digest[15]];
+	
 	return s;
 }
+
+-(NSString*)getSpacing {
+	__block KMColorProcessWriteHook* hook = [[KMColorProcessWriteHook alloc] init];
+	
+	NSString* (^getStringSpacing)(NSString*) = ^NSString*(NSString* string) {
+		NSMutableString* spacing = [[NSMutableString alloc] init];
+		NSString* clrString = [hook processHook:string replace:NO];
+		int i = [clrString length];
+		while(i++ < 79) {
+			[spacing appendString:@" "];
+		}
+		return (NSString*)spacing;
+	};
+
+	return getStringSpacing(self);
+}
+
+-(NSString*) stringValue {
+	return self;
+}
+
 @end

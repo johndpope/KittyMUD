@@ -26,7 +26,7 @@ typedef void (^KMConnectionReadCallback) (id);
 
 -(id) init;
 
--(BOOL) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot;
+-(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot;
 
 -(void) writeToAllConnections:(NSString*)message;
 

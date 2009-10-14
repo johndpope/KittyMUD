@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KMDataStartup.h"
 
 typedef enum
 {
@@ -18,7 +19,7 @@ typedef enum
 } KMStatLoadType;
 
 
-@interface KMStat : NSObject {
+@interface KMStat : NSObject <KMDataCustomLoader> {
 	int statvalue;
 	NSString* name;
 	NSString* abbreviation;
@@ -53,9 +54,17 @@ typedef enum
 
 +(KMStat*) loadFromTemplateUsingXmlDocument:(NSXMLDocument*)doc withType:(KMStatLoadType)loadType;
 
++(KMStat*) loadFromTemplateWithRootElement:(NSXMLElement*)root;
+
++(KMStat*) loadFromTemplateWithRootElement:(NSXMLElement*)root withType:(KMStatLoadType)loadType;
+
 +(KMStat*) loadFromTemplateWithData:(NSData*)data;
 
 +(KMStat*) loadFromTemplateWithData:(NSData*)data withType:(KMStatLoadType)loadType;
+
+-(NSXMLElement*) saveToXML;
+
+-(NSArray*) getChildren;
 
 @property (retain,readonly,getter=getChildren) NSArray* children;
 @property (assign) int statvalue;

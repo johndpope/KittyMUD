@@ -13,4 +13,6 @@
 
 -(NSString*) processHook:(NSString*) input;
 
+-(NSString*) processHook:(NSString*)input replace:(BOOL)rep;
+
 @end

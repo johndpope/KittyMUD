@@ -16,9 +16,13 @@
 {
 	NSString* input = [coordinator getInputBuffer];
 	[coordinator setCurrentState:[[coordinator currentState] processState:coordinator]];
-	if([[coordinator currentState] conformsToProtocol:@protocol(KMMessageState)]) {
-		[(id<KMMessageState>)[coordinator currentState] sendMessageToCoordinator:coordinator];
+	if(![coordinator isFlagSet:@"no-message"]) {
+		if([[coordinator currentState] conformsToProtocol:@protocol(KMMessageState)]) {
+			[(id<KMMessageState>)[coordinator currentState] sendMessageToCoordinator:coordinator];
+		}
 	}
+	else
+		[coordinator clearFlag:@"no-message"];
 }
 
 @end

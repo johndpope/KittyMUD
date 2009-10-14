@@ -7,14 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <RegexKit/RegexKit.h>
 #import "KMStat.h"
+#import "KittyMudStringExtensions.h"
+#import "KMDataStartup.h"
 
 @interface KMDataManager : NSObject {
 	NSMutableDictionary* tagReferences;
+	NSMutableDictionary* subtagReferences;
 	NSMutableDictionary* attributeReferences;
-	BOOL loadStats;
-	NSString* statKey;
-	KMStatLoadType statLoadType;
+	NSMutableDictionary* customLoaders;
 }
 
 -(id)init;
@@ -23,11 +25,8 @@
 
 -(void)registerTag:(NSString*)tag,...;
 
+-(void) registerTag:(NSString*)tag forKey:(NSString*)key forCustomLoading:(id<KMDataCustomLoader>)loader withContext:(void*)context;
+
 -(void)loadFromPath:(NSString*)path toObject:(id*)object;
 
-@property (copy) NSString* statKey;
-
-@property (assign) BOOL loadStats;
-
-@property (assign) KMStatLoadType statLoadType;
 @end

@@ -10,18 +10,24 @@
 #import "KMConnectionCoordinator.h"
 #import "KittyMudStringExtensions.h"
 #import "KMConfirmPasswordState.h"
+#import "KMNewPasswordState.h"
+#import "KMStateMachine.h"
 
 @implementation KMNewPasswordState
+
++(void)initialize {
+	[KMStateMachine registerState:[self class]];
+}
 
 -(id<KMState>) processState:(id)coordinator
 {
 	[coordinator setFlag:@"new-password"];
 	[[coordinator getProperties] setObject:[[coordinator getInputBuffer] MD5] forKey:@"password"];
-	[coordinator sendMessageToBuffer:@"Please confirm your password: "];
+	[coordinator sendMessageToBuffer:@"\t \nPlease confirm your password: "];
 	return [[KMConfirmPasswordState alloc] init];
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"NewPassword";
 }

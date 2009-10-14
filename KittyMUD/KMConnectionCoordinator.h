@@ -41,12 +41,16 @@
 
 -(void) setSocket:(CFSocketRef)newSocket;
 
+-(void) saveToXML:(NSString*)path withState:(BOOL)withState;
+
+-(void) loadFromXML:(NSString*)path withState:(BOOL)withState;
+
 @property (copy,getter=getLastReadTime) NSDate* lastReadTime;
 @property (copy,getter=getInputBuffer) NSString* inputBuffer;
 @property (getter=getSocket,setter=setSocket:) CFSocketRef socket;
 @property (copy) NSString* outputBuffer;
 @property (retain) id<KMState> currentState;
-@property (retain) id<KMInterpreter> interpreter;
+@property (retain,setter=setInterpreter:) id<KMInterpreter> interpreter;
 @property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
 @property (retain,readonly,getter=getCharacters) NSMutableArray* characters;
 @property (retain,readonly) NSMutableArray* flagbase;

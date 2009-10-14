@@ -10,14 +10,16 @@
 		<skill name="whirlwind" lvl="20"/>
 		<skill name="swordrush" lvl="30"/>
 	</skillset>
-	<statcollection name="main" abbr="main">
-		<statcollection name="physical" abbr="phys" jobreq="12">
-			<stat name="strength" abbr="str" jobreq="8"/>
-			<stat name="constitution" abbr="con" jobreq="8"/>
-			<stat name="dexterity" abbr="dex" jobreq="8"/>
+	<stattemplate>
+	<statcollection statname="main" abbr="main">
+		<statcollection statname="physical" abbr="phys" jobreq="12">
+			<stat statname="strength" abbr="str" jobreq="8"/>
+			<stat statname="constitution" abbr="con" jobreq="8"/>
+			<stat statname="dexterity" abbr="dex" jobreq="8"/>
 		</statcollection>
-		<statcollection name="jobs" abbr="jobs">
-			<stat name="page" abbr="page" jobreq="20" />
+		<statcollection statname="jobs" abbr="jobs">
+			<stat statname="page" abbr="page" jobreq="20" />
 		</statcollection>
 	</statcollection>
+	</stattemplate>
 </job>

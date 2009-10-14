@@ -101,8 +101,12 @@
 			else
 				return [[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0];
 		}
-		else 
-			return nil;
+		else {
+			for(KMStat* child in children) {
+				if([child findStatWithPath:path] != nil)
+					return [child findStatWithPath:path];
+			}
+		}
 	}
 	return nil;
 }
@@ -220,11 +224,20 @@
 
 +(KMStat*) loadFromTemplateUsingXmlDocument:(NSXMLDocument*)doc withType:(KMStatLoadType)loadType
 {
+	return [self loadFromTemplateWithRootElement:[doc rootElement] withType:loadType];
+}
+
++(KMStat*) loadFromTemplateWithRootElement:(NSXMLElement *)root {
+	return [self loadFromTemplateWithRootElement:root withType:KMStatLoadTypeDefault];
+}
+
++(KMStat*) loadFromTemplateWithRootElement:(NSXMLElement *)root withType:(KMStatLoadType)loadType
+{
 	__block KMStat* main = [[KMStat alloc] initializeWithName:@"main" andValue:0];
-	if(doc == nil)
+	if(root == nil)
 		return main;
 	
-	NSArray* statcollection = [[doc rootElement] elementsForName:@"statcollection"];
+	NSArray* statcollection = [root elementsForName:@"statcollection"];
 	if([statcollection count] == 0)
 		return main;
 	
@@ -238,7 +251,6 @@
 		NSXMLNode* allocAttribute = [mainElement valueForKey:@"alloc"];
 		if(allocAttribute != nil)
 			[[main getProperties] setObject:[NSNumber numberWithInt:[[allocAttribute stringValue] intValue]] forKey:@"allocatable"];
-		
 	}
 	
 	NSString* attributeToLookFor;
@@ -266,13 +278,17 @@
 		if(nameAttribute == nil)
 			return nil;
 		NSString* statName = [nameAttribute stringValue];
+		NSXMLNode* abbreviationAttribute = [element valueForKey:@"abbr"];
+		NSString* statAbbr = statName;
+		if(abbreviationAttribute != nil)
+			statAbbr = [abbreviationAttribute stringValue];
 		int _statvalue = 0;
 		BOOL changeable = NO;
 		NSXMLNode* valueAttribute = [element valueForKey:attributeToLookFor];
 		if(valueAttribute != nil)
 			_statvalue = [[valueAttribute stringValue] intValue];
 		
-		stat = [[KMStat alloc] initializeWithName:statName andValue:0];
+		stat = [[KMStat alloc] initializeWithName:statName andAbbreviation:statAbbr andValue:0];
 		if(loadType == KMStatLoadTypeAllocation) {
 			[[stat getProperties] setObject:[NSNumber numberWithInt:_statvalue] forKey:@"allocatable"];
 			NSXMLNode* changeableAttribute = [element valueForKey:@"changeable"];
@@ -341,6 +357,38 @@
 	}
 }
 
+
++(id)customLoader:(NSXMLElement*)xelem withContext:(void*)context
+{
+	KMStatLoadType type = *(KMStatLoadType*)context;
+	return [KMStat loadFromTemplateWithRootElement:xelem withType:type];
+}
+
+-(NSArray*) getChildren {
+	return (NSArray*)children;
+}
+
+-(NSXMLElement*) saveToXML {
+	NSString* mainName;
+	if([self hasChildren])
+		mainName = @"statcollection";
+	else {
+		mainName = @"stat";
+	}
+	NSXMLElement* mainElement = [[NSXMLElement alloc] initWithName:mainName];
+	NSXMLNode* nameAttribute = [NSXMLNode attributeWithName:@"statname" stringValue:[self name]];
+	NSXMLNode* abbreviationAttribute = [NSXMLNode attributeWithName:@"abbr" stringValue:[self abbreviation]];
+	NSXMLNode* valueAttribute = [NSXMLNode attributeWithName:@"value" stringValue:[[NSNumber numberWithInt:[self statvalue]] stringValue]];
+	[mainElement addAttribute:nameAttribute];
+	[mainElement addAttribute:abbreviationAttribute];
+	[mainElement addAttribute:valueAttribute];
+	if([self hasChildren]) {
+		for(KMStat* child in [self getChildren]) {
+			[mainElement addChild:[child saveToXML]];
+		}
+	}
+	return mainElement;
+}
 @synthesize statvalue;
 @synthesize name;
 @synthesize parent;

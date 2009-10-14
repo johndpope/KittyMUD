@@ -12,8 +12,9 @@
 
 -(id<KMState>) processState:(id)coordinator;
 
--(NSString*) getName;
++(NSString*) getName;
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
 -(void) softRebootMessage:(id)coordinator;
+
 @end

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0E12A71079459800537E9B /* KMRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E12A61079459800537E9B /* KMRace.m */; };
+		3A0E1333107A67EE00537E9B /* KMMenuHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E1332107A67EE00537E9B /* KMMenuHandler.m */; };
+		3A0E1341107A6BE500537E9B /* KMChooseRaceState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E1340107A6BE500537E9B /* KMChooseRaceState.m */; };
+		3A642E96107E271B005A2619 /* KMStatCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A642E95107E271B005A2619 /* KMStatCopy.m */; };
+		3A642E9A107E2DD4005A2619 /* KMStatAllocationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */; };
+		3A6D3D8A1080B492006F4727 /* KMStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D3D891080B492006F4727 /* KMStatAllocationState.m */; };
+		3A6D3EF61081054D006F4727 /* KMJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D3EF51081054D006F4727 /* KMJob.m */; };
+		3A6D3FF010824EF5006F4727 /* KMInfoDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D3FEF10824EF5006F4727 /* KMInfoDisplay.m */; };
+		3A6D401E108256B8006F4727 /* KMStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D401D108256B8006F4727 /* KMStack.m */; };
+		3A6D402910825B38006F4727 /* KMConfirmStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D402810825B38006F4727 /* KMConfirmStatAllocationState.m */; };
+		3A6D402C10825D14006F4727 /* KMChooseJobState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D402B10825D14006F4727 /* KMChooseJobState.m */; };
 		3A78ECA21065749C002209B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ECA11065749C002209B6 /* Foundation.framework */; };
 		3A78ED2B106574DF002209B6 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2A106574DF002209B6 /* libcrypto.dylib */; };
 		3A78ED2D106574EA002209B6 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
@@ -27,8 +38,14 @@
 		3AC38CD41062B1B20011EBD4 /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */; };
 		3AC38CFD1062B8620011EBD4 /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */; };
 		3AC38D821063BD5C0011EBD4 /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */; };
+		3AD8C403107BD03B003B810E /* KMCommandInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8C402107BD03B003B810E /* KMCommandInterpreter.m */; };
 		3AE80B5F1064770700B86C4B /* KMCreateCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */; };
 		3AE80B6A1064874800B86C4B /* KMCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B691064874800B86C4B /* KMCharacter.m */; };
+		3AE9DAA31083636F00AED290 /* KMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DAA21083636F00AED290 /* KMRoom.m */; };
+		3AE9DAA71083644900AED290 /* KMExitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DAA61083644900AED290 /* KMExitInfo.m */; };
+		3AE9DB821084F06D00AED290 /* KMStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DB811084F06D00AED290 /* KMStateMachine.m */; };
+		3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
+		3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
 		8DD76F9A0486AA7600D96B5E /* KittyMUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9F0486AA7600D96B5E /* KittyMUD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */; };
 /* End PBXBuildFile section */
@@ -59,6 +76,30 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* KittyMUD.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = KittyMUD.m; sourceTree = "<group>"; };
 		32A70AAB03705E1F00C91783 /* KittyMUD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD_Prefix.pch; sourceTree = "<group>"; };
+		3A0E12A51079459800537E9B /* KMRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRace.h; sourceTree = "<group>"; };
+		3A0E12A61079459800537E9B /* KMRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRace.m; sourceTree = "<group>"; };
+		3A0E132C107A53C300537E9B /* KMDataStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataStartup.h; sourceTree = "<group>"; };
+		3A0E1331107A67EE00537E9B /* KMMenuHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMenuHandler.h; sourceTree = "<group>"; };
+		3A0E1332107A67EE00537E9B /* KMMenuHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMenuHandler.m; sourceTree = "<group>"; };
+		3A0E1334107A694100537E9B /* KMMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMenu.h; sourceTree = "<group>"; };
+		3A0E133F107A6BE500537E9B /* KMChooseRaceState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseRaceState.h; sourceTree = "<group>"; };
+		3A0E1340107A6BE500537E9B /* KMChooseRaceState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseRaceState.m; sourceTree = "<group>"; };
+		3A642E94107E271B005A2619 /* KMStatCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatCopy.h; sourceTree = "<group>"; };
+		3A642E95107E271B005A2619 /* KMStatCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatCopy.m; sourceTree = "<group>"; };
+		3A642E98107E2DD4005A2619 /* KMStatAllocationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatAllocationLogic.h; sourceTree = "<group>"; };
+		3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatAllocationLogic.m; sourceTree = "<group>"; };
+		3A6D3D881080B492006F4727 /* KMStatAllocationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatAllocationState.h; sourceTree = "<group>"; };
+		3A6D3D891080B492006F4727 /* KMStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatAllocationState.m; sourceTree = "<group>"; };
+		3A6D3EF41081054D006F4727 /* KMJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMJob.h; sourceTree = "<group>"; };
+		3A6D3EF51081054D006F4727 /* KMJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMJob.m; sourceTree = "<group>"; };
+		3A6D3FEE10824EF5006F4727 /* KMInfoDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInfoDisplay.h; sourceTree = "<group>"; };
+		3A6D3FEF10824EF5006F4727 /* KMInfoDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInfoDisplay.m; sourceTree = "<group>"; };
+		3A6D401C108256B8006F4727 /* KMStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStack.h; sourceTree = "<group>"; };
+		3A6D401D108256B8006F4727 /* KMStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStack.m; sourceTree = "<group>"; };
+		3A6D402710825B38006F4727 /* KMConfirmStatAllocationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConfirmStatAllocationState.h; sourceTree = "<group>"; };
+		3A6D402810825B38006F4727 /* KMConfirmStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConfirmStatAllocationState.m; sourceTree = "<group>"; };
+		3A6D402A10825D14006F4727 /* KMChooseJobState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseJobState.h; sourceTree = "<group>"; };
+		3A6D402B10825D14006F4727 /* KMChooseJobState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseJobState.m; sourceTree = "<group>"; };
 		3A78ECA11065749C002209B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A78ED2A106574DF002209B6 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
 		3A78ED2C106574EA002209B6 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -72,12 +113,11 @@
 		3A78EDE310672DF1002209B6 /* elf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = elf.xml; sourceTree = "<group>"; };
 		3A78EDE410672DF1002209B6 /* human.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = human.xml; sourceTree = "<group>"; };
 		3A78EDE510672DF1002209B6 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
-		3A78EDE810672DF1002209B6 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
-		3A78EDE910672DF1002209B6 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
 		3A78EEA51067CA19002209B6 /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMQuitState.h; sourceTree = "<group>"; };
 		3A78EEA61067CA19002209B6 /* KMQuitState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMQuitState.m; sourceTree = "<group>"; };
 		3A78EF441067EC33002209B6 /* KMChooseCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterState.h; sourceTree = "<group>"; };
 		3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterState.m; sourceTree = "<group>"; };
+		3A8C1EF8107D0753001530AA /* KMCommandInterpreterLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInterpreterLogic.h; sourceTree = "<group>"; };
 		3AAA35321077A987000D0767 /* KMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataManager.h; sourceTree = "<group>"; };
 		3AAA35331077A987000D0767 /* KMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataManager.m; sourceTree = "<group>"; };
 		3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountNameState.h; sourceTree = "<group>"; };
@@ -110,10 +150,24 @@
 		3AC38D801063BD5C0011EBD4 /* KMAccountMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenuState.h; sourceTree = "<group>"; };
 		3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountMenuState.m; sourceTree = "<group>"; };
 		3AC38E701063FB950011EBD4 /* KMMessageState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMessageState.h; sourceTree = "<group>"; };
+		3AD8C401107BD03B003B810E /* KMCommandInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInterpreter.h; sourceTree = "<group>"; };
+		3AD8C402107BD03B003B810E /* KMCommandInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommandInterpreter.m; sourceTree = "<group>"; };
 		3AE80B5D1064770700B86C4B /* KMCreateCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCreateCharacterState.h; sourceTree = "<group>"; };
 		3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCreateCharacterState.m; sourceTree = "<group>"; };
 		3AE80B681064874800B86C4B /* KMCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCharacter.h; sourceTree = "<group>"; };
 		3AE80B691064874800B86C4B /* KMCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCharacter.m; sourceTree = "<group>"; };
+		3AE9DAA11083636F00AED290 /* KMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRoom.h; sourceTree = "<group>"; };
+		3AE9DAA21083636F00AED290 /* KMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRoom.m; sourceTree = "<group>"; };
+		3AE9DAA51083644900AED290 /* KMExitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExitInfo.h; sourceTree = "<group>"; };
+		3AE9DAA61083644900AED290 /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExitInfo.m; sourceTree = "<group>"; };
+		3AE9DABB10838C2700AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
+		3AE9DABC10838C2700AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
+		3AE9DB801084F06D00AED290 /* KMStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStateMachine.h; sourceTree = "<group>"; };
+		3AE9DB811084F06D00AED290 /* KMStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStateMachine.m; sourceTree = "<group>"; };
+		3AE9DBB51084F66F00AED290 /* KMPlayingLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingLogic.h; sourceTree = "<group>"; };
+		3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingLogic.m; sourceTree = "<group>"; };
+		3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingState.h; sourceTree = "<group>"; };
+		3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingState.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* KittyMUD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KittyMUD; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +201,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3AE9DAA41083637B00AED290 /* World */,
+				3A642E97107E2DC6005A2619 /* InterpreterLogic */,
 				3AAA352A10779728000D0767 /* Data */,
 				3AE80B641064858600B86C4B /* Character */,
 				3AC38CD01062ACAF0011EBD4 /* Interpreters */,
@@ -166,6 +222,17 @@
 				8DD76FA10486AA7600D96B5E /* KittyMUD */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3A642E97107E2DC6005A2619 /* InterpreterLogic */ = {
+			isa = PBXGroup;
+			children = (
+				3A642E98107E2DD4005A2619 /* KMStatAllocationLogic.h */,
+				3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */,
+				3AE9DBB51084F66F00AED290 /* KMPlayingLogic.h */,
+				3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */,
+			);
+			name = InterpreterLogic;
 			sourceTree = "<group>";
 		};
 		3A78ECAA106574B4002209B6 /* External Libraries and Frameworks */ = {
@@ -221,18 +288,10 @@
 		3A78EDE610672DF1002209B6 /* world */ = {
 			isa = PBXGroup;
 			children = (
-				3A78EDE710672DF1002209B6 /* start */,
+				3AE9DABB10838C2700AED290 /* marketsquare.xml */,
+				3AE9DABC10838C2700AED290 /* submarket.xml */,
 			);
 			path = world;
-			sourceTree = "<group>";
-		};
-		3A78EDE710672DF1002209B6 /* start */ = {
-			isa = PBXGroup;
-			children = (
-				3A78EDE810672DF1002209B6 /* marketsquare.xml */,
-				3A78EDE910672DF1002209B6 /* submarket.xml */,
-			);
-			path = start;
 			sourceTree = "<group>";
 		};
 		3AAA352A10779728000D0767 /* Data */ = {
@@ -240,6 +299,11 @@
 			children = (
 				3AAA35321077A987000D0767 /* KMDataManager.h */,
 				3AAA35331077A987000D0767 /* KMDataManager.m */,
+				3A0E12A51079459800537E9B /* KMRace.h */,
+				3A0E12A61079459800537E9B /* KMRace.m */,
+				3A0E132C107A53C300537E9B /* KMDataStartup.h */,
+				3A6D3EF41081054D006F4727 /* KMJob.h */,
+				3A6D3EF51081054D006F4727 /* KMJob.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -277,6 +341,21 @@
 				3A78EEA61067CA19002209B6 /* KMQuitState.m */,
 				3A78EF441067EC33002209B6 /* KMChooseCharacterState.h */,
 				3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */,
+				3A0E1331107A67EE00537E9B /* KMMenuHandler.h */,
+				3A0E1332107A67EE00537E9B /* KMMenuHandler.m */,
+				3A0E1334107A694100537E9B /* KMMenu.h */,
+				3A0E133F107A6BE500537E9B /* KMChooseRaceState.h */,
+				3A0E1340107A6BE500537E9B /* KMChooseRaceState.m */,
+				3A6D3D881080B492006F4727 /* KMStatAllocationState.h */,
+				3A6D3D891080B492006F4727 /* KMStatAllocationState.m */,
+				3A6D402710825B38006F4727 /* KMConfirmStatAllocationState.h */,
+				3A6D402810825B38006F4727 /* KMConfirmStatAllocationState.m */,
+				3A6D402A10825D14006F4727 /* KMChooseJobState.h */,
+				3A6D402B10825D14006F4727 /* KMChooseJobState.m */,
+				3AE9DB801084F06D00AED290 /* KMStateMachine.h */,
+				3AE9DB811084F06D00AED290 /* KMStateMachine.m */,
+				3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */,
+				3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */,
 			);
 			name = StateMachine;
 			sourceTree = "<group>";
@@ -293,6 +372,10 @@
 				3AC38BD510627D1F0011EBD4 /* KMVariableManager.h */,
 				3AC38BD610627D1F0011EBD4 /* KMVariableManager.m */,
 				3AC38BD710627D1F0011EBD4 /* KMWriteHook.h */,
+				3A6D3FEE10824EF5006F4727 /* KMInfoDisplay.h */,
+				3A6D3FEF10824EF5006F4727 /* KMInfoDisplay.m */,
+				3A6D401C108256B8006F4727 /* KMStack.h */,
+				3A6D401D108256B8006F4727 /* KMStack.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -303,6 +386,9 @@
 				3AC38CD11062ACC10011EBD4 /* KMInterpreter.h */,
 				3AC38CD21062B1B20011EBD4 /* KMBasicInterpreter.h */,
 				3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */,
+				3AD8C401107BD03B003B810E /* KMCommandInterpreter.h */,
+				3AD8C402107BD03B003B810E /* KMCommandInterpreter.m */,
+				3A8C1EF8107D0753001530AA /* KMCommandInterpreterLogic.h */,
 			);
 			name = Interpreters;
 			sourceTree = "<group>";
@@ -314,8 +400,21 @@
 				3AE80B691064874800B86C4B /* KMCharacter.m */,
 				3A78ED5310669D55002209B6 /* KMStat.h */,
 				3A78ED5410669D55002209B6 /* KMStat.m */,
+				3A642E94107E271B005A2619 /* KMStatCopy.h */,
+				3A642E95107E271B005A2619 /* KMStatCopy.m */,
 			);
 			name = Character;
+			sourceTree = "<group>";
+		};
+		3AE9DAA41083637B00AED290 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9DAA11083636F00AED290 /* KMRoom.h */,
+				3AE9DAA21083636F00AED290 /* KMRoom.m */,
+				3AE9DAA51083644900AED290 /* KMExitInfo.h */,
+				3AE9DAA61083644900AED290 /* KMExitInfo.m */,
+			);
+			name = World;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -409,6 +508,23 @@
 				3A78EEA71067CA19002209B6 /* KMQuitState.m in Sources */,
 				3A78EF461067EC33002209B6 /* KMChooseCharacterState.m in Sources */,
 				3AAA35341077A987000D0767 /* KMDataManager.m in Sources */,
+				3A0E12A71079459800537E9B /* KMRace.m in Sources */,
+				3A0E1333107A67EE00537E9B /* KMMenuHandler.m in Sources */,
+				3A0E1341107A6BE500537E9B /* KMChooseRaceState.m in Sources */,
+				3AD8C403107BD03B003B810E /* KMCommandInterpreter.m in Sources */,
+				3A642E96107E271B005A2619 /* KMStatCopy.m in Sources */,
+				3A642E9A107E2DD4005A2619 /* KMStatAllocationLogic.m in Sources */,
+				3A6D3D8A1080B492006F4727 /* KMStatAllocationState.m in Sources */,
+				3A6D3EF61081054D006F4727 /* KMJob.m in Sources */,
+				3A6D3FF010824EF5006F4727 /* KMInfoDisplay.m in Sources */,
+				3A6D401E108256B8006F4727 /* KMStack.m in Sources */,
+				3A6D402910825B38006F4727 /* KMConfirmStatAllocationState.m in Sources */,
+				3A6D402C10825D14006F4727 /* KMChooseJobState.m in Sources */,
+				3AE9DAA31083636F00AED290 /* KMRoom.m in Sources */,
+				3AE9DAA71083644900AED290 /* KMExitInfo.m in Sources */,
+				3AE9DB821084F06D00AED290 /* KMStateMachine.m in Sources */,
+				3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */,
+				3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

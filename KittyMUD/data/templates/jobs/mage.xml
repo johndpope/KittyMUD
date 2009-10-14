@@ -25,11 +25,13 @@
 		<feat name="advspellspec (%spell%)" minlvl="15" req="[spell:[%spell%:10]]" />
 		<feat name="epicspellspec (%spell%)" minlvl="25" req="[spell:[%spell%:20]]" />
 	</feats>
-	<statcollection name="main" abbr="main">
-		<statcollection name="mental" abbr="mntl" jobreq="15">
-			<stat name="intelligence" abbr="int" jobreq="10" />
-			<stat name="wisdom" abbr="wis" jobreq="5" />
-			<stat name="comprehension" abbr="cmp" jobreq="8" />
+	<stattemplate>
+	<statcollection statname="main" abbr="main">
+		<statcollection statname="mental" abbr="mntl" jobreq="15">
+			<stat statname="intelligence" abbr="int" jobreq="10" />
+			<stat statname="wisdom" abbr="wis" jobreq="5" />
+			<stat statname="comprehension" abbr="cmp" jobreq="8" />
 		</statcollection>
 	</statcollection>
+	</stattemplate>
 </job>

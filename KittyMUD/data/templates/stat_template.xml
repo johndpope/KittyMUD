@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <stattemplate>
-	<statcollection statname="main" abbr="main" alloc="30">
-		<statcollection statname="physical" abbr="phys" jobreq="true" bonus="0" alloc="30" changeable="true">
+	<statcollection statname="main" abbr="main" alloc="50">
+		<statcollection statname="physical" abbr="phys" jobreq="true" bonus="0" alloc="40" changeable="true">
 			<stat statname="strength" abbr="str" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="dexterity" abbr="dex" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="constitution" abbr="con" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="speed" abbr="spd" jobreq="true" bonus="0" changeable="true"/>
 		</statcollection>
-		<statcollection statname="mental" abbr="mntl" jobreq="true" bonus="0" alloc="30" changeable="true">
+		<statcollection statname="mental" abbr="mntl" jobreq="true" bonus="0" alloc="40" changeable="true">
 			<stat statname="intelligence" abbr="int" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="wisdom" abbr="wis" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="comprehension" abbr="cmp" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="inference" abbr="inf" jobreq="true" bonus="0" changeable="true"/>
 		</statcollection>
-		<statcollection statname="social" abbr="scl" jobreq="true" bonus="0" alloc="30" changeable="true">
+		<statcollection statname="social" abbr="scl" jobreq="true" bonus="0" alloc="35" changeable="true">
 			<stat statname="empathy" abbr="emp" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="persuasion" abbr="per" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="conversation" abbr="cnv" jobreq="true" bonus="0" changeable="true"/>

@@ -8,12 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMMessageState.h"
+#import "KMMenuHandler.h"
 
 @interface KMAccountMenuState : NSObject <KMMessageState> {
 	NSMutableArray* myItems;
+	KMMenuHandler* menu;
 }
 
 -(id) initializeWithCoordinator:(id)coordinator;
 
-@property (retain) NSMutableArray* myItems;
+@property (copy) NSMutableArray* myItems;
 @end

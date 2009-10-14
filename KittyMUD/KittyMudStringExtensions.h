@@ -20,5 +20,9 @@
 
 -(NSString*) replaceAllVariablesWithDictionary:(NSDictionary*)dictionary;
 
+-(NSString*) getSpacing;
 -(NSString*) MD5;
+
+-(NSString*) stringValue;
+
 @end

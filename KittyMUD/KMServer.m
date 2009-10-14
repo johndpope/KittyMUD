@@ -103,8 +103,8 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	[[NSFileManager defaultManager] createFileAtPath:sr contents:nil attributes:nil];
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:sr];
 	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
-		//[coordinator saveToXmlWithState];
-		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),@"NULL"/*[[coordinator getAccount] name]*/] dataUsingEncoding:NSASCIIStringEncoding]];
+		[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables] withState:YES];
+		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),[coordinator valueForKeyPath:@"properties.name"]] dataUsingEncoding:NSASCIIStringEncoding]];
 	}
 	[softRebootFile closeFile];
 	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSASCIIStringEncoding];
@@ -124,7 +124,10 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 			continue;
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
-		[connectionPool newConnectionWithSocketHandle:cfs softReboot:YES];
+		id coordinator = [connectionPool newConnectionWithSocketHandle:cfs softReboot:YES];
+		[coordinator setValue:[components objectAtIndex:1] forKeyPath:@"properties.name"];
+		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables] withState:YES];
+		[[coordinator currentState] softRebootMessage:coordinator];
 	}
 	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();
 	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);

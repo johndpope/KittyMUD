@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <race name="dwarf" abbr="dwf">
-	<statcollection name="main" abbr="main">
-		<statcollection name="physical" abbr="phys" bonus="3">
-			<stat name="strength" abbr="str" bonus="2"/>
-			<stat name="dexterity" abbr="dex" bonus="-1"/>
-			<stat name="constitution" abbr="con" bonus="3"/>
-			<stat name="speed" abbr="spd" bonus="-1"/>
-		</statcollection>
-		<statcollection name="mental" abbr="mntl" bonus="-2">
-			<stat name="intelligence" abbr="int" bonus="-2"/>
-			<stat name="wisdom" abbr="wis" bonus="1"/>
-			<stat name="comprehension" abbr="cmp" bonus="-1"/>
-			<stat name="inference" abbr="inf" bonus="-3"/>
-		</statcollection>
-		<statcollection name="social" abbr="scl" bonus="1">
-			<stat name="empathy" abbr="emp" bonus="-1"/>
-			<stat name="persuasion" abbr="per" bonus="-1"/>
-			<stat name="conversation" abbr="cnv" bonus="2"/>
-		</statcollection>
-		<statcollection name="resistances" abbr="res">
-			<stat name="earth" abbr="earth" bonus="5"/>
-			<stat name="fire" abbr="fire" bonus="10"/>
-		</statcollection>
-		<statcollection name="special" abbr="spec">
-			<statcollection name="profbonus" abbr="profb">
-				<stat name="mining" abbr="mine" bonus="5"/>
-				<stat name="jewelcrafting" abbr="jewel" bonus="10"/>
+	<stattemplate>
+		<statcollection statname="main" abbr="main">
+			<statcollection statname="physical" abbr="phys" bonus="3">
+				<stat statname="strength" abbr="str" bonus="2"/>
+				<stat statname="dexterity" abbr="dex" bonus="-1"/>
+				<stat statname="constitution" abbr="con" bonus="3"/>
+				<stat statname="speed" abbr="spd" bonus="-1"/>
+			</statcollection>
+			<statcollection statname="mental" abbr="mntl" bonus="-2">
+				<stat statname="intelligence" abbr="int" bonus="-2"/>
+				<stat statname="wisdom" abbr="wis" bonus="1"/>
+				<stat statname="comprehension" abbr="cmp" bonus="-1"/>
+				<stat statname="inference" abbr="inf" bonus="-3"/>
+			</statcollection>
+			<statcollection statname="social" abbr="scl" bonus="1">
+				<stat statname="empathy" abbr="emp" bonus="-1"/>
+				<stat statname="persuasion" abbr="per" bonus="-1"/>
+				<stat statname="conversation" abbr="cnv" bonus="2"/>
+			</statcollection>
+			<statcollection statname="resistances" abbr="res">
+				<stat statname="earth" abbr="earth" bonus="5"/>
+				<stat statname="fire" abbr="fire" bonus="10"/>
+			</statcollection>
+			<statcollection statname="special" abbr="spec">
+				<statcollection statname="profbonus" abbr="profb">
+					<stat statname="mining" abbr="mine" bonus="5"/>
+					<stat statname="jewelcrafting" abbr="jewel" bonus="10"/>
+				</statcollection>
 			</statcollection>
 		</statcollection>
-	</statcollection>
+	</stattemplate>
 </race>

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@protocol KMInterpreter
+@protocol KMInterpreter <NSObject>
 
 -(void) interpret:(id)coordinator;
 

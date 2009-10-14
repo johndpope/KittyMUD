@@ -7,11 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMState.h"
+#import "KMMessageState.h"
 #import "KMAccountMenu.h"
+#import "KMMenuHandler.h"
+#import "KMCharacter.h"
+#import "KMRoom.h"
 
-@interface KMChooseCharacterState : NSObject <KMState,KMAccountMenu> {
-
+@interface KMChooseCharacterState : NSObject <KMMessageState,KMAccountMenu> {
+	KMMenuHandler* menu;
 }
 
+-(id) init;
 @end
