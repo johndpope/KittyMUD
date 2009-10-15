@@ -12,13 +12,9 @@
 #import "KMConfirmPasswordState.h"
 #import "KMNewPasswordState.h"
 #import "KMServer.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMAccountNameState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id<KMState>) processState:(id)coordinator 
 {
@@ -32,7 +28,7 @@
 	}
 	[[coordinator getProperties] setObject:[coordinator getInputBuffer] forKey:@"name"];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
-		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables] withState:NO];
+		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables]];
 		[coordinator sendMessageToBuffer:@"Please enter your password:"];
 		returnState = [[KMConfirmPasswordState alloc] init];
 	} else {

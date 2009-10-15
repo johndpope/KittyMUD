@@ -12,13 +12,9 @@
 #import "KittyMudStringExtensions.h"
 #import "KMServer.h"
 #import "KMAccountMenuState.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMConfirmPasswordState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id<KMState>) processState:(id)coordinator
 {

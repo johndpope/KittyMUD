@@ -9,13 +9,9 @@
 #import "KMConfirmStatAllocationState.h"
 #import "KMStatAllocationState.h"
 #import "KMChooseJobState.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMConfirmStatAllocationState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id<KMState>) processState:(id)coordinator
 {

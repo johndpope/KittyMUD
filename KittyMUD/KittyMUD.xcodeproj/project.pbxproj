@@ -43,7 +43,6 @@
 		3AE80B6A1064874800B86C4B /* KMCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B691064874800B86C4B /* KMCharacter.m */; };
 		3AE9DAA31083636F00AED290 /* KMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DAA21083636F00AED290 /* KMRoom.m */; };
 		3AE9DAA71083644900AED290 /* KMExitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DAA61083644900AED290 /* KMExitInfo.m */; };
-		3AE9DB821084F06D00AED290 /* KMStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DB811084F06D00AED290 /* KMStateMachine.m */; };
 		3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
 		3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
 		3AE9DE551087747C00AED290 /* KMCommandInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DE541087747C00AED290 /* KMCommandInfo.m */; };
@@ -163,8 +162,6 @@
 		3AE9DAA61083644900AED290 /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExitInfo.m; sourceTree = "<group>"; };
 		3AE9DABB10838C2700AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
 		3AE9DABC10838C2700AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
-		3AE9DB801084F06D00AED290 /* KMStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStateMachine.h; sourceTree = "<group>"; };
-		3AE9DB811084F06D00AED290 /* KMStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStateMachine.m; sourceTree = "<group>"; };
 		3AE9DBB51084F66F00AED290 /* KMPlayingLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingLogic.h; sourceTree = "<group>"; };
 		3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingLogic.m; sourceTree = "<group>"; };
 		3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingState.h; sourceTree = "<group>"; };
@@ -355,8 +352,6 @@
 				3A6D402810825B38006F4727 /* KMConfirmStatAllocationState.m */,
 				3A6D402A10825D14006F4727 /* KMChooseJobState.h */,
 				3A6D402B10825D14006F4727 /* KMChooseJobState.m */,
-				3AE9DB801084F06D00AED290 /* KMStateMachine.h */,
-				3AE9DB811084F06D00AED290 /* KMStateMachine.m */,
 				3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */,
 				3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */,
 			);
@@ -527,7 +522,6 @@
 				3A6D402C10825D14006F4727 /* KMChooseJobState.m in Sources */,
 				3AE9DAA31083636F00AED290 /* KMRoom.m in Sources */,
 				3AE9DAA71083644900AED290 /* KMExitInfo.m in Sources */,
-				3AE9DB821084F06D00AED290 /* KMStateMachine.m in Sources */,
 				3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */,
 				3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */,
 				3AE9DE551087747C00AED290 /* KMCommandInfo.m in Sources */,

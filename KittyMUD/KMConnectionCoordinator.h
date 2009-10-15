@@ -41,9 +41,9 @@
 
 -(void) setSocket:(CFSocketRef)newSocket;
 
--(void) saveToXML:(NSString*)path withState:(BOOL)withState;
+-(void) saveToXML:(NSString*)path;
 
--(void) loadFromXML:(NSString*)path withState:(BOOL)withState;
+-(void) loadFromXML:(NSString*)path;
 
 -(id) valueForUndefinedKey:(NSString *)key;
 

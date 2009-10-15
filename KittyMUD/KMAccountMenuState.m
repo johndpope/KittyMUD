@@ -10,15 +10,11 @@
 #import "KMConnectionCoordinator.h"
 #import "KMAccountMenu.h"
 #import "KMMessageState.h"
-#import "KMStateMachine.h"
+
 
 static NSMutableArray* menuItems;
 
 @implementation KMAccountMenuState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 +(void)load
 {

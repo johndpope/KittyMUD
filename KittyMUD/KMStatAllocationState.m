@@ -10,13 +10,9 @@
 #import "KMConnectionCoordinator.h"
 #import "KMCommandInterpreter.h"
 #import "KMStatAllocationLogic.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMStatAllocationState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(void) sendMessageToCoordinator:(id)coordinator
 {

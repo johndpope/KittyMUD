@@ -11,13 +11,9 @@
 #import "KittyMudStringExtensions.h"
 #import "KMConfirmPasswordState.h"
 #import "KMNewPasswordState.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMNewPasswordState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id<KMState>) processState:(id)coordinator
 {

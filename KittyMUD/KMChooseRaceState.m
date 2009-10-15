@@ -13,13 +13,9 @@
 #import "KMStatAllocationLogic.h"
 #import "KMStatCopy.h"
 #import "KMStatAllocationState.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMChooseRaceState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id)init
 {

@@ -10,15 +10,11 @@
 #import "KittyMudStringExtensions.h"
 #import "KMCharacter.h"
 #import "KMConnectionCoordinator.h"
-#import "KMStateMachine.h"
+
 #import "KMCommandInterpreter.h"
 #import "KMPlayingLogic.h"
 
 @implementation KMPlayingState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(void) sendMessageToCoordinator:(id)coordinator
 {

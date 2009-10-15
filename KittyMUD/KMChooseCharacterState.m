@@ -7,16 +7,12 @@
 //
 
 #import "KMChooseCharacterState.h"
-#import "KMStateMachine.h"
+
 #import "KMCommandInterpreter.h"
 #import "KMPlayingState.h"
 #import "KMPlayingLogic.h"
 
 @implementation KMChooseCharacterState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id) init {
 	self = [super init];

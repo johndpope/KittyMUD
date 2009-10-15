@@ -8,7 +8,7 @@
 
 #import "KMChooseJobState.h"
 #import "KMJob.h"
-#import "KMStateMachine.h"
+
 #import "KMPlayingLogic.h"
 #import "KMPlayingState.h"
 #import "KMRoom.h"
@@ -17,10 +17,6 @@
 #import "KittyMudStringExtensions.h"
 
 @implementation KMChooseJobState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id) init {
 	self = [super init];
@@ -47,7 +43,7 @@
 	KMCharacter* character = [coordinator valueForKeyPath:@"properties.current-character"];
 	[character setValue:[job name] forKeyPath:@"properties.job"];
 	[character setValue:[KMRoom getDefaultRoom] forKeyPath:@"properties.current-room"];
-	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables] withState:NO];
+	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
 	[[character valueForKeyPath:@"properties.current-room"] displayRoom:coordinator];
 	KMCommandInterpreter* playingInterpreter = [[KMCommandInterpreter alloc] init];
 	[playingInterpreter registerLogic:[KMPlayingLogic class] asDefaultTarget:NO];

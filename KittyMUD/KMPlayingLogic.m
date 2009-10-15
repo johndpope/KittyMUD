@@ -40,7 +40,7 @@
 
 CHELP(save,@"Saves your account.",nil)
 CIMPL(save,save:,nil,nil,nil,1) {
-	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables] withState:NO];
+	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
 }
 
 CHELP(quit,@"Quits the game with saving.",nil)

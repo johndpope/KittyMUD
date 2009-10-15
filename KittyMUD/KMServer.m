@@ -129,6 +129,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
 		id coordinator = [connectionPool newConnectionWithSocketHandle:cfs softReboot:YES withName:[components objectAtIndex:1]];
+		[[NSFileManager defaultManager] removeItemAtPath:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables] error:NULL];
 	}
 	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();
 	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);

@@ -8,13 +8,9 @@
 
 #import "KMQuitState.h"
 #import "KMServer.h"
-#import "KMStateMachine.h"
+
 
 @implementation KMQuitState
-
-+(void)initialize {
-	[KMStateMachine registerState:[self class]];
-}
 
 -(id<KMState>) processState:(id)coordinator
 {

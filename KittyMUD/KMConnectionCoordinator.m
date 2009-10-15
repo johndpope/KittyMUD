@@ -9,7 +9,7 @@
 #import "KMConnectionCoordinator.h"
 #import "KMServer.h"
 #import "KMCharacter.h"
-#import "KMStateMachine.h"
+
 
 /*
  * This class represents the abstraction between the socket and the rest of the MUD.
@@ -156,7 +156,7 @@ static NSString* sendMessageBase(NSString* message) {
 		[interpreter setCoordinator:self];
 }
 
--(void) saveToXML:(NSString*)dirToSave withState:(BOOL)withState
+-(void) saveToXML:(NSString*)dirToSave
 {
 	if(![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]])
 		[[NSFileManager defaultManager] createFileAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]] contents:nil attributes:nil];
@@ -181,20 +181,12 @@ static NSString* sendMessageBase(NSString* message) {
 	for(KMCharacter* character in [self getCharacters]) {
 		[rootElement addChild:[character saveToXML]];
 	}
-	if(withState) {
-		NSXMLElement* stateElement = [[NSXMLElement alloc] initWithName:@"currentstate"];
-		NSXMLNode* stateAttribute = [NSXMLNode attributeWithName:@"state" stringValue:[[[self currentState] class] getName]];
-		NSXMLNode* currentCharacterAttribute = [NSXMLNode attributeWithName:@"currentcharacter" stringValue:[self valueForKeyPath:@"properties.current-character.properties.name"]];
-		[stateElement addAttribute:stateAttribute];
-		[stateElement addAttribute:currentCharacterAttribute];
-		[rootElement addChild:stateElement];
-	}
 	NSXMLDocument* xdoc = [[NSXMLDocument alloc] initWithRootElement:rootElement];
 	[fh writeData:[xdoc XMLDataWithOptions:NSXMLNodePrettyPrint]];
 	[fh closeFile];
 }
 
--(void) loadFromXML:(NSString*)dirToSave withState:(BOOL)withState
+-(void) loadFromXML:(NSString*)dirToSave
 {
 	NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]];
 	NSXMLDocument* xdoc = [[NSXMLDocument alloc] initWithData:[fh readDataToEndOfFile] options:0 error:NULL];
@@ -214,16 +206,6 @@ static NSString* sendMessageBase(NSString* message) {
 	NSArray* characterElements = [rootElement elementsForName:@"character"];
 	for(NSXMLElement* characterElement in characterElements) {
 		[[self getCharacters] addObject:[KMCharacter loadFromXML:characterElement]];
-	}
-	if(withState) {
-		NSXMLElement* stateElement = [[rootElement elementsForName:@"currentstate"] objectAtIndex:0];
-		id<KMState> state = [[[KMStateMachine getState:[[stateElement attributeForName:@"state"] stringValue]] alloc] init];
-		[self setCurrentState:state];
-		NSString* charName = [[stateElement attributeForName:@"currentcharacter"] stringValue];
-		NSPredicate* charTest = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@", charName];
-		NSArray* chars = [[self getCharacters] filteredArrayUsingPredicate:charTest];
-		if([chars count] > 0)
-			[self setValue:[chars objectAtIndex:0] forKeyPath:@"properties.current-character"];
 	}
 	[fh closeFile];
 }
