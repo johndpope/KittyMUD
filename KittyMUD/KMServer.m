@@ -103,7 +103,11 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	[[NSFileManager defaultManager] createFileAtPath:sr contents:nil attributes:nil];
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:sr];
 	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
-		[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables] withState:YES];
+		BOOL res = [NSKeyedArchiver archiveRootObject:coordinator toFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables]];
+		if(!res) {
+			NSLog(@"Error archiving coordinator for account %@...", [coordinator valueForKeyPath:@"properties.name"]);
+			continue;
+		}
 		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),[coordinator valueForKeyPath:@"properties.name"]] dataUsingEncoding:NSASCIIStringEncoding]];
 	}
 	[softRebootFile closeFile];
@@ -124,10 +128,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 			continue;
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
-		id coordinator = [connectionPool newConnectionWithSocketHandle:cfs softReboot:YES];
-		[coordinator setValue:[components objectAtIndex:1] forKeyPath:@"properties.name"];
-		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables] withState:YES];
-		[[coordinator currentState] softRebootMessage:coordinator];
+		id coordinator = [connectionPool newConnectionWithSocketHandle:cfs softReboot:YES withName:[components objectAtIndex:1]];
 	}
 	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();
 	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);

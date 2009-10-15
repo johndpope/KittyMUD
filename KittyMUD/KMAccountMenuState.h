@@ -18,4 +18,5 @@
 -(id) initializeWithCoordinator:(id)coordinator;
 
 @property (copy) NSMutableArray* myItems;
+@property (retain) KMMenuHandler* menu;
 @end

@@ -23,4 +23,5 @@
 -(id)getSelection:(KMConnectionCoordinator*)coordinator;
 
 -(id)getSelection:(KMConnectionCoordinator *)coordinator withSortFunction:(NSInteger (*)(id, id, void *))sortFunction;
+@property (retain) NSMutableArray* myItems;
 @end

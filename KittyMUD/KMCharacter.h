@@ -35,4 +35,7 @@
 @property KMStat* stats;
 
 @property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
+@property (retain) NSMutableArray* flagbase;
+@property (retain) NSMutableDictionary* flags;
+@property unsigned int currentbitpower;
 @end

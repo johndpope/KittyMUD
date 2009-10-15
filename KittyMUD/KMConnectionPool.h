@@ -28,6 +28,8 @@ typedef void (^KMConnectionReadCallback) (id);
 
 -(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot;
 
+-(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle)handle softReboot:(BOOL)softReboot withName:(NSString*)name;
+
 -(void) writeToAllConnections:(NSString*)message;
 
 -(void) removeConnection:(KMConnectionCoordinator*)connection;

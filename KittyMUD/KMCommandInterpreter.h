@@ -10,20 +10,7 @@
 #import "KMInterpreter.h"
 #import "KMCommandInterpreterLogic.h"
 #import "KMConnectionCoordinator.h"
-
-struct KMCommandDefinition {
-	SEL method;
-	NSString* name;
-	NSArray* optArgs;
-	NSArray* aliases;
-	NSArray* flags;
-	NSDictionary* help;
-	int minLevel;
-	id target;
-	KMConnectionCoordinator* coordinator;
-};
-
-typedef __strong struct KMCommandDefinition* KMCommandDefinitionRef;
+#import "KMCommandInfo.h"
 
 @interface KMBox : NSObject {
 	void* item;
@@ -35,12 +22,18 @@ typedef __strong struct KMCommandDefinition* KMCommandDefinitionRef;
 
 -(void*) unbox;
 
+-(id) valueForUndefinedKey:(NSString *)key;
+
+-(void) setValue:(id)value forUndefinedKey:(NSString*)key;
+
+@property (getter=unbox) void* item;
 @end
 
 @interface KMCommandInterpreter : NSObject <KMInterpreter> {
 	NSMutableArray* commands;
 	NSMutableDictionary* logics;
 	id<KMCommandInterpreterLogic> defaultTarget;
+	NSMutableArray* myLogics;
 }
 
 -(id) init;
@@ -64,12 +57,15 @@ CDECL(help) command:(NSString*)command;
 
 @property (retain) KMConnectionCoordinator* coordinator;
 
+@property (retain) NSMutableDictionary* logics;
 @end
 
 @interface KMCommandInterpreter ()
 
--(BOOL) validateInput:(KMCommandDefinitionRef)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl;
+-(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl;
 
--(KMCommandDefinitionRef) findCommandByName:(NSString*)name;
+-(KMCommandInfo*) findCommandByName:(NSString*)name;
+
+-(void) rebuildLogics;
 
 @end

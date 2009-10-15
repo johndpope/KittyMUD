@@ -151,4 +151,7 @@
 
 @synthesize stats;
 @synthesize properties;
+@synthesize flagbase;
+@synthesize flags;
+@synthesize currentbitpower;
 @end

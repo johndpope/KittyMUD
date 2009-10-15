@@ -118,4 +118,8 @@
 		[*object setValue:loadedObject forKey:[cl key]];
 	}
 }
+@synthesize tagReferences;
+@synthesize subtagReferences;
+@synthesize attributeReferences;
+@synthesize customLoaders;
 @end

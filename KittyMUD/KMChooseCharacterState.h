@@ -18,4 +18,5 @@
 }
 
 -(id) init;
+@property (retain) KMMenuHandler* menu;
 @end

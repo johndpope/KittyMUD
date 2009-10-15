@@ -49,4 +49,8 @@ CDECL(showvalid);
 
 -(void) displayStatAllocationScreenToCoordinator:(id)coordinator;
 
+@property (retain) KMStat* base;
+@property (retain) KMStat* allocBase;
+@property BOOL copiedAllocatable;
+@property (retain) NSMutableArray* validStats;
 @end

@@ -72,4 +72,5 @@
 	return 2;
 }
 
+@synthesize menu;
 @end

@@ -43,4 +43,5 @@
 	return (NSString*)display;
 }
 
+@synthesize display;
 @end

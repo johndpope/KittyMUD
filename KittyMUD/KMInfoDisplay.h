@@ -23,4 +23,5 @@
 
 -(NSString*) finalOutput;
 
+@property (retain) NSMutableString* display;
 @end

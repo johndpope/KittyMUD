@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<sector id="marketsquare">
+	<room id="marketsquarecenter" default="true">
+		<title><![CDATA[`CT`ch`We `CM`ca`wrk`ce`Ct S`cq`wua`cr`Ce`x]]></title>
+		<description>
+			<![CDATA[Standing in the market square
+you can see shops around you in the distance.  In the center
+stands a fountain spraying crystal blue water into the air.]]>
+		</description>
+		<exits>
+			<east id="marketsquareeast" />
+			<west id="marketsquarewest" />
+			<north id="marketsquarenorth" />
+			<south id="marketsquaresouth" />
+			<down id="[submarket::msqentrance]">
+				<lock id="submarket_key" />
+			</down>
+		</exits>
+	</room>
+	<room id="marketsquareeast">
+		<title><![CDATA[`CT`ch`We `CM`ca`wrk`ce`Ct S`cq`wua`cr`Ce `W(`GE`gas`Gt`W)`x]]></title>
+		<description>
+			<![CDATA[Standing here you see several shops to your north and south and a guild hall
+to the east.  Further south you see a road leading into some old ruins.]]>
+		</description>
+		<exits>
+			<west id="marketsquarecenter" />
+			<east id="[submarket::marketsquarecenter]" /> <!-- this should not resolve -->
+		</exits>
+		<shop id="mseweaponshop" npc="mseweaponshopvendor" itemlist="mseweaponshoplisting" faction="market" />
+	</room>
+	<room id="marketsquarewest">
+		<title><![CDATA[`CT`ch`We `CM`ca`wrk`ce`Ct S`cq`wua`cr`Ce `W(`GW`ges`Gt`W)`x]]></title>
+		<description>
+			<![CDATA[Here sits the market square Auction House.  In addition, to your
+north you can see the trade center where partisans improve their tradeskills.]]>
+		</description>
+		<exits>
+			<east id="marketsquarecenter" />
+		</exits>
+		<shop id="mseauctionhouse" npc="mseauctionhousevendor" itemlist="[auction]" faction="[auction]" />
+	</room>
+	<room id="marketsquarenorth">
+		<title><![CDATA[`CT`ch`We `CM`ca`wrk`ce`Ct S`cq`wua`cr`Ce `W(`GN`go`wr`gt`Gh`W)`x]]></title>
+		<description>
+			<![CDATA[You are now standing down the entraceway to the Palace of Arcadium.  To your
+east lies the golden halls of years past, and to your west the untold dangers of the Arcadium Tombs.]]>
+		</description>
+		<exits>
+			<south id="marketsquarecenter"/>
+			<west id="[arcadiumtombs::start]">
+				<lock id="arcadiumtombs_key" />
+			</west>
+		</exits>
+	</room>
+	<room id="marketsquaresouth">
+		<title><![CDATA[`CT`ch`We `CM`ca`wrk`ce`Ct S`cq`wua`cr`Ce `W(`GS`go`wu`gt`Gh`W)`x]]></title>
+		<description>
+			<![CDATA[To your south you see the war-emblazoned Fields of Despair, and to your east
+you see Embassy Row.]]>
+		</description>
+		<exits>
+			<north id="marketsquarecenter"/>
+		</exits>
+	</room>
+</sector>

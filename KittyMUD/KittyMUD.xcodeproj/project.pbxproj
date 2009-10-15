@@ -46,6 +46,7 @@
 		3AE9DB821084F06D00AED290 /* KMStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DB811084F06D00AED290 /* KMStateMachine.m */; };
 		3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
 		3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
+		3AE9DE551087747C00AED290 /* KMCommandInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DE541087747C00AED290 /* KMCommandInfo.m */; };
 		8DD76F9A0486AA7600D96B5E /* KittyMUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9F0486AA7600D96B5E /* KittyMUD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */; };
 /* End PBXBuildFile section */
@@ -168,6 +169,8 @@
 		3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingLogic.m; sourceTree = "<group>"; };
 		3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingState.h; sourceTree = "<group>"; };
 		3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingState.m; sourceTree = "<group>"; };
+		3AE9DE531087747C00AED290 /* KMCommandInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInfo.h; sourceTree = "<group>"; };
+		3AE9DE541087747C00AED290 /* KMCommandInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommandInfo.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* KittyMUD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KittyMUD; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -389,6 +392,8 @@
 				3AD8C401107BD03B003B810E /* KMCommandInterpreter.h */,
 				3AD8C402107BD03B003B810E /* KMCommandInterpreter.m */,
 				3A8C1EF8107D0753001530AA /* KMCommandInterpreterLogic.h */,
+				3AE9DE531087747C00AED290 /* KMCommandInfo.h */,
+				3AE9DE541087747C00AED290 /* KMCommandInfo.m */,
 			);
 			name = Interpreters;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				3AE9DB821084F06D00AED290 /* KMStateMachine.m in Sources */,
 				3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */,
 				3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */,
+				3AE9DE551087747C00AED290 /* KMCommandInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

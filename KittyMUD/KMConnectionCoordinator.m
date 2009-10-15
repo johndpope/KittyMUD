@@ -227,6 +227,15 @@ static NSString* sendMessageBase(NSString* message) {
 	}
 	[fh closeFile];
 }
+
+-(id) valueForUndefinedKey:(NSString *)key {
+	return [NSNull null];
+}
+
+-(void) setValue:(id)value forUndefinedKey:(NSString*)key {
+	return;
+}
+
 @synthesize lastReadTime;
 @synthesize outputBuffer;
 @synthesize currentState;

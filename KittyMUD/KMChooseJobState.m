@@ -65,4 +65,6 @@
 {
 	[self sendMessageToCoordinator:coordinator];
 }
+@synthesize jobs;
+@synthesize menu;
 @end

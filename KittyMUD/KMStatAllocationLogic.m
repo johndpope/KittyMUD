@@ -260,4 +260,8 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	[display appendString:@"`wEnter command`x:"];
 	[coordinator sendMessageToBuffer:[display finalOutput]];
 }
+@synthesize base;
+@synthesize allocBase;
+@synthesize copiedAllocatable;
+@synthesize validStats;
 @end

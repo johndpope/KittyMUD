@@ -61,7 +61,12 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 
 static NSString* greeting;
 
--(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot
+
+-(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot {
+	return [self newConnectionWithSocketHandle:handle softReboot:softReboot withName:nil];
+}
+
+-(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot withName:(NSString*)name
 {
 	if(!greeting) {
 		NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/templates/greeting.xml" replaceAllVariables]];
@@ -73,7 +78,13 @@ static NSString* greeting;
 			greeting = [greetingtext stringValue];
 		}
 	}
-	KMConnectionCoordinator* coordinator = [[KMConnectionCoordinator alloc] init];
+	KMConnectionCoordinator* coordinator;
+	if(!softReboot) {
+		coordinator = [[KMConnectionCoordinator alloc] init];
+	} else {
+		coordinator = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",name] replaceAllVariables]];
+	}
+
 	CFSocketContext newContext = { 0, coordinator, NULL, NULL, NULL };
 	CFSocketRef newSocket = CFSocketCreateWithNative(kCFAllocatorDefault, handle, kCFSocketDataCallBack, (CFSocketCallBack)&ConnectionBaseCallback, &newContext);
 	if(newSocket == NULL) {

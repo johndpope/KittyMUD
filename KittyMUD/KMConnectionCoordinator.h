@@ -45,6 +45,10 @@
 
 -(void) loadFromXML:(NSString*)path withState:(BOOL)withState;
 
+-(id) valueForUndefinedKey:(NSString *)key;
+
+-(void) setValue:(id)value forUndefinedKey:(NSString*)key;
+
 @property (copy,getter=getLastReadTime) NSDate* lastReadTime;
 @property (copy,getter=getInputBuffer) NSString* inputBuffer;
 @property (getter=getSocket,setter=setSocket:) CFSocketRef socket;

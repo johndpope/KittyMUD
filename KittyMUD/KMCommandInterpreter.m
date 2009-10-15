@@ -30,6 +30,15 @@
 	return item;
 }
 
+-(id) valueForUndefinedKey:(NSString *)key {
+	return [NSNull null];
+}
+
+-(void) setValue:(id)value forUndefinedKey:(NSString*)key {
+	return;
+}
+
+@synthesize item;
 @end
 
 @implementation KMCommandInterpreter
@@ -89,23 +98,23 @@
 }	
 
 -(void) registerCommandHelp:(NSString*)name usingShortText:(NSString*)shorttext withLongTextFile:(NSString*)longtextname {
-	KMCommandDefinitionRef command = [self findCommandByName:name];
+	KMCommandInfo* command = [self findCommandByName:name];
 	if(!command)
 		return;
-	command->help = [[NSDictionary alloc] initWithObjectsAndKeys:shorttext,@"short",longtextname,@"long"];
+	[command setHelp:[[NSMutableDictionary alloc] initWithObjectsAndKeys:shorttext,@"short",longtextname,@"long"]];
 }
 
 -(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)flags withMinimumLevel:(int)level
 {
-	KMCommandDefinitionRef command = (KMCommandDefinitionRef)malloc(sizeof(struct KMCommandDefinition));
-	command->name = name;
-	command->aliases = [aliases copy];
-	command->optArgs = [optional copy];
-	command->method = commandSelector;
-	command->flags = [flags copy];
-	command->minLevel = level;
-	command->target = target;
-	[commands addObject:[KMBox box:command]];
+	KMCommandInfo* command = [[KMCommandInfo alloc] init];
+	[command setName:name];
+	[command setAliases:[[NSMutableArray alloc] initWithArray:aliases]];
+	[command setOptArgs:[[NSMutableArray alloc] initWithArray:optional]];
+	[command setMethod:NSStringFromSelector(commandSelector)];
+	[command setFlags:[[NSMutableArray alloc] initWithArray:flags]];
+	[command setMinLevel:level];
+	[command setTarget:target];
+	[commands addObject:command];
 	[logics setObject:target forKey:name];
 }
 
@@ -113,7 +122,7 @@
 {
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
-	KMCommandDefinitionRef command = [self findCommandByName:commandName];
+	KMCommandInfo* command = [self findCommandByName:commandName];
 	
 	if(command == NULL)
 	{
@@ -122,7 +131,7 @@
 	}
 	
 	if([commandmakeup count] > 1 && [[commandmakeup objectAtIndex:1] isEqualToString:@"-help"] && [self validateInput:command forCoordinator:coordinator onlyFlagsAndLevel:YES]) {
-		if(![(command->help) objectForKey:@"short"]) {
+		if(![[command help] objectForKey:@"short"]) {
 			[coordinator sendMessageToBuffer:@"Help not available for command."];
 			if(defaultTarget) {
 				if([defaultTarget isRepeating])
@@ -130,7 +139,7 @@
 			}
 			return;
 		}
-		[coordinator sendMessageToBuffer:[(command->help) objectForKey:@"short"]];
+		[coordinator sendMessageToBuffer:[[command help] objectForKey:@"short"]];
 		return;
 	}
 	if(![self validateInput:command forCoordinator:coordinator onlyFlagsAndLevel:NO])
@@ -138,13 +147,13 @@
 		[coordinator sendMessageToBuffer:@"Unknown command entered."];
 		return;
 	}
-	NSMethodSignature* sig = [[(command->target) class] instanceMethodSignatureForSelector:(command->method)];
+	NSMethodSignature* sig = [[[command target] class] instanceMethodSignatureForSelector:NSSelectorFromString([command method])];
 	NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];
-	[invocation setTarget:(command->target)];
-	[invocation setSelector:(command->method)];
+	[invocation setTarget:[command target]];
+	[invocation setSelector:NSSelectorFromString([command method])];
 	[invocation setArgument:&coordinator atIndex:2];
 	for(int i = 1; i < [commandmakeup count]; i++) {
-		__strong char* argType = method_copyArgumentType(class_getInstanceMethod([(command->target) class], (command->method)), i + 2);
+		__strong char* argType = method_copyArgumentType(class_getInstanceMethod([[command target] class], NSSelectorFromString([command method])), i + 2);
 		if(!strcmp(argType,"i")) {
 			__strong int num = [[commandmakeup objectAtIndex:i] intValue];
 			[invocation setArgument:&num atIndex:(i+2)];
@@ -163,13 +172,13 @@
 		[coordinator clearFlag:@"no-message"];
 }
 
--(BOOL) validateInput:(KMCommandDefinitionRef)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl
+-(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl
 {
-	Method m = class_getInstanceMethod([(command->target) class], (command->method));
+	Method m = class_getInstanceMethod([[command target] class], NSSelectorFromString([command method]));
 	int numArgs = method_getNumberOfArguments(m);
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	if(!ofl) {
-		int numOpt = [(command->optArgs) count];
+		int numOpt = [[command optArgs] count];
 		if([commandmakeup count] <= (numArgs - 3 - numOpt)) // account for the implicit coordinator argument, and the hidden self and _cmd arguments and optional arguments
 			return NO;
 		for(int idx = 3; idx < numArgs; idx++) {
@@ -182,31 +191,31 @@
 			}
 		}
 	}
-	if(command->flags) {
-		for(NSString* flag in command->flags) {
+	if([command flags]) {
+		for(NSString* flag in [command flags]) {
 			if(![[coordinator valueForKeyPath:@"properties.current-character"] isFlagSet:flag])
 				return NO;
 		}
 	}
 	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
-	if([[[character stats] findStatWithPath:@"level"] statvalue] < command->minLevel)
+	if([[[character stats] findStatWithPath:@"level"] statvalue] < [command minLevel])
 		return NO;
 	return YES;
 }
 
--(KMCommandDefinitionRef) findCommandByName:(NSString*)name
+-(KMCommandInfo*) findCommandByName:(NSString*)name
 {
-	for(KMBox* box in commands) {
-		KMCommandDefinitionRef cmd = (KMCommandDefinitionRef)[box unbox];
-		if([(cmd->name) hasPrefix:name])
+	for(KMCommandInfo* cmd in commands) {
+		if([[cmd name] hasPrefix:name])
 			return cmd;
-		NSArray* aliases = cmd->aliases;
+		NSArray* aliases = [cmd aliases];
 		NSPredicate* alias = [NSPredicate predicateWithFormat:@"self beginswith[cd] %@", name];
+		
 		NSArray* aliasesA = [aliases filteredArrayUsingPredicate:alias];
 		if([aliasesA count] > 0)
 			return cmd;
 	}
-	return NULL;
+	return nil;
 }
 
 CHELP(help,@"Displays long help for the given command.",nil)
@@ -216,12 +225,12 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 			[defaultTarget displayHelpToCoordinator:coordinator];
 		return;
 	}
-	KMCommandDefinitionRef cmd = [self findCommandByName:command];
+	KMCommandInfo* cmd = [self findCommandByName:command];
 	if(!cmd || ![self validateInput:cmd forCoordinator:coordinator onlyFlagsAndLevel:YES]) {
 		[coordinator sendMessageToBuffer:@"Unknown command."];
 		return;
 	}
-	if(![cmd->help objectForKey:@"long"]) {
+	if(![[cmd help] objectForKey:@"long"]) {
 		[coordinator sendMessageToBuffer:@"Help unavailable for command."];
 		return;
 	}
@@ -230,4 +239,5 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 @synthesize commands;
 @synthesize coordinator;
 @synthesize defaultTarget;
+@synthesize logics;
 @end

@@ -59,4 +59,5 @@
 	return item;
 }
 
+@synthesize myItems;
 @end

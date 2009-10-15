@@ -16,4 +16,6 @@
 
 -(id)init;
 
+@property (retain) NSArray* jobs;
+@property (retain) KMMenuHandler* menu;
 @end

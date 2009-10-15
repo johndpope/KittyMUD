@@ -21,4 +21,5 @@
 
 -(id) peek;
 
+@property (retain) NSMutableArray* items;
 @end

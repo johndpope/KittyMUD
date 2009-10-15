@@ -29,4 +29,8 @@
 
 -(void)loadFromPath:(NSString*)path toObject:(id*)object;
 
+@property (retain) NSMutableDictionary* tagReferences;
+@property (retain) NSMutableDictionary* subtagReferences;
+@property (retain) NSMutableDictionary* attributeReferences;
+@property (retain) NSMutableDictionary* customLoaders;
 @end

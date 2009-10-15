@@ -118,4 +118,5 @@ NSInteger ComparePriority(id a, id b, void* c) {
 }
 
 @synthesize myItems;
+@synthesize menu;
 @end

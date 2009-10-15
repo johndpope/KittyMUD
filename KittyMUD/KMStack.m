@@ -44,4 +44,5 @@
 	return item;
 }
 
+@synthesize items;
 @end

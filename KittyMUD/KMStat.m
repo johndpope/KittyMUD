@@ -344,6 +344,7 @@
 
 -(void) debugPrintTree:(int)tabLevel
 {
+	return;
 	NSMutableString* line = [[NSMutableString alloc] init];
 	for(int i = 0; i < tabLevel; i++)
 		[line appendString:@"\t"];

@@ -59,4 +59,5 @@
 	[menu displayMenu:coordinator];
 }
 
+@synthesize menu;
 @end
