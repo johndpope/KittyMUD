@@ -44,7 +44,7 @@ Female: Akra, Biri, Daar, Harann, Kava, Korinn, Mishann, Nala, Perra, Raiann,
 				<id>DragonbornHeritage</id>
 				<name>Dragonborn Heritage</name>
 				<passive when="healed">
-					<allheal calcbonus="=<maximumhp>*((25+{bonus(<physical::constitution>)})/100)"/>
+					<allheal calcbonus="=<maximumhp>*((25+{bonus(<physical::constitution>)})%)"/>
 				</passive>
 			</feat>
 		</feats>

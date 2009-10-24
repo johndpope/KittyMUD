@@ -2,6 +2,8 @@
 #import <stdio.h>
 #import <string.h>
 #import "KMXED.h"
+#import "KMXEDExpression.h"
+#import "KMXEDReference.h"
 	
 void KMerror(const char *str)
 {
@@ -11,80 +13,185 @@ void KMerror(const char *str)
 int KMwrap()
 {
 	return 1;
-} 
+}
+
+#define YYPARSE_PARAM parm
 %}
 
 %union {
 	float num;
 	NSString* text;
 	KMXEDOpType op;
+	id ref;
+	id expr;
 }
 
-%token IDENTIFIER STATREFSTART STATREFEND LPAREN RPAREN FUNCSTART FUNCEND VARREFSTART VARREFEND NUMBER OPADD OPSUBTRACT OPMULTIPLY OPDIVIDE OPPERCENT OPMODULUS
+%token STATREFSTART STATREFEND LPAREN RPAREN FUNCSTART FUNCEND VARREFSTART VARREFEND OPADD OPSUBTRACT OPMULTIPLY OPDIVIDE OPPERCENT OPMODULUS
+%token <num> NUMBER
+%token <text> IDENTIFIER
+
+%type <ref> simplereference statreference varreference funcreference groupexpression simpleopreference
+%type <expr> simpleoperation
+%type <op> unooperation duooperation
+%type <ref> expression
+%type <ref> expressions
+
+%left OPADD OPSUBTRACT
+%left OPMULTIPLY OPDIVIDE OPMODULUS
+%left OPPERCENT
+%left OPPREC
 
 %%
-expressions: /* empty */
+expressions: /* empty */ { *((id*)parm) = nil; }
 	| expressions expression
+{
+	*((id*)parm) = $2;
+}
 	;
 
 expression:
-	simpleoperation
+simpleoperation { $$ = $1; }
 	|
-	simplereference
+simplereference { $$ = $1; }
 	|
-	groupexpression
+groupexpression { $$ = $1; }
 	;
 
 groupexpression:
 	LPAREN expression RPAREN
+{
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDExpressionRef];
+	[ref setExpression:$2];
+	[ref setIsGrouped:YES];
+	$$ = ref;
+}
 	;
 
 simpleoperation:
 	simpleopreference duooperation simpleopreference
+{
+	KMXEDExpression* expression = [[KMXEDExpression alloc] init];
+	[expression setReference0:$1];
+	[expression setReference1:$3];
+	[expression setOperationType:$2];
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDExpressionRef];
+	[ref setExpression:expression];
+	$$ = ref;
+}
 	|
-	simpleopreference unooperation
+simpleopreference unooperation
+{
+	KMXEDExpression* expression = [[KMXEDExpression alloc] init];
+	[expression setReference0:$1];
+	[expression setReference1:nil];
+	[expression setOperationType:$2];
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDExpressionRef];
+	[ref setExpression:expression];
+	$$ = ref;	
+}
 	;
 
 duooperation:
 	OPADD
+{
+	$$ = KMXEDOpAdd;
+}
 	|
 	OPSUBTRACT
+{
+	$$ = KMXEDOpSubtract;
+}
 	|
 	OPMULTIPLY
+{
+	$$ = KMXEDOpMultiply;
+}
 	|
 	OPDIVIDE
+{
+	$$ = KMXEDOpDivide;
+}
 	|
 	OPMODULUS
+{
+	$$ = KMXEDOpModulus;
+}
 	;
 
 unooperation:
 	OPPERCENT
+{
+	$$ = KMXEDOpPercent;
+}
 	;
 
 simpleopreference:
 	groupexpression
+{
+	$$ = $1;
+}
 	|
 	simplereference
+{
+	$$ = $1;
+}
 	;
 
 simplereference:
 	NUMBER
+{
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDNumberRef];
+	[ref setNumber:$1];
+	$$ = ref;
+}
 	|
 	statreference
+{
+	$$ = $1;
+}
 	|
 	varreference
+{
+	$$ = $1;
+}
 	|
 	funcreference
+{
+	$$ = $1;
+}
 	;
 
 statreference:
 	STATREFSTART IDENTIFIER STATREFEND
+{
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDStatRef];
+	[ref setReference:$2];
+	$$ = ref;
+}
 	;
 
 varreference:
 	VARREFSTART IDENTIFIER VARREFEND
+{
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDVarRef];
+	[ref setReference:$2];
+	$$ = ref;
+}
 	;
 
 funcreference:
 	FUNCSTART IDENTIFIER LPAREN expression RPAREN FUNCEND
+{
+	KMXEDReference* ref = [[KMXEDReference alloc] init];
+	[ref setType:KMXEDFuncRef];
+	[ref setReference:$2];
+	[ref setExpression:$4];
+	$$ = ref;
+}
 	;
