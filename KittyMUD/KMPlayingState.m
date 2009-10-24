@@ -10,7 +10,7 @@
 #import "KittyMudStringExtensions.h"
 #import "KMCharacter.h"
 #import "KMConnectionCoordinator.h"
-
+#import "KMRoom.h"
 #import "KMCommandInterpreter.h"
 #import "KMPlayingLogic.h"
 
@@ -43,7 +43,6 @@
 -(void) softRebootMessage:(id)coordinator
 {
 	[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
-	[self sendMessageToCoordinator:coordinator];
 }
 
 @end

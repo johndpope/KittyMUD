@@ -139,13 +139,29 @@ CIMPL(look,look:direction:,@"direction",nil,nil,1) direction:(NSString*)dir {
 	}
 }
 
-CHELP(reboot, @"Performs a soft reboot.", nil)
-CIMPL(reboot,reboot:,nil,nil,@"admin",1) {
-	[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:@"`R*** `YPERFORMING A SOFT REBOOT, PLEASE STANDY... `R***`x"];
-	[[KMServer getDefaultServer] softReboot];
+static int rebootTime = 0;
+
+-(void) realSoftReboot:(NSTimer*)timer {
+	if(rebootTime > 0) {
+		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x"]];
+		rebootTime--;
+	} else {
+		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`YPERFORMING A SOFT REBOOT, PLEASE STANDBY... `!`R***#!`x"]];
+		[[KMServer getDefaultServer] softReboot];
+	}
 }
 
-CIMPL(debugprintflag,debugprintflag:,nil,nil,nil,1) {
-	[[coordinator valueForKeyPath:@"properties.current-character"] debugPrintFlagStatus:coordinator];
+CHELP(reboot, @"Performs a soft reboot.", nil)
+CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
+	rebootTime = time;
+	if(time > 0) {
+		NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
+		NSTimer* timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(realSoftReboot:) userInfo:nil repeats:YES];
+		[runLoop addTimer:timer forMode:NSRunLoopCommonModes]; 
+	}
+	else {
+		[self realSoftReboot:nil];
+	}
+
 }
 @end

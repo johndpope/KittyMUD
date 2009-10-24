@@ -119,7 +119,7 @@ static NSString* sendMessageBase(NSString* message) {
 -(BOOL) sendMessage:(NSString*)message
 {
 	message = sendMessageBase(message);
-	NSData* data = [message dataUsingEncoding:NSASCIIStringEncoding];
+	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	if(CFSocketSendData(socket, NULL, (CFDataRef)data, 0) != kCFSocketSuccess) {
 		NSLog(@"Error sending data to connection, closing connection...");
 		[[[KMServer getDefaultServer] getConnectionPool] removeConnection:self];
@@ -130,7 +130,7 @@ static NSString* sendMessageBase(NSString* message) {
 
 -(void) sendMessageToBuffer:(NSString *)message
 {
-	if([self isFlagSet:@"check-output-buffers"]) {
+	if([self isFlagSet:@"message-direct"]) {
 		[self sendMessage:message];
 		return;
 	}
@@ -152,8 +152,6 @@ static NSString* sendMessageBase(NSString* message) {
 
 -(void) setInterpreter:(id<KMInterpreter>)interp {
 	interpreter = interp;
-	if([interpreter respondsToSelector:@selector(setCoordinator:)])
-		[interpreter setCoordinator:self];
 }
 
 -(void) saveToXML:(NSString*)dirToSave

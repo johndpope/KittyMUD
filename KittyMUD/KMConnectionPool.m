@@ -32,6 +32,14 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 		if([output length] > 0) {
 			[coordinator sendMessage:output];
 			[coordinator setOutputBuffer:@""];
+			[coordinator setFlag:@"message-direct"];
+			if(![coordinator isFlagSet:@"no-message"]) {
+				if([[coordinator currentState] conformsToProtocol:@protocol(KMMessageState)]) {
+					[(id<KMMessageState>)[coordinator currentState] sendMessageToCoordinator:coordinator];
+				}
+			}
+			[coordinator clearFlag:@"no-message"];
+			[coordinator clearFlag:@"message-direct"];
 		}
 	}
 }
@@ -43,7 +51,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	
 	KMConnectionPool* pool = [[KMServer getDefaultServer] getConnectionPool];
 	KMConnectionCoordinator* coordinator = (KMConnectionCoordinator*)info;
-	NSString* inputString = [[NSString alloc] initWithData:(NSData*)data encoding:NSASCIIStringEncoding];
+	NSString* inputString = [[NSString alloc] initWithData:(NSData*)data encoding:NSUTF8StringEncoding];
 	if([inputString characterAtIndex:0] == '\x04') {
 		NSLog(@"Encountered end-of-file from socket %d, closing connection...", CFSocketGetNative( socket ));
 		[pool removeConnection:coordinator];

@@ -46,6 +46,11 @@
 		3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
 		3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
 		3AE9DE551087747C00AED290 /* KMCommandInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DE541087747C00AED290 /* KMCommandInfo.m */; };
+		3AE9DF9B1087B8A100AED290 /* NSCodingAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DF9A1087B8A100AED290 /* NSCodingAspect.m */; };
+		3AE9E029108A11C300AED290 /* KMItemTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E028108A11C300AED290 /* KMItemTemplate.m */; };
+		3AE9E06A108A299300AED290 /* KMItemEnhancement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E069108A299300AED290 /* KMItemEnhancement.m */; };
+		3AFF8C311093607E000208EA /* XED.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* XED.lm */; };
+		3AFF8C321093607E000208EA /* XED.ym in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C301093607E000208EA /* XED.ym */; };
 		8DD76F9A0486AA7600D96B5E /* KittyMUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9F0486AA7600D96B5E /* KittyMUD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */; };
 /* End PBXBuildFile section */
@@ -76,6 +81,11 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* KittyMUD.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = KittyMUD.m; sourceTree = "<group>"; };
 		32A70AAB03705E1F00C91783 /* KittyMUD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD_Prefix.pch; sourceTree = "<group>"; };
+		3A0D31EA108CC62E0018D19A /* spellpower.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = spellpower.xml; sourceTree = "<group>"; };
+		3A0D31F2108E20680018D19A /* armor.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = armor.xml; sourceTree = "<group>"; };
+		3A0D31F3108E22A00018D19A /* mana.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mana.xml; sourceTree = "<group>"; };
+		3A0D31F6108F59D20018D19A /* resistances.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = resistances.xml; sourceTree = "<group>"; };
+		3A0D31F9108F5D5C0018D19A /* socket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = socket.xml; sourceTree = "<group>"; };
 		3A0E12A51079459800537E9B /* KMRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRace.h; sourceTree = "<group>"; };
 		3A0E12A61079459800537E9B /* KMRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRace.m; sourceTree = "<group>"; };
 		3A0E132C107A53C300537E9B /* KMDataStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataStartup.h; sourceTree = "<group>"; };
@@ -84,6 +94,9 @@
 		3A0E1334107A694100537E9B /* KMMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMenu.h; sourceTree = "<group>"; };
 		3A0E133F107A6BE500537E9B /* KMChooseRaceState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseRaceState.h; sourceTree = "<group>"; };
 		3A0E1340107A6BE500537E9B /* KMChooseRaceState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseRaceState.m; sourceTree = "<group>"; };
+		3A44533C108F8ACF00293333 /* dwarf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dwarf.xml; sourceTree = "<group>"; };
+		3A44533D108F8ACF00293333 /* elf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = elf.xml; sourceTree = "<group>"; };
+		3A44533E108F8ACF00293333 /* human.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = human.xml; sourceTree = "<group>"; };
 		3A642E94107E271B005A2619 /* KMStatCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatCopy.h; sourceTree = "<group>"; };
 		3A642E95107E271B005A2619 /* KMStatCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatCopy.m; sourceTree = "<group>"; };
 		3A642E98107E2DD4005A2619 /* KMStatAllocationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatAllocationLogic.h; sourceTree = "<group>"; };
@@ -105,14 +118,6 @@
 		3A78ED2C106574EA002209B6 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A78ED5310669D55002209B6 /* KMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStat.h; sourceTree = "<group>"; };
 		3A78ED5410669D55002209B6 /* KMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStat.m; sourceTree = "<group>"; };
-		3A78EDDC10672DF1002209B6 /* greeting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = greeting.xml; sourceTree = "<group>"; };
-		3A78EDDE10672DF1002209B6 /* fighter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fighter.xml; sourceTree = "<group>"; };
-		3A78EDDF10672DF1002209B6 /* mage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mage.xml; sourceTree = "<group>"; };
-		3A78EDE010672DF1002209B6 /* squire.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = squire.xml; sourceTree = "<group>"; };
-		3A78EDE210672DF1002209B6 /* dwarf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dwarf.xml; sourceTree = "<group>"; };
-		3A78EDE310672DF1002209B6 /* elf.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = elf.xml; sourceTree = "<group>"; };
-		3A78EDE410672DF1002209B6 /* human.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = human.xml; sourceTree = "<group>"; };
-		3A78EDE510672DF1002209B6 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
 		3A78EEA51067CA19002209B6 /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMQuitState.h; sourceTree = "<group>"; };
 		3A78EEA61067CA19002209B6 /* KMQuitState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMQuitState.m; sourceTree = "<group>"; };
 		3A78EF441067EC33002209B6 /* KMChooseCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterState.h; sourceTree = "<group>"; };
@@ -160,14 +165,30 @@
 		3AE9DAA21083636F00AED290 /* KMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRoom.m; sourceTree = "<group>"; };
 		3AE9DAA51083644900AED290 /* KMExitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExitInfo.h; sourceTree = "<group>"; };
 		3AE9DAA61083644900AED290 /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExitInfo.m; sourceTree = "<group>"; };
-		3AE9DABB10838C2700AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
-		3AE9DABC10838C2700AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
 		3AE9DBB51084F66F00AED290 /* KMPlayingLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingLogic.h; sourceTree = "<group>"; };
 		3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingLogic.m; sourceTree = "<group>"; };
 		3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingState.h; sourceTree = "<group>"; };
 		3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingState.m; sourceTree = "<group>"; };
 		3AE9DE531087747C00AED290 /* KMCommandInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInfo.h; sourceTree = "<group>"; };
 		3AE9DE541087747C00AED290 /* KMCommandInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommandInfo.m; sourceTree = "<group>"; };
+		3AE9DF991087B8A100AED290 /* NSCodingAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCodingAspect.h; sourceTree = "<group>"; };
+		3AE9DF9A1087B8A100AED290 /* NSCodingAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCodingAspect.m; sourceTree = "<group>"; };
+		3AE9E027108A11C300AED290 /* KMItemTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMItemTemplate.h; sourceTree = "<group>"; };
+		3AE9E028108A11C300AED290 /* KMItemTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMItemTemplate.m; sourceTree = "<group>"; };
+		3AE9E068108A299300AED290 /* KMItemEnhancement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMItemEnhancement.h; sourceTree = "<group>"; };
+		3AE9E069108A299300AED290 /* KMItemEnhancement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMItemEnhancement.m; sourceTree = "<group>"; };
+		3AE9E0DA108B36C000AED290 /* greeting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = greeting.xml; sourceTree = "<group>"; };
+		3AE9E0DD108B36C000AED290 /* attackpower.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = attackpower.xml; sourceTree = "<group>"; };
+		3AE9E0E0108B36C000AED290 /* fighter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fighter.xml; sourceTree = "<group>"; };
+		3AE9E0E1108B36C000AED290 /* mage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mage.xml; sourceTree = "<group>"; };
+		3AE9E0E2108B36C000AED290 /* squire.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = squire.xml; sourceTree = "<group>"; };
+		3AE9E0E4108B36C000AED290 /* core.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = core.xml; sourceTree = "<group>"; };
+		3AE9E0E8108B36C000AED290 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
+		3AE9E0EA108B36C000AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
+		3AE9E0EB108B36C000AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
+		3AFF8C2E1093607E000208EA /* KMXED.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXED.h; sourceTree = "<group>"; };
+		3AFF8C2F1093607E000208EA /* XED.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = XED.lm; sourceTree = "<group>"; };
+		3AFF8C301093607E000208EA /* XED.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = XED.ym; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* KittyMUD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KittyMUD; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +210,7 @@
 		08FB7794FE84155DC02AAC07 /* KittyMUD */ = {
 			isa = PBXGroup;
 			children = (
-				3A78EDDA10672DF1002209B6 /* data */,
+				3AE9E0D9108B36C000AED290 /* data */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -201,6 +222,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3AFF8C201093604B000208EA /* XDF */,
 				3AE9DAA41083637B00AED290 /* World */,
 				3A642E97107E2DC6005A2619 /* InterpreterLogic */,
 				3AAA352A10779728000D0767 /* Data */,
@@ -212,6 +234,8 @@
 				3AC38BD910627D1F0011EBD4 /* sys.conf */,
 				32A70AAB03705E1F00C91783 /* KittyMUD_Prefix.pch */,
 				08FB7796FE84155DC02AAC07 /* KittyMUD.m */,
+				3AE9DF991087B8A100AED290 /* NSCodingAspect.h */,
+				3AE9DF9A1087B8A100AED290 /* NSCodingAspect.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -245,55 +269,6 @@
 			name = "External Libraries and Frameworks";
 			sourceTree = "<group>";
 		};
-		3A78EDDA10672DF1002209B6 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				3A78EDDB10672DF1002209B6 /* templates */,
-			);
-			path = data;
-			sourceTree = "<group>";
-		};
-		3A78EDDB10672DF1002209B6 /* templates */ = {
-			isa = PBXGroup;
-			children = (
-				3A78EDDC10672DF1002209B6 /* greeting.xml */,
-				3A78EDDD10672DF1002209B6 /* jobs */,
-				3A78EDE110672DF1002209B6 /* races */,
-				3A78EDE510672DF1002209B6 /* stat_template.xml */,
-				3A78EDE610672DF1002209B6 /* world */,
-			);
-			path = templates;
-			sourceTree = "<group>";
-		};
-		3A78EDDD10672DF1002209B6 /* jobs */ = {
-			isa = PBXGroup;
-			children = (
-				3A78EDDE10672DF1002209B6 /* fighter.xml */,
-				3A78EDDF10672DF1002209B6 /* mage.xml */,
-				3A78EDE010672DF1002209B6 /* squire.xml */,
-			);
-			path = jobs;
-			sourceTree = "<group>";
-		};
-		3A78EDE110672DF1002209B6 /* races */ = {
-			isa = PBXGroup;
-			children = (
-				3A78EDE210672DF1002209B6 /* dwarf.xml */,
-				3A78EDE310672DF1002209B6 /* elf.xml */,
-				3A78EDE410672DF1002209B6 /* human.xml */,
-			);
-			path = races;
-			sourceTree = "<group>";
-		};
-		3A78EDE610672DF1002209B6 /* world */ = {
-			isa = PBXGroup;
-			children = (
-				3AE9DABB10838C2700AED290 /* marketsquare.xml */,
-				3AE9DABC10838C2700AED290 /* submarket.xml */,
-			);
-			path = world;
-			sourceTree = "<group>";
-		};
 		3AAA352A10779728000D0767 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +279,10 @@
 				3A0E132C107A53C300537E9B /* KMDataStartup.h */,
 				3A6D3EF41081054D006F4727 /* KMJob.h */,
 				3A6D3EF51081054D006F4727 /* KMJob.m */,
+				3AE9E027108A11C300AED290 /* KMItemTemplate.h */,
+				3AE9E028108A11C300AED290 /* KMItemTemplate.m */,
+				3AE9E068108A299300AED290 /* KMItemEnhancement.h */,
+				3AE9E069108A299300AED290 /* KMItemEnhancement.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -417,6 +396,112 @@
 			name = World;
 			sourceTree = "<group>";
 		};
+		3AE9E0D9108B36C000AED290 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9E0DA108B36C000AED290 /* greeting.xml */,
+				3AE9E0DB108B36C000AED290 /* items */,
+				3AE9E0DF108B36C000AED290 /* jobs */,
+				3AE9E0E3108B36C000AED290 /* races */,
+				3AE9E0E7108B36C000AED290 /* templates */,
+				3AE9E0E9108B36C000AED290 /* world */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		3AE9E0DB108B36C000AED290 /* items */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9E0DC108B36C000AED290 /* enhancements */,
+				3AE9E0DE108B36C000AED290 /* templates */,
+			);
+			path = items;
+			sourceTree = "<group>";
+		};
+		3AE9E0DC108B36C000AED290 /* enhancements */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9E0DD108B36C000AED290 /* attackpower.xml */,
+				3A0D31EA108CC62E0018D19A /* spellpower.xml */,
+				3A0D31F2108E20680018D19A /* armor.xml */,
+				3A0D31F3108E22A00018D19A /* mana.xml */,
+				3A0D31F6108F59D20018D19A /* resistances.xml */,
+				3A0D31F9108F5D5C0018D19A /* socket.xml */,
+			);
+			path = enhancements;
+			sourceTree = "<group>";
+		};
+		3AE9E0DE108B36C000AED290 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
+		3AE9E0DF108B36C000AED290 /* jobs */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9E0E0108B36C000AED290 /* fighter.xml */,
+				3AE9E0E1108B36C000AED290 /* mage.xml */,
+				3AE9E0E2108B36C000AED290 /* squire.xml */,
+			);
+			path = jobs;
+			sourceTree = "<group>";
+		};
+		3AE9E0E3108B36C000AED290 /* races */ = {
+			isa = PBXGroup;
+			children = (
+				3A44533C108F8ACF00293333 /* dwarf.xml */,
+				3A44533D108F8ACF00293333 /* elf.xml */,
+				3A44533E108F8ACF00293333 /* human.xml */,
+				3AE9E0E4108B36C000AED290 /* core.xml */,
+			);
+			path = races;
+			sourceTree = "<group>";
+		};
+		3AE9E0E7108B36C000AED290 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9E0E8108B36C000AED290 /* stat_template.xml */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
+		3AE9E0E9108B36C000AED290 /* world */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9E0EA108B36C000AED290 /* marketsquare.xml */,
+				3AE9E0EB108B36C000AED290 /* submarket.xml */,
+			);
+			path = world;
+			sourceTree = "<group>";
+		};
+		3AFF8C201093604B000208EA /* XDF */ = {
+			isa = PBXGroup;
+			children = (
+				3AFF8C2110936055000208EA /* Tier 2 */,
+			);
+			name = XDF;
+			sourceTree = "<group>";
+		};
+		3AFF8C2110936055000208EA /* Tier 2 */ = {
+			isa = PBXGroup;
+			children = (
+				3AFF8C221093605B000208EA /* XED */,
+			);
+			name = "Tier 2";
+			sourceTree = "<group>";
+		};
+		3AFF8C221093605B000208EA /* XED */ = {
+			isa = PBXGroup;
+			children = (
+				3AFF8C2E1093607E000208EA /* KMXED.h */,
+				3AFF8C2F1093607E000208EA /* XED.lm */,
+				3AFF8C301093607E000208EA /* XED.ym */,
+			);
+			name = XED;
+			sourceTree = "<group>";
+		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +610,11 @@
 				3AE9DBB71084F66F00AED290 /* KMPlayingLogic.m in Sources */,
 				3AE9DBCD1084FE0A00AED290 /* KMPlayingState.m in Sources */,
 				3AE9DE551087747C00AED290 /* KMCommandInfo.m in Sources */,
+				3AE9DF9B1087B8A100AED290 /* NSCodingAspect.m in Sources */,
+				3AE9E029108A11C300AED290 /* KMItemTemplate.m in Sources */,
+				3AE9E06A108A299300AED290 /* KMItemEnhancement.m in Sources */,
+				3AFF8C311093607E000208EA /* XED.lm in Sources */,
+				3AFF8C321093607E000208EA /* XED.ym in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

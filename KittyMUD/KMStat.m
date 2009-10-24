@@ -65,13 +65,13 @@
 		return nil;
 	
 	// Check to make sure the path were given is a valid stat path.
-	if([pathr matchesCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
-		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding]
+	if([pathr matchesCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
+		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
 										   length:[path length]
 										  inRange:NSMakeRange(0,[path length])
 									 captureIndex:[pathr captureIndexForCaptureName:@"parent"]
 										  options:RKMatchNoOptions];
-		NSRange child = [pathr rangeForCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding]
+		NSRange child = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
 										   length:[path length]
 										  inRange:NSMakeRange(0,[path length])
 									 captureIndex:[pathr captureIndexForCaptureName:@"children"]
@@ -80,12 +80,12 @@
 		NSString* parentString = [path substringWithRange:parentr];
 		NSString* statAbbreviation = nil;
 		
-		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
 											length:[parentString length]
 										   inRange:NSMakeRange(0,[parentString length])
 									  captureIndex:[splitr captureIndexForCaptureName:@"statname"]
 										   options:RKMatchNoOptions];
-		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
 											length:[parentString length]
 										   inRange:NSMakeRange(0,[parentString length])
 									  captureIndex:[splitr captureIndexForCaptureName:@"abbrname"]
@@ -119,13 +119,13 @@
 	}
 	RKRegex* splitr = [[RKRegex alloc] initWithRegexString:@"(?<statname>\\w+)(\\((?<abbrname>\\w+)\\))?" options:RKCompileNoOptions];
 	RKRegex* pathr = [[RKRegex alloc] initWithRegexString:@"(?<parent>[^:]*)(::(?<children>.*))*" options:RKCompileNoOptions];
-	if([pathr matchesCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
-		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding]
+	if([pathr matchesCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
+		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
 											 length:[path length]
 											inRange:NSMakeRange(0,[path length])
 									   captureIndex:[pathr captureIndexForCaptureName:@"parent"]
 											options:RKMatchNoOptions];
-		NSRange child = [pathr rangeForCharacters:[path cStringUsingEncoding:NSASCIIStringEncoding]
+		NSRange child = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
 										   length:[path length]
 										  inRange:NSMakeRange(0,[path length])
 									 captureIndex:[pathr captureIndexForCaptureName:@"children"]
@@ -133,12 +133,12 @@
 		NSString* parentString = [path substringWithRange:parentr];	
 		NSString* statName;
 		NSString* statAbbreviation = nil;
-		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
 											length:[parentString length]
 										   inRange:NSMakeRange(0,[parentString length])
 									  captureIndex:[splitr captureIndexForCaptureName:@"statname"]
 										   options:RKMatchNoOptions];
-		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSASCIIStringEncoding]
+		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
 											length:[parentString length]
 										   inRange:NSMakeRange(0,[parentString length])
 									  captureIndex:[splitr captureIndexForCaptureName:@"abbrname"]

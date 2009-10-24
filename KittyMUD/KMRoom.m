@@ -42,7 +42,7 @@ extern KMExitDirection directionFromString( NSString* dir );
 		if([dirs count] > 0) {
 			NSXMLElement* element = [dirs objectAtIndex:0];
 			KMExitInfo* exit = [[KMExitInfo alloc] init];
-			KMExitDirection direction;
+			KMExitDirection direction = KMExitNorth;
 			if([dir isEqualToString:@"north"])
 				direction = KMExitNorth;
 			else if([dir isEqualToString:@"south"])
@@ -86,12 +86,12 @@ extern KMExitDirection directionFromString( NSString* dir );
 	RKRegex* sectorTest = [[RKRegex alloc] initWithRegexString:@"\\[?((?<sector>\\w+)::)?(?<room>\\w+)\\]?" options:RKCompileNoOptions];
 	for(KMRoom* room in rooms) {
 		for(KMExitInfo* exit in [room exitInfo]) {
-			NSRange roomName = [sectorTest rangeForCharacters:[[exit destination] cStringUsingEncoding:NSASCIIStringEncoding]
+			NSRange roomName = [sectorTest rangeForCharacters:[[exit destination] cStringUsingEncoding:NSUTF8StringEncoding]
 														length:[[exit destination] length]
 													   inRange:NSMakeRange(0, [[exit destination] length])
 												  captureIndex:[sectorTest captureIndexForCaptureName:@"room"]
 													   options:RKMatchNoOptions];
-			NSRange sectorName = [sectorTest rangeForCharacters:[[exit destination] cStringUsingEncoding:NSASCIIStringEncoding]
+			NSRange sectorName = [sectorTest rangeForCharacters:[[exit destination] cStringUsingEncoding:NSUTF8StringEncoding]
 														  length:[[exit destination] length]
 														 inRange:NSMakeRange(0, [[exit destination] length])
 													captureIndex:[sectorTest captureIndexForCaptureName:@"sector"]
@@ -127,12 +127,12 @@ extern KMExitDirection directionFromString( NSString* dir );
 +(KMRoom*) getRoomByName:(NSString*)name {
 	
 	RKRegex* sectorTest = [[RKRegex alloc] initWithRegexString:@"\\[?((?<sector>\\w+)::)?(?<room>\\w+)\\]?" options:RKCompileNoOptions];
-	NSRange roomName = [sectorTest rangeForCharacters:[name cStringUsingEncoding:NSASCIIStringEncoding]
+	NSRange roomName = [sectorTest rangeForCharacters:[name cStringUsingEncoding:NSUTF8StringEncoding]
 											   length:[name length]
 											  inRange:NSMakeRange(0, [name length])
 										 captureIndex:[sectorTest captureIndexForCaptureName:@"room"]
 											  options:RKMatchNoOptions];
-	NSRange sectorName = [sectorTest rangeForCharacters:[name cStringUsingEncoding:NSASCIIStringEncoding]
+	NSRange sectorName = [sectorTest rangeForCharacters:[name cStringUsingEncoding:NSUTF8StringEncoding]
 												 length:[name length]
 												inRange:NSMakeRange(0, [name length])
 										   captureIndex:[sectorTest captureIndexForCaptureName:@"sector"]
@@ -217,7 +217,7 @@ extern KMExitDirection directionFromString( NSString* dir );
 	for(KMRoom* room in rooms) {
 		NSLog(@"%@::%@ (%@)", [room sector], [room roomID], [room roomTitle]);
 		for(KMExitInfo* exit in [room exitInfo]) {
-			NSString* direction;
+			NSString* direction = @"north: ";
 			switch([exit direction]) {
 				case KMExitNorth:
 					direction = @"north: ";

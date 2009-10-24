@@ -41,6 +41,6 @@ CHEDC(look);
 CDECL(look) direction:(NSString*)dir;
 
 CHEDC(reboot);
-CDECL(reboot);
+CDECL(reboot) time:(int)time;
 
 @end

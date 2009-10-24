@@ -1,0 +1,209 @@
+<data type="itemenhancements">
+	<enhancement type="prefix">
+		<name>Sturdy</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="30%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>4</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Strong</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="40%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>9</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Glorious</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="50%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>19</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Blessed</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="65%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>25</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Saintly</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="80%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>31</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Holy</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="100%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>36</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Godly</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="200%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorper</family>
+		<level>46</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Faithful</name>
+		<statbonus>
+			<stat name="combat::armor" bonus="0.5*[level]"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>armorlvl</family>
+		<level>30</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Devious</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="50"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>10</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Cruel</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="100"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>20</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Merciless</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="150"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>30</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Vengeful</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="200"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>40</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Brutal</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="250"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>50</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Savage</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="350"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>60</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Fierce</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="500"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>70</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Adamant</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="700"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>75</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Hateful</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="1000"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>80</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Ferocious</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="1250"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>90</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Ruthless</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="1750"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>100</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Deadly</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="2000"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>101</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Furious</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="2500"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>102</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Relentless</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="3500"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>103</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Vindictive</name>
+		<statbonus>
+			<stat name="combat::resilience" bonus="5000"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>resbon</family>
+		<level>104</level>
+	</enhancement>
+</data>

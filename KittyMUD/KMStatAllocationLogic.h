@@ -49,6 +49,8 @@ CDECL(showvalid);
 
 -(void) displayStatAllocationScreenToCoordinator:(id)coordinator;
 
+-(BOOL) confirmStats:(id)coordinator;
+
 @property (retain) KMStat* base;
 @property (retain) KMStat* allocBase;
 @property BOOL copiedAllocatable;

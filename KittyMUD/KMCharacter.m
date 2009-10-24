@@ -9,6 +9,7 @@
 #import "KMCharacter.h"
 #import "KittyMudStringExtensions.h"
 #import "KMRoom.h"
+#import "KMConnectionCoordinator.h"
 
 @implementation KMCharacter
 
@@ -70,7 +71,6 @@
 		[properties setObject:name forKey:@"name"];
 		[properties setValue:@"`B[ `GHP`w:`c[`r$(CurHp)/`R$(MaxHp)`c]  `CMP`w:`c[`g$(CurMp)/`G$(MaxMp)`c] `YLvl:`w(`y$(Lvl)`w) `B]`x:" forKey:@"prompt"];
 		stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
-		[stats debugPrintTree:0];
 		flags = [[NSMutableDictionary alloc] init];
 		flagbase = [[NSMutableArray alloc] init];
 		[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];

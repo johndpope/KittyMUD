@@ -12,23 +12,6 @@
 #import "KMConnectionCoordinator.h"
 #import "KMCommandInfo.h"
 
-@interface KMBox : NSObject {
-	void* item;
-}
-
--(id) initWithObject:(void*)object;
-
-+(id) box:(void*)object;
-
--(void*) unbox;
-
--(id) valueForUndefinedKey:(NSString *)key;
-
--(void) setValue:(id)value forUndefinedKey:(NSString*)key;
-
-@property (getter=unbox) void* item;
-@end
-
 @interface KMCommandInterpreter : NSObject <KMInterpreter> {
 	NSMutableArray* commands;
 	NSMutableDictionary* logics;
@@ -51,13 +34,20 @@
 CHEDC(help);
 CDECL(help) command:(NSString*)command;
 
-@property (readonly) NSArray* commands;
+CHEDC(rebuildlogics);
+CDECL(rebuildlogics);
+
+CDECL(displaycommand) command:(NSString*)command;
+
+@property (readonly) NSMutableArray* commands;
 
 @property (retain) id<KMCommandInterpreterLogic> defaultTarget;
 
 @property (retain) KMConnectionCoordinator* coordinator;
 
 @property (retain) NSMutableDictionary* logics;
+
+@property (retain) NSMutableArray* myLogics;
 @end
 
 @interface KMCommandInterpreter ()
@@ -66,6 +56,6 @@ CDECL(help) command:(NSString*)command;
 
 -(KMCommandInfo*) findCommandByName:(NSString*)name;
 
--(void) rebuildLogics;
+-(void) rebuildLogics:(id)coordinator;
 
 @end

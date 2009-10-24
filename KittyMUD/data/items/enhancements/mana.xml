@@ -1,0 +1,110 @@
+<data type="itemenhancements">
+	<enhancement type="prefix">
+		<name>Vulpine</name>
+		<statbonus>
+			<stat name="combat::leech::mp" bonus="12%"/>
+		</statbonus>
+		<itemtype>amulet,shield</itemtype>
+		<family>vulpine</family>
+		<level>12</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Triumphant</name>
+		<statbonus>
+			<stat name="combat::leech::mp" bonus="1"/>
+		</statbonus>
+		<itemtype>weapon</itemtype>
+		<family>mpleech</family>
+		<level>3</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Victorious</name>
+		<statbonus>
+			<stat name="combat::leech::mp" bonus="5"/>
+		</statbonus>
+		<itemtype>weapon</itemtype>
+		<family>mpleech</family>
+		<level>17</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Lizard's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="5%"/>
+		</statbonus>
+		<itemtype>armor,amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>3</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Snake's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="10%"/>
+		</statbonus>
+		<itemtype>armor,amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>6</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Serpent's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="20%"/>
+		</statbonus>
+		<itemtype>armor,amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>14</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Drake's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="30%"/>
+		</statbonus>
+		<itemtype>armor,amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>20</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Dragon's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="40%"/>
+		</statbonus>
+		<itemtype>armor,amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>24</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Wyrm's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="60%"/>
+		</statbonus>
+		<itemtype>armor,amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>30</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Great Wyrm's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="90%"/>
+		</statbonus>
+		<itemtype>amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>37</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Bahamut's</name>
+		<statbonus>
+			<stat name="maximummp" bonus="120%"/>
+		</statbonus>
+		<itemtype>amulet,ring</itemtype>
+		<family>mpadd</family>
+		<level>45</level>
+	</enhancement>
+	<enhancement type="prefix">
+		<name>Mnemonic</name>
+		<statbonus>
+			<stat name="maximummp" bonus="(0.75*[level])%"/>
+		</statbonus>
+		<itemtype>armor</itemtype>
+		<family>mpaddlvl</family>
+		<level>35</level>
+	</enhancement>
+</data>

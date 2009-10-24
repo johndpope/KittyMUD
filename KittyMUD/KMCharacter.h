@@ -32,6 +32,8 @@
 
 -(void) clearFlag:(NSString*)flagName;
 
+-(void) debugPrintFlagStatus:(id)coordinator;
+
 @property KMStat* stats;
 
 @property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;

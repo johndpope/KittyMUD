@@ -27,6 +27,7 @@
 	KMCharacter* character = [menu getSelection:coordinator];
 	if(!character)
 		return self;
+	[coordinator setFlag:@"no-message"];
 	[coordinator setValue:character forKeyPath:@"properties.current-character"];
 	[[character valueForKeyPath:@"properties.current-room"] displayRoom:coordinator];
 	KMCommandInterpreter* playingInterpreter = [[KMCommandInterpreter alloc] init];

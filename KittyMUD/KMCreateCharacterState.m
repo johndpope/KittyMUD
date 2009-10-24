@@ -21,7 +21,7 @@
 	NSString* name = [coordinator getInputBuffer];
 	if(usedNamesFile != nil)
 	{
-		NSArray* names = [[[NSString alloc] initWithData:[usedNamesFile readDataToEndOfFile] encoding:NSASCIIStringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+		NSArray* names = [[[NSString alloc] initWithData:[usedNamesFile readDataToEndOfFile] encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 		NSPredicate* pred = [NSPredicate predicateWithFormat:@"self like[cd] %@", name];
 		if([[names filteredArrayUsingPredicate:pred] count] > 0) {
 			[coordinator sendMessageToBuffer:@"Character name already in use, please choose another."];

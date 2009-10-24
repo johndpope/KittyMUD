@@ -19,14 +19,6 @@
 			<stat statname="persuasion" abbr="per" jobreq="true" bonus="0" changeable="true"/>
 			<stat statname="conversation" abbr="cnv" jobreq="true" bonus="0" changeable="true"/>
 		</statcollection>
-		<statcollection statname="resistances" abbr="res">
-			<stat statname="earth" abbr="earth"/>
-			<stat statname="fire" abbr="fire"/>
-			<stat statname="water" abbr="water"/>
-			<stat statname="wind" abbr="wind"/>
-			<stat statname="holy" abbr="holy"/>
-			<stat statname="shadow" abbr="shadow"/>
-		</statcollection>
 		<statcollection statname="jobs" abbr="jobs"/>
 		<statcollection statname="professions" abbr="prof" jobreq="true"/>
 		<statcollection statname="factions" abbr="fact" jobreq="true"/>
@@ -39,11 +31,40 @@
 		<stat statname="maximumhp" abbr="maxhp" value="100"/>
 		<stat statname="maximummp" abbr="maxmp" value="100"/>
 		<stat statname="level" abbr="lvl" jobreq="true" value="1"/>
-		<stat statname="experience" abbr="xp"/>
+		<stat statname="experience" abbr="xp" value="0" />
 		<statcollection statname="special" abbr="spec">
 			<stat statname="repbonus" abbr="repb" bonus="0"/>
 			<stat statname="expbonus" abbr="expb" bonus="0"/>
 			<statcollection statname="profbonus" abbr="profb"/>
+		</statcollection>
+		<statcollection statname="combat" abbr="cmbt">
+			<stat statname="armor" abbr="arm" value="0"/>
+			<stat statname="resilience" abbr="resil" value="0"/>
+			<stat statname="attackpower" abbr="ap" value="0"/>
+			<stat statname="mindamage" abbr="mndmg" value="1"/>
+			<stat statname="maxdamage" abbr="mxdmg" value="3"/>
+			<statcollection statname="magic" abbr="mag">
+				<statcollection statname="resistances" abbr="res">
+					<stat statname="fire" abbr="fire"/>
+					<stat statname="frost" abbr="frst"/>
+					<stat statname="lightning" abbr="ltng"/>
+					<stat statname="holy" abbr="holy"/>
+					<stat statname="shadow" abbr="shdw"/>
+					<stat statname="arcane" abbr="arcn"/>
+				</statcollection>
+				<statcollection statname="spellpower" abbr="sp" value="0">
+					<stat statname="fire" abbr="fire" value="0"/>
+					<stat statname="frost" abbr="frst" value="0"/>
+					<stat statname="lightning" abbr="ltng" value="0"/>
+					<stat statname="holy" abbr="holy" value="0"/>
+					<stat statname="shadow" abbr="shdw" value="0"/>
+					<stat statname="arcane" abbr="arcn" value="0"/>
+				</statcollection>
+			</statcollection>
+			<statcollection statname="leech" abbr="lch">
+				<stat statname="mp" abbr="mp" value="0"/>
+				<stat statname="hp" abbr="hp" value="0"/>
+			</statcollection>
 		</statcollection>
 	</statcollection>
 </stattemplate>

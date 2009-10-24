@@ -114,12 +114,13 @@
 
 		KMDataManagerCustomLoading* cl = [customLoaders objectForKey:tag];
 		id loadedObject = [[cl loader] customLoader:xelem withContext:[cl context]];
-		[loadedObject debugPrintTree:0];
 		[*object setValue:loadedObject forKey:[cl key]];
 	}
 }
+
 @synthesize tagReferences;
 @synthesize subtagReferences;
 @synthesize attributeReferences;
 @synthesize customLoaders;
+
 @end

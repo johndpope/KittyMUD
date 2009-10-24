@@ -16,7 +16,7 @@
 
 -(void) sendMessageToCoordinator:(id)coordinator
 {
-	[[[coordinator interpreter] defaultTarget] displayStatAllocationScreenToCoordinator:coordinator];
+	[(KMStatAllocationLogic*)[(KMCommandInterpreter*)[coordinator interpreter] defaultTarget] displayStatAllocationScreenToCoordinator:coordinator];
 }
 
 -(id<KMState>) processState:(id)coordinator

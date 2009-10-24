@@ -108,18 +108,18 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 			NSLog(@"Error archiving coordinator for account %@...", [coordinator valueForKeyPath:@"properties.name"]);
 			continue;
 		}
-		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),[coordinator valueForKeyPath:@"properties.name"]] dataUsingEncoding:NSASCIIStringEncoding]];
+		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),[coordinator valueForKeyPath:@"properties.name"]] dataUsingEncoding:NSUTF8StringEncoding]];
 	}
 	[softRebootFile closeFile];
-	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSASCIIStringEncoding];
-	execl(executable_name, executable_name, "softreboot", [[NSString stringWithFormat:@"%d",CFSocketGetNative(serverSocket)] cStringUsingEncoding:NSASCIIStringEncoding], (char*)NULL);
+	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSUTF8StringEncoding];
+	execl(executable_name, executable_name, "softreboot", [[NSString stringWithFormat:@"%d",CFSocketGetNative(serverSocket)] cStringUsingEncoding:NSUTF8StringEncoding], (char*)NULL);
 	NSLog(@"Error running execl, soft reboot aborted.");
 }
 
 -(void) softRebootRecovery:(CFSocketNativeHandle)socketHandle
 {
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables]];
-	NSArray* lines = [[[NSString alloc] initWithData:[softRebootFile readDataToEndOfFile] encoding:NSASCIIStringEncoding] 
+	NSArray* lines = [[[NSString alloc] initWithData:[softRebootFile readDataToEndOfFile] encoding:NSUTF8StringEncoding] 
 					  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 	CFSocketContext serverContext = {0, self, NULL, NULL, NULL};
 	[self setServerSocket:CFSocketCreateWithNative(kCFAllocatorDefault, socketHandle, kCFSocketAcceptCallBack, (CFSocketCallBack)&ServerBaseCallout, (CFSocketContext const*)&serverContext)];

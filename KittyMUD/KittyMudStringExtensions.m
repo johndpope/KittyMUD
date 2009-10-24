@@ -48,9 +48,9 @@ static NSMutableDictionary* kmMudVariables = nil;
 	}
 		
 	RKRegex* regex = [[RKRegex alloc] initWithRegexString:@"\\$\\((?<varname>\\w+)\\)" options:RKCompileNoOptions];
-	while([regex matchesCharacters:[self cStringUsingEncoding:NSASCIIStringEncoding] length:[self length] inRange:NSMakeRange(0, [self length]) options:RKMatchNoOptions])
+	while([regex matchesCharacters:[self cStringUsingEncoding:NSUTF8StringEncoding] length:[self length] inRange:NSMakeRange(0, [self length]) options:RKMatchNoOptions])
 	{
-		NSRange captureRange = [regex rangeForCharacters:[self cStringUsingEncoding:NSASCIIStringEncoding] 
+		NSRange captureRange = [regex rangeForCharacters:[self cStringUsingEncoding:NSUTF8StringEncoding] 
 												   length:[self length] 
 												 inRange:NSMakeRange(0, [self length]) 
 											 captureIndex:[regex captureIndexForCaptureName:@"varname"]
@@ -65,7 +65,7 @@ static NSMutableDictionary* kmMudVariables = nil;
 
 -(NSString*)MD5
 {
-	NSData *data = [self dataUsingEncoding:NSASCIIStringEncoding];
+	NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
 	unsigned char *digest = MD5([data bytes], [data length], NULL);
 	NSString* s = [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
 				   digest[0], digest[1], 

@@ -36,7 +36,7 @@
 	NSFileHandle* configFile = [NSFileHandle fileHandleForReadingAtPath:fileName];
 	if(configFile != nil) {
 		NSData* rawcontents = [configFile readDataToEndOfFile];
-		NSString* contents = [[NSString alloc] initWithData:rawcontents encoding:NSASCIIStringEncoding];
+		NSString* contents = [[NSString alloc] initWithData:rawcontents encoding:NSUTF8StringEncoding];
 		NSArray* lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 		for(NSString* line in lines) {
 			if([line length] <= 0)
@@ -61,7 +61,7 @@
 	NSFileHandle* configFile = [NSFileHandle fileHandleForWritingAtPath:fileName];
 	for(NSString* key in [variables allKeys]) {
 		NSString* var = [NSString stringWithFormat:@"%@=%@;\n",key,[variables objectForKey:key]];
-		[configFile writeData:[var dataUsingEncoding:NSASCIIStringEncoding]];
+		[configFile writeData:[var dataUsingEncoding:NSUTF8StringEncoding]];
 	}
 }
 

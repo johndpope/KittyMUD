@@ -1,0 +1,90 @@
+%{
+#import <stdio.h>
+#import <string.h>
+#import "KMXED.h"
+	
+void KMerror(const char *str)
+{
+	fprintf(stderr,"error: %s\n",str);
+}
+	
+int KMwrap()
+{
+	return 1;
+} 
+%}
+
+%union {
+	float num;
+	NSString* text;
+	KMXEDOpType op;
+}
+
+%token IDENTIFIER STATREFSTART STATREFEND LPAREN RPAREN FUNCSTART FUNCEND VARREFSTART VARREFEND NUMBER OPADD OPSUBTRACT OPMULTIPLY OPDIVIDE OPPERCENT OPMODULUS
+
+%%
+expressions: /* empty */
+	| expressions expression
+	;
+
+expression:
+	simpleoperation
+	|
+	simplereference
+	|
+	groupexpression
+	;
+
+groupexpression:
+	LPAREN expression RPAREN
+	;
+
+simpleoperation:
+	simpleopreference duooperation simpleopreference
+	|
+	simpleopreference unooperation
+	;
+
+duooperation:
+	OPADD
+	|
+	OPSUBTRACT
+	|
+	OPMULTIPLY
+	|
+	OPDIVIDE
+	|
+	OPMODULUS
+	;
+
+unooperation:
+	OPPERCENT
+	;
+
+simpleopreference:
+	groupexpression
+	|
+	simplereference
+	;
+
+simplereference:
+	NUMBER
+	|
+	statreference
+	|
+	varreference
+	|
+	funcreference
+	;
+
+statreference:
+	STATREFSTART IDENTIFIER STATREFEND
+	;
+
+varreference:
+	VARREFSTART IDENTIFIER VARREFEND
+	;
+
+funcreference:
+	FUNCSTART IDENTIFIER LPAREN expression RPAREN FUNCEND
+	;
