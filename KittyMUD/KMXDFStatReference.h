@@ -15,3 +15,9 @@
 
 @property (retain) NSString* statName;
 @end
+
+@interface KMXDFStatReference ()
+
+-(id) initializeWithName:(NSString*)name;
+
+@end

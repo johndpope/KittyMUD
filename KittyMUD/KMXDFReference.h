@@ -23,8 +23,15 @@ typedef enum {
 +(KMXDFReference*)createReferenceFromSource:(NSString*)source;
 
 -(NSNumber*)resolveReferenceWithObject:(id)object;
+@end
+
+@interface KMXDFReference ()
+
++(KMXDFReference*)createReferenceOfType:(KMXDFRefType)type,...;
 
 -(void)debugPrintSelf:(int)tabLevel;
+
+-(id) initializeWithRef:(KMXDFReference*)ref;
 
 @end
 

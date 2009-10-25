@@ -16,3 +16,9 @@
 @property (retain) NSString* variableName;
 
 @end
+
+@interface KMXDFVariableReference ()
+
+-(id) initializeWithVariableName:(NSString*)name;
+
+@end

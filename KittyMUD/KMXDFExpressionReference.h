@@ -28,3 +28,9 @@ typedef enum {
 @property (retain) KMXDFReference* reference1;
 @property (assign) KMXDFOpType operationType;
 @end
+
+@interface KMXDFExpressionReference ()
+
+-(id) initializeWithOperationType:(KMXDFOpType)type andReference0:(KMXDFReference*)ref0 andReference1:(KMXDFReference*)ref1;
+
+@end

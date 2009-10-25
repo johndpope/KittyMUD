@@ -19,3 +19,8 @@
 @property (retain) KMXDFReference* expression;
 @end
 
+@interface KMXDFFunctionReference ()
+
+-(id) initializeWithFunctionName:(NSString*)name andExpression:(KMXDFReference*)expression;
+
+@end

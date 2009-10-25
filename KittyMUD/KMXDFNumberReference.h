@@ -16,3 +16,9 @@
 
 @property (retain) NSNumber* myNum;
 @end;
+
+@interface KMXDFNumberReference ()
+
+-(id) initializeWithNumber:(NSNumber*)number;
+
+@end
