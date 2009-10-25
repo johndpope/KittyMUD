@@ -1,8 +1,7 @@
 %{
-#import <stdio.h>
-#import <string.h>
-#import "KMXDFExpression.h"
+#import <Foundation/Foundation.h>
 #import "KMXDFReference.h"
+#import "KMXDFExpressionReference.h"
 	
 void XDFerror(const char *str)
 {
@@ -43,29 +42,7 @@ expression: simpleoperation { $$ = $1; } | simplereference { $$ = $1; } | groupe
 
 groupexpression: LPAREN expression RPAREN {	$$ = $2; } ;
 
-simpleoperation: simpleopreference duooperation simpleopreference
-	{
-		KMXDFExpression* expression = [[KMXDFExpression alloc] init];
-		[expression setReference0:$1];
-		[expression setReference1:$3];
-		[expression setOperationType:$2];
-		KMXDFReference* ref = [[KMXDFReference alloc] init];
-		[ref setType:KMXDFExpressionRef];
-		[ref setExpression:expression];
-		$$ = ref;
-	}
-	| simpleopreference unooperation
-	{
-		KMXDFExpression* expression = [[KMXDFExpression alloc] init];
-		[expression setReference0:$1];
-		[expression setReference1:nil];
-		[expression setOperationType:$2];
-		KMXDFReference* ref = [[KMXDFReference alloc] init];
-		[ref setType:KMXDFExpressionRef];
-		[ref setExpression:expression];
-		$$ = ref;	
-	}
-	;
+simpleoperation: simpleopreference duooperation simpleopreference { $$ = [KMXDFReference createReferenceOfType:KMXDFExpressionRef, $2, $1, $3]; } | simpleopreference unooperation { $$ = [KMXDFReference createReferenceOfType:KMXDFExpressionRef, $2, $1]; } ;
 
 duooperation: OPADD { $$ = $1; } | OPSUBTRACT {	$$ = $1; } | OPMULTIPLY { $$ = $1; } | OPDIVIDE { $$ = $1; } | OPMODULUS { $$ = $1; } ;
 
@@ -73,42 +50,11 @@ unooperation: OPPERCENT { $$ = $1; } ;
 
 simpleopreference: groupexpression { $$ = $1; } | simplereference { $$ = $1; } ;
 
-simplereference: NUMBER
-	{
-		KMXDFReference* ref = [[KMXDFReference alloc] init];
-		[ref setType:KMXDFNumberRef];
-		[ref setNumber:$1];
-		$$ = ref;
-	}
-	| statreference { $$ = $1; }
-	| varreference { $$ = $1; }
-	| funcreference { $$ = $1; }
-	;
+simplereference: NUMBER { id num = [NSNumber numberWithFloat:$1]; $$ = [KMXDFReference createReferenceOfType:KMXDFNumberRef, num]; } | statreference { $$ = $1; } | varreference { $$ = $1; } | funcreference { $$ = $1; } ;
 
-statreference: STATREFSTART IDENTIFIER STATREFEND
-	{
-		KMXDFReference* ref = [[KMXDFReference alloc] init];
-		[ref setType:KMXDFStatRef];
-		[ref setReference:$2];
-		$$ = ref;
-	}
-	;
+statreference: STATREFSTART IDENTIFIER STATREFEND { $$ = [KMXDFReference createReferenceOfType:KMXDFStatRef, $2]; } ;
 
-varreference: VARREFSTART IDENTIFIER VARREFEND
-	{
-		KMXDFReference* ref = [[KMXDFReference alloc] init];
-		[ref setType:KMXDFVarRef];
-		[ref setReference:$2];
-		$$ = ref;
-	}
-	;
+varreference: VARREFSTART IDENTIFIER VARREFEND { $$ = [KMXDFReference createReferenceOfType:KMXDFVarRef, $2]; } ;
 
-funcreference: FUNCSTART IDENTIFIER LPAREN expression RPAREN FUNCEND
-	{
-		KMXDFReference* ref = [[KMXDFReference alloc] init];
-		[ref setType:KMXDFFuncRef];
-		[ref setReference:$2];
-		[ref setExpression:$4];
-		$$ = ref;
-	}
-	;
+funcreference: FUNCSTART IDENTIFIER LPAREN expression RPAREN FUNCEND { $$ = [KMXDFReference createReferenceOfType:KMXDFFuncRef, $2, $4]; } ;
+%%

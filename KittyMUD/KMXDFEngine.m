@@ -8,11 +8,28 @@
 
 #import "KMXDFEngine.h"
 #import "KMXDFReference.h"
-#import "KMXDFExpression.h"
+
+static NSMutableDictionary* functions;
 
 @implementation KMXDFEngine
 
-+(void) debugPrintReferenceTree:(KMXDFReference*)ref
-{
++(void)initialize {
+	functions = [[NSMutableDictionary alloc] init];
 }
+
++(void) registerFunctionWithName:(NSString*)name withSelector:(SEL)sel andTarget:(id)target
+{
+	KMXDFFunctionInfo* func = [[KMXDFFunctionInfo alloc] init];
+	[func setName:name];
+	[func setSelector:NSStringFromSelector(sel)];
+	[func setTarget:target];
+	[functions setObject:func forKey:name];
+}
+
++(KMXDFFunctionInfo*)getFunctionForName:(NSString*)name
+{
+	KMXDFFunctionInfo* func = [functions objectForKey:name];
+	return func;
+}
+
 @end

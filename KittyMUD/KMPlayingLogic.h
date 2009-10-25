@@ -43,4 +43,6 @@ CDECL(look) direction:(NSString*)dir;
 CHEDC(reboot);
 CDECL(reboot) time:(int)time;
 
+CDECL(testxdf);
+
 @end

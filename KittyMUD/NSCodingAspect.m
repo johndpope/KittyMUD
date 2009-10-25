@@ -44,12 +44,12 @@
 		class_addProtocol(aClass, codingProtocol);
 		
 		if (!class_getInstanceMethod(aClass, @selector(initWithCoder:))) {
-			[NSCodingAspect addMethod:@selector(initWithCoder:) toClass:aClass error:error];
-			if (error) { return NO; }
+			BOOL res = [NSCodingAspect addMethod:@selector(initWithCoder:) toClass:aClass error:error];
+			if (!res) { return NO; }
 		}
 		if (!class_getInstanceMethod(aClass, @selector(encodeWithCoder:))) {
-			[NSCodingAspect addMethod:@selector(encodeWithCoder:) toClass:aClass error:error];
-			if (error) { return NO; }
+			BOOL res = [NSCodingAspect addMethod:@selector(encodeWithCoder:) toClass:aClass error:error];
+			if (!res) { return NO; }
 		}
 		//all the ivars need to conform to NSCoding, too
 		unsigned int numIvars = 0;

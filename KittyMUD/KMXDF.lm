@@ -1,6 +1,7 @@
 %{
 #import <Foundation/Foundation.h>
-#import "KMXDFExpression.h"
+#import "KMXDFReference.h"
+#import "KMXDFExpressionReference.h"
 #import "y.tab.h"
 %}
 

@@ -23,7 +23,7 @@ Dragonborn.
 
 Play a Dragonborn if you want a strong character, one who favors the Paladin,
 Warlord, or Fighter Jobs, or if you want to be able to breath fire, acid,
-frost, or lightning.
+frost, poison or lightning.
 
 Sample Names:
 Male: Arjhan, Balasar, Bharash, Donaar, Ghesh, Heskan, Kriv, Medrash, Nadarr
@@ -55,7 +55,7 @@ Female: Akra, Biri, Daar, Harann, Kava, Korinn, Mishann, Nala, Perra, Raiann,
 				<name>Dragon Breath</name>
 				<selector>skillDragonBreath:</selector>
 				<command>breath</command>
-				<variable def="choice(element):[frost,fire,lightning,shadow]"/>
+				<variable def="choice(element):[frost,fire,lightning,poison,acid]"/>
 				<variable def="choice(stat):[physical::constitution,physical::dexterity,physical::strength]"/>
 				<ranks>
 					<rank atlevel="1" training="auto">

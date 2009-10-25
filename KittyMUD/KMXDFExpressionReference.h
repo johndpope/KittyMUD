@@ -1,8 +1,8 @@
 //
-//  KMXDFExpression.h
+//  KMXDFExpressionReference.h
 //  KittyMUD
 //
-//  Created by Michael Tindal on 10/24/09.
+//  Created by Michael Tindal on 10/25/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
@@ -18,13 +18,11 @@ typedef enum {
 	KMXDFOpPercent
 } KMXDFOpType;
 
-@interface KMXDFExpression : NSObject {
+@interface KMXDFExpressionReference : KMXDFReference {
 	KMXDFOpType operationType;
 	KMXDFReference* reference0;
 	KMXDFReference* reference1;
 }
-
--(void) debugPrintSelf:(int)tablevel;
 
 @property (retain) KMXDFReference* reference0;
 @property (retain) KMXDFReference* reference1;

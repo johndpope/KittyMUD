@@ -8,11 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMXDFReference.h"
+#import "KMXDFFunctionInfo.h"
 
 @interface KMXDFEngine : NSObject {
-
 }
 
-+(void) debugPrintReferenceTree:(KMXDFReference*)ref;
++(void)initialize;
+
++(void) registerFunctionWithName:(NSString*)name withSelector:(SEL)sel andTarget:(id)target;
+
++(KMXDFFunctionInfo*)getFunctionForName:(NSString*)name;
 
 @end

@@ -17,16 +17,15 @@ typedef enum {
 } KMXDFRefType;
 
 @interface KMXDFReference : NSObject {
-	KMXDFRefType type;
-	NSString* reference;
-	id expression;
-	float number;
+	KMXDFReference* myRef;
 }
 
--(void) debugPrintSelf:(int)tabLevel;
++(KMXDFReference*)createReferenceFromSource:(NSString*)source;
 
-@property (retain) NSString* reference;
-@property (assign) KMXDFRefType type;
-@property (retain) id expression;
-@property (assign) float number;
+-(NSNumber*)resolveReferenceWithObject:(id)object;
+
+-(void)debugPrintSelf:(int)tabLevel;
+
 @end
+
+NSString* createTabString(int tabs);

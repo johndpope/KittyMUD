@@ -48,17 +48,17 @@
 					<stat statname="fire" abbr="fire"/>
 					<stat statname="frost" abbr="frst"/>
 					<stat statname="lightning" abbr="ltng"/>
-					<stat statname="holy" abbr="holy"/>
-					<stat statname="shadow" abbr="shdw"/>
-					<stat statname="arcane" abbr="arcn"/>
+					<stat statname="divine" abbr="div"/>
+					<stat statname="poison" abbr="psn"/>
+					<stat statname="fey" abbr="fey"/>
 				</statcollection>
 				<statcollection statname="spellpower" abbr="sp" value="0">
 					<stat statname="fire" abbr="fire" value="0"/>
 					<stat statname="frost" abbr="frst" value="0"/>
 					<stat statname="lightning" abbr="ltng" value="0"/>
-					<stat statname="holy" abbr="holy" value="0"/>
-					<stat statname="shadow" abbr="shdw" value="0"/>
-					<stat statname="arcane" abbr="arcn" value="0"/>
+					<stat statname="divine" abbr="div" value="0"/>
+					<stat statname="poison" abbr="psn" value="0"/>
+					<stat statname="fey" abbr="fey" value="0"/>
 				</statcollection>
 			</statcollection>
 			<statcollection statname="leech" abbr="lch">
