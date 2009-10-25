@@ -189,7 +189,6 @@
 		3AE9E0E8108B36C000AED290 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
 		3AE9E0EA108B36C000AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
 		3AE9E0EB108B36C000AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
-		3AFF8C2E1093607E000208EA /* KMXED.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXED.h; sourceTree = "<group>"; };
 		3AFF8C2F1093607E000208EA /* XED.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = XED.lm; sourceTree = "<group>"; };
 		3AFF8C301093607E000208EA /* XED.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = XED.ym; sourceTree = "<group>"; };
 		3AFF8C3310936318000208EA /* KMXEDEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXEDEngine.h; sourceTree = "<group>"; };
@@ -504,7 +503,6 @@
 		3AFF8C221093605B000208EA /* XED */ = {
 			isa = PBXGroup;
 			children = (
-				3AFF8C2E1093607E000208EA /* KMXED.h */,
 				3AFF8C2F1093607E000208EA /* XED.lm */,
 				3AFF8C301093607E000208EA /* XED.ym */,
 				3AFF8C3310936318000208EA /* KMXEDEngine.h */,

@@ -43,7 +43,6 @@ NSString* createTabString(int tabs) {
 	}
 }
 
-@synthesize groupExpressions;
 @synthesize reference0;
 @synthesize reference1;
 @synthesize operationType;

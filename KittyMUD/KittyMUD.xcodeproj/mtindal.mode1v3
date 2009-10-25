@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>3AFF8CFC10938001000208EA</string>
+						<string>3AFF8E1D10945C8E000208EA</string>
 						<key>history</key>
 						<array>
 							<string>3A44534B109231C400293333</string>
@@ -306,9 +306,6 @@
 							<array>
 								<string>08FB7794FE84155DC02AAC07</string>
 								<string>3AE9E0D9108B36C000AED290</string>
-								<string>3AE9E0DB108B36C000AED290</string>
-								<string>3AE9E0DC108B36C000AED290</string>
-								<string>3AE9E0DE108B36C000AED290</string>
 								<string>3AE9E0E3108B36C000AED290</string>
 								<string>3AE9E0E7108B36C000AED290</string>
 								<string>3AE9E0E9108B36C000AED290</string>
@@ -328,12 +325,15 @@
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
-								<string>1CC0EA4004350EF90044410B</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>23</integer>
+									<integer>20</integer>
+									<integer>18</integer>
+									<integer>17</integer>
+									<integer>16</integer>
+									<integer>15</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -375,7 +375,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>KittyMUD.m</string>
+								<string>XED.ym</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -383,11 +383,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>KittyMUD.m</string>
+										<string>XED.ym</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3AFF8CFB10938001000208EA</string>
+										<string>3AFF8E1C10945C8E000208EA</string>
 										<key>history</key>
 										<array>
 											<string>3AC38CD61062B3B40011EBD4</string>
@@ -457,9 +457,7 @@
 											<string>3AE9E0151088F19300AED290</string>
 											<string>3AE9E07C108A2F2200AED290</string>
 											<string>3AE9E07D108A2F2200AED290</string>
-											<string>3AE9E07E108A2F2200AED290</string>
 											<string>3AE9E082108A2F2200AED290</string>
-											<string>3AE9E083108A2F2200AED290</string>
 											<string>3AE9E084108A2F2200AED290</string>
 											<string>3AE9E087108A2F2200AED290</string>
 											<string>3AE9E088108A2F2200AED290</string>
@@ -468,7 +466,6 @@
 											<string>3AE9E0BD108A544300AED290</string>
 											<string>3AE9E0BE108A544300AED290</string>
 											<string>3AE9E0D2108B367300AED290</string>
-											<string>3AE9E0D4108B367300AED290</string>
 											<string>3AE9E0F2108B5B0C00AED290</string>
 											<string>3AE9E0F3108B5B0C00AED290</string>
 											<string>3AE9E109108B88DE00AED290</string>
@@ -490,18 +487,20 @@
 											<string>3A445347109231C400293333</string>
 											<string>3A445348109231C400293333</string>
 											<string>3AFF8C8210937862000208EA</string>
-											<string>3AFF8C8310937862000208EA</string>
 											<string>3AFF8C8410937862000208EA</string>
-											<string>3AFF8CF110938001000208EA</string>
-											<string>3AFF8CF210938001000208EA</string>
-											<string>3AFF8CF310938001000208EA</string>
-											<string>3AFF8CF410938001000208EA</string>
-											<string>3AFF8CF510938001000208EA</string>
-											<string>3AFF8CF610938001000208EA</string>
-											<string>3AFF8CF710938001000208EA</string>
-											<string>3AFF8CF810938001000208EA</string>
 											<string>3AFF8CF910938001000208EA</string>
-											<string>3AFF8CFA10938001000208EA</string>
+											<string>3AFF8D171093939D000208EA</string>
+											<string>3AFF8D181093939D000208EA</string>
+											<string>3AFF8D191093939D000208EA</string>
+											<string>3AFF8D1A1093939D000208EA</string>
+											<string>3AFF8D1C1093939D000208EA</string>
+											<string>3AFF8D1E1093939D000208EA</string>
+											<string>3AFF8D28109394F5000208EA</string>
+											<string>3AFF8DE910940EAF000208EA</string>
+											<string>3AFF8E1810945C8E000208EA</string>
+											<string>3AFF8E1910945C8E000208EA</string>
+											<string>3AFF8E1A10945C8E000208EA</string>
+											<string>3AFF8E1B10945C8E000208EA</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -699,14 +698,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>3AFF8CD210937CDC000208EA</string>
 		<string>3AFF8CD310937CDC000208EA</string>
 		<string>3ABD3138106818920040FC03</string>
 		<string>3AC38BB810627BEA0011EBD4</string>
 		<string>3A0D3208108F79090018D19A</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/mtindal/Documents/KittyMUD/KittyMUD.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 130 1920 1048 0 0 1920 1178 </string>
@@ -725,8 +725,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -749,6 +747,8 @@
 							<string>760pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -943,12 +943,14 @@
 							<key>Dock</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>KMChooseJobState.m</string>
+										<string>KittyMUD.m</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -969,8 +971,6 @@
 							<string>212pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1006,8 +1006,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>3AE9DB871084F10000AED290</string>
-				<string>3AE9DB881084F10000AED290</string>
+				<string>3AFF8E0410945893000208EA</string>
+				<string>3AFF8E0510945893000208EA</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -1047,18 +1047,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {650, 209}}</string>
+								<string>{{0, 0}, {1920, 1008}}</string>
 								<key>RubberWindowFrame</key>
-								<string>888 786 650 250 0 0 1920 1178 </string>
+								<string>0 129 1920 1049 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
 							<key>Proportion</key>
-							<string>209pt</string>
+							<string>1008pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>209pt</string>
+					<string>1008pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -1078,7 +1078,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>888 786 650 250 0 0 1920 1178 </string>
+			<string>0 129 1920 1049 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

@@ -19,8 +19,6 @@ NSString* rcreateTabString(int tabs) {
 }
 
 -(void) debugPrintSelf:(int)tabLevel {
-	if(isGrouped)
-		NSLog(@"%@Following reference is grouped:", rcreateTabString(tabLevel));
 	switch(type) {
 		case KMXEDFuncRef:
 			NSLog(@"%@Function Reference: %@", rcreateTabString(tabLevel), reference);
@@ -45,5 +43,4 @@ NSString* rcreateTabString(int tabs) {
 @synthesize type;
 @synthesize expression;
 @synthesize number;
-@synthesize isGrouped;
 @end

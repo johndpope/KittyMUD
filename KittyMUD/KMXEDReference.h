@@ -17,7 +17,6 @@ typedef enum {
 } KMXEDRefType;
 
 @interface KMXEDReference : NSObject {
-	BOOL isGrouped;
 	KMXEDRefType type;
 	NSString* reference;
 	id expression;
@@ -30,5 +29,4 @@ typedef enum {
 @property (assign) KMXEDRefType type;
 @property (retain) id expression;
 @property (assign) float number;
-@property (assign) BOOL isGrouped;
 @end

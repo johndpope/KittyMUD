@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<data type="races">
+<data type="races" version="1">
 	<race name="Dragonborn" abbr="Drgb">
 		<attributes>
 			<minheight>70</minheight>
@@ -15,10 +15,11 @@
 		</statbonuses>
 		<description><![CDATA[                                                  
 Dragonborn are a race of beings descended from the great dragons of old.  An 
-ancient empire once loomed in the mountains of Agator,  but Dwarves and Goblins 
-have driven the Dragonborn from their ancestral home.  A small enclave of
-Dragonborn still live in the Imperial City of Khorish, where an aging Emperor
-by the name of Torinn attempts to bring former glory back to the Dragonborn.
+ancient empire once loomed in the mountains of Agator,  but Shadow Dwarves and 
+Goblins have driven the Dragonborn from their ancestral home.  A small enclave 
+of Dragonborn still live in the Imperial City of Khorish, where an aging 
+Emperor by the name of Torinn attempts to bring former glory back to the 
+Dragonborn.
 
 Play a Dragonborn if you want a strong character, one who favors the Paladin,
 Warlord, or Fighter Jobs, or if you want to be able to breath fire, acid,
@@ -97,5 +98,116 @@ Female: Akra, Biri, Daar, Harann, Kava, Korinn, Mishann, Nala, Perra, Raiann,
 		<defaults>
 			<default type="property" key="current-room" value="[khorish::barracks]" />
 		</defaults>
+		<languages>
+			<language type="common" level="fluent" />
+			<language type="draconic" level="master" />
+		</languages>
 	</race>
-						
+	<race name="Dwarf" abbr="Dwrf">
+		<attributes>
+			<minheight>48</minheight>
+			<maxheight>60</maxheight>
+			<minweight>150</minweight>
+			<maxweight>240</maxweight>
+		</attributes>
+		<statbonuses>
+			<stat statname="mental::wisdom" bonus="2" />
+			<stat statname="physical::constitution" bonus="2" />
+			<stat statname="physical::strength" bonus="1" />
+		</statbonuses>
+		<description><![CDATA[                                                  
+Dwarves are a hearty race that strongly believe they are descended from the
+Earth itself.  They are devout followers of the deities and seek guidance
+and favors from the pantheon.  Dwellers among the tall mountains of Sorgoth,
+the Dwarves are fierce enemies of Goblins and other foul creatures that lurk
+under the earth.
+
+Dwarves are master artisans of metal and jewerly and make excellent
+blacksmiths.  Dwarven armor is among the most coveted in the world.
+
+Play a Dwarf if you want a stout character, one who favors the Paladin,
+Cleric, or Fighter jobs.
+
+Sample Names:
+Male: Adrik, Baern, Berend, Darrak, Eberk, Fargrim, Gardain, Harbek,
+	Kildrak, Morgran, Orsik, Rangrim, Thoradin, Thorfin, Tordek,
+	Travok, Vondal
+Female: Artin, Bardryn, Diesa, Eldeth, Falkrunn, Gurdis, Helja, Kathra,
+	Kristryd, Mardred, Riswynn, Torbera, Vistra]]>
+		</description>
+		<feats>
+			<feat type="racial" takesslot="no">
+				<id>DwarvenResilience</id>
+				<name>Dwarven Resilience</name>
+				<passive when="damaged">
+					<if stat="currenthp" is="half">
+						<ifnot flag="resilience">
+							<action term="healself" value="=<maximumhp>" />
+							<setflag flag="resilience" />
+						</ifnot>
+					</if>
+				</passive>
+			</feat>
+			<feat type="racial" takesslot="no">
+				<id>Dwarven</id>
+				<name>Dragonborn Heritage</name>
+				<passive when="healed">
+					<allheal calcbonus="=<maximumhp>*((25+{bonus(<physical::constitution>)})%)"/>
+				</passive>
+			</feat>
+		</feats>
+		<skills>
+			<skill type="encounter">
+				<id>DragonBreath</id>
+				<name>Dragon Breath</name>
+				<selector>skillDragonBreath:</selector>
+				<command>breath</command>
+				<variable def="choice(element):[frost,fire,lightning,shadow]"/>
+				<variable def="choice(stat):[physical::constitution,physical::dexterity,physical::strength]"/>
+				<ranks>
+					<rank atlevel="1" training="auto">
+						<manacost>50</manacost>
+						<damage dice="1d6" statbonus="[stat]"/>
+					</rank>
+					<rank atlevel="10" training="auto">
+						<manacost>100</manacost>
+						<damage dice="2d6" statbonus="[stat]" element="[element]" setbonus="4"/>
+					</rank>
+					<rank atlevel="20" training="auto">
+						<manacost>200</manacost>
+						<damage dice="3d6" statbonus="[stat]" element="[element]" setbonus="8"/>
+					</rank>
+					<rank atlevel="35" training="auto">
+						<manacost>300</manacost>
+						<damage dice="4d6" statbonus="[stat]" element="[element]" setbonus="18"/>
+					</rank>
+					<rank atlevel="50" training="auto">
+						<manacost>450</manacost>
+						<damage dice="4d10" statbonus="[stat]" element="[element]" setbonus="25"/>
+					</rank>
+					<rank atlevel="75" training="auto">
+						<manacost>750</manacost>
+						<damage dice="5d12" statbonus="[stat]" element="[element]" setbonus="50"/>
+					</rank>
+					<rank atlevel="95" training="auto">
+						<manacost>1100</manacost>
+						<damage dice="5d20" statbonus="[stat]" element="[element]" setbonus="100"/>
+					</rank>
+				</ranks>
+			</skill>
+		</skills>
+		<reputations>
+			<variable def="choice(diety):[dieties]" />
+			<reputation faction="khorish" type="home" start="friendly:1000" />
+			<reputation faction="allies:khorish" type="ally" start="neutral:2000" />
+			<reputation faction="[diety]" type="diety" start="honored:100" />
+		</reputations>
+		<defaults>
+			<default type="property" key="current-room" value="[khorish::barracks]" />
+		</defaults>
+		<languages>
+			<language type="common" level="fluent" />
+			<language type="draconic" level="master" />
+		</languages>
+	</race>
+</data>

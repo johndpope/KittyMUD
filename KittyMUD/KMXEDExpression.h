@@ -7,19 +7,25 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMXED.h"
 #import "KMXEDReference.h"
+
+typedef enum {
+	KMXEDOpAdd,
+	KMXEDOpSubtract,
+	KMXEDOpMultiply,
+	KMXEDOpDivide,
+	KMXEDOpModulus,
+	KMXEDOpPercent
+} KMXEDOpType;
 
 @interface KMXEDExpression : NSObject {
 	KMXEDOpType operationType;
-	NSArray* groupExpressions;
 	KMXEDReference* reference0;
 	KMXEDReference* reference1;
 }
 
 -(void) debugPrintSelf:(int)tablevel;
 
-@property (retain) NSArray* groupExpressions;
 @property (retain) KMXEDReference* reference0;
 @property (retain) KMXEDReference* reference1;
 @property (assign) KMXEDOpType operationType;

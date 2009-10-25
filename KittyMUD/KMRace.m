@@ -34,9 +34,11 @@ KMDataManager* kmrace_setUpDataManager() {
 		if(![[raceToLoad substringWithRange:NSMakeRange([raceToLoad length] - 4, 4)] isEqualToString:@".xml"])
 			continue;
 		KMRace* race = [KMRace loadRaceWithPath:[[NSString stringWithFormat:@"$(KMRaceSourceDir)/%@",raceToLoad] replaceAllVariables]];
-		NSLog(@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
-		[races addObject:race];
-		[[race bonuses] debugPrintTree:0];
+		if([race name]) {
+			NSLog(@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
+			[races addObject:race];
+			[[race bonuses] debugPrintTree:0];
+		}
 	}
 }
 
