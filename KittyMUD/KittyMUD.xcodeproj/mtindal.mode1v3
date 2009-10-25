@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>3AFF8E1D10945C8E000208EA</string>
+						<string>3AFF8E4710947FE8000208EA</string>
 						<key>history</key>
 						<array>
 							<string>3A44534B109231C400293333</string>
@@ -270,6 +270,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -311,8 +313,6 @@
 								<string>3AE9E0E9108B36C000AED290</string>
 								<string>08FB7795FE84155DC02AAC07</string>
 								<string>3AFF8C201093604B000208EA</string>
-								<string>3AFF8C2110936055000208EA</string>
-								<string>3AFF8C221093605B000208EA</string>
 								<string>3AE9DAA41083637B00AED290</string>
 								<string>3A642E97107E2DC6005A2619</string>
 								<string>3AAA352A10779728000D0767</string>
@@ -329,9 +329,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>20</integer>
 									<integer>18</integer>
-									<integer>17</integer>
 									<integer>16</integer>
 									<integer>15</integer>
 									<integer>0</integer>
@@ -368,14 +366,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>XED.ym</string>
+								<string>KMXDF.ym</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -383,11 +379,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>XED.ym</string>
+										<string>KMXDF.ym</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3AFF8E1C10945C8E000208EA</string>
+										<string>3AFF8E4610947FE8000208EA</string>
 										<key>history</key>
 										<array>
 											<string>3AC38CD61062B3B40011EBD4</string>
@@ -476,7 +472,6 @@
 											<string>3A0D3203108F79090018D19A</string>
 											<string>3A0D3205108F79090018D19A</string>
 											<string>3A445327108F82CE00293333</string>
-											<string>3A445328108F82CE00293333</string>
 											<string>3A445329108F82CE00293333</string>
 											<string>3A44532A108F82CE00293333</string>
 											<string>3A44532B108F82CE00293333</string>
@@ -486,21 +481,22 @@
 											<string>3A445345109231C400293333</string>
 											<string>3A445347109231C400293333</string>
 											<string>3A445348109231C400293333</string>
-											<string>3AFF8C8210937862000208EA</string>
-											<string>3AFF8C8410937862000208EA</string>
 											<string>3AFF8CF910938001000208EA</string>
 											<string>3AFF8D171093939D000208EA</string>
 											<string>3AFF8D181093939D000208EA</string>
 											<string>3AFF8D191093939D000208EA</string>
 											<string>3AFF8D1A1093939D000208EA</string>
-											<string>3AFF8D1C1093939D000208EA</string>
-											<string>3AFF8D1E1093939D000208EA</string>
-											<string>3AFF8D28109394F5000208EA</string>
 											<string>3AFF8DE910940EAF000208EA</string>
-											<string>3AFF8E1810945C8E000208EA</string>
-											<string>3AFF8E1910945C8E000208EA</string>
-											<string>3AFF8E1A10945C8E000208EA</string>
-											<string>3AFF8E1B10945C8E000208EA</string>
+											<string>3AFF8E3C10947FE8000208EA</string>
+											<string>3AFF8E3D10947FE8000208EA</string>
+											<string>3AFF8E3E10947FE8000208EA</string>
+											<string>3AFF8E3F10947FE8000208EA</string>
+											<string>3AFF8E4010947FE8000208EA</string>
+											<string>3AFF8E4110947FE8000208EA</string>
+											<string>3AFF8E4210947FE8000208EA</string>
+											<string>3AFF8E4310947FE8000208EA</string>
+											<string>3AFF8E4410947FE8000208EA</string>
+											<string>3AFF8E4510947FE8000208EA</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -701,12 +697,12 @@
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>3AFF8CD210937CDC000208EA</string>
 		<string>3AFF8CD310937CDC000208EA</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>3ABD3138106818920040FC03</string>
 		<string>3AC38BB810627BEA0011EBD4</string>
 		<string>3A0D3208108F79090018D19A</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/mtindal/Documents/KittyMUD/KittyMUD.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 130 1920 1048 0 0 1920 1178 </string>
@@ -725,12 +721,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>KMXEDReference.m</string>
+								<string>KMXDF.lm</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -747,8 +745,6 @@
 							<string>760pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -943,8 +939,6 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -971,6 +965,8 @@
 							<string>212pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1082,7 +1078,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

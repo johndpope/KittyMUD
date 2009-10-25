@@ -49,11 +49,11 @@
 		3AE9DF9B1087B8A100AED290 /* NSCodingAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DF9A1087B8A100AED290 /* NSCodingAspect.m */; };
 		3AE9E029108A11C300AED290 /* KMItemTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E028108A11C300AED290 /* KMItemTemplate.m */; };
 		3AE9E06A108A299300AED290 /* KMItemEnhancement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E069108A299300AED290 /* KMItemEnhancement.m */; };
-		3AFF8C311093607E000208EA /* XED.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* XED.lm */; settings = {COMPILER_FLAGS = "--prefix=KM --header-file=KMXED.yy.h"; }; };
-		3AFF8C321093607E000208EA /* XED.ym in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C301093607E000208EA /* XED.ym */; settings = {COMPILER_FLAGS = "--name-prefix=KM -d"; }; };
-		3AFF8C3510936318000208EA /* KMXEDEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3410936318000208EA /* KMXEDEngine.m */; };
-		3AFF8C38109363F3000208EA /* KMXEDExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C37109363F3000208EA /* KMXEDExpression.m */; };
-		3AFF8C3B10936465000208EA /* KMXEDReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3A10936465000208EA /* KMXEDReference.m */; };
+		3AFF8C311093607E000208EA /* KMXDF.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* KMXDF.lm */; settings = {COMPILER_FLAGS = "--prefix=XDF --header-file=KMXDF.yy.h"; }; };
+		3AFF8C321093607E000208EA /* KMXDF.ym in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C301093607E000208EA /* KMXDF.ym */; settings = {COMPILER_FLAGS = "--name-prefix=XDF -d"; }; };
+		3AFF8C3510936318000208EA /* KMXDFEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3410936318000208EA /* KMXDFEngine.m */; };
+		3AFF8C38109363F3000208EA /* KMXDFExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C37109363F3000208EA /* KMXDFExpression.m */; };
+		3AFF8C3B10936465000208EA /* KMXDFReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3A10936465000208EA /* KMXDFReference.m */; };
 		8DD76F9A0486AA7600D96B5E /* KittyMUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* KittyMUD.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9F0486AA7600D96B5E /* KittyMUD.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* KittyMUD.1 */; };
 /* End PBXBuildFile section */
@@ -189,14 +189,14 @@
 		3AE9E0E8108B36C000AED290 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
 		3AE9E0EA108B36C000AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
 		3AE9E0EB108B36C000AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
-		3AFF8C2F1093607E000208EA /* XED.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = XED.lm; sourceTree = "<group>"; };
-		3AFF8C301093607E000208EA /* XED.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = XED.ym; sourceTree = "<group>"; };
-		3AFF8C3310936318000208EA /* KMXEDEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXEDEngine.h; sourceTree = "<group>"; };
-		3AFF8C3410936318000208EA /* KMXEDEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXEDEngine.m; sourceTree = "<group>"; };
-		3AFF8C36109363F3000208EA /* KMXEDExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXEDExpression.h; sourceTree = "<group>"; };
-		3AFF8C37109363F3000208EA /* KMXEDExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXEDExpression.m; sourceTree = "<group>"; };
-		3AFF8C3910936465000208EA /* KMXEDReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXEDReference.h; sourceTree = "<group>"; };
-		3AFF8C3A10936465000208EA /* KMXEDReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXEDReference.m; sourceTree = "<group>"; };
+		3AFF8C2F1093607E000208EA /* KMXDF.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = KMXDF.lm; sourceTree = "<group>"; };
+		3AFF8C301093607E000208EA /* KMXDF.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = KMXDF.ym; sourceTree = "<group>"; };
+		3AFF8C3310936318000208EA /* KMXDFEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFEngine.h; sourceTree = "<group>"; };
+		3AFF8C3410936318000208EA /* KMXDFEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFEngine.m; sourceTree = "<group>"; };
+		3AFF8C36109363F3000208EA /* KMXDFExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFExpression.h; sourceTree = "<group>"; };
+		3AFF8C37109363F3000208EA /* KMXDFExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFExpression.m; sourceTree = "<group>"; };
+		3AFF8C3910936465000208EA /* KMXDFReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFReference.h; sourceTree = "<group>"; };
+		3AFF8C3A10936465000208EA /* KMXDFReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFReference.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* KittyMUD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KittyMUD; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -487,32 +487,16 @@
 		3AFF8C201093604B000208EA /* XDF */ = {
 			isa = PBXGroup;
 			children = (
-				3AFF8C2110936055000208EA /* Tier 2 */,
+				3AFF8C2F1093607E000208EA /* KMXDF.lm */,
+				3AFF8C301093607E000208EA /* KMXDF.ym */,
+				3AFF8C3310936318000208EA /* KMXDFEngine.h */,
+				3AFF8C3410936318000208EA /* KMXDFEngine.m */,
+				3AFF8C36109363F3000208EA /* KMXDFExpression.h */,
+				3AFF8C37109363F3000208EA /* KMXDFExpression.m */,
+				3AFF8C3910936465000208EA /* KMXDFReference.h */,
+				3AFF8C3A10936465000208EA /* KMXDFReference.m */,
 			);
 			name = XDF;
-			sourceTree = "<group>";
-		};
-		3AFF8C2110936055000208EA /* Tier 2 */ = {
-			isa = PBXGroup;
-			children = (
-				3AFF8C221093605B000208EA /* XED */,
-			);
-			name = "Tier 2";
-			sourceTree = "<group>";
-		};
-		3AFF8C221093605B000208EA /* XED */ = {
-			isa = PBXGroup;
-			children = (
-				3AFF8C2F1093607E000208EA /* XED.lm */,
-				3AFF8C301093607E000208EA /* XED.ym */,
-				3AFF8C3310936318000208EA /* KMXEDEngine.h */,
-				3AFF8C3410936318000208EA /* KMXEDEngine.m */,
-				3AFF8C36109363F3000208EA /* KMXEDExpression.h */,
-				3AFF8C37109363F3000208EA /* KMXEDExpression.m */,
-				3AFF8C3910936465000208EA /* KMXEDReference.h */,
-				3AFF8C3A10936465000208EA /* KMXEDReference.m */,
-			);
-			name = XED;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -626,11 +610,11 @@
 				3AE9DF9B1087B8A100AED290 /* NSCodingAspect.m in Sources */,
 				3AE9E029108A11C300AED290 /* KMItemTemplate.m in Sources */,
 				3AE9E06A108A299300AED290 /* KMItemEnhancement.m in Sources */,
-				3AFF8C311093607E000208EA /* XED.lm in Sources */,
-				3AFF8C321093607E000208EA /* XED.ym in Sources */,
-				3AFF8C3510936318000208EA /* KMXEDEngine.m in Sources */,
-				3AFF8C38109363F3000208EA /* KMXEDExpression.m in Sources */,
-				3AFF8C3B10936465000208EA /* KMXEDReference.m in Sources */,
+				3AFF8C311093607E000208EA /* KMXDF.lm in Sources */,
+				3AFF8C321093607E000208EA /* KMXDF.ym in Sources */,
+				3AFF8C3510936318000208EA /* KMXDFEngine.m in Sources */,
+				3AFF8C38109363F3000208EA /* KMXDFExpression.m in Sources */,
+				3AFF8C3B10936465000208EA /* KMXDFReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

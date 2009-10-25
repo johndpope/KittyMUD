@@ -1,15 +1,15 @@
 %{
 #import <stdio.h>
 #import <string.h>
-#import "KMXEDExpression.h"
-#import "KMXEDReference.h"
+#import "KMXDFExpression.h"
+#import "KMXDFReference.h"
 	
-void KMerror(const char *str)
+void XDFerror(const char *str)
 {
 	fprintf(stderr,"error: %s\n",str);
 }
 	
-int KMwrap()
+int XDFwrap()
 {
 	return 1;
 }
@@ -20,7 +20,7 @@ int KMwrap()
 %union {
 	float num;
 	NSString* text;
-	KMXEDOpType op;
+	KMXDFOpType op;
 	id ref;
 }
 
@@ -45,23 +45,23 @@ groupexpression: LPAREN expression RPAREN {	$$ = $2; } ;
 
 simpleoperation: simpleopreference duooperation simpleopreference
 	{
-		KMXEDExpression* expression = [[KMXEDExpression alloc] init];
+		KMXDFExpression* expression = [[KMXDFExpression alloc] init];
 		[expression setReference0:$1];
 		[expression setReference1:$3];
 		[expression setOperationType:$2];
-		KMXEDReference* ref = [[KMXEDReference alloc] init];
-		[ref setType:KMXEDExpressionRef];
+		KMXDFReference* ref = [[KMXDFReference alloc] init];
+		[ref setType:KMXDFExpressionRef];
 		[ref setExpression:expression];
 		$$ = ref;
 	}
 	| simpleopreference unooperation
 	{
-		KMXEDExpression* expression = [[KMXEDExpression alloc] init];
+		KMXDFExpression* expression = [[KMXDFExpression alloc] init];
 		[expression setReference0:$1];
 		[expression setReference1:nil];
 		[expression setOperationType:$2];
-		KMXEDReference* ref = [[KMXEDReference alloc] init];
-		[ref setType:KMXEDExpressionRef];
+		KMXDFReference* ref = [[KMXDFReference alloc] init];
+		[ref setType:KMXDFExpressionRef];
 		[ref setExpression:expression];
 		$$ = ref;	
 	}
@@ -75,8 +75,8 @@ simpleopreference: groupexpression { $$ = $1; } | simplereference { $$ = $1; } ;
 
 simplereference: NUMBER
 	{
-		KMXEDReference* ref = [[KMXEDReference alloc] init];
-		[ref setType:KMXEDNumberRef];
+		KMXDFReference* ref = [[KMXDFReference alloc] init];
+		[ref setType:KMXDFNumberRef];
 		[ref setNumber:$1];
 		$$ = ref;
 	}
@@ -87,8 +87,8 @@ simplereference: NUMBER
 
 statreference: STATREFSTART IDENTIFIER STATREFEND
 	{
-		KMXEDReference* ref = [[KMXEDReference alloc] init];
-		[ref setType:KMXEDStatRef];
+		KMXDFReference* ref = [[KMXDFReference alloc] init];
+		[ref setType:KMXDFStatRef];
 		[ref setReference:$2];
 		$$ = ref;
 	}
@@ -96,8 +96,8 @@ statreference: STATREFSTART IDENTIFIER STATREFEND
 
 varreference: VARREFSTART IDENTIFIER VARREFEND
 	{
-		KMXEDReference* ref = [[KMXEDReference alloc] init];
-		[ref setType:KMXEDVarRef];
+		KMXDFReference* ref = [[KMXDFReference alloc] init];
+		[ref setType:KMXDFVarRef];
 		[ref setReference:$2];
 		$$ = ref;
 	}
@@ -105,8 +105,8 @@ varreference: VARREFSTART IDENTIFIER VARREFEND
 
 funcreference: FUNCSTART IDENTIFIER LPAREN expression RPAREN FUNCEND
 	{
-		KMXEDReference* ref = [[KMXEDReference alloc] init];
-		[ref setType:KMXEDFuncRef];
+		KMXDFReference* ref = [[KMXDFReference alloc] init];
+		[ref setType:KMXDFFuncRef];
 		[ref setReference:$2];
 		[ref setExpression:$4];
 		$$ = ref;

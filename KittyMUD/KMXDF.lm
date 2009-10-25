@@ -1,0 +1,26 @@
+%{
+#import <Foundation/Foundation.h>
+#import "KMXDFExpression.h"
+#import "y.tab.h"
+%}
+
+%%
+[_a-zA-Z][_a-zA-Z0-9]*(::[a-zA-Z]*)?	XDFlval.text = [NSString stringWithCString:XDFtext encoding:NSUTF8StringEncoding]; return IDENTIFIER;
+\< return STATREFSTART;
+\> return STATREFEND;
+\( return LPAREN;
+\) return RPAREN;
+\{ return FUNCSTART;
+\} return FUNCEND;
+\[ return VARREFSTART;
+\] return VARREFEND;
+[0-9]+(\.[0-9]+)? XDFlval.num = atof(XDFtext); return NUMBER;
+\/ XDFlval.op = KMXDFOpDivide; return OPDIVIDE;
+\* XDFlval.op = KMXDFOpMultiply; return OPMULTIPLY;
+\+ XDFlval.op = KMXDFOpAdd; return OPADD;
+\- XDFlval.op = KMXDFOpSubtract; return OPSUBTRACT;
+\% XDFlval.op = KMXDFOpPercent; return OPPERCENT;
+\^ XDFlval.op = KMXDFOpModulus; return OPMODULUS;
+\n /* ignore newline */
+[ \t]* /* ignore whitespace */
+%%

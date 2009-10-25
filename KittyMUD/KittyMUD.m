@@ -13,9 +13,9 @@
 #import "KMCommandInterpreter.h"
 #import "KMRoom.h"
 #import "NSCodingAspect.h"
-#import "KMXED.yy.h"
-#import "KMXEDReference.h"
-#import "KMXEDExpression.h"
+#import "KMXDF.yy.h"
+#import "KMXDFReference.h"
+#import "KMXDFExpression.h"
 
 void initializeData(BOOL codingOnly) {
 	__strong Class* classes;
@@ -69,10 +69,10 @@ int main(int argc, char *argv[])
 	[NSString initializeVariableDictionary];
 	[NSString addVariableWithKey:@"BundleDir" andValue:[[NSBundle mainBundle] bundlePath]];
 	__strong char const* inputString = [@"<maximumhp>*((25+{bonus(<physical::constitution>)})%)" cStringUsingEncoding:NSUTF8StringEncoding];
-	YY_BUFFER_STATE buff = KM_scan_string(inputString);
-	KMXEDReference* ref;
-	KMparse(&ref);
-	KM_delete_buffer(buff);
+	YY_BUFFER_STATE buff = XDF_scan_string(inputString);
+	KMXDFReference* ref;
+	XDFparse(&ref);
+	XDF_delete_buffer(buff);
 	[ref debugPrintSelf:0];
 	KMVariableManager* varManager = [[KMVariableManager alloc] initializeWithConfigFile:[NSString stringWithFormat:@"%@/config/sys.conf",[[NSBundle mainBundle] bundlePath]]];
 	KMServer* server = [KMServer getDefaultServer];

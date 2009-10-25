@@ -1,5 +1,5 @@
 //
-//  KMXEDEngine.h
+//  KMXDFEngine.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/24/09.
@@ -7,12 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMXEDReference.h"
+#import "KMXDFReference.h"
 
-@interface KMXEDEngine : NSObject {
+@interface KMXDFEngine : NSObject {
 
 }
 
-+(void) debugPrintReferenceTree:(KMXEDReference*)ref;
++(void) debugPrintReferenceTree:(KMXDFReference*)ref;
 
 @end

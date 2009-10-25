@@ -1,29 +1,29 @@
 //
-//  KMXEDExpression.m
+//  KMXDFExpression.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/24/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMXEDExpression.h"
+#import "KMXDFExpression.h"
 
 
-@implementation KMXEDExpression
+@implementation KMXDFExpression
 
-NSString* opToString(KMXEDOpType type) {
+NSString* opToString(KMXDFOpType type) {
 	switch(type) {
-		case KMXEDOpAdd:
+		case KMXDFOpAdd:
 			return @"+";
-		case KMXEDOpSubtract:
+		case KMXDFOpSubtract:
 			return @"-";
-		case KMXEDOpMultiply:
+		case KMXDFOpMultiply:
 			return @"*";
-		case KMXEDOpDivide:
+		case KMXDFOpDivide:
 			return @"/";
-		case KMXEDOpModulus:
+		case KMXDFOpModulus:
 			return @"^";
-		case KMXEDOpPercent:
+		case KMXDFOpPercent:
 			return @"%";
 	}
 }
@@ -38,7 +38,7 @@ NSString* createTabString(int tabs) {
 -(void) debugPrintSelf:(int)tablevel {
 	NSLog(@"%@Op: %@", createTabString(tablevel), opToString(operationType));
 	[reference0 debugPrintSelf:tablevel+1];
-	if(operationType != KMXEDOpPercent) {
+	if(operationType != KMXDFOpPercent) {
 		[reference1 debugPrintSelf:tablevel+1];
 	}
 }
