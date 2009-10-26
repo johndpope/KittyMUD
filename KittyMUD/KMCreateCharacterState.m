@@ -12,6 +12,11 @@
 #import "KMServer.h"
 #import "KMCharacter.h"
 #import "KMChooseRaceState.h"
+#import "KMStatAllocationState.h"
+#import "KMChooseJobState.h"
+#import "KMConfirmStatAllocationState.h"
+#import "KMWorkflow.h"
+#import "KMPlayingState.h"
 
 @implementation KMCreateCharacterState
 
@@ -36,7 +41,12 @@
 	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
 	[[coordinator getCharacters] addObject:character];
 	[[coordinator getProperties] setObject:character forKey:@"current-character"];
-	return [[KMChooseRaceState alloc] init];
+	KMWorkflow* wf = [KMWorkflow createWorkflowForSteps:[[KMChooseRaceState alloc] init],[[KMStatAllocationState alloc] init], [[KMPlayingState alloc] init], nil];
+	[wf insertStep:[[KMChooseJobState alloc] init] before:[[KMPlayingState alloc] init]];
+	[wf insertStep:[[KMConfirmStatAllocationState alloc] init] after:[[KMStatAllocationState alloc] init]];
+	id<KMState> state = [wf startWorkflowAtStep:[[KMChooseRaceState alloc] init]];
+	[coordinator setValue:wf forKeyPath:@"properties.current-workflow"];
+	return state;
 }
 
 +(NSString*) getName

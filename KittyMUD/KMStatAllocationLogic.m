@@ -16,6 +16,7 @@
 #import "KMJob.h"
 #import "KMConfirmStatAllocationState.h"
 #import "KMBasicInterpreter.h"
+#import "KMWorkflow.h"
 
 @implementation KMStatAllocationLogic
 
@@ -98,7 +99,13 @@ CIMPL(quit,quit:,nil,nil,nil,1) {
 	BOOL ready = [self confirmStats:coordinator];	
 	if( ready ) {
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		[coordinator setCurrentState:[[KMConfirmStatAllocationState alloc] init]];
+		KMWorkflow* wf = [coordinator valueForKeyPath:@"properties.current-workflow"];
+		if(wf) {
+			id<KMState> newState = [wf advanceWorkflow];
+			[coordinator setCurrentState:newState];
+		} else {
+			[coordinator setCurrentState:[[KMConfirmStatAllocationState alloc] init]];
+		}
 		[[coordinator valueForKeyPath:@"properties.current-character"] setFlag:@"allocated"];
 		return;
 	}
@@ -190,7 +197,6 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 			[sb appendString:@"\n\r"];
 		i++;
 	}
-	[sb appendString:@"\nDo you wish to continue with these stats? (yes/no):"];
 	[coordinator sendMessageToBuffer:sb];
 	return YES;
 }

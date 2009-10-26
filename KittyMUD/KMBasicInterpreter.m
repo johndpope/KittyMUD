@@ -9,12 +9,23 @@
 #import "KMBasicInterpreter.h"
 #import "KMConnectionCoordinator.h"
 #import "KMState.h"
-
+#import "KMWorkflow.h"
 @implementation KMBasicInterpreter
 
 -(void) interpret:(id)coordinator
 {
-	[coordinator setCurrentState:[[coordinator currentState] processState:coordinator]];
+	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
+	id<KMState> newState = [[coordinator currentState] processState:coordinator];
+	if(!workflow) {
+		[coordinator setCurrentState:newState];
+	} else {
+		if(newState == [coordinator currentState])
+			return;
+		NSLog(@"Current step in workflow: %@", [(id)[coordinator currentState] className]);
+		id<KMState> nextStep = [workflow advanceWorkflow];
+		NSLog(@"Advanced workflow, new step in workflow: %@", [(id)[coordinator currentState] className]);
+		[coordinator setCurrentState:nextStep];
+	}
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
 		[[coordinator currentState] softRebootMessage:coordinator];

@@ -18,26 +18,38 @@
 	return self;
 }
 
+-(void) debugPrintWorkflow:(id<KMState>)firstState {
+	KMWorkflowStep* step = [steps objectForKey:[(id)firstState className]];
+	int zstep = 1;
+	do {
+		NSLog(@"Step #%d: %@", zstep++, [(id)[step myState] className]);
+		step = [step nextStep];
+	} while (step);
+}
+
 +(KMWorkflow*)createWorkflowForSteps:(id<KMState>)firstStep,... {
 	va_list steps;
 	va_start(steps,firstStep);
 	KMWorkflow* wf = [[KMWorkflow alloc] init];
 	[wf addStep:firstStep];
-	KMWorkflowStep* cstep = [[wf steps] objectForKey:firstStep];
+	KMWorkflowStep* cstep = [[wf steps] objectForKey:[(id)firstStep className]];
 	id<KMState> state;
 	while(state = va_arg(steps,id<KMState>)) {
 		[wf addStep:state];
-		KMWorkflowStep* nstep = [[wf steps] objectForKey:state];
+		KMWorkflowStep* nstep = [[wf steps] objectForKey:[(id)state className]];
 		[cstep setNextStep:nstep];
 		cstep = nstep;
 	}
+	va_end(steps);
+	return wf;
 }
 
--(void) startWorkflowAtStep:(id<KMState>)state {
-	KMWorkflowStep* step = [steps objectForKey:state];
+-(id<KMState>) startWorkflowAtStep:(id<KMState>)state {
+	KMWorkflowStep* step = [steps objectForKey:[(id)state className]];
 	if(!step)
-		return;
+		return nil;
 	currentStep = step;
+	return [currentStep myState];
 }
 
 -(id<KMState>) advanceWorkflow {
@@ -46,19 +58,19 @@
 }
 
 -(void) addStep:(id<KMState>)state {
-	if([steps objectForKey:state] != nil)
+	if([steps objectForKey:[(id)state className]] != nil)
 		return;
-	[steps setObject:[[KMWorkflowStep alloc] initWithState:state] forKey:state];
+	[steps setObject:[[KMWorkflowStep alloc] initWithState:state] forKey:[(id)state className]];
 }
 
 -(void) setNextStepFor:(id<KMState>)state toState:(id<KMState>)nextState {
-	KMWorkflowStep* step = [steps objectForKey:state];
+	KMWorkflowStep* step = [steps objectForKey:[(id)state className]];
 	if(step)
 	{
-		KMWorkflowStep* nextstep = [steps objectForKey:nextState];
+		KMWorkflowStep* nextstep = [steps objectForKey:[(id)nextState className]];
 		if(!nextstep) {
 			[self addStep:nextState];
-			nextstep = [steps objectForKey:nextState];
+			nextstep = [steps objectForKey:[(id)nextState className]];
 		}
 		[step setNextStep:nextstep];
 	}
@@ -66,16 +78,16 @@
 
 -(void) insertStep:(id<KMState>)newState before:(id<KMState>)state
 {
-	KMWorkflowStep* step = [steps objectForKey:state];
+	KMWorkflowStep* step = [steps objectForKey:[(id)state className]];
 	if(!step)
 		return;
 	for(id<KMState>xstate in [steps allKeys]) {
 		KMWorkflowStep* xstep = [steps objectForKey:xstate];
 		if([xstep nextStep] == step) {
-			KMWorkflowStep* newStep = [steps objectForKey:newState];
+			KMWorkflowStep* newStep = [steps objectForKey:[(id)newState className]];
 			if(!newStep) {
 				[self addStep:newState];
-				newStep = [steps objectForKey:newState];
+				newStep = [steps objectForKey:[(id)newState className]];
 			}
 			[newStep setNextStep:[xstep nextStep]];
 			[xstep setNextStep:newStep];
@@ -86,13 +98,13 @@
 
 -(void) insertStep:(id<KMState>)newState after:(id<KMState>)state
 {
-	KMWorkflowStep* step = [steps objectForKey:state];
+	KMWorkflowStep* step = [steps objectForKey:[(id)state className]];
 	if(!step)
 		return;
-	KMWorkflowStep* newStep = [steps objectForKey:newState];
+	KMWorkflowStep* newStep = [steps objectForKey:[(id)newState className]];
 	if(!newStep) {
 		[self addStep:newState];
-		newStep = [steps objectForKey:newState];
+		newStep = [steps objectForKey:[(id)newState className]];
 	}
 	[newStep setNextStep:[step nextStep]];
 	[step setNextStep:newStep];
@@ -100,7 +112,7 @@
 
 -(void) removeStep:(id<KMState>)state
 {
-	KMWorkflowStep* step = [steps objectForKey:state];
+	KMWorkflowStep* step = [steps objectForKey:[(id)state className]];
 	if(!step)
 		return;
 	for(id<KMState>xstate in [steps allKeys]) {

@@ -92,7 +92,6 @@ NSInteger ComparePriority(id a, id b, void* c) {
 	   state = [[menuClass alloc] initializeWithCoordinator:coordinator];
 	else
 	   state = [[menuClass alloc] init];
-	[state softRebootMessage:coordinator];
 	return state;
 }
 	   

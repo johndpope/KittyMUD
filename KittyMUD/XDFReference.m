@@ -33,7 +33,7 @@ NSString* createTabString(int tabs) {
 
 +(XDFReference*)createReferenceOfType:(XDFRefType)type,... {
 	XDFReference* ref = [XDFReference alloc];
-	XDFReference* myRef;
+	XDFReference* myRef = nil;
 	va_list args;
 	va_start(args,type);
 	id obj,ref0,ref1, expr;

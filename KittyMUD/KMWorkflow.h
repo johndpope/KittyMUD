@@ -27,6 +27,12 @@
 
 -(void) removeStep:(id<KMState>)state;
 
++(KMWorkflow*)createWorkflowForSteps:(id<KMState>)firstStep,...;
+
+-(id<KMState>) startWorkflowAtStep:(id<KMState>)state;
+
+-(id<KMState>) advanceWorkflow;
+
 @property (retain,readonly) NSMutableDictionary* steps;
 @property (retain) KMWorkflowStep* currentStep;
 @end

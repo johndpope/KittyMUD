@@ -19,9 +19,6 @@
 	NSPredicate* yesPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'y'"];
 	if([yesPredicate evaluateWithObject:message])
 		return [[KMChooseJobState alloc] init];
-	NSPredicate* noPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'n'"];
-	if([noPredicate evaluateWithObject:message])
-		return [[KMStatAllocationState alloc] init];
 	return self;
 }
 

@@ -36,10 +36,10 @@
 	[character setValue:[job name] forKeyPath:@"properties.job"];
 	[character setValue:[KMRoom getDefaultRoom] forKeyPath:@"properties.current-room"];
 	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
-	[[character valueForKeyPath:@"properties.current-room"] displayRoom:coordinator];
 	KMCommandInterpreter* playingInterpreter = [[KMCommandInterpreter alloc] init];
 	[playingInterpreter registerLogic:[KMPlayingLogic class] asDefaultTarget:NO];
 	[coordinator setInterpreter:playingInterpreter];
+	[coordinator setFlag:@"clear-workflow"];
 	return [[KMPlayingState alloc] init];
 }
 

@@ -90,26 +90,16 @@ static NSString* greeting;
 	} else {
 		coordinator = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",name] replaceAllVariables]];
 	}
-
-	CFSocketContext newContext = { 0, coordinator, NULL, NULL, NULL };
-	CFSocketRef newSocket = CFSocketCreateWithNative(kCFAllocatorDefault, handle, kCFSocketDataCallBack, (CFSocketCallBack)&ConnectionBaseCallback, &newContext);
-	if(newSocket == NULL) {
-		NSLog(@"[WARNING] Error creating new socket, not adding to pool and closing...");
-		close( handle );
-		return nil;
-	}
-	[coordinator setSocket:newSocket];
-	[connections addObject:coordinator];
-	CFRunLoopSourceRef connRLS = CFSocketCreateRunLoopSource(kCFAllocatorDefault, newSocket, 0);
-	CFRunLoopRef rl = CFRunLoopGetCurrent();
-	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
-	CFRelease(connRLS);
+	
+	if([coordinator createSocketWithHandle:handle andCallback:(CFSocketCallBack)&ConnectionBaseCallback])
+		[connections addObject:coordinator];
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
 		[coordinator setCurrentState:[[KMAccountNameState alloc] init]];
 	} else {
 		[[coordinator currentState] softRebootMessage:coordinator];
+		[coordinator setFlag:@"no-message"];
 	}
 	return coordinator;
 }
@@ -143,7 +133,7 @@ static NSString* greeting;
 	if([connection getSocket]) {
 		int native = CFSocketGetNative([connection getSocket]);
 		CFSocketInvalidate([connection getSocket]);
-		CFRelease([connection getSocket]);
+		[connection releaseSocket];
 		NSLog(@"Closing socket %d.", native);
 	}
 }

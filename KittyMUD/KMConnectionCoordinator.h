@@ -41,6 +41,8 @@
 
 -(void) setSocket:(CFSocketRef)newSocket;
 
+-(BOOL) createSocketWithHandle:(CFSocketNativeHandle)handle andCallback:(CFSocketCallBack)callback;
+
 -(void) saveToXML:(NSString*)path;
 
 -(void) loadFromXML:(NSString*)path;
@@ -48,6 +50,8 @@
 -(id) valueForUndefinedKey:(NSString *)key;
 
 -(void) setValue:(id)value forUndefinedKey:(NSString*)key;
+
+-(void) releaseSocket;
 
 @property (copy,getter=getLastReadTime) NSDate* lastReadTime;
 @property (copy,getter=getInputBuffer) NSString* inputBuffer;

@@ -29,7 +29,11 @@
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
 -(void) softRebootMessage:(id)coordinator
 {
-	if([coordinator isFlagSet:@"soft-reboot"])
+	if([coordinator isFlagSet:@"clear-workflow"]) {
+		[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
+		[coordinator clearFlag:@"clear-workflow"];
+	}
+	if(![coordinator isFlagSet:@"no-display-room"])
 		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
 	NSMutableDictionary* promptVars = [[NSMutableDictionary alloc] init];
 	NSString* prompt = [coordinator valueForKeyPath:@"properties.current-character.properties.prompt"];

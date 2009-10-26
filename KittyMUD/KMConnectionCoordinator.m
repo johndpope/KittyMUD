@@ -150,6 +150,26 @@ static NSString* sendMessageBase(NSString* message) {
 	socket = newSocket;
 }
 
+-(void) releaseSocket {
+	CFRelease(socket);
+}
+
+-(BOOL) createSocketWithHandle:(CFSocketNativeHandle)handle andCallback:(CFSocketCallBack)callback;
+{
+	CFSocketContext newContext = { 0, self, NULL, NULL, NULL };
+	socket = CFSocketCreateWithNative(kCFAllocatorDefault, handle, kCFSocketDataCallBack, callback, &newContext);
+	if(socket == NULL) {
+		NSLog(@"[WARNING] Error creating new socket, not adding to pool and closing...");
+		close( handle );
+		return NO;
+	}
+	CFRunLoopSourceRef connRLS = CFSocketCreateRunLoopSource(kCFAllocatorDefault, socket, 0);
+	CFRunLoopRef rl = CFRunLoopGetCurrent();
+	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
+	CFRelease(connRLS);
+	return YES;
+}
+
 -(void) setInterpreter:(id<KMInterpreter>)interp {
 	interpreter = interp;
 }

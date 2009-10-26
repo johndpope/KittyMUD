@@ -147,6 +147,10 @@
 		}
 	}
 	[invocation invoke];
+	if(![coordinator isFlagSet:@"no-message"]) {
+		[[coordinator currentState] softRebootMessage:coordinator];
+		[coordinator setFlag:@"no-message"];
+	}
 }
 
 -(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl

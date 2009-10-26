@@ -8,6 +8,16 @@
 
 #import "XDFStatReference.h"
 
+@interface NSObject (XDFStatForward)
+
+-(id)stats;
+
+-(id)findStatWithPath:(NSString*)name;
+
+-(int)statvalue;
+
+@end
+
 @implementation XDFStatReference
 
 -(id) initializeWithName:(NSString*)name {

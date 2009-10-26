@@ -16,6 +16,7 @@
 	if(self) {
 		myState = state;
 	}
+	return self;
 }
 
 @synthesize myState;

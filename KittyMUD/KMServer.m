@@ -104,6 +104,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:sr];
 	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
 		[coordinator setFlag:@"soft-reboot"];
+		[coordinator setOutputBuffer:@""];
 		BOOL res = [NSKeyedArchiver archiveRootObject:coordinator toFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables]];
 		if(!res) {
 			NSLog(@"Error archiving coordinator for account %@...", [coordinator valueForKeyPath:@"properties.name"]);
@@ -112,7 +113,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),[coordinator valueForKeyPath:@"properties.name"]] dataUsingEncoding:NSUTF8StringEncoding]];
 	}
 	[softRebootFile closeFile];
-	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/KittyMUD" replaceAllVariables] cStringUsingEncoding:NSUTF8StringEncoding];
+	char const*__attribute__((objc_gc(strong))) executable_name = [[@"$(BundleDir)/$(ExeName)" replaceAllVariables] cStringUsingEncoding:NSUTF8StringEncoding];
 	execl(executable_name, executable_name, "softreboot", [[NSString stringWithFormat:@"%d",CFSocketGetNative(serverSocket)] cStringUsingEncoding:NSUTF8StringEncoding], (char*)NULL);
 	NSLog(@"Error running execl, soft reboot aborted.");
 }

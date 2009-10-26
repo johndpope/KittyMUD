@@ -76,9 +76,10 @@ static void moveBase(KMConnectionCoordinator* coordinator, KMExitDirection exitD
 	}
 	
 	KMRoom* dest = [moveTo room];
-	if(move)
+	if(move) {
+		[coordinator clearFlag:@"no-display-room"];
 		[pc setValue:dest forKeyPath:@"properties.current-room"];
-	[dest displayRoom:coordinator];
+	}
 }
 
 KMExitDirection directionFromString( NSString* dir ) {
@@ -137,7 +138,9 @@ CIMPL(look,look:direction:,@"direction",nil,nil,1) direction:(NSString*)dir {
 	
 	if(lookDir) {
 		moveBase(coordinator,edir,NO);
+		[coordinator setFlag:@"no-display-room"];
 	} else {
+		[coordinator setFlag:@"no-display-room"];
 		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
 	}
 }
@@ -146,10 +149,23 @@ static int rebootTime = 0;
 
 -(void) realSoftReboot:(NSTimer*)timer {
 	if(rebootTime > 0) {
-		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x"]];
 		rebootTime--;
+		BOOL displayWarning = NO;
+		NSString* warningColor = @"`W";
+		if(rebootTime >= 30 && (rebootTime % 10 == 0)) {
+			warningColor = @"`G";
+			displayWarning = YES;
+		} else if(rebootTime >= 10 && (rebootTime % 5 == 0)) {
+			displayWarning = YES;
+			warningColor = @"`Y";
+		} else {
+			displayWarning = YES;
+			warningColor = @"`R";
+		}
+		if(displayWarning)
+			[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`W*** #!%@PERFORMING A SOFT REBOOT in %d minutes `!`W***#!`x",warningColor,rebootTime]];
 	} else {
-		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`YPERFORMING A SOFT REBOOT, PLEASE STANDBY... `!`R***#!`x"]];
+		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:@"`!`W*** #!`RPERFORMING A SOFT REBOOT, PLEASE STANDBY... `!`W***#!`x"];
 		[[KMServer getDefaultServer] softReboot];
 	}
 }
@@ -161,6 +177,7 @@ CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 		NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 		NSTimer* timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(realSoftReboot:) userInfo:nil repeats:YES];
 		[runLoop addTimer:timer forMode:NSRunLoopCommonModes]; 
+		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x",rebootTime]];
 	}
 	else {
 		[self realSoftReboot:nil];
