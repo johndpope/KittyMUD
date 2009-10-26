@@ -1,15 +1,15 @@
 //
-//  KMXDFVariableReference.m
+//  XDFVariableReference.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMXDFVariableReference.h"
+#import "XDFVariableReference.h"
 
 
-@implementation KMXDFVariableReference
+@implementation XDFVariableReference
 
 -(id) initializeWithVariableName:(NSString*)name
 {

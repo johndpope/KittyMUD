@@ -1,5 +1,5 @@
 //
-//  KMXDFNumberReference.h
+//  XDFNumberReference.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMXDFReference.h"
+#import "XDFReference.h"
 
-@interface KMXDFNumberReference : KMXDFReference
+@interface XDFNumberReference : XDFReference
 {
 	NSNumber* myNum;
 }
@@ -17,7 +17,7 @@
 @property (retain) NSNumber* myNum;
 @end;
 
-@interface KMXDFNumberReference ()
+@interface XDFNumberReference ()
 
 -(id) initializeWithNumber:(NSNumber*)number;
 

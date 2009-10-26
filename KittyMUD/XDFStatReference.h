@@ -1,5 +1,5 @@
 //
-//  KMXDFStatReference.h
+//  XDFStatReference.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
@@ -7,16 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMXDFReference.h"
+#import "XDFReference.h"
 
-@interface KMXDFStatReference : KMXDFReference {
+@interface XDFStatReference : XDFReference {
 	NSString* statName;
 }
 
 @property (retain) NSString* statName;
 @end
 
-@interface KMXDFStatReference ()
+@interface XDFStatReference ()
 
 -(id) initializeWithName:(NSString*)name;
 

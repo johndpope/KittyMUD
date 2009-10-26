@@ -1,40 +1,40 @@
 //
-//  KMXDFExpressionReference.m
+//  XDFExpressionReference.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMXDFExpressionReference.h"
+#import "XDFExpressionReference.h"
 
-NSString* opToString(KMXDFOpType type) {
+NSString* opToString(XDFOpType type) {
 	switch(type) {
-		case KMXDFOpAdd:
+		case XDFOpAdd:
 			return @"+";
-		case KMXDFOpSubtract:
+		case XDFOpSubtract:
 			return @"-";
-		case KMXDFOpMultiply:
+		case XDFOpMultiply:
 			return @"*";
-		case KMXDFOpDivide:
+		case XDFOpDivide:
 			return @"/";
-		case KMXDFOpModulus:
+		case XDFOpModulus:
 			return @"^";
-		case KMXDFOpPercent:
+		case XDFOpPercent:
 			return @"%";
 	}
 }
 
-@implementation KMXDFExpressionReference
+@implementation XDFExpressionReference
 
--(id) initializeWithOperationType:(KMXDFOpType)type andReference0:(KMXDFReference*)ref0 andReference1:(KMXDFReference*)ref1 {
+-(id) initializeWithOperationType:(XDFOpType)type andReference0:(XDFReference*)ref0 andReference1:(XDFReference*)ref1 {
 	self = [super init];
 	if(self) {
 		operationType = type;
 		reference0 = ref0;
-		if(operationType == KMXDFOpPercent) {
-			operationType = KMXDFOpDivide;
-			reference1 = [KMXDFReference createReferenceOfType:KMXDFNumberRef,[NSNumber numberWithInt:100]];
+		if(operationType == XDFOpPercent) {
+			operationType = XDFOpDivide;
+			reference1 = [XDFReference createReferenceOfType:XDFNumberRef,[NSNumber numberWithInt:100]];
 		} else {
 			reference1 = ref1;
 		}
@@ -50,19 +50,19 @@ NSString* opToString(KMXDFOpType type) {
 	float f1 = [ref1 floatValue];
 	float f2;
 	switch(operationType) {
-		case KMXDFOpAdd:
+		case XDFOpAdd:
 			f2 = f0 + f1;
 			break;
-		case KMXDFOpSubtract:
+		case XDFOpSubtract:
 			f2 = f0 - f1;
 			break;
-		case KMXDFOpDivide:
+		case XDFOpDivide:
 			f2 = f0 / f1;
 			break;
-		case KMXDFOpMultiply:
+		case XDFOpMultiply:
 			f2 = f0 * f1;
 			break;
-		case KMXDFOpModulus:
+		case XDFOpModulus:
 			f2 = (float)((int)f0 % (int)f1);
 			break;
 	}
@@ -73,7 +73,7 @@ NSString* opToString(KMXDFOpType type) {
 	NSLog(@"%@Expression Reference:", createTabString(tabLevel));
 	NSLog(@"%@Op: %@", createTabString(tabLevel++), opToString(operationType));
 	[reference0 debugPrintSelf:tabLevel++];
-	if(operationType != KMXDFOpPercent) {
+	if(operationType != XDFOpPercent) {
 		[reference1 debugPrintSelf:tabLevel];
 	}
 }

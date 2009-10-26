@@ -11,7 +11,7 @@
 
 @implementation KMWorkflowStep
 
--(id) initWithState:(id KMState)state {
+-(id) initWithState:(id<KMState>)state {
 	self = [super init];
 	if(self) {
 		myState = state;

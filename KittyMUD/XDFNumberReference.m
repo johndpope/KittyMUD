@@ -1,15 +1,15 @@
 //
-//  KMXDFNumberReference.m
+//  XDFNumberReference.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMXDFNumberReference.h"
+#import "XDFNumberReference.h"
 
 
-@implementation KMXDFNumberReference
+@implementation XDFNumberReference
 
 -(id) initializeWithNumber:(NSNumber*)number
 {

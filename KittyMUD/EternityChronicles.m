@@ -13,7 +13,7 @@
 #import "KMCommandInterpreter.h"
 #import "KMRoom.h"
 #import "KMCodingAspect.h"
-#import "KMXDFReference.h"
+#import "XDFReference.h"
 
 void initializeData(BOOL codingOnly) {
 	__strong Class* classes;

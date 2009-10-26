@@ -1,5 +1,5 @@
 //
-//  KMXDFFunctionInfo.h
+//  XDFFunctionInfo.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface KMXDFFunctionInfo : NSObject {
+@interface XDFFunctionInfo : NSObject {
 	id target;
 	NSString* name;
 	NSString* selector;

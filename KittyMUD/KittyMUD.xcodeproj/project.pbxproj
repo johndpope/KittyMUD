@@ -47,24 +47,28 @@
 		3AFF92A5109551B7000208EA /* KMCodingAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DF9A1087B8A100AED290 /* KMCodingAspect.m */; };
 		3AFF92A6109551B7000208EA /* KMItemTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E028108A11C300AED290 /* KMItemTemplate.m */; };
 		3AFF92A7109551B7000208EA /* KMItemEnhancement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E069108A299300AED290 /* KMItemEnhancement.m */; };
-		3AFF92A8109551B7000208EA /* KMXDF.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* KMXDF.lm */; settings = {COMPILER_FLAGS = "--prefix=XDF --header-file=KMXDF.yy.h"; }; };
-		3AFF92A9109551B7000208EA /* KMXDF.ym in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C301093607E000208EA /* KMXDF.ym */; settings = {COMPILER_FLAGS = "--name-prefix=XDF -d"; }; };
-		3AFF92AA109551B7000208EA /* KMXDFEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3410936318000208EA /* KMXDFEngine.m */; };
-		3AFF92AB109551B7000208EA /* KMXDFReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3A10936465000208EA /* KMXDFReference.m */; };
-		3AFF92AC109551B7000208EA /* KMXDFFunctionReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EE71094A93F000208EA /* KMXDFFunctionReference.m */; };
-		3AFF92AD109551B7000208EA /* KMXDFNumberReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EEA1094A9BE000208EA /* KMXDFNumberReference.m */; };
-		3AFF92AE109551B7000208EA /* KMXDFVariableReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EED1094AAAB000208EA /* KMXDFVariableReference.m */; };
-		3AFF92AF109551B7000208EA /* KMXDFExpressionReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EF01094AB30000208EA /* KMXDFExpressionReference.m */; };
-		3AFF92B0109551B7000208EA /* KMXDFStatReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EF31094ABD0000208EA /* KMXDFStatReference.m */; };
-		3AFF92B1109551B7000208EA /* KMXDFFunctionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8F921094BAF3000208EA /* KMXDFFunctionInfo.m */; };
 		3AFF93061095553C000208EA /* EternityChronicles.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* EternityChronicles.m */; };
 		3AFF930710955540000208EA /* KittyMUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF927B10955195000208EA /* KittyMUD.framework */; };
 		3AFF93191095558B000208EA /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
 		3AFF935110955653000208EA /* KittyMUD.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3AFF927B10955195000208EA /* KittyMUD.framework */; };
 		3AFF938B1095D903000208EA /* KMWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF93891095D903000208EA /* KMWorkflow.h */; };
-		3AFF938C1095D903000208EA /* KMworkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF938A1095D903000208EA /* KMworkflow.m */; };
+		3AFF938C1095D903000208EA /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF938A1095D903000208EA /* KMWorkflow.m */; };
 		3AFF93AA1095DB46000208EA /* KMWorkflowStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF93A81095DB46000208EA /* KMWorkflowStep.h */; };
 		3AFF93AB1095DB46000208EA /* KMWorkflowStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF93A91095DB46000208EA /* KMWorkflowStep.m */; };
+		3AFF93EB1095FB86000208EA /* XDF.ym in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C301093607E000208EA /* XDF.ym */; settings = {COMPILER_FLAGS = "--name-prefix=XDF -d"; }; };
+		3AFF93EC1095FB86000208EA /* XDFEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3410936318000208EA /* XDFEngine.m */; };
+		3AFF93ED1095FB86000208EA /* XDFReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3A10936465000208EA /* XDFReference.m */; };
+		3AFF93EE1095FB86000208EA /* XDFFunctionReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EE71094A93F000208EA /* XDFFunctionReference.m */; };
+		3AFF93EF1095FB86000208EA /* XDFNumberReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EEA1094A9BE000208EA /* XDFNumberReference.m */; };
+		3AFF93F01095FB86000208EA /* XDFVariableReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EED1094AAAB000208EA /* XDFVariableReference.m */; };
+		3AFF93F11095FB86000208EA /* XDFExpressionReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EF01094AB30000208EA /* XDFExpressionReference.m */; };
+		3AFF93F21095FB86000208EA /* XDFStatReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EF31094ABD0000208EA /* XDFStatReference.m */; };
+		3AFF93F31095FB86000208EA /* XDFFunctionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8F921094BAF3000208EA /* XDFFunctionInfo.m */; };
+		3AFF93F71095FBDA000208EA /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
+		3AFF93FB1095FBF7000208EA /* XDF.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
+		3AFF940C1095FD1C000208EA /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
+		3AFF940E1095FD29000208EA /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
+		3AFF94401095FF26000208EA /* XDF.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* XDF.lm */; settings = {COMPILER_FLAGS = "--prefix=XDF --header-file=XDF.yy.h"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +76,15 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3AFF927A10955195000208EA /* KittyMUD */;
+			remoteGlobalIDString = 3AFF927A10955195000208EA;
 			remoteInfo = KittyMUD;
+		};
+		3AFF93F51095FBD4000208EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AFF93E31095FB54000208EA;
+			remoteInfo = XDF;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,6 +95,7 @@
 			dstPath = ../Frameworks;
 			dstSubfolderSpec = 16;
 			files = (
+				3AFF93FB1095FBF7000208EA /* XDF.framework in CopyFiles */,
 				3AFF935110955653000208EA /* KittyMUD.framework in CopyFiles */,
 				3AFF93191095558B000208EA /* RegexKit.framework in CopyFiles */,
 			);
@@ -198,31 +210,33 @@
 		3AE9E0E8108B36C000AED290 /* stat_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stat_template.xml; sourceTree = "<group>"; };
 		3AE9E0EA108B36C000AED290 /* marketsquare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = marketsquare.xml; sourceTree = "<group>"; };
 		3AE9E0EB108B36C000AED290 /* submarket.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = submarket.xml; sourceTree = "<group>"; };
-		3AFF8C2F1093607E000208EA /* KMXDF.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = KMXDF.lm; sourceTree = "<group>"; };
-		3AFF8C301093607E000208EA /* KMXDF.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = KMXDF.ym; sourceTree = "<group>"; };
-		3AFF8C3310936318000208EA /* KMXDFEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFEngine.h; sourceTree = "<group>"; };
-		3AFF8C3410936318000208EA /* KMXDFEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFEngine.m; sourceTree = "<group>"; };
-		3AFF8C3910936465000208EA /* KMXDFReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFReference.h; sourceTree = "<group>"; };
-		3AFF8C3A10936465000208EA /* KMXDFReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFReference.m; sourceTree = "<group>"; };
-		3AFF8EE61094A93F000208EA /* KMXDFFunctionReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFFunctionReference.h; sourceTree = "<group>"; };
-		3AFF8EE71094A93F000208EA /* KMXDFFunctionReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFFunctionReference.m; sourceTree = "<group>"; };
-		3AFF8EE91094A9BE000208EA /* KMXDFNumberReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFNumberReference.h; sourceTree = "<group>"; };
-		3AFF8EEA1094A9BE000208EA /* KMXDFNumberReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFNumberReference.m; sourceTree = "<group>"; };
-		3AFF8EEC1094AAAB000208EA /* KMXDFVariableReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFVariableReference.h; sourceTree = "<group>"; };
-		3AFF8EED1094AAAB000208EA /* KMXDFVariableReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFVariableReference.m; sourceTree = "<group>"; };
-		3AFF8EEF1094AB30000208EA /* KMXDFExpressionReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFExpressionReference.h; sourceTree = "<group>"; };
-		3AFF8EF01094AB30000208EA /* KMXDFExpressionReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFExpressionReference.m; sourceTree = "<group>"; };
-		3AFF8EF21094ABD0000208EA /* KMXDFStatReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFStatReference.h; sourceTree = "<group>"; };
-		3AFF8EF31094ABD0000208EA /* KMXDFStatReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFStatReference.m; sourceTree = "<group>"; };
-		3AFF8F911094BAF3000208EA /* KMXDFFunctionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMXDFFunctionInfo.h; sourceTree = "<group>"; };
-		3AFF8F921094BAF3000208EA /* KMXDFFunctionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMXDFFunctionInfo.m; sourceTree = "<group>"; };
+		3AFF8C2F1093607E000208EA /* XDF.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = XDF.lm; sourceTree = "<group>"; };
+		3AFF8C301093607E000208EA /* XDF.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = XDF.ym; sourceTree = "<group>"; };
+		3AFF8C3310936318000208EA /* XDFEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFEngine.h; sourceTree = "<group>"; };
+		3AFF8C3410936318000208EA /* XDFEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFEngine.m; sourceTree = "<group>"; };
+		3AFF8C3910936465000208EA /* XDFReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFReference.h; sourceTree = "<group>"; };
+		3AFF8C3A10936465000208EA /* XDFReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFReference.m; sourceTree = "<group>"; };
+		3AFF8EE61094A93F000208EA /* XDFFunctionReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFFunctionReference.h; sourceTree = "<group>"; };
+		3AFF8EE71094A93F000208EA /* XDFFunctionReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFFunctionReference.m; sourceTree = "<group>"; };
+		3AFF8EE91094A9BE000208EA /* XDFNumberReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFNumberReference.h; sourceTree = "<group>"; };
+		3AFF8EEA1094A9BE000208EA /* XDFNumberReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFNumberReference.m; sourceTree = "<group>"; };
+		3AFF8EEC1094AAAB000208EA /* XDFVariableReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFVariableReference.h; sourceTree = "<group>"; };
+		3AFF8EED1094AAAB000208EA /* XDFVariableReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFVariableReference.m; sourceTree = "<group>"; };
+		3AFF8EEF1094AB30000208EA /* XDFExpressionReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFExpressionReference.h; sourceTree = "<group>"; };
+		3AFF8EF01094AB30000208EA /* XDFExpressionReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFExpressionReference.m; sourceTree = "<group>"; };
+		3AFF8EF21094ABD0000208EA /* XDFStatReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFStatReference.h; sourceTree = "<group>"; };
+		3AFF8EF31094ABD0000208EA /* XDFStatReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFStatReference.m; sourceTree = "<group>"; };
+		3AFF8F911094BAF3000208EA /* XDFFunctionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFFunctionInfo.h; sourceTree = "<group>"; };
+		3AFF8F921094BAF3000208EA /* XDFFunctionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFFunctionInfo.m; sourceTree = "<group>"; };
 		3AFF927B10955195000208EA /* KittyMUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KittyMUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFF927C10955195000208EA /* KittyMUD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUD-Info.plist"; sourceTree = "<group>"; };
 		3AFF92FF10955508000208EA /* EternityChronicles */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EternityChronicles; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFF93891095D903000208EA /* KMWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflow.h; sourceTree = "<group>"; };
-		3AFF938A1095D903000208EA /* KMworkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMworkflow.m; sourceTree = "<group>"; };
+		3AFF938A1095D903000208EA /* KMWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflow.m; sourceTree = "<group>"; };
 		3AFF93A81095DB46000208EA /* KMWorkflowStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowStep.h; sourceTree = "<group>"; };
 		3AFF93A91095DB46000208EA /* KMWorkflowStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowStep.m; sourceTree = "<group>"; };
+		3AFF93E41095FB54000208EA /* XDF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XDF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AFF93E51095FB54000208EA /* XDF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XDF-Info.plist"; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF93F71095FBDA000208EA /* XDF.framework in Frameworks */,
 				3AFF9281109551AC000208EA /* RegexKit.framework in Frameworks */,
 				3AFF9280109551A8000208EA /* libcrypto.dylib in Frameworks */,
 			);
@@ -240,7 +255,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF940E1095FD29000208EA /* XDF.framework in Frameworks */,
+				3AFF940C1095FD1C000208EA /* RegexKit.framework in Frameworks */,
 				3AFF930710955540000208EA /* KittyMUD.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AFF93E21095FB54000208EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +280,7 @@
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				3A78ECAA106574B4002209B6 /* External Libraries and Frameworks */,
 				3AFF927C10955195000208EA /* KittyMUD-Info.plist */,
+				3AFF93E51095FB54000208EA /* XDF-Info.plist */,
 			);
 			name = KittyMUD;
 			sourceTree = "<group>";
@@ -284,6 +309,7 @@
 			children = (
 				3AFF927B10955195000208EA /* KittyMUD.framework */,
 				3AFF92FF10955508000208EA /* EternityChronicles */,
+				3AFF93E41095FB54000208EA /* XDF.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,7 +399,7 @@
 				3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */,
 				3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */,
 				3AFF93891095D903000208EA /* KMWorkflow.h */,
-				3AFF938A1095D903000208EA /* KMworkflow.m */,
+				3AFF938A1095D903000208EA /* KMWorkflow.m */,
 				3AFF93A81095DB46000208EA /* KMWorkflowStep.h */,
 				3AFF93A91095DB46000208EA /* KMWorkflowStep.m */,
 			);
@@ -524,24 +550,24 @@
 		3AFF8C201093604B000208EA /* XDF */ = {
 			isa = PBXGroup;
 			children = (
-				3AFF8C2F1093607E000208EA /* KMXDF.lm */,
-				3AFF8C301093607E000208EA /* KMXDF.ym */,
-				3AFF8C3310936318000208EA /* KMXDFEngine.h */,
-				3AFF8C3410936318000208EA /* KMXDFEngine.m */,
-				3AFF8C3910936465000208EA /* KMXDFReference.h */,
-				3AFF8C3A10936465000208EA /* KMXDFReference.m */,
-				3AFF8EE61094A93F000208EA /* KMXDFFunctionReference.h */,
-				3AFF8EE71094A93F000208EA /* KMXDFFunctionReference.m */,
-				3AFF8EE91094A9BE000208EA /* KMXDFNumberReference.h */,
-				3AFF8EEA1094A9BE000208EA /* KMXDFNumberReference.m */,
-				3AFF8EEC1094AAAB000208EA /* KMXDFVariableReference.h */,
-				3AFF8EED1094AAAB000208EA /* KMXDFVariableReference.m */,
-				3AFF8EEF1094AB30000208EA /* KMXDFExpressionReference.h */,
-				3AFF8EF01094AB30000208EA /* KMXDFExpressionReference.m */,
-				3AFF8EF21094ABD0000208EA /* KMXDFStatReference.h */,
-				3AFF8EF31094ABD0000208EA /* KMXDFStatReference.m */,
-				3AFF8F911094BAF3000208EA /* KMXDFFunctionInfo.h */,
-				3AFF8F921094BAF3000208EA /* KMXDFFunctionInfo.m */,
+				3AFF8C2F1093607E000208EA /* XDF.lm */,
+				3AFF8C301093607E000208EA /* XDF.ym */,
+				3AFF8C3310936318000208EA /* XDFEngine.h */,
+				3AFF8C3410936318000208EA /* XDFEngine.m */,
+				3AFF8C3910936465000208EA /* XDFReference.h */,
+				3AFF8C3A10936465000208EA /* XDFReference.m */,
+				3AFF8EE61094A93F000208EA /* XDFFunctionReference.h */,
+				3AFF8EE71094A93F000208EA /* XDFFunctionReference.m */,
+				3AFF8EE91094A9BE000208EA /* XDFNumberReference.h */,
+				3AFF8EEA1094A9BE000208EA /* XDFNumberReference.m */,
+				3AFF8EEC1094AAAB000208EA /* XDFVariableReference.h */,
+				3AFF8EED1094AAAB000208EA /* XDFVariableReference.m */,
+				3AFF8EEF1094AB30000208EA /* XDFExpressionReference.h */,
+				3AFF8EF01094AB30000208EA /* XDFExpressionReference.m */,
+				3AFF8EF21094ABD0000208EA /* XDFStatReference.h */,
+				3AFF8EF31094ABD0000208EA /* XDFStatReference.m */,
+				3AFF8F911094BAF3000208EA /* XDFFunctionInfo.h */,
+				3AFF8F921094BAF3000208EA /* XDFFunctionInfo.m */,
 			);
 			name = XDF;
 			sourceTree = "<group>";
@@ -566,6 +592,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AFF93DF1095FB54000208EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -581,6 +614,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3AFF93F61095FBD4000208EA /* PBXTargetDependency */,
 			);
 			name = KittyMUD;
 			productName = KittyMUD;
@@ -606,6 +640,24 @@
 			productReference = 3AFF92FF10955508000208EA /* EternityChronicles */;
 			productType = "com.apple.product-type.tool";
 		};
+		3AFF93E31095FB54000208EA /* XDF */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AFF93E81095FB55000208EA /* Build configuration list for PBXNativeTarget "XDF" */;
+			buildPhases = (
+				3AFF93DF1095FB54000208EA /* Headers */,
+				3AFF93E01095FB54000208EA /* Resources */,
+				3AFF93E11095FB54000208EA /* Sources */,
+				3AFF93E21095FB54000208EA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XDF;
+			productName = XDF;
+			productReference = 3AFF93E41095FB54000208EA /* XDF.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -623,12 +675,20 @@
 			targets = (
 				3AFF927A10955195000208EA /* KittyMUD */,
 				3AFF92FE10955508000208EA /* EternityChronicles */,
+				3AFF93E31095FB54000208EA /* XDF */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3AFF927710955195000208EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AFF93E01095FB54000208EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -696,17 +756,7 @@
 				3AFF92A5109551B7000208EA /* KMCodingAspect.m in Sources */,
 				3AFF92A6109551B7000208EA /* KMItemTemplate.m in Sources */,
 				3AFF92A7109551B7000208EA /* KMItemEnhancement.m in Sources */,
-				3AFF92A8109551B7000208EA /* KMXDF.lm in Sources */,
-				3AFF92A9109551B7000208EA /* KMXDF.ym in Sources */,
-				3AFF92AA109551B7000208EA /* KMXDFEngine.m in Sources */,
-				3AFF92AB109551B7000208EA /* KMXDFReference.m in Sources */,
-				3AFF92AC109551B7000208EA /* KMXDFFunctionReference.m in Sources */,
-				3AFF92AD109551B7000208EA /* KMXDFNumberReference.m in Sources */,
-				3AFF92AE109551B7000208EA /* KMXDFVariableReference.m in Sources */,
-				3AFF92AF109551B7000208EA /* KMXDFExpressionReference.m in Sources */,
-				3AFF92B0109551B7000208EA /* KMXDFStatReference.m in Sources */,
-				3AFF92B1109551B7000208EA /* KMXDFFunctionInfo.m in Sources */,
-				3AFF938C1095D903000208EA /* KMworkflow.m in Sources */,
+				3AFF938C1095D903000208EA /* KMWorkflow.m in Sources */,
 				3AFF93AB1095DB46000208EA /* KMWorkflowStep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,6 +769,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AFF93E11095FB54000208EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AFF94401095FF26000208EA /* XDF.lm in Sources */,
+				3AFF93EB1095FB86000208EA /* XDF.ym in Sources */,
+				3AFF93EC1095FB86000208EA /* XDFEngine.m in Sources */,
+				3AFF93ED1095FB86000208EA /* XDFReference.m in Sources */,
+				3AFF93EE1095FB86000208EA /* XDFFunctionReference.m in Sources */,
+				3AFF93EF1095FB86000208EA /* XDFNumberReference.m in Sources */,
+				3AFF93F01095FB86000208EA /* XDFVariableReference.m in Sources */,
+				3AFF93F11095FB86000208EA /* XDFExpressionReference.m in Sources */,
+				3AFF93F21095FB86000208EA /* XDFStatReference.m in Sources */,
+				3AFF93F31095FB86000208EA /* XDFFunctionInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -726,6 +793,11 @@
 			isa = PBXTargetDependency;
 			target = 3AFF927A10955195000208EA /* KittyMUD */;
 			targetProxy = 3AFF930810955548000208EA /* PBXContainerItemProxy */;
+		};
+		3AFF93F61095FBD4000208EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AFF93E31095FB54000208EA /* XDF */;
+			targetProxy = 3AFF93F51095FBD4000208EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -768,6 +840,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)/build/Debug\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -800,6 +873,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)/build/Debug\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -825,6 +899,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -851,6 +929,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
@@ -866,6 +948,60 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = EternityChronicles;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		3AFF93E61095FB55000208EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "XDF-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = XDF;
+			};
+			name = Debug;
+		};
+		3AFF93E71095FB55000208EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "XDF-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = XDF;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -896,6 +1032,15 @@
 			buildConfigurations = (
 				3AFF930110955508000208EA /* Debug */,
 				3AFF930210955508000208EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AFF93E81095FB55000208EA /* Build configuration list for PBXNativeTarget "XDF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFF93E61095FB55000208EA /* Debug */,
+				3AFF93E71095FB55000208EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

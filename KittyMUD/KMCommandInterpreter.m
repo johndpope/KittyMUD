@@ -9,7 +9,7 @@
 #import "KMCommandInterpreter.h"
 #import "KMConnectionCoordinator.h"
 #import "KMCharacter.h"
-#import "KMMessageState.h"
+#import "KMState.h"
 #import "KMServer.h"
 #import "KMCodingAspect.h"
 #import <objc/runtime.h>

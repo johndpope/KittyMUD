@@ -1,5 +1,5 @@
 //
-//  KMXDFEngine.h
+//  XDFEngine.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/24/09.
@@ -7,16 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMXDFReference.h"
-#import "KMXDFFunctionInfo.h"
+#import "XDFReference.h"
+#import "XDFFunctionInfo.h"
 
-@interface KMXDFEngine : NSObject {
+@interface XDFEngine : NSObject {
 }
 
 +(void)initialize;
 
 +(void) registerFunctionWithName:(NSString*)name withSelector:(SEL)sel andTarget:(id)target;
 
-+(KMXDFFunctionInfo*)getFunctionForName:(NSString*)name;
++(XDFFunctionInfo*)getFunctionForName:(NSString*)name;
 
 @end

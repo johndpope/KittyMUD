@@ -1,18 +1,18 @@
 //
-//  KMXDFFunctionReference.m
+//  XDFFunctionReference.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMXDFFunctionReference.h"
-#import "KMXDFFunctionInfo.h"
-#import "KMXDFEngine.h"
+#import "XDFFunctionReference.h"
+#import "XDFFunctionInfo.h"
+#import "XDFEngine.h"
 
-@implementation KMXDFFunctionReference
+@implementation XDFFunctionReference
 
--(id) initializeWithFunctionName:(NSString*)name andExpression:(KMXDFReference*)expr
+-(id) initializeWithFunctionName:(NSString*)name andExpression:(XDFReference*)expr
 {
 	self = [super init];
 	if(self) {
@@ -23,7 +23,7 @@
 }
 
 -(NSNumber*) resolveReferenceWithObject:(id)object {
-	KMXDFFunctionInfo* funcInfo = [KMXDFEngine getFunctionForName:funcName];
+	XDFFunctionInfo* funcInfo = [XDFEngine getFunctionForName:funcName];
 	if(!funcInfo)
 		return [NSNumber numberWithInt:0];
 	NSMethodSignature* sig = [[[funcInfo target] class] instanceMethodSignatureForSelector:NSSelectorFromString([funcInfo selector])];

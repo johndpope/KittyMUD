@@ -1,5 +1,5 @@
 //
-//  KMXDFVariableReference.h
+//  XDFVariableReference.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMXDFReference.h"
+#import "XDFReference.h"
 
-@interface KMXDFVariableReference : KMXDFReference {
+@interface XDFVariableReference : XDFReference {
 	NSString* variableName;
 }
 
@@ -17,7 +17,7 @@
 
 @end
 
-@interface KMXDFVariableReference ()
+@interface XDFVariableReference ()
 
 -(id) initializeWithVariableName:(NSString*)name;
 

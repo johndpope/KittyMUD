@@ -8,7 +8,7 @@
 
 #import "KMBasicInterpreter.h"
 #import "KMConnectionCoordinator.h"
-#import "KMMessageState.h"
+#import "KMState.h"
 
 @implementation KMBasicInterpreter
 

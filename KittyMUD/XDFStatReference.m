@@ -1,16 +1,14 @@
 //
-//  KMXDFStatReference.m
+//  XDFStatReference.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/25/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMXDFStatReference.h"
-#import "KMCharacter.h"
-#import "KMStat.h"
+#import "XDFStatReference.h"
 
-@implementation KMXDFStatReference
+@implementation XDFStatReference
 
 -(id) initializeWithName:(NSString*)name {
 	self = [super init];
@@ -20,12 +18,13 @@
 }
 
 -(NSNumber*)resolveReferenceWithObject:(id)object {
-	if(![object isKindOfClass:[KMCharacter class]])
-		return [NSNumber numberWithFloat:0];
-	KMStat* stat = [[object stats] findStatWithPath:statName];
-	if(!stat)
-		return [NSNumber numberWithFloat:0];
-	return [NSNumber numberWithInt:[stat statvalue]];
+	@try {
+		id stat = [[object stats] findStatWithPath:statName];
+		return [NSNumber numberWithInt:[stat statvalue]];
+	} @catch (id exc) {
+		return [NSNumber numberWithInt:0];
+	}
+	return [NSNumber numberWithInt:0];
 }
 
 -(void) debugPrintSelf:(int)tabLevel {

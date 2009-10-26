@@ -14,15 +14,15 @@
 #import "KMRoom.h"
 #import "KMCharacter.h"
 #import "KMCommandInterpreter.h"
-#import "KMXDFEngine.h"
-#import "KMXDFReference.h"
+#import "XDFEngine.h"
+#import "XDFReference.h"
 
 @implementation KMPlayingLogic
 
 -(id) initializeWithCommandInterpreter:(id)cmdInterpreter
 {
 	self = [super init];
-	[KMXDFEngine registerFunctionWithName:@"bonus" withSelector:@selector(getBonusForNumber:) andTarget:self];
+	[XDFEngine registerFunctionWithName:@"bonus" withSelector:@selector(getBonusForNumber:) andTarget:self];
 	return self;
 }
 
@@ -176,7 +176,7 @@ CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 
 CIMPL(testxdf,testxdf:,nil,nil,nil,1) {
 	NSString* inputString = @"<maximumhp>*((25+{bonus(<physical::constitution>)})%)";
-	KMXDFReference* ref = [KMXDFReference createReferenceFromSource:inputString];
+	XDFReference* ref = [XDFReference createReferenceFromSource:inputString];
 	NSNumber* num = [ref resolveReferenceWithObject:[coordinator valueForKeyPath:@"properties.current-character"]];
 	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Result of XDF Test: %d, Expected: 25", [num intValue]]];
 }
