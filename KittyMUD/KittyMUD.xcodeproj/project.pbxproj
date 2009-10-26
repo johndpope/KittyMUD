@@ -69,6 +69,24 @@
 		3AFF940C1095FD1C000208EA /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
 		3AFF940E1095FD29000208EA /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
 		3AFF94401095FF26000208EA /* XDF.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* XDF.lm */; settings = {COMPILER_FLAGS = "--prefix=XDF --header-file=XDF.yy.h"; }; };
+		3AFF96DC10962D94000208EA /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
+		3AFF96DD10962D98000208EA /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */; };
+		3AFF96DE10962D9A000208EA /* KMCreateCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */; };
+		3AFF96DF10962D9A000208EA /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */; };
+		3AFF96E010962D9B000208EA /* XDFStatReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EF31094ABD0000208EA /* XDFStatReference.m */; };
+		3AFF96E110962D9C000208EA /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF938A1095D903000208EA /* KMWorkflow.m */; };
+		3AFF96E210962D9D000208EA /* KMConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BCB10627D1F0011EBD4 /* KMConnectionPool.m */; };
+		3AFF96E310962D9E000208EA /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */; };
+		3AFF96E410962D9F000208EA /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
+		3AFF96E510962DA1000208EA /* KMWorkflowStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF93A91095DB46000208EA /* KMWorkflowStep.m */; };
+		3AFF96E610962DA2000208EA /* KMConfirmStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D402810825B38006F4727 /* KMConfirmStatAllocationState.m */; };
+		3AFF96E710962DA3000208EA /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */; };
+		3AFF96E810962DA4000208EA /* KMChooseCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */; };
+		3AFF96E910962DA6000208EA /* XDFReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3A10936465000208EA /* XDFReference.m */; };
+		3AFF96EA10962DA7000208EA /* KMChooseJobState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D402B10825D14006F4727 /* KMChooseJobState.m */; };
+		3AFF96EB10962DA8000208EA /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */; };
+		3AFF96EC10962DAB000208EA /* KMStatAllocationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */; };
+		3AFF96ED10962DAC000208EA /* KMCommandInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8C402107BD03B003B810E /* KMCommandInterpreter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -766,6 +784,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AFF93061095553C000208EA /* EternityChronicles.m in Sources */,
+				3AFF96DC10962D94000208EA /* KMPlayingState.m in Sources */,
+				3AFF96DD10962D98000208EA /* KMConnectionCoordinator.m in Sources */,
+				3AFF96DE10962D9A000208EA /* KMCreateCharacterState.m in Sources */,
+				3AFF96DF10962D9A000208EA /* KMBasicInterpreter.m in Sources */,
+				3AFF96E010962D9B000208EA /* XDFStatReference.m in Sources */,
+				3AFF96E110962D9C000208EA /* KMWorkflow.m in Sources */,
+				3AFF96E210962D9D000208EA /* KMConnectionPool.m in Sources */,
+				3AFF96E310962D9E000208EA /* KMAccountMenuState.m in Sources */,
+				3AFF96E410962D9F000208EA /* KMPlayingLogic.m in Sources */,
+				3AFF96E510962DA1000208EA /* KMWorkflowStep.m in Sources */,
+				3AFF96E610962DA2000208EA /* KMConfirmStatAllocationState.m in Sources */,
+				3AFF96E710962DA3000208EA /* KMServer.m in Sources */,
+				3AFF96E810962DA4000208EA /* KMChooseCharacterState.m in Sources */,
+				3AFF96E910962DA6000208EA /* XDFReference.m in Sources */,
+				3AFF96EA10962DA7000208EA /* KMChooseJobState.m in Sources */,
+				3AFF96EB10962DA8000208EA /* KMConfirmPasswordState.m in Sources */,
+				3AFF96EC10962DAB000208EA /* KMStatAllocationLogic.m in Sources */,
+				3AFF96ED10962DAC000208EA /* KMCommandInterpreter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

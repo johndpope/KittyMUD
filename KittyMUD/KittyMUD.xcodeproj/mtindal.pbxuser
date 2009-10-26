@@ -111,8 +111,8 @@
 				);
 			};
 			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
-				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
-				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Target_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
 					20,
@@ -585,6 +585,10 @@
 			3AFF96C710962A42000208EA /* PBXTextBookmark */ = 3AFF96C710962A42000208EA /* PBXTextBookmark */;
 			3AFF96CC10962A4A000208EA /* PBXTextBookmark */ = 3AFF96CC10962A4A000208EA /* PBXTextBookmark */;
 			3AFF96CD10962A4A000208EA /* PBXTextBookmark */ = 3AFF96CD10962A4A000208EA /* PBXTextBookmark */;
+			3AFF96F010962DB1000208EA /* PBXTextBookmark */ = 3AFF96F010962DB1000208EA /* PBXTextBookmark */;
+			3AFF96F110962DB1000208EA /* PBXTextBookmark */ = 3AFF96F110962DB1000208EA /* PBXTextBookmark */;
+			3AFF96F210962DB1000208EA /* PBXTextBookmark */ = 3AFF96F210962DB1000208EA /* PBXTextBookmark */;
+			3AFF96F310962DB1000208EA /* PBXTextBookmark */ = 3AFF96F310962DB1000208EA /* PBXTextBookmark */;
 		};
 		sourceControlManager = 3AC38BAF10627BD20011EBD4 /* Source Control */;
 		userBuildSettings = {
@@ -850,9 +854,9 @@
 	};
 	3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 3510}}";
-			sepNavSelRange = "{4084, 0}";
-			sepNavVisRange = "{3297, 1896}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 3367}}";
+			sepNavSelRange = "{5676, 0}";
+			sepNavVisRange = "{0, 1456}";
 		};
 	};
 	3A6CC7001065488D00026BA5 /* PBXTextBookmark */ = {
@@ -1954,9 +1958,10 @@
 	};
 	3AE9E0DA108B36C000AED290 /* greeting.xml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 629}}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 430}}";
 			sepNavSelRange = "{267, 0}";
 			sepNavVisRange = "{0, 1223}";
+			sepNavWindowFrame = "{{84, 552}, {750, 558}}";
 		};
 	};
 	3AE9E0DD108B36C000AED290 /* attackpower.xml */ = {
@@ -1977,7 +1982,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {775, 910}}";
 			sepNavSelRange = "{3388, 0}";
-			sepNavVisRange = "{482, 2084}";
+			sepNavVisRange = "{482, 2141}";
 			sepNavWindowFrame = "{{15, 615}, {750, 558}}";
 		};
 	};
@@ -2578,16 +2583,16 @@
 	};
 	3AFF93891095D903000208EA /* KMWorkflow.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 556}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 579}}";
 			sepNavSelRange = "{767, 0}";
 			sepNavVisRange = "{0, 878}";
 		};
 	};
 	3AFF938A1095D903000208EA /* KMWorkflow.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1859, 1820}}";
-			sepNavSelRange = "{481, 0}";
-			sepNavVisRange = "{0, 1344}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1651}}";
+			sepNavSelRange = "{3169, 0}";
+			sepNavVisRange = "{1036, 1290}";
 		};
 	};
 	3AFF93A81095DB46000208EA /* KMWorkflowStep.h */ = {
@@ -6152,6 +6157,46 @@
 		rLoc = 3388;
 		rType = 0;
 		vrLen = 2084;
+		vrLoc = 482;
+	};
+	3AFF96F010962DB1000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */;
+		name = "KMStatAllocationLogic.m: 133";
+		rLen = 0;
+		rLoc = 5676;
+		rType = 0;
+		vrLen = 1456;
+		vrLoc = 0;
+	};
+	3AFF96F110962DB1000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF93891095D903000208EA /* KMWorkflow.h */;
+		name = "KMWorkflow.h: 34";
+		rLen = 0;
+		rLoc = 767;
+		rType = 0;
+		vrLen = 878;
+		vrLoc = 0;
+	};
+	3AFF96F210962DB1000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF938A1095D903000208EA /* KMWorkflow.m */;
+		name = "KMWorkflow.m: 119";
+		rLen = 0;
+		rLoc = 3169;
+		rType = 0;
+		vrLen = 1290;
+		vrLoc = 1036;
+	};
+	3AFF96F310962DB1000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AE9E0E8108B36C000AED290 /* stat_template.xml */;
+		name = "stat_template.xml: 58";
+		rLen = 0;
+		rLoc = 3388;
+		rType = 0;
+		vrLen = 2141;
 		vrLoc = 482;
 	};
 	C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {
