@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMMessageState.h"
+#import "KMState.h"
 #import "KMMenuHandler.h"
-@interface KMChooseJobState : NSObject <KMMessageState> {
+@interface KMChooseJobState : NSObject <KMState> {
 	NSArray* jobs;
 	KMMenuHandler* menu;
 }

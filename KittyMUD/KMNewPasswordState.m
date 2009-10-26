@@ -19,7 +19,6 @@
 {
 	[coordinator setFlag:@"new-password"];
 	[[coordinator getProperties] setObject:[[coordinator getInputBuffer] MD5] forKey:@"password"];
-	[coordinator sendMessageToBuffer:@"\t \nPlease confirm your password: "];
 	return [[KMConfirmPasswordState alloc] init];
 }
 

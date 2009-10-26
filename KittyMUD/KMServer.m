@@ -103,6 +103,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	[[NSFileManager defaultManager] createFileAtPath:sr contents:nil attributes:nil];
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:sr];
 	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
+		[coordinator setFlag:@"soft-reboot"];
 		BOOL res = [NSKeyedArchiver archiveRootObject:coordinator toFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables]];
 		if(!res) {
 			NSLog(@"Error archiving coordinator for account %@...", [coordinator valueForKeyPath:@"properties.name"]);
@@ -129,6 +130,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
 		id coordinator = [connectionPool newConnectionWithSocketHandle:cfs softReboot:YES withName:[components objectAtIndex:1]];
+		[coordinator clearFlag:@"soft-reboot"];
 		[[NSFileManager defaultManager] removeItemAtPath:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables] error:NULL];
 	}
 	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();

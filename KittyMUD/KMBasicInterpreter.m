@@ -17,9 +17,7 @@
 	[coordinator setCurrentState:[[coordinator currentState] processState:coordinator]];
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
-		if([[coordinator currentState] conformsToProtocol:@protocol(KMMessageState)]) {
-			[(id<KMMessageState>)[coordinator currentState] sendMessageToCoordinator:coordinator];
-		}
+		[[coordinator currentState] softRebootMessage:coordinator];
 	}
 	else
 		[coordinator clearFlag:@"no-message"];	

@@ -9,7 +9,7 @@
 #import "KMAccountMenuState.h"
 #import "KMConnectionCoordinator.h"
 #import "KMAccountMenu.h"
-#import "KMMessageState.h"
+#import "KMState.h"
 
 
 static NSMutableArray* menuItems;
@@ -92,8 +92,7 @@ NSInteger ComparePriority(id a, id b, void* c) {
 	   state = [[menuClass alloc] initializeWithCoordinator:coordinator];
 	else
 	   state = [[menuClass alloc] init];
-	if(![state conformsToProtocol:@protocol(KMMessageState)])
-		[state softRebootMessage:coordinator];
+	[state softRebootMessage:coordinator];
 	return state;
 }
 	   
@@ -104,11 +103,6 @@ NSInteger ComparePriority(id a, id b, void* c) {
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
 -(void) softRebootMessage:(id)coordinator
-{
-	[self sendMessageToCoordinator:coordinator];
-}
-
--(void) sendMessageToCoordinator:(id)coordinator
 {
 	[menu displayMenu:coordinator withSortFunction:ComparePriority];
 }

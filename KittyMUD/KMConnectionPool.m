@@ -11,7 +11,7 @@
 #import "KMBasicInterpreter.h"
 #import "KMAccountNameState.h"
 #import "KMString.h"
-#import "KMMessageState.h"
+#import "KMState.h"
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
@@ -34,9 +34,7 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 			[coordinator setOutputBuffer:@""];
 			[coordinator setFlag:@"message-direct"];
 			if(![coordinator isFlagSet:@"no-message"]) {
-				if([[coordinator currentState] conformsToProtocol:@protocol(KMMessageState)]) {
-					[(id<KMMessageState>)[coordinator currentState] sendMessageToCoordinator:coordinator];
-				}
+				[[coordinator currentState] softRebootMessage:coordinator];
 			}
 			[coordinator clearFlag:@"no-message"];
 			[coordinator clearFlag:@"message-direct"];

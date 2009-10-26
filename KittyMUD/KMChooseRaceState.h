@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMMessageState.h"
+#import "KMState.h"
 #import "KMMenuHandler.h"
 
-@interface KMChooseRaceState : NSObject <KMMessageState> {
+@interface KMChooseRaceState : NSObject <KMState> {
 	KMMenuHandler* menu;
 }
 

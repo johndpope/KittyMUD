@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMMessageState.h"
+#import "KMState.h"
 
-@interface KMPlayingState : NSObject <KMMessageState> {
+@interface KMPlayingState : NSObject <KMState> {
 
 }
 

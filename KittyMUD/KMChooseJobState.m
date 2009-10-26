@@ -27,14 +27,6 @@
 	return self;
 }
 
--(void) sendMessageToCoordinator:(id)coordinator {
-	if(!jobs) {
-		jobs = [KMJob getAvailableJobs:[coordinator valueForKeyPath:@"properties.current-character"]];
-		menu = [[KMMenuHandler alloc] initializeWithItems:jobs];
-	}
-	[menu displayMenu:coordinator];
-}
-
 -(id<KMState>) processState:(id)coordinator
 {
 	KMJob* job = [menu getSelection:coordinator];
@@ -60,7 +52,11 @@
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
 -(void) softRebootMessage:(id)coordinator
 {
-	[self sendMessageToCoordinator:coordinator];
+	if(!jobs) {
+		jobs = [KMJob getAvailableJobs:[coordinator valueForKeyPath:@"properties.current-character"]];
+		menu = [[KMMenuHandler alloc] initializeWithItems:jobs];
+	}
+	[menu displayMenu:coordinator];
 }
 @synthesize jobs;
 @synthesize menu;

@@ -44,10 +44,6 @@
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
 -(void) softRebootMessage:(id)coordinator
 {
-	[self sendMessageToCoordinator:coordinator];
-}
-
--(void) sendMessageToCoordinator:(id)coordinator {
 	if(!menu) {
 		menu = [[KMMenuHandler alloc] initializeWithItems:[coordinator getCharacters]];
 	}
