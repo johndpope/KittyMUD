@@ -29,10 +29,13 @@
 	[[coordinator getProperties] setObject:[coordinator getInputBuffer] forKey:@"name"];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
 		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables]];
-		[coordinator sendMessageToBuffer:@"Please enter your password:"];
+		if([coordinator isFlagSet:@"locked"]) {
+			[coordinator sendMessage:[@"Your account is locked.  Contact an administrator at $(AdminEmail) to unlock your account." replaceAllVariables]];
+			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
+			return nil;
+		}
 		returnState = [[KMConfirmPasswordState alloc] init];
 	} else {
-		[coordinator sendMessageToBuffer:@"Please enter a password for your account:"];
 		returnState = [[KMNewPasswordState alloc] init];
 	}
 	return returnState;

@@ -26,7 +26,7 @@
 		id item = [myItems objectAtIndex:(i-1)];
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
-			NSLog(@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and not be able to progress.");
+			NSLog(@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
 			return;
 		}
 		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`#`c[`G%d`c] `w%@`x", i, [item menuLine]]];

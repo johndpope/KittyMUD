@@ -22,7 +22,6 @@
 	NSPredicate* noPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'n'"];
 	if([noPredicate evaluateWithObject:message])
 		return [[KMStatAllocationState alloc] init];
-	[coordinator sendMessageToBuffer:@"Do you wish to continue with these stats `R(yes/no)`x:"];
 	return self;
 }
 
