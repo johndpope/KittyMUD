@@ -1,5 +1,5 @@
 //
-//  KittyMudStringExtensions.h
+//  KMString.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/15/09.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (KMMudVariableExtensions)
+@interface NSString (KMString)
 
 +(void) initializeVariableDictionary;
 

@@ -7,7 +7,7 @@
 //
 
 #import "KMPlayingState.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMCharacter.h"
 #import "KMConnectionCoordinator.h"
 #import "KMRoom.h"

@@ -4,7 +4,7 @@
 #import "KMServer.h"
 #import "KMColorProcessWriteHook.h"
 #import "KMVariableHook.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMVariableManager.h"
 #import "KMStat.h"
 #import "KMRace.h"
@@ -12,7 +12,7 @@
 #import "KMStatAllocationLogic.h"
 #import "KMCommandInterpreter.h"
 #import "KMRoom.h"
-#import "NSCodingAspect.h"
+#import "KMCodingAspect.h"
 #import "KMXDFReference.h"
 
 void initializeData(BOOL codingOnly) {
@@ -31,7 +31,7 @@ void initializeData(BOOL codingOnly) {
 					continue;
 				if([[(id)c className] hasPrefix:@"KM"]) {
 					NSError* error = [[NSError alloc] init];
-					BOOL res = [NSCodingAspect addToClass:c error:&error];
+					BOOL res = [KMCodingAspect addToClass:c error:&error];
 					if(!res) {
 						NSLog(@"Error adding NSCoding to class %@, error %@", [(id)c className], [[error userInfo] objectForKey:@"errMsg"]);
 					}

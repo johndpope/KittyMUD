@@ -7,7 +7,7 @@
 //
 
 #import "KMVariableHook.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 
 @implementation KMVariableHook
 

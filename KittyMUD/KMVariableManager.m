@@ -7,7 +7,7 @@
 //
 
 #import "KMVariableManager.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 
 @implementation KMVariableManager
 

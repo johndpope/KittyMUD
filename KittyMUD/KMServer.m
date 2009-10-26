@@ -7,7 +7,7 @@
 //
 
 #import "KMServer.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>

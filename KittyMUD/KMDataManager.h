@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <RegexKit/RegexKit.h>
 #import "KMStat.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMDataStartup.h"
 
 @interface KMDataManager : NSObject {

@@ -15,7 +15,7 @@
 \} return FUNCEND;
 \[ return VARREFSTART;
 \] return VARREFEND;
-[0-9]+(\.[0-9]+)? XDFlval.num = atof(XDFtext); return NUMBER;
+[0-9]+(\.[0-9]+)? XDFlval.num = [NSNumber numberWithFloat:atof(XDFtext)]; return NUMBER;
 \/ XDFlval.op = KMXDFOpDivide; return OPDIVIDE;
 \* XDFlval.op = KMXDFOpMultiply; return OPMULTIPLY;
 \+ XDFlval.op = KMXDFOpAdd; return OPADD;

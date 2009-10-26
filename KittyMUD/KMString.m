@@ -1,19 +1,19 @@
 //
-//  KittyMudStringExtensions.m
+//  KMString.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/15/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMColorProcessWriteHook.h"
 #import <openssl/md5.h>
 #import <RegexKit/RegexKit.h>
 
 static NSMutableDictionary* kmMudVariables = nil;
 
-@implementation NSString (KittyMudStringExtensions)
+@implementation NSString (KMString)
 
 +(void) initializeVariableDictionary
 {

@@ -7,7 +7,7 @@
 //
 
 #import "KMInfoDisplay.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 
 
 @implementation KMInfoDisplay

@@ -17,10 +17,10 @@ int XDFwrap()
 %}
 
 %union {
-	float num;
+	NSNumber* num;
 	NSString* text;
 	KMXDFOpType op;
-	id ref;
+	KMXDFReference* ref;
 }
 
 %token STATREFSTART STATREFEND LPAREN RPAREN FUNCSTART FUNCEND VARREFSTART VARREFEND
@@ -50,7 +50,7 @@ unooperation: OPPERCENT { $$ = $1; } ;
 
 simpleopreference: groupexpression { $$ = $1; } | simplereference { $$ = $1; } ;
 
-simplereference: NUMBER { id num = [NSNumber numberWithFloat:$1]; $$ = [KMXDFReference createReferenceOfType:KMXDFNumberRef, num]; } | statreference { $$ = $1; } | varreference { $$ = $1; } | funcreference { $$ = $1; } ;
+simplereference: NUMBER { $$ = [KMXDFReference createReferenceOfType:KMXDFNumberRef, $1]; } | statreference { $$ = $1; } | varreference { $$ = $1; } | funcreference { $$ = $1; } ;
 
 statreference: STATREFSTART IDENTIFIER STATREFEND { $$ = [KMXDFReference createReferenceOfType:KMXDFStatRef, $2]; } ;
 

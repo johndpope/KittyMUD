@@ -8,7 +8,7 @@
 
 #import "KMCreateCharacterState.h"
 #import "KMConnectionCoordinator.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMServer.h"
 #import "KMCharacter.h"
 #import "KMChooseRaceState.h"

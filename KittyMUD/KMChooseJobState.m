@@ -14,7 +14,7 @@
 #import "KMRoom.h"
 #import "KMCharacter.h"
 #import "KMCommandInterpreter.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 
 @implementation KMChooseJobState
 

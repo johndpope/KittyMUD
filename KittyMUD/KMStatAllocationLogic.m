@@ -10,7 +10,7 @@
 #import "KMConnectionCoordinator.h"
 #import "KMCharacter.h"
 #import "KMStatCopy.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMColorProcessWriteHook.h"
 #import "KMInfoDisplay.h"
 #import "KMJob.h"

@@ -378,6 +378,11 @@
 			3AFF937810955876000208EA /* PBXTextBookmark */ = 3AFF937810955876000208EA /* PBXTextBookmark */;
 			3AFF937910955876000208EA /* PBXTextBookmark */ = 3AFF937910955876000208EA /* PBXTextBookmark */;
 			3AFF937A10955876000208EA /* PBXTextBookmark */ = 3AFF937A10955876000208EA /* PBXTextBookmark */;
+			3AFF9380109558C5000208EA /* PBXTextBookmark */ = 3AFF9380109558C5000208EA /* PBXTextBookmark */;
+			3AFF9385109558D3000208EA /* PBXTextBookmark */ = 3AFF9385109558D3000208EA /* PBXTextBookmark */;
+			3AFF9386109558D3000208EA /* PBXTextBookmark */ = 3AFF9386109558D3000208EA /* PBXTextBookmark */;
+			3AFF9387109558D3000208EA /* PBXTextBookmark */ = 3AFF9387109558D3000208EA /* PBXTextBookmark */;
+			3AFF9388109558D3000208EA /* PBXTextBookmark */ = 3AFF9388109558D3000208EA /* PBXTextBookmark */;
 		};
 		sourceControlManager = 3AC38BAF10627BD20011EBD4 /* Source Control */;
 		userBuildSettings = {
@@ -1011,7 +1016,7 @@
 	};
 	3AC38BCB10627D1F0011EBD4 /* KMConnectionPool.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 2067}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1833}}";
 			sepNavSelRange = "{2769, 0}";
 			sepNavVisRange = "{147, 1684}";
 		};
@@ -1198,8 +1203,8 @@
 	3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1651, 780}}";
-			sepNavSelRange = "{410, 0}";
-			sepNavVisRange = "{45, 1950}";
+			sepNavSelRange = "{368, 0}";
+			sepNavVisRange = "{45, 1819}";
 		};
 	};
 	3AC38D791063B7100011EBD4 /* KMAccountMenu.h */ = {
@@ -3818,6 +3823,56 @@
 		vrLoc = 1252;
 	};
 	3AFF937A10955876000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AE9E0E8108B36C000AED290 /* stat_template.xml */;
+		name = "stat_template.xml: 58";
+		rLen = 0;
+		rLoc = 3388;
+		rType = 0;
+		vrLen = 2141;
+		vrLoc = 482;
+	};
+	3AFF9380109558C5000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AFF8C2F1093607E000208EA /* KMXDF.lm */;
+		name = "KMXDF.lm: 9";
+		rLen = 0;
+		rLoc = 126;
+		rType = 0;
+		vrLen = 871;
+		vrLoc = 0;
+	};
+	3AFF9385109558D3000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* EternityChronicles.m */;
+		name = "EternityChronicles.m: 61";
+		rLen = 0;
+		rLoc = 1686;
+		rType = 0;
+		vrLen = 1540;
+		vrLoc = 1252;
+	};
+	3AFF9386109558D3000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38BCB10627D1F0011EBD4 /* KMConnectionPool.m */;
+		name = "KMConnectionPool.m: 80";
+		rLen = 0;
+		rLoc = 2769;
+		rType = 0;
+		vrLen = 1684;
+		vrLoc = 147;
+	};
+	3AFF9387109558D3000208EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */;
+		name = "KMConfirmPasswordState.m: 17";
+		rLen = 0;
+		rLoc = 368;
+		rType = 0;
+		vrLen = 1819;
+		vrLoc = 45;
+	};
+	3AFF9388109558D3000208EA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 3AE9E0E8108B36C000AED290 /* stat_template.xml */;
 		name = "stat_template.xml: 58";

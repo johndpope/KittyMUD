@@ -10,7 +10,7 @@
 #import "KMServer.h"
 #import "KMBasicInterpreter.h"
 #import "KMAccountNameState.h"
-#import "KittyMudStringExtensions.h"
+#import "KMString.h"
 #import "KMMessageState.h"
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
@@ -77,7 +77,7 @@ static NSString* greeting;
 -(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot withName:(NSString*)name
 {
 	if(!greeting) {
-		NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/templates/greeting.xml" replaceAllVariables]];
+		NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/greeting.xml" replaceAllVariables]];
 		if(!greetingf) {
 			greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
 		} else {

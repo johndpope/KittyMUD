@@ -11,7 +11,7 @@
 #import "KMCharacter.h"
 #import "KMMessageState.h"
 #import "KMServer.h"
-#import "NSCodingAspect.h"
+#import "KMCodingAspect.h"
 #import <objc/runtime.h>
 
 @implementation KMCommandInterpreter

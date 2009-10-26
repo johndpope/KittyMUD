@@ -1,5 +1,5 @@
 //
-//  NSCodingAspect.h
+//  KMCodingAspect.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/15/09.
@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <objc/runtime.h>
 
-@interface NSCodingAspect : NSObject <NSCoding>
+@interface KMCodingAspect : NSObject <NSCoding>
 +(BOOL) addMethod:(SEL)aSelector toClass:(Class)aClass error:(NSError **)error;
 
 +(BOOL) addToClass:(Class)aClass error:(NSError **)error;
