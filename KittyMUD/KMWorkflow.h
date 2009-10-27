@@ -33,6 +33,8 @@
 
 -(id<KMState>) advanceWorkflow;
 
+-(KMWorkflowStep*) getStepForState:(id<KMState>)state;
+
 @property (retain,readonly) NSMutableDictionary* steps;
 @property (retain) KMWorkflowStep* currentStep;
 @end

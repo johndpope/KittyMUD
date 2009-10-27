@@ -10,6 +10,7 @@
 #import "KMConnectionCoordinator.h"
 #import "KMState.h"
 #import "KMWorkflow.h"
+
 @implementation KMBasicInterpreter
 
 -(void) interpret:(id)coordinator
@@ -25,6 +26,10 @@
 		id<KMState> nextStep = [workflow advanceWorkflow];
 		NSLog(@"Advanced workflow, new step in workflow: %@", [(id)[coordinator currentState] className]);
 		[coordinator setCurrentState:nextStep];
+		KMWorkflowStep* currentStep = [workflow getStepForState:nextStep];
+		if(![currentStep nextStep])
+			[coordinator setFlag:@"clear-workflow"];
+		
 	}
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {

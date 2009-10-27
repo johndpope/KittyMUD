@@ -255,6 +255,8 @@
 		3AFF93A91095DB46000208EA /* KMWorkflowStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowStep.m; sourceTree = "<group>"; };
 		3AFF93E41095FB54000208EA /* XDF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XDF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFF93E51095FB54000208EA /* XDF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XDF-Info.plist"; sourceTree = "<group>"; };
+		3AFF970A1096A26B000208EA /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AFF970B1096A26B000208EA /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -286,6 +288,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AFF97071096A26B000208EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -299,6 +308,7 @@
 				3A78ECAA106574B4002209B6 /* External Libraries and Frameworks */,
 				3AFF927C10955195000208EA /* KittyMUD-Info.plist */,
 				3AFF93E51095FB54000208EA /* XDF-Info.plist */,
+				3AFF970B1096A26B000208EA /* KittyMUDTests-Info.plist */,
 			);
 			name = KittyMUD;
 			sourceTree = "<group>";
@@ -328,6 +338,7 @@
 				3AFF927B10955195000208EA /* KittyMUD.framework */,
 				3AFF92FF10955508000208EA /* EternityChronicles */,
 				3AFF93E41095FB54000208EA /* XDF.framework */,
+				3AFF970A1096A26B000208EA /* KittyMUDTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -676,6 +687,24 @@
 			productReference = 3AFF93E41095FB54000208EA /* XDF.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3AFF97091096A26B000208EA /* KittyMUDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AFF970E1096A26C000208EA /* Build configuration list for PBXNativeTarget "KittyMUDTests" */;
+			buildPhases = (
+				3AFF97051096A26B000208EA /* Resources */,
+				3AFF97061096A26B000208EA /* Sources */,
+				3AFF97071096A26B000208EA /* Frameworks */,
+				3AFF97081096A26B000208EA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KittyMUDTests;
+			productName = KittyMUDTests;
+			productReference = 3AFF970A1096A26B000208EA /* KittyMUDTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -694,6 +723,7 @@
 				3AFF927A10955195000208EA /* KittyMUD */,
 				3AFF92FE10955508000208EA /* EternityChronicles */,
 				3AFF93E31095FB54000208EA /* XDF */,
+				3AFF97091096A26B000208EA /* KittyMUDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -707,6 +737,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3AFF93E01095FB54000208EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AFF97051096A26B000208EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -728,6 +765,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "mkdir -p ${BUILD_DIR}/Debug/config\ncp -v sys.conf ${BUILD_DIR}/Debug/config/\nmkdir -p ${BUILD_DIR}/Debug/saves\nmkdir -p ${BUILD_DIR}/Debug/tmp\nrm -rf ${BUILD_DIR}/Debug/data\nmkdir -p ${BUILD_DIR}/Debug/data\ncp -rv data ${BUILD_DIR}/Debug";
+		};
+		3AFF97081096A26B000208EA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -822,6 +872,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AFF97061096A26B000208EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -895,6 +952,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = KittyMUD;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -926,6 +984,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = KittyMUD;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -956,6 +1015,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = EternityChronicles;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -984,6 +1044,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = EternityChronicles;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1012,6 +1073,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = XDF;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -1038,6 +1100,65 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = XDF;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		3AFF970C1096A26B000208EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = "-fobjc-gc-only";
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = KittyMUDTests;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3AFF970D1096A26B000208EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = "-fobjc-gc-only";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = KittyMUDTests;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1077,6 +1198,15 @@
 			buildConfigurations = (
 				3AFF93E61095FB55000208EA /* Debug */,
 				3AFF93E71095FB55000208EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AFF970E1096A26C000208EA /* Build configuration list for PBXNativeTarget "KittyMUDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFF970C1096A26B000208EA /* Debug */,
+				3AFF970D1096A26B000208EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

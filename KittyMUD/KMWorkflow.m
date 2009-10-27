@@ -124,6 +124,11 @@
 	}
 }
 
+-(KMWorkflowStep*) getStepForState:(id<KMState>)state {
+	KMWorkflowStep* step = [steps objectForKey:[(id)state className]];
+	return step;
+}
+
 @synthesize steps;
 @synthesize currentStep;
 @end
