@@ -6,6 +6,7 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
+#import <XDF/XDF.h>
 #import "KMPlayingLogic.h"
 #import "KMString.h"
 #import "KMServer.h"
@@ -14,8 +15,6 @@
 #import "KMRoom.h"
 #import "KMCharacter.h"
 #import "KMCommandInterpreter.h"
-#import "XDFEngine.h"
-#import "XDFReference.h"
 
 @implementation KMPlayingLogic
 

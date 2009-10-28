@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <RegexKit/RegexKit.h>
 #import "KMStat.h"
 #import "KMString.h"
 #import "KMDataStartup.h"

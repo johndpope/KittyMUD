@@ -6,12 +6,12 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
+#import <XDF/XDF.h>
 #import "KMCommandInterpreter.h"
 #import "KMConnectionCoordinator.h"
 #import "KMCharacter.h"
 #import "KMState.h"
 #import "KMServer.h"
-#import "XDFCodingAspect.h"
 #import <objc/runtime.h>
 
 @implementation KMCommandInterpreter
