@@ -83,24 +83,27 @@ extern KMExitDirection directionFromString( NSString* dir );
 
 +(void) resolveExits:(BOOL)remove
 {
-	RKRegex* sectorTest = [[RKRegex alloc] initWithRegexString:@"\\[?((?<sector>\\w+)::)?(?<room>\\w+)\\]?" options:RKCompileNoOptions];
+	
 	for(KMRoom* room in rooms) {
 		for(KMExitInfo* exit in [room exitInfo]) {
-			NSRange roomName = [sectorTest rangeForCharacters:[[exit destination] cStringUsingEncoding:NSUTF8StringEncoding]
-														length:[[exit destination] length]
-													   inRange:NSMakeRange(0, [[exit destination] length])
-												  captureIndex:[sectorTest captureIndexForCaptureName:@"room"]
-													   options:RKMatchNoOptions];
-			NSRange sectorName = [sectorTest rangeForCharacters:[[exit destination] cStringUsingEncoding:NSUTF8StringEncoding]
-														  length:[[exit destination] length]
-														 inRange:NSMakeRange(0, [[exit destination] length])
-													captureIndex:[sectorTest captureIndexForCaptureName:@"sector"]
-														 options:RKMatchNoOptions];
+			NSString* sectorString = nil;
+			NSString* roomString = [[NSString alloc] init];
+			NSScanner* scanner = [NSScanner scannerWithString:[exit destination]];
+			[scanner scanString:@"[" intoString:NULL];
+			[scanner scanUpToString:@"::" intoString:&roomString];
+			if(![scanner isAtEnd]) {
+				[scanner scanString:@"::" intoString:NULL];
+				sectorString = [roomString copy];
+				roomString = [[scanner string] substringFromIndex:[scanner scanLocation]];
+				NSScanner* rs = [NSScanner scannerWithString:roomString];
+				[rs scanUpToString:@"]" intoString:&roomString];
+			}
+			
 			NSPredicate* exitTest;
-			if(sectorName.length > 0)
-				exitTest = [NSPredicate predicateWithFormat:@"self.sector like[cd] %@ and self.roomID like[cd] %@", [[exit destination] substringWithRange:sectorName], [[exit destination] substringWithRange:roomName]];
+			if(sectorString)
+				exitTest = [NSPredicate predicateWithFormat:@"self.sector like[cd] %@ and self.roomID like[cd] %@", sectorString, roomString];
 			else 
-				exitTest = [NSPredicate predicateWithFormat:@"self.roomID like[cd] %@",[exit destination]];
+				exitTest = [NSPredicate predicateWithFormat:@"self.roomID like[cd] %@",roomString];
 			NSArray* roomsWhichPass = [rooms filteredArrayUsingPredicate:exitTest];
 			if([roomsWhichPass count] > 0) {
 				if([roomsWhichPass count] > 1) {
@@ -126,20 +129,22 @@ extern KMExitDirection directionFromString( NSString* dir );
 
 +(KMRoom*) getRoomByName:(NSString*)name {
 	
-	RKRegex* sectorTest = [[RKRegex alloc] initWithRegexString:@"\\[?((?<sector>\\w+)::)?(?<room>\\w+)\\]?" options:RKCompileNoOptions];
-	NSRange roomName = [sectorTest rangeForCharacters:[name cStringUsingEncoding:NSUTF8StringEncoding]
-											   length:[name length]
-											  inRange:NSMakeRange(0, [name length])
-										 captureIndex:[sectorTest captureIndexForCaptureName:@"room"]
-											  options:RKMatchNoOptions];
-	NSRange sectorName = [sectorTest rangeForCharacters:[name cStringUsingEncoding:NSUTF8StringEncoding]
-												 length:[name length]
-												inRange:NSMakeRange(0, [name length])
-										   captureIndex:[sectorTest captureIndexForCaptureName:@"sector"]
-												options:RKMatchNoOptions];
+	NSString* sectorString = nil;
+	NSString* roomString = [[NSString alloc] init];
+	NSScanner* scanner = [NSScanner scannerWithString:name];
+	[scanner scanString:@"[" intoString:NULL];
+	[scanner scanUpToString:@"::" intoString:&roomString];
+	if(![scanner isAtEnd]) {
+		[scanner scanString:@"::" intoString:NULL];
+		sectorString = [roomString copy];
+		roomString = [[scanner string] substringFromIndex:[scanner scanLocation]];
+		NSScanner* rs = [NSScanner scannerWithString:roomString];
+		[rs scanUpToString:@"]" intoString:&roomString];
+	}
+	
 	NSPredicate* exitTest;
-	if(sectorName.length > 0)
-		exitTest = [NSPredicate predicateWithFormat:@"self.sector like[cd] %@ and self.roomID like[cd] %@", [name substringWithRange:sectorName], [name substringWithRange:roomName]];
+	if(sectorString)
+		exitTest = [NSPredicate predicateWithFormat:@"self.sector like[cd] %@ and self.roomID like[cd] %@", sectorString, roomString];
 	else 
 		exitTest = [NSPredicate predicateWithFormat:@"self.roomID like[cd] %@",name];
 	NSArray* roomsWhichPass = [rooms filteredArrayUsingPredicate:exitTest];

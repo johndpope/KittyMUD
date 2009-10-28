@@ -1,15 +1,15 @@
 //
-//  KMCodingAspect.m
+//  XDFCodingAspect.m
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/15/09.
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMCodingAspect.h"
+#import "XDFCodingAspect.h"
 
 
-@implementation KMCodingAspect
+@implementation XDFCodingAspect
 
 + (BOOL) addMethod:(SEL)aSelector toClass:(Class)aClass error:(NSError **)error {
 	IMP implementation = class_getMethodImplementation([self class], aSelector);
@@ -44,11 +44,11 @@
 		class_addProtocol(aClass, codingProtocol);
 		
 		if (!class_getInstanceMethod(aClass, @selector(initWithCoder:))) {
-			BOOL res = [KMCodingAspect addMethod:@selector(initWithCoder:) toClass:aClass error:error];
+			BOOL res = [XDFCodingAspect addMethod:@selector(initWithCoder:) toClass:aClass error:error];
 			if (!res) { return NO; }
 		}
 		if (!class_getInstanceMethod(aClass, @selector(encodeWithCoder:))) {
-			BOOL res = [KMCodingAspect addMethod:@selector(encodeWithCoder:) toClass:aClass error:error];
+			BOOL res = [XDFCodingAspect addMethod:@selector(encodeWithCoder:) toClass:aClass error:error];
 			if (!res) { return NO; }
 		}
 		//all the ivars need to conform to NSCoding, too
@@ -59,7 +59,7 @@
 			if ([type length] > 3) {
 				NSString * class = [type substringWithRange:NSMakeRange(2, [type length]-3)];
 				Class ivarClass = NSClassFromString(class);
-				[KMCodingAspect addToClass:ivarClass error:error];
+				[XDFCodingAspect addToClass:ivarClass error:error];
 			}
 		}
 	}

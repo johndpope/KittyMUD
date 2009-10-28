@@ -12,7 +12,7 @@
 #import "KMStatAllocationLogic.h"
 #import "KMCommandInterpreter.h"
 #import "KMRoom.h"
-#import "KMCodingAspect.h"
+#import "XDFCodingAspect.h"
 #import "XDFReference.h"
 
 void initializeData(BOOL codingOnly) {
@@ -31,7 +31,7 @@ void initializeData(BOOL codingOnly) {
 					continue;
 				if([[(id)c className] hasPrefix:@"KM"]) {
 					NSError* error = [[NSError alloc] init];
-					BOOL res = [KMCodingAspect addToClass:c error:&error];
+					BOOL res = [XDFCodingAspect addToClass:c error:&error];
 					if(!res) {
 						NSLog(@"Error adding NSCoding to class %@, error %@", [(id)c className], [[error userInfo] objectForKey:@"errMsg"]);
 					}
@@ -89,7 +89,6 @@ int main(int argc, char *argv[])
 	[[server getConnectionPool] setReadCallback:^(id coordinator){
 		[[coordinator interpreter] interpret:coordinator];
 	}];
-	initializeData(YES);
 	NSLog(@"Starting server on port %d...\n", port);
 	NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 	NSTimer* timer = [NSTimer timerWithTimeInterval:0.5 target:[server getConnectionPool] selector:@selector(checkOutputBuffers:) userInfo:nil repeats:YES];

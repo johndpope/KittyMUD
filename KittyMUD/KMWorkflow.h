@@ -19,7 +19,7 @@
 
 -(void) addStep:(id<KMState>)state;
 
--(void) setNextStepFor:(id<KMState>)nextState toState:(id<KMState>)state;
+-(void) setNextStepFor:(id<KMState>)state toState:(id<KMState>)nextState;
 
 -(void) insertStep:(id<KMState>)newState before:(id<KMState>)state;
 

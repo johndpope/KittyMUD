@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3AFF9280109551A8000208EA /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2A106574DF002209B6 /* libcrypto.dylib */; };
-		3AFF9281109551AC000208EA /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
 		3AFF9282109551B7000208EA /* KMAccountNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC510627D1F0011EBD4 /* KMAccountNameState.m */; };
 		3AFF9283109551B7000208EA /* KMColorProcessWriteHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC710627D1F0011EBD4 /* KMColorProcessWriteHook.m */; };
 		3AFF9284109551B7000208EA /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */; };
@@ -44,12 +43,10 @@
 		3AFF92A2109551B7000208EA /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
 		3AFF92A3109551B7000208EA /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
 		3AFF92A4109551B7000208EA /* KMCommandInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DE541087747C00AED290 /* KMCommandInfo.m */; };
-		3AFF92A5109551B7000208EA /* KMCodingAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DF9A1087B8A100AED290 /* KMCodingAspect.m */; };
 		3AFF92A6109551B7000208EA /* KMItemTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E028108A11C300AED290 /* KMItemTemplate.m */; };
 		3AFF92A7109551B7000208EA /* KMItemEnhancement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9E069108A299300AED290 /* KMItemEnhancement.m */; };
 		3AFF93061095553C000208EA /* EternityChronicles.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* EternityChronicles.m */; };
 		3AFF930710955540000208EA /* KittyMUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF927B10955195000208EA /* KittyMUD.framework */; };
-		3AFF93191095558B000208EA /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
 		3AFF935110955653000208EA /* KittyMUD.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3AFF927B10955195000208EA /* KittyMUD.framework */; };
 		3AFF938B1095D903000208EA /* KMWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF93891095D903000208EA /* KMWorkflow.h */; };
 		3AFF938C1095D903000208EA /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF938A1095D903000208EA /* KMWorkflow.m */; };
@@ -66,27 +63,59 @@
 		3AFF93F31095FB86000208EA /* XDFFunctionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8F921094BAF3000208EA /* XDFFunctionInfo.m */; };
 		3AFF93F71095FBDA000208EA /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
 		3AFF93FB1095FBF7000208EA /* XDF.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
-		3AFF940C1095FD1C000208EA /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78ED2C106574EA002209B6 /* RegexKit.framework */; };
 		3AFF940E1095FD29000208EA /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF93E41095FB54000208EA /* XDF.framework */; };
 		3AFF94401095FF26000208EA /* XDF.lm in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C2F1093607E000208EA /* XDF.lm */; settings = {COMPILER_FLAGS = "--prefix=XDF --header-file=XDF.yy.h"; }; };
-		3AFF96DC10962D94000208EA /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */; };
-		3AFF96DD10962D98000208EA /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BC910627D1F0011EBD4 /* KMConnectionCoordinator.m */; };
-		3AFF96DE10962D9A000208EA /* KMCreateCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE80B5E1064770700B86C4B /* KMCreateCharacterState.m */; };
-		3AFF96DF10962D9A000208EA /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CD31062B1B20011EBD4 /* KMBasicInterpreter.m */; };
-		3AFF96E010962D9B000208EA /* XDFStatReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8EF31094ABD0000208EA /* XDFStatReference.m */; };
-		3AFF96E110962D9C000208EA /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF938A1095D903000208EA /* KMWorkflow.m */; };
-		3AFF96E210962D9D000208EA /* KMConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BCB10627D1F0011EBD4 /* KMConnectionPool.m */; };
-		3AFF96E310962D9E000208EA /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38D811063BD5C0011EBD4 /* KMAccountMenuState.m */; };
-		3AFF96E410962D9F000208EA /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DBB61084F66F00AED290 /* KMPlayingLogic.m */; };
-		3AFF96E510962DA1000208EA /* KMWorkflowStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF93A91095DB46000208EA /* KMWorkflowStep.m */; };
-		3AFF96E610962DA2000208EA /* KMConfirmStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D402810825B38006F4727 /* KMConfirmStatAllocationState.m */; };
-		3AFF96E710962DA3000208EA /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38BD110627D1F0011EBD4 /* KMServer.m */; };
-		3AFF96E810962DA4000208EA /* KMChooseCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78EF451067EC33002209B6 /* KMChooseCharacterState.m */; };
-		3AFF96E910962DA6000208EA /* XDFReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF8C3A10936465000208EA /* XDFReference.m */; };
-		3AFF96EA10962DA7000208EA /* KMChooseJobState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D402B10825D14006F4727 /* KMChooseJobState.m */; };
-		3AFF96EB10962DA8000208EA /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC38CFC1062B8620011EBD4 /* KMConfirmPasswordState.m */; };
-		3AFF96EC10962DAB000208EA /* KMStatAllocationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A642E99107E2DD4005A2619 /* KMStatAllocationLogic.m */; };
-		3AFF96ED10962DAC000208EA /* KMCommandInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8C402107BD03B003B810E /* KMCommandInterpreter.m */; };
+		3AFF97AF109745F7000208EA /* XDFCodingAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9DF9A1087B8A100AED290 /* XDFCodingAspect.m */; };
+		3AFF97B81097465A000208EA /* KMRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9DAA11083636F00AED290 /* KMRoom.h */; };
+		3AFF97B91097465A000208EA /* KMExitInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9DAA51083644900AED290 /* KMExitInfo.h */; };
+		3AFF97BA1097465A000208EA /* KMStatAllocationLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A642E98107E2DD4005A2619 /* KMStatAllocationLogic.h */; };
+		3AFF97BB1097465A000208EA /* KMPlayingLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9DBB51084F66F00AED290 /* KMPlayingLogic.h */; };
+		3AFF97BC1097465A000208EA /* KMDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AAA35321077A987000D0767 /* KMDataManager.h */; };
+		3AFF97BD1097465A000208EA /* KMRace.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0E12A51079459800537E9B /* KMRace.h */; };
+		3AFF97BE1097465A000208EA /* KMDataStartup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0E132C107A53C300537E9B /* KMDataStartup.h */; };
+		3AFF97BF1097465A000208EA /* KMJob.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D3EF41081054D006F4727 /* KMJob.h */; };
+		3AFF97C01097465A000208EA /* KMItemTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9E027108A11C300AED290 /* KMItemTemplate.h */; };
+		3AFF97C11097465A000208EA /* KMItemEnhancement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9E068108A299300AED290 /* KMItemEnhancement.h */; };
+		3AFF97C21097465A000208EA /* KMCharacter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE80B681064874800B86C4B /* KMCharacter.h */; };
+		3AFF97C31097465A000208EA /* KMStat.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A78ED5310669D55002209B6 /* KMStat.h */; };
+		3AFF97C41097465A000208EA /* KMStatCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A642E94107E271B005A2619 /* KMStatCopy.h */; };
+		3AFF97C51097465A000208EA /* KMInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38CD11062ACC10011EBD4 /* KMInterpreter.h */; };
+		3AFF97C61097465A000208EA /* KMBasicInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38CD21062B1B20011EBD4 /* KMBasicInterpreter.h */; };
+		3AFF97C71097465A000208EA /* KMCommandInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD8C401107BD03B003B810E /* KMCommandInterpreter.h */; };
+		3AFF97C81097465A000208EA /* KMCommandInterpreterLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A8C1EF8107D0753001530AA /* KMCommandInterpreterLogic.h */; };
+		3AFF97C91097465A000208EA /* KMCommandInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9DE531087747C00AED290 /* KMCommandInfo.h */; };
+		3AFF97CA1097465A000208EA /* KMColorProcessWriteHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */; };
+		3AFF97CB1097465A000208EA /* KMString.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BCE10627D1F0011EBD4 /* KMString.h */; };
+		3AFF97CC1097465A000208EA /* KMVariableHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BD310627D1F0011EBD4 /* KMVariableHook.h */; };
+		3AFF97CD1097465A000208EA /* KMVariableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BD510627D1F0011EBD4 /* KMVariableManager.h */; };
+		3AFF97CE1097465A000208EA /* KMWriteHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BD710627D1F0011EBD4 /* KMWriteHook.h */; };
+		3AFF97CF1097465A000208EA /* KMInfoDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D3FEE10824EF5006F4727 /* KMInfoDisplay.h */; };
+		3AFF97D01097465A000208EA /* KMStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D401C108256B8006F4727 /* KMStack.h */; };
+		3AFF97D11097465A000208EA /* KMCreateCharacterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE80B5D1064770700B86C4B /* KMCreateCharacterState.h */; };
+		3AFF97D21097465A000208EA /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BD210627D1F0011EBD4 /* KMState.h */; };
+		3AFF97D31097465A000208EA /* KMAccountNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BC410627D1F0011EBD4 /* KMAccountNameState.h */; };
+		3AFF97D41097465A000208EA /* KMNewPasswordState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38CCD1062ABA50011EBD4 /* KMNewPasswordState.h */; };
+		3AFF97D51097465A000208EA /* KMConfirmPasswordState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38CFB1062B8620011EBD4 /* KMConfirmPasswordState.h */; };
+		3AFF97D61097465A000208EA /* KMAccountMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38D791063B7100011EBD4 /* KMAccountMenu.h */; };
+		3AFF97D71097465A000208EA /* KMAccountMenuState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38D801063BD5C0011EBD4 /* KMAccountMenuState.h */; };
+		3AFF97D81097465A000208EA /* KMQuitState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A78EEA51067CA19002209B6 /* KMQuitState.h */; };
+		3AFF97D91097465A000208EA /* KMChooseCharacterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A78EF441067EC33002209B6 /* KMChooseCharacterState.h */; };
+		3AFF97DA1097465A000208EA /* KMMenuHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0E1331107A67EE00537E9B /* KMMenuHandler.h */; };
+		3AFF97DB1097465A000208EA /* KMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0E1334107A694100537E9B /* KMMenu.h */; };
+		3AFF97DC1097465A000208EA /* KMChooseRaceState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0E133F107A6BE500537E9B /* KMChooseRaceState.h */; };
+		3AFF97DD1097465A000208EA /* KMStatAllocationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D3D881080B492006F4727 /* KMStatAllocationState.h */; };
+		3AFF97DE1097465A000208EA /* KMConfirmStatAllocationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D402710825B38006F4727 /* KMConfirmStatAllocationState.h */; };
+		3AFF97DF1097465A000208EA /* KMChooseJobState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D402A10825D14006F4727 /* KMChooseJobState.h */; };
+		3AFF97E01097465A000208EA /* KMPlayingState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9DBCB1084FE0A00AED290 /* KMPlayingState.h */; };
+		3AFF97E11097465A000208EA /* KMServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BD010627D1F0011EBD4 /* KMServer.h */; };
+		3AFF97E21097465A000208EA /* KMConnectionCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BC810627D1F0011EBD4 /* KMConnectionCoordinator.h */; };
+		3AFF97E31097465A000208EA /* KMConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC38BCA10627D1F0011EBD4 /* KMConnectionPool.h */; };
+		3AFF97E610974728000208EA /* XDFCodingAspect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9DF991087B8A100AED290 /* XDFCodingAspect.h */; };
+		3AFF97E710974728000208EA /* XDFEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF8C3310936318000208EA /* XDFEngine.h */; };
+		3AFF97E810974728000208EA /* XDFReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF8C3910936465000208EA /* XDFReference.h */; };
+		3AFF97E910974728000208EA /* XDFFunctionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AFF8F911094BAF3000208EA /* XDFFunctionInfo.h */; };
+		3AFF9A2910977563000208EA /* KMWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF98081097530E000208EA /* KMWorkflowTests.m */; };
+		3AFF9A7C10977631000208EA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFF9A7B10977631000208EA /* OCMock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,18 +133,24 @@
 			remoteGlobalIDString = 3AFF93E31095FB54000208EA;
 			remoteInfo = XDF;
 		};
+		3AFF9A6A1097759A000208EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AFF927A10955195000208EA /* KittyMUD */;
+			remoteInfo = KittyMUD;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3AFF93241095559F000208EA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = ../Frameworks;
+			dstPath = "$(CONFIGURATION_BUILD_DIR)/../Frameworks";
 			dstSubfolderSpec = 16;
 			files = (
 				3AFF93FB1095FBF7000208EA /* XDF.framework in CopyFiles */,
 				3AFF935110955653000208EA /* KittyMUD.framework in CopyFiles */,
-				3AFF93191095558B000208EA /* RegexKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +193,6 @@
 		3A6D402B10825D14006F4727 /* KMChooseJobState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseJobState.m; sourceTree = "<group>"; };
 		3A78ECA11065749C002209B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A78ED2A106574DF002209B6 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
-		3A78ED2C106574EA002209B6 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A78ED5310669D55002209B6 /* KMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStat.h; sourceTree = "<group>"; };
 		3A78ED5410669D55002209B6 /* KMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStat.m; sourceTree = "<group>"; };
 		3A78EEA51067CA19002209B6 /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMQuitState.h; sourceTree = "<group>"; };
@@ -213,8 +247,8 @@
 		3AE9DBCC1084FE0A00AED290 /* KMPlayingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingState.m; sourceTree = "<group>"; };
 		3AE9DE531087747C00AED290 /* KMCommandInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInfo.h; sourceTree = "<group>"; };
 		3AE9DE541087747C00AED290 /* KMCommandInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommandInfo.m; sourceTree = "<group>"; };
-		3AE9DF991087B8A100AED290 /* KMCodingAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCodingAspect.h; sourceTree = "<group>"; };
-		3AE9DF9A1087B8A100AED290 /* KMCodingAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCodingAspect.m; sourceTree = "<group>"; };
+		3AE9DF991087B8A100AED290 /* XDFCodingAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDFCodingAspect.h; sourceTree = "<group>"; };
+		3AE9DF9A1087B8A100AED290 /* XDFCodingAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDFCodingAspect.m; sourceTree = "<group>"; };
 		3AE9E027108A11C300AED290 /* KMItemTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMItemTemplate.h; sourceTree = "<group>"; };
 		3AE9E028108A11C300AED290 /* KMItemTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMItemTemplate.m; sourceTree = "<group>"; };
 		3AE9E068108A299300AED290 /* KMItemEnhancement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMItemEnhancement.h; sourceTree = "<group>"; };
@@ -255,8 +289,11 @@
 		3AFF93A91095DB46000208EA /* KMWorkflowStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowStep.m; sourceTree = "<group>"; };
 		3AFF93E41095FB54000208EA /* XDF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XDF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFF93E51095FB54000208EA /* XDF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XDF-Info.plist"; sourceTree = "<group>"; };
-		3AFF970A1096A26B000208EA /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFF970B1096A26B000208EA /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
+		3AFF98071097530E000208EA /* KMWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowTests.h; sourceTree = "<group>"; };
+		3AFF98081097530E000208EA /* KMWorkflowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowTests.m; sourceTree = "<group>"; };
+		3AFF9A2410977528000208EA /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AFF9A7B10977631000208EA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "/Users/mtindal/Downloads/OCMock 1.55/OCMock.framework"; sourceTree = "<absolute>"; };
 		C6859EA3029092ED04C91782 /* KittyMUD.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KittyMUD.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,7 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AFF93F71095FBDA000208EA /* XDF.framework in Frameworks */,
-				3AFF9281109551AC000208EA /* RegexKit.framework in Frameworks */,
 				3AFF9280109551A8000208EA /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +312,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AFF940E1095FD29000208EA /* XDF.framework in Frameworks */,
-				3AFF940C1095FD1C000208EA /* RegexKit.framework in Frameworks */,
 				3AFF930710955540000208EA /* KittyMUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,10 +323,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AFF97071096A26B000208EA /* Frameworks */ = {
+		3AFF9A2110977528000208EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF9A7C10977631000208EA /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +337,7 @@
 		08FB7794FE84155DC02AAC07 /* KittyMUD */ = {
 			isa = PBXGroup;
 			children = (
+				3AFF9806109752BD000208EA /* Unit Tests */,
 				3AE9E0D9108B36C000AED290 /* data */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
@@ -309,6 +346,7 @@
 				3AFF927C10955195000208EA /* KittyMUD-Info.plist */,
 				3AFF93E51095FB54000208EA /* XDF-Info.plist */,
 				3AFF970B1096A26B000208EA /* KittyMUDTests-Info.plist */,
+				3AFF9A7B10977631000208EA /* OCMock.framework */,
 			);
 			name = KittyMUD;
 			sourceTree = "<group>";
@@ -338,7 +376,7 @@
 				3AFF927B10955195000208EA /* KittyMUD.framework */,
 				3AFF92FF10955508000208EA /* EternityChronicles */,
 				3AFF93E41095FB54000208EA /* XDF.framework */,
-				3AFF970A1096A26B000208EA /* KittyMUDTests.octest */,
+				3AFF9A2410977528000208EA /* KittyMUDTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,7 +397,6 @@
 			children = (
 				3A78ECA11065749C002209B6 /* Foundation.framework */,
 				3A78ED2A106574DF002209B6 /* libcrypto.dylib */,
-				3A78ED2C106574EA002209B6 /* RegexKit.framework */,
 			);
 			name = "External Libraries and Frameworks";
 			sourceTree = "<group>";
@@ -438,8 +475,6 @@
 		3AC38C1A10627FF30011EBD4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3AE9DF991087B8A100AED290 /* KMCodingAspect.h */,
-				3AE9DF9A1087B8A100AED290 /* KMCodingAspect.m */,
 				3AC38BC610627D1F0011EBD4 /* KMColorProcessWriteHook.h */,
 				3AC38BC710627D1F0011EBD4 /* KMColorProcessWriteHook.m */,
 				3AC38BCE10627D1F0011EBD4 /* KMString.h */,
@@ -579,6 +614,8 @@
 		3AFF8C201093604B000208EA /* XDF */ = {
 			isa = PBXGroup;
 			children = (
+				3AE9DF991087B8A100AED290 /* XDFCodingAspect.h */,
+				3AE9DF9A1087B8A100AED290 /* XDFCodingAspect.m */,
 				3AFF8C2F1093607E000208EA /* XDF.lm */,
 				3AFF8C301093607E000208EA /* XDF.ym */,
 				3AFF8C3310936318000208EA /* XDFEngine.h */,
@@ -601,6 +638,15 @@
 			name = XDF;
 			sourceTree = "<group>";
 		};
+		3AFF9806109752BD000208EA /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3AFF98071097530E000208EA /* KMWorkflowTests.h */,
+				3AFF98081097530E000208EA /* KMWorkflowTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,8 +662,52 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF97B81097465A000208EA /* KMRoom.h in Headers */,
+				3AFF97B91097465A000208EA /* KMExitInfo.h in Headers */,
+				3AFF97BA1097465A000208EA /* KMStatAllocationLogic.h in Headers */,
+				3AFF97BB1097465A000208EA /* KMPlayingLogic.h in Headers */,
+				3AFF97BC1097465A000208EA /* KMDataManager.h in Headers */,
+				3AFF97BD1097465A000208EA /* KMRace.h in Headers */,
+				3AFF97BE1097465A000208EA /* KMDataStartup.h in Headers */,
+				3AFF97BF1097465A000208EA /* KMJob.h in Headers */,
+				3AFF97C01097465A000208EA /* KMItemTemplate.h in Headers */,
+				3AFF97C11097465A000208EA /* KMItemEnhancement.h in Headers */,
+				3AFF97C21097465A000208EA /* KMCharacter.h in Headers */,
+				3AFF97C31097465A000208EA /* KMStat.h in Headers */,
+				3AFF97C41097465A000208EA /* KMStatCopy.h in Headers */,
+				3AFF97C51097465A000208EA /* KMInterpreter.h in Headers */,
+				3AFF97C61097465A000208EA /* KMBasicInterpreter.h in Headers */,
+				3AFF97C71097465A000208EA /* KMCommandInterpreter.h in Headers */,
+				3AFF97C81097465A000208EA /* KMCommandInterpreterLogic.h in Headers */,
+				3AFF97C91097465A000208EA /* KMCommandInfo.h in Headers */,
+				3AFF97CA1097465A000208EA /* KMColorProcessWriteHook.h in Headers */,
+				3AFF97CB1097465A000208EA /* KMString.h in Headers */,
+				3AFF97CC1097465A000208EA /* KMVariableHook.h in Headers */,
+				3AFF97CD1097465A000208EA /* KMVariableManager.h in Headers */,
+				3AFF97CE1097465A000208EA /* KMWriteHook.h in Headers */,
+				3AFF97CF1097465A000208EA /* KMInfoDisplay.h in Headers */,
+				3AFF97D01097465A000208EA /* KMStack.h in Headers */,
+				3AFF97D11097465A000208EA /* KMCreateCharacterState.h in Headers */,
+				3AFF97D21097465A000208EA /* KMState.h in Headers */,
+				3AFF97D31097465A000208EA /* KMAccountNameState.h in Headers */,
+				3AFF97D41097465A000208EA /* KMNewPasswordState.h in Headers */,
+				3AFF97D51097465A000208EA /* KMConfirmPasswordState.h in Headers */,
+				3AFF97D61097465A000208EA /* KMAccountMenu.h in Headers */,
+				3AFF97D71097465A000208EA /* KMAccountMenuState.h in Headers */,
+				3AFF97D81097465A000208EA /* KMQuitState.h in Headers */,
+				3AFF97D91097465A000208EA /* KMChooseCharacterState.h in Headers */,
+				3AFF97DA1097465A000208EA /* KMMenuHandler.h in Headers */,
+				3AFF97DB1097465A000208EA /* KMMenu.h in Headers */,
+				3AFF97DC1097465A000208EA /* KMChooseRaceState.h in Headers */,
+				3AFF97DD1097465A000208EA /* KMStatAllocationState.h in Headers */,
+				3AFF97DE1097465A000208EA /* KMConfirmStatAllocationState.h in Headers */,
+				3AFF97DF1097465A000208EA /* KMChooseJobState.h in Headers */,
+				3AFF97E01097465A000208EA /* KMPlayingState.h in Headers */,
 				3AFF938B1095D903000208EA /* KMWorkflow.h in Headers */,
 				3AFF93AA1095DB46000208EA /* KMWorkflowStep.h in Headers */,
+				3AFF97E11097465A000208EA /* KMServer.h in Headers */,
+				3AFF97E21097465A000208EA /* KMConnectionCoordinator.h in Headers */,
+				3AFF97E31097465A000208EA /* KMConnectionPool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +715,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF97E610974728000208EA /* XDFCodingAspect.h in Headers */,
+				3AFF97E710974728000208EA /* XDFEngine.h in Headers */,
+				3AFF97E810974728000208EA /* XDFReference.h in Headers */,
+				3AFF97E910974728000208EA /* XDFFunctionInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,22 +781,23 @@
 			productReference = 3AFF93E41095FB54000208EA /* XDF.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3AFF97091096A26B000208EA /* KittyMUDTests */ = {
+		3AFF9A2310977528000208EA /* KittyMUDTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AFF970E1096A26C000208EA /* Build configuration list for PBXNativeTarget "KittyMUDTests" */;
+			buildConfigurationList = 3AFF9A281097755F000208EA /* Build configuration list for PBXNativeTarget "KittyMUDTests" */;
 			buildPhases = (
-				3AFF97051096A26B000208EA /* Resources */,
-				3AFF97061096A26B000208EA /* Sources */,
-				3AFF97071096A26B000208EA /* Frameworks */,
-				3AFF97081096A26B000208EA /* ShellScript */,
+				3AFF9A1F10977528000208EA /* Resources */,
+				3AFF9A2010977528000208EA /* Sources */,
+				3AFF9A2110977528000208EA /* Frameworks */,
+				3AFF9A2210977528000208EA /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3AFF9A6B1097759A000208EA /* PBXTargetDependency */,
 			);
 			name = KittyMUDTests;
 			productName = KittyMUDTests;
-			productReference = 3AFF970A1096A26B000208EA /* KittyMUDTests.octest */;
+			productReference = 3AFF9A2410977528000208EA /* KittyMUDTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -723,7 +818,7 @@
 				3AFF927A10955195000208EA /* KittyMUD */,
 				3AFF92FE10955508000208EA /* EternityChronicles */,
 				3AFF93E31095FB54000208EA /* XDF */,
-				3AFF97091096A26B000208EA /* KittyMUDTests */,
+				3AFF9A2310977528000208EA /* KittyMUDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -743,7 +838,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AFF97051096A26B000208EA /* Resources */ = {
+		3AFF9A1F10977528000208EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -764,9 +859,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${BUILD_DIR}/Debug/config\ncp -v sys.conf ${BUILD_DIR}/Debug/config/\nmkdir -p ${BUILD_DIR}/Debug/saves\nmkdir -p ${BUILD_DIR}/Debug/tmp\nrm -rf ${BUILD_DIR}/Debug/data\nmkdir -p ${BUILD_DIR}/Debug/data\ncp -rv data ${BUILD_DIR}/Debug";
+			shellScript = "mkdir -p ${CONFIGURATION_BUILD_DIR}/Debug/config\ncp -v sys.conf ${CONFIGURATION_BUILD_DIR}/Debug/config/\nmkdir -p ${CONFIGURATION_BUILD_DIR}/Debug/saves\nmkdir -p ${CONFIGURATION_BUILD_DIR}/Debug/tmp\nrm -rf ${CONFIGURATION_BUILD_DIR}/Debug/data\nmkdir -p ${CONFIGURATION_BUILD_DIR}/Debug/data\ncp -rv data ${CONFIGURATION_BUILD_DIR}/Debug";
 		};
-		3AFF97081096A26B000208EA /* ShellScript */ = {
+		3AFF9A2210977528000208EA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -821,7 +916,6 @@
 				3AFF92A2109551B7000208EA /* KMPlayingLogic.m in Sources */,
 				3AFF92A3109551B7000208EA /* KMPlayingState.m in Sources */,
 				3AFF92A4109551B7000208EA /* KMCommandInfo.m in Sources */,
-				3AFF92A5109551B7000208EA /* KMCodingAspect.m in Sources */,
 				3AFF92A6109551B7000208EA /* KMItemTemplate.m in Sources */,
 				3AFF92A7109551B7000208EA /* KMItemEnhancement.m in Sources */,
 				3AFF938C1095D903000208EA /* KMWorkflow.m in Sources */,
@@ -834,24 +928,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AFF93061095553C000208EA /* EternityChronicles.m in Sources */,
-				3AFF96DC10962D94000208EA /* KMPlayingState.m in Sources */,
-				3AFF96DD10962D98000208EA /* KMConnectionCoordinator.m in Sources */,
-				3AFF96DE10962D9A000208EA /* KMCreateCharacterState.m in Sources */,
-				3AFF96DF10962D9A000208EA /* KMBasicInterpreter.m in Sources */,
-				3AFF96E010962D9B000208EA /* XDFStatReference.m in Sources */,
-				3AFF96E110962D9C000208EA /* KMWorkflow.m in Sources */,
-				3AFF96E210962D9D000208EA /* KMConnectionPool.m in Sources */,
-				3AFF96E310962D9E000208EA /* KMAccountMenuState.m in Sources */,
-				3AFF96E410962D9F000208EA /* KMPlayingLogic.m in Sources */,
-				3AFF96E510962DA1000208EA /* KMWorkflowStep.m in Sources */,
-				3AFF96E610962DA2000208EA /* KMConfirmStatAllocationState.m in Sources */,
-				3AFF96E710962DA3000208EA /* KMServer.m in Sources */,
-				3AFF96E810962DA4000208EA /* KMChooseCharacterState.m in Sources */,
-				3AFF96E910962DA6000208EA /* XDFReference.m in Sources */,
-				3AFF96EA10962DA7000208EA /* KMChooseJobState.m in Sources */,
-				3AFF96EB10962DA8000208EA /* KMConfirmPasswordState.m in Sources */,
-				3AFF96EC10962DAB000208EA /* KMStatAllocationLogic.m in Sources */,
-				3AFF96ED10962DAC000208EA /* KMCommandInterpreter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +935,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF97AF109745F7000208EA /* XDFCodingAspect.m in Sources */,
 				3AFF94401095FF26000208EA /* XDF.lm in Sources */,
 				3AFF93EB1095FB86000208EA /* XDF.ym in Sources */,
 				3AFF93EC1095FB86000208EA /* XDFEngine.m in Sources */,
@@ -872,10 +949,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AFF97061096A26B000208EA /* Sources */ = {
+		3AFF9A2010977528000208EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFF9A2910977563000208EA /* KMWorkflowTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,6 +969,11 @@
 			isa = PBXTargetDependency;
 			target = 3AFF93E31095FB54000208EA /* XDF */;
 			targetProxy = 3AFF93F51095FBD4000208EA /* PBXContainerItemProxy */;
+		};
+		3AFF9A6B1097759A000208EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AFF927A10955195000208EA /* KittyMUD */;
+			targetProxy = 3AFF9A6A1097759A000208EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -943,7 +1026,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "KittyMUD-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "$(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -975,7 +1058,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "KittyMUD-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "$(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -997,6 +1080,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../ochamcrest/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1028,6 +1113,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../ochamcrest/build/Debug\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_GC = required;
@@ -1064,7 +1151,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "XDF-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "$(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1091,7 +1178,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "XDF-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "$(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1105,16 +1192,20 @@
 			};
 			name = Release;
 		};
-		3AFF970C1096A26B000208EA /* Debug */ = {
+		3AFF9A2510977529000208EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(CONFIGURATION_BUILD_DIR)/KittyMUD.framework/Versions/A/KittyMUD";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)/../../Downloads/OCMock 1.55\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = "-fobjc-gc-only";
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1129,21 +1220,23 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = KittyMUDTests;
-				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		3AFF970D1096A26B000208EA /* Release */ = {
+		3AFF9A2610977529000208EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)/../../Downloads/OCMock 1.55\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = "-fobjc-gc-only";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
@@ -1157,7 +1250,6 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = KittyMUDTests;
-				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -1202,11 +1294,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3AFF970E1096A26C000208EA /* Build configuration list for PBXNativeTarget "KittyMUDTests" */ = {
+		3AFF9A281097755F000208EA /* Build configuration list for PBXNativeTarget "KittyMUDTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3AFF970C1096A26B000208EA /* Debug */,
-				3AFF970D1096A26B000208EA /* Release */,
+				3AFF9A2510977529000208EA /* Debug */,
+				3AFF9A2610977529000208EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

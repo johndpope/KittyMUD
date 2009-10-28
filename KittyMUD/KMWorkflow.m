@@ -54,7 +54,7 @@
 
 -(id<KMState>) advanceWorkflow {
 	currentStep = [currentStep nextStep];
-	return [currentStep myState];
+	return currentStep ? [currentStep myState] : nil;
 }
 
 -(void) addStep:(id<KMState>)state {

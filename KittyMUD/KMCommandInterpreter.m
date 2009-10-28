@@ -11,7 +11,7 @@
 #import "KMCharacter.h"
 #import "KMState.h"
 #import "KMServer.h"
-#import "KMCodingAspect.h"
+#import "XDFCodingAspect.h"
 #import <objc/runtime.h>
 
 @implementation KMCommandInterpreter

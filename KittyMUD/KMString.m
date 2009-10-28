@@ -9,7 +9,6 @@
 #import "KMString.h"
 #import "KMColorProcessWriteHook.h"
 #import <openssl/md5.h>
-#import <RegexKit/RegexKit.h>
 
 static NSMutableDictionary* kmMudVariables = nil;
 
@@ -46,20 +45,26 @@ static NSMutableDictionary* kmMudVariables = nil;
 				[myDictionary setObject:[dictionary objectForKey:key] forKey:[key lowercaseString]];
 		}
 	}
-		
-	RKRegex* regex = [[RKRegex alloc] initWithRegexString:@"\\$\\((?<varname>\\w+)\\)" options:RKCompileNoOptions];
-	while([regex matchesCharacters:[self cStringUsingEncoding:NSUTF8StringEncoding] length:[self length] inRange:NSMakeRange(0, [self length]) options:RKMatchNoOptions])
+	
+	NSString* current;
+	do
 	{
-		NSRange captureRange = [regex rangeForCharacters:[self cStringUsingEncoding:NSUTF8StringEncoding] 
-												   length:[self length] 
-												 inRange:NSMakeRange(0, [self length]) 
-											 captureIndex:[regex captureIndexForCaptureName:@"varname"]
-												 options:RKMatchNoOptions];
-		NSString* match = [[self substringWithRange:captureRange] lowercaseString];
-		NSString* replaceString = [myDictionary objectForKey:match] != nil ? [myDictionary objectForKey:match] : [kmMudVariables objectForKey:match] ? [kmMudVariables objectForKey:match] : nil;
-		if(replaceString != nil)
-			self = [self stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"$(%@)",match] withString:replaceString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [self length])];
-	}
+		current = [self copy];
+		NSScanner* scanner = [NSScanner scannerWithString:self];
+		NSString* var = [[NSString alloc] init];
+		[scanner scanUpToString:@"$(" intoString:NULL];
+		[scanner scanString:@"$(" intoString:NULL];
+		if(![scanner isAtEnd]) {
+			[scanner scanUpToString:@")" intoString:&var];
+		} else {
+			continue;
+		}
+		NSString* key = [var lowercaseString];
+		var = [NSString stringWithFormat:@"$(%@)",var];
+		NSString* trep = [myDictionary objectForKey:key] ? [myDictionary objectForKey:key] : [kmMudVariables objectForKey:key] ? [kmMudVariables objectForKey:key] : nil;
+		if(trep)
+			self = [self stringByReplacingOccurrencesOfString:var withString:trep];
+	} while (![self isEqualToString:current]);
 	return self;
 }
 

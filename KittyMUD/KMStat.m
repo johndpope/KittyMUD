@@ -7,7 +7,6 @@
 //
 
 #import "KMStat.h"
-#import <RegexKit/RegexKit.h>
 
 @implementation NSXMLElement (Private)
 
@@ -50,62 +49,42 @@
 
 -(KMStat*) findStatWithPath:(NSString*)path
 {
-	// This regular expression is used to split stat names from abbreviations when they are created in code (form: name(abbr))
-	RKRegex* splitr = [[RKRegex alloc] initWithRegexString:@"(?<statname>\\w+)(\\((?<abbrname>\\w+)\\))?" options:RKCompileNoOptions];
+	NSScanner* scanner = [NSScanner scannerWithString:path];
+	NSString* parentString = [[NSString alloc] init];
+	NSString* childString = nil;
+	[scanner scanUpToString:@"::" intoString:&parentString];
+	if(![scanner isAtEnd]) {
+		[scanner scanString:@"::" intoString:NULL];
+		childString = [[scanner string] substringFromIndex:[scanner scanLocation]];
+	}
 	
-	// This regular expression is used to split the path of the stat using the :: separator.  We use it as a recursive regular expression,
-	// meaning that for a stat path a::b::c, we would use this regular expression three times.
-	// First pass: parent=a, children=b::c
-	// Second pass: parent=b, children=c
-	// Third pass: parent=c
-	RKRegex* pathr = [[RKRegex alloc] initWithRegexString:@"(?<parent>[^:]*)(::(?<children>.*))*" options:RKCompileNoOptions];
+	NSString* statName;
+	NSString* statAbbreviation = nil;
 	
-	// If we have no children, we know were not going to find one, so return nil.
+	NSScanner* abbrScanner = [NSScanner scannerWithString:parentString];
+	statName = [[NSString alloc] init];
+	[abbrScanner scanUpToString:@"(" intoString:&statName];
+	if(![abbrScanner isAtEnd]) {
+		[abbrScanner scanString:@"(" intoString:NULL];
+		statAbbreviation = [[NSString alloc] init];
+		[abbrScanner scanUpToString:@")" intoString:&statAbbreviation];
+	}
+	
 	if(![self hasChildren])
 		return nil;
 	
-	// Check to make sure the path were given is a valid stat path.
-	if([pathr matchesCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
-		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
-										   length:[path length]
-										  inRange:NSMakeRange(0,[path length])
-									 captureIndex:[pathr captureIndexForCaptureName:@"parent"]
-										  options:RKMatchNoOptions];
-		NSRange child = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
-										   length:[path length]
-										  inRange:NSMakeRange(0,[path length])
-									 captureIndex:[pathr captureIndexForCaptureName:@"children"]
-										  options:RKMatchNoOptions];
-		// Get the string representing the name of the parent from the match.
-		NSString* parentString = [path substringWithRange:parentr];
-		NSString* statAbbreviation = nil;
-		
-		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
-											length:[parentString length]
-										   inRange:NSMakeRange(0,[parentString length])
-									  captureIndex:[splitr captureIndexForCaptureName:@"statname"]
-										   options:RKMatchNoOptions];
-		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
-											length:[parentString length]
-										   inRange:NSMakeRange(0,[parentString length])
-									  captureIndex:[splitr captureIndexForCaptureName:@"abbrname"]
-										   options:RKMatchNoOptions];
-		NSString* parentName = [parentString substringWithRange:sname];
-		if(sabbr.length > 0)
-			statAbbreviation = [parentString substringWithRange:sabbr];
-		NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@ or self.abbreviation like[cd] %@", parentName, parentName,
-								   statAbbreviation != nil ? statAbbreviation : @"(null)"];
-		if([[children filteredArrayUsingPredicate:parentTest] count] > 0) {
-			if(child.length > 0)
-				return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] findStatWithPath:[path substringWithRange:child]];
-			else
-				return [[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0];
-		}
-		else {
-			for(KMStat* child in children) {
-				if([child findStatWithPath:path] != nil)
-					return [child findStatWithPath:path];
-			}
+	NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@ or self.abbreviation like[cd] %@", parentString, parentString,
+							   statAbbreviation != nil ? statAbbreviation : @"(null)"];
+	if([[children filteredArrayUsingPredicate:parentTest] count] > 0) {
+		if(childString)
+			return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] findStatWithPath:childString];
+		else
+			return [[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0];
+	}
+	else {
+		for(KMStat* child in children) {
+			if([child findStatWithPath:path] != nil)
+				return [child findStatWithPath:path];
 		}
 	}
 	return nil;
@@ -117,65 +96,55 @@
 	{
 		[[self findStatWithPath:path] setStatvalue:val];
 	}
-	RKRegex* splitr = [[RKRegex alloc] initWithRegexString:@"(?<statname>\\w+)(\\((?<abbrname>\\w+)\\))?" options:RKCompileNoOptions];
-	RKRegex* pathr = [[RKRegex alloc] initWithRegexString:@"(?<parent>[^:]*)(::(?<children>.*))*" options:RKCompileNoOptions];
-	if([pathr matchesCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding] length:[path length] inRange:NSMakeRange(0,[path length]) options:RKMatchNoOptions]) {
-		NSRange parentr = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
-											 length:[path length]
-											inRange:NSMakeRange(0,[path length])
-									   captureIndex:[pathr captureIndexForCaptureName:@"parent"]
-											options:RKMatchNoOptions];
-		NSRange child = [pathr rangeForCharacters:[path cStringUsingEncoding:NSUTF8StringEncoding]
-										   length:[path length]
-										  inRange:NSMakeRange(0,[path length])
-									 captureIndex:[pathr captureIndexForCaptureName:@"children"]
-										  options:RKMatchNoOptions];
-		NSString* parentString = [path substringWithRange:parentr];	
-		NSString* statName;
-		NSString* statAbbreviation = nil;
-		NSRange sname = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
-											length:[parentString length]
-										   inRange:NSMakeRange(0,[parentString length])
-									  captureIndex:[splitr captureIndexForCaptureName:@"statname"]
-										   options:RKMatchNoOptions];
-		NSRange sabbr = [splitr rangeForCharacters:[parentString cStringUsingEncoding:NSUTF8StringEncoding]
-											length:[parentString length]
-										   inRange:NSMakeRange(0,[parentString length])
-									  captureIndex:[splitr captureIndexForCaptureName:@"abbrname"]
-										   options:RKMatchNoOptions];
-		
-		statName = [parentString substringWithRange:sname];
-		
-		if(sabbr.length != 0)
-			statAbbreviation = [parentString substringWithRange:sabbr];
+	// statname(abbrname)
+	// statname::childname
+	NSScanner* scanner = [NSScanner scannerWithString:path];
+	NSString* parentString = [[NSString alloc] init];
+	NSString* childString = nil;
+	[scanner scanUpToString:@"::" intoString:&parentString];
+	if(![scanner isAtEnd]) {
+		[scanner scanString:@"::" intoString:NULL];
+		childString = [[scanner string] substringFromIndex:[scanner scanLocation]];
+	}
 	
-		if(![self hasChildren])
-		{
+	NSString* statName;
+	NSString* statAbbreviation = nil;
+	
+	NSScanner* abbrScanner = [NSScanner scannerWithString:parentString];
+	statName = [[NSString alloc] init];
+	[abbrScanner scanUpToString:@"(" intoString:&statName];
+	if(![abbrScanner isAtEnd]) {
+		[abbrScanner scanString:@"(" intoString:NULL];
+		statAbbreviation = [[NSString alloc] init];
+		[abbrScanner scanUpToString:@")" intoString:&statAbbreviation];
+	}
+	
+	if(![self hasChildren])
+	{
+		KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
+		if(childString) {
+			[parentStat setValueOfChildAtPath:childString withValue:val];
+		} else {
+			[parentStat setStatvalue:val];
+		}
+		[parentStat setParent:self];
+		[self addChild:parentStat];
+	} else {
+		NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@ or self.abbreviation like[cd] %@", statName, statName, statAbbreviation];
+		if([[children filteredArrayUsingPredicate:parentTest] count] > 0) {
+			if(childString)
+				return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setValueOfChildAtPath:childString withValue:val];
+			else
+				return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setStatvalue:val];
+		} else {
 			KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
-			if(child.length > 0) {
-				[parentStat setValueOfChildAtPath:[path substringWithRange:child] withValue:val];
+			if(childString) {
+				[parentStat setValueOfChildAtPath:childString withValue:val];
 			} else {
 				[parentStat setStatvalue:val];
 			}
 			[parentStat setParent:self];
 			[self addChild:parentStat];
-		} else {
-			NSPredicate* parentTest = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@ or self.abbreviation like[cd] %@", statName, statName, statAbbreviation];
-			if([[children filteredArrayUsingPredicate:parentTest] count] > 0) {
-				if(child.length > 0)
-					return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setValueOfChildAtPath:[path substringWithRange:child] withValue:val];
-				else
-					return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setStatvalue:val];
-			} else {
-				KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
-				if(child.length > 0) {
-					[parentStat setValueOfChildAtPath:[path substringWithRange:child] withValue:val];
-				} else {
-					[parentStat setStatvalue:val];
-				}
-				[parentStat setParent:self];
-				[self addChild:parentStat];
-			}
 		}
 	}
 }
@@ -328,7 +297,7 @@
 	
 	return main;
 }
-	
+
 +(KMStat*) loadFromTemplateWithData:(NSData*)data
 {
 	return [self loadFromTemplateWithData:data withType:KMStatLoadTypeDefault];
