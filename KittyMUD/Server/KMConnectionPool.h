@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "KMConnectionCoordinator.h"
 #import "KMWriteHook.h"
+#import "KMObject.h"
+#import "KMState.h"
 
 NSString* const KMConnectionPoolErrorDomain;
 
@@ -18,10 +20,12 @@ typedef enum {
 
 typedef void (^KMConnectionReadCallback) (id);
 
-@interface KMConnectionPool : NSObject {
+@interface  KMConnectionPool  : KMObject {
 	NSMutableArray* connections;
 	NSMutableArray* hooks;
 	KMConnectionReadCallback readCallback;
+	NSString* greeting;
+	id<KMState> defaultState;
 }
 
 -(id) init;
@@ -43,4 +47,6 @@ typedef void (^KMConnectionReadCallback) (id);
 @property (retain) NSMutableArray* connections;
 @property (retain) NSMutableArray* hooks;
 @property (copy) KMConnectionReadCallback readCallback;
+@property (retain) NSString* greeting;
+@property (retain) id<KMState> defaultState;
 @end

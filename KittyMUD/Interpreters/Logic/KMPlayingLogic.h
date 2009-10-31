@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMCommandInterpreterLogic.h"
+#import "KMObject.h"
 
-@interface KMPlayingLogic : NSObject <KMCommandInterpreterLogic> {
+@interface  KMPlayingLogic  : KMObject <KMCommandInterpreterLogic> {
 
 }
 
@@ -42,7 +43,5 @@ CDECL(look) direction:(NSString*)dir;
 
 CHEDC(reboot);
 CDECL(reboot) time:(int)time;
-
-CDECL(testxdf);
 
 @end

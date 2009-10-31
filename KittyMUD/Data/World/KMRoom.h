@@ -10,8 +10,9 @@
 #import "KMExitInfo.h"
 #import "KMDataStartup.h"
 #import "KMDataManager.h"
+#import "KMObject.h"
 
-@interface KMRoom : NSObject <KMDataStartup,KMDataCustomLoader> {
+@interface  KMRoom  : KMObject <KMDataStartup,KMDataCustomLoader> {
 	NSString* roomID;
 	NSMutableArray* exitInfo;
 	NSString* roomTitle;

@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMState.h"
+#import "KMObject.h"
 
-@interface KMWorkflowStep : NSObject {
+@interface  KMWorkflowStep  : KMObject {
 	id<KMState> myState;
 	KMWorkflowStep* nextStep;
 }

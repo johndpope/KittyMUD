@@ -6,7 +6,6 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import <XDF/XDF.h>
 #import "KMCommandInterpreter.h"
 #import "KMConnectionCoordinator.h"
 #import "KMCharacter.h"

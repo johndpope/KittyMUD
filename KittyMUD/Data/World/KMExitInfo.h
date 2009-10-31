@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KMObject.h"
 
 typedef enum {
 	KMExitNorth = 0,
@@ -17,7 +18,7 @@ typedef enum {
 	KMExitDown = 5
 } KMExitDirection;
 
-@interface KMExitInfo : NSObject {
+@interface  KMExitInfo  : KMObject {
 	KMExitDirection direction;
 	NSString* lockId;
 	BOOL isLocked;

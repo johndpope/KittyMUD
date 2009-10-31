@@ -7,7 +7,7 @@
 //
 
 #import "KMServer.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>

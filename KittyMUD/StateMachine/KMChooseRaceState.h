@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "KMState.h"
 #import "KMMenuHandler.h"
+#import "KMObject.h"
 
-@interface KMChooseRaceState : NSObject <KMState> {
+@interface  KMChooseRaceState  : KMObject <KMState> {
 	KMMenuHandler* menu;
 }
 

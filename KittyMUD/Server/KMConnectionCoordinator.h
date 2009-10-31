@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "KMState.h"
 #import "KMInterpreter.h"
+#import "KMObject.h"
 
-@interface KMConnectionCoordinator : NSObject {
+@interface  KMConnectionCoordinator  : KMObject {
 	@private
 	CFSocketRef socket;
 	NSString* inputBuffer;

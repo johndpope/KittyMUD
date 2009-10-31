@@ -3,7 +3,7 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/20/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Michael Tindal. All rights reserved.
 //
 
 #import "KMStat.h"
@@ -229,7 +229,7 @@
 			attributeToLookFor = @"alloc";
 			break;
 		case KMStatLoadTypeJob:
-			attributeToLookFor = @"jobreq";
+			attributeToLookFor = @"klassreq";
 			break;
 		case KMStatLoadTypeRace:
 			attributeToLookFor = @"bonus";

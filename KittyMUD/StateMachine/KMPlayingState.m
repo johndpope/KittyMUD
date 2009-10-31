@@ -7,7 +7,7 @@
 //
 
 #import "KMPlayingState.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMCharacter.h"
 #import "KMConnectionCoordinator.h"
 #import "KMRoom.h"
@@ -21,7 +21,7 @@
 	return self;
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"Playing";
 }

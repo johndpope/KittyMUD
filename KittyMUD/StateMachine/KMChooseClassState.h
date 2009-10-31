@@ -1,5 +1,5 @@
 //
-//  KMChooseJobState.h
+//  KMChooseClassState.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/11/09.
@@ -9,13 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import "KMState.h"
 #import "KMMenuHandler.h"
-@interface KMChooseJobState : NSObject <KMState> {
-	NSArray* jobs;
+#import "KMObject.h"
+
+@interface  KMChooseClassState  : KMObject <KMState> {
+	NSArray* klasses;
 	KMMenuHandler* menu;
 }
 
 -(id)init;
 
-@property (retain) NSArray* jobs;
+@property (retain) NSArray* klasses;
 @property (retain) KMMenuHandler* menu;
 @end

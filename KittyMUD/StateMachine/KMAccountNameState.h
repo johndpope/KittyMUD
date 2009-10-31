@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "KMState.h"
+#import "KMObject.h"
 
-@interface KMAccountNameState : NSObject <KMState> {
+@interface  KMAccountNameState  : KMObject <KMState> {
 
 }
 

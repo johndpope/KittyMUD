@@ -3,11 +3,12 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/20/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Michael Tindal. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import "KMDataStartup.h"
+#import "KMObject.h"
 
 typedef enum
 {
@@ -19,7 +20,7 @@ typedef enum
 } KMStatLoadType;
 
 
-@interface KMStat : NSObject <KMDataCustomLoader> {
+@interface  KMStat  : KMObject <KMDataCustomLoader> {
 	int statvalue;
 	NSString* name;
 	NSString* abbreviation;

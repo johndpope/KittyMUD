@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KMObject.h"
 #import "KMWriteHook.h"
 
-@interface KMVariableHook : NSObject <KMWriteHook>
+@interface  KMVariableHook  : KMObject <KMWriteHook>
 @end

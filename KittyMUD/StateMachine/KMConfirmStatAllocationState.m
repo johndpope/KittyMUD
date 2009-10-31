@@ -8,7 +8,7 @@
 
 #import "KMConfirmStatAllocationState.h"
 #import "KMStatAllocationState.h"
-#import "KMChooseJobState.h"
+#import "KMChooseClassState.h"
 
 
 @implementation KMConfirmStatAllocationState
@@ -18,11 +18,11 @@
 	NSString* message = [coordinator getInputBuffer];
 	NSPredicate* yesPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'y'"];
 	if([yesPredicate evaluateWithObject:message])
-		return [[KMChooseJobState alloc] init];
+		return [[KMChooseClassState alloc] init];
 	return self;
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"ConfirmStatAllocation";
 }

@@ -3,12 +3,12 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/17/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Michael Tindal. All rights reserved.
 //
 
 #import "KMNewPasswordState.h"
 #import "KMConnectionCoordinator.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMConfirmPasswordState.h"
 #import "KMNewPasswordState.h"
 
@@ -22,7 +22,7 @@
 	return [[KMConfirmPasswordState alloc] init];
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"NewPassword";
 }

@@ -7,7 +7,7 @@
 //
 
 #import "KMInfoDisplay.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 
 
 @implementation KMInfoDisplay

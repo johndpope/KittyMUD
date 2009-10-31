@@ -3,14 +3,15 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/19/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Michael Tindal. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import "KMStat.h"
 #import "KMMenu.h"
+#import "KMObject.h"
 
-@interface KMCharacter : NSObject <KMMenu> {
+@interface  KMCharacter  : KMObject <KMMenu> {
 	NSMutableDictionary* properties;
 	KMStat* stats;
 	NSMutableArray* flagbase;

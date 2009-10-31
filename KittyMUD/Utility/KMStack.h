@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KMObject.h"
 
-
-@interface KMStack : NSObject {
+@interface  KMStack  : KMObject {
 	NSMutableArray* items;
 }
 

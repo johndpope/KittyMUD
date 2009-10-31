@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "KMConnectionCoordinator.h"
 #import "KMMenu.h"
+#import "KMObject.h"
 
-@interface KMMenuHandler : NSObject {
+@interface  KMMenuHandler  : KMObject {
 	NSMutableArray* myItems;
 }
 

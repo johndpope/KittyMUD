@@ -6,13 +6,13 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMColorProcessWriteHook.h"
 #import <openssl/md5.h>
 
 static NSMutableDictionary* kmMudVariables = nil;
 
-@implementation NSString (KMString)
+@implementation NSString (KMAdditions)
 
 +(void) initializeVariableDictionary
 {

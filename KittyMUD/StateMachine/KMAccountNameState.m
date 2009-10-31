@@ -8,7 +8,7 @@
 
 #import "KMAccountNameState.h"
 #import "KMConnectionCoordinator.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMConfirmPasswordState.h"
 #import "KMNewPasswordState.h"
 #import "KMServer.h"
@@ -41,7 +41,7 @@
 	return returnState;
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"AccountName";
 }

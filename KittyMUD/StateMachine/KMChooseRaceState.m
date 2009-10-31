@@ -39,7 +39,7 @@
 	return [[KMStatAllocationState alloc] init];
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"ChooseRace";
 }

@@ -3,17 +3,17 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/19/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Michael Tindal. All rights reserved.
 //
 
 #import "KMCreateCharacterState.h"
 #import "KMConnectionCoordinator.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMServer.h"
 #import "KMCharacter.h"
 #import "KMChooseRaceState.h"
 #import "KMStatAllocationState.h"
-#import "KMChooseJobState.h"
+#import "KMChooseClassState.h"
 #import "KMConfirmStatAllocationState.h"
 #import "KMWorkflow.h"
 #import "KMPlayingState.h"
@@ -41,15 +41,15 @@
 	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
 	[[coordinator getCharacters] addObject:character];
 	[[coordinator getProperties] setObject:character forKey:@"current-character"];
-	KMWorkflow* wf = [KMWorkflow createWorkflowForSteps:[[KMChooseRaceState alloc] init],[[KMStatAllocationState alloc] init], [[KMPlayingState alloc] init], nil];
-	[wf insertStep:[[KMChooseJobState alloc] init] before:[[KMPlayingState alloc] init]];
-	[wf insertStep:[[KMConfirmStatAllocationState alloc] init] after:[[KMStatAllocationState alloc] init]];
-	id<KMState> state = [wf startWorkflowAtStep:[[KMChooseRaceState alloc] init]];
+	KMWorkflow* wf = [KMWorkflow createWorkflowForSteps:[KMChooseRaceState class],[KMStatAllocationState class], [KMPlayingState class], nil];
+	[wf insertStep:[KMChooseClassState class] before:[KMPlayingState class]];
+	[wf insertStep:[KMConfirmStatAllocationState class] after:[KMStatAllocationState class]];
+	id<KMState> state = [wf startWorkflowAtStep:[KMChooseRaceState class]];
 	[coordinator setValue:wf forKeyPath:@"properties.current-workflow"];
 	return state;
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"CreateCharacter";
 }

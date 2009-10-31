@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "KMState.h"
 #import "KMAccountMenu.h"
+#import "KMObject.h"
 
-@interface KMQuitState : NSObject <KMState,KMAccountMenu> {
+@interface  KMQuitState  : KMObject <KMState,KMAccountMenu> {
 
 }
 

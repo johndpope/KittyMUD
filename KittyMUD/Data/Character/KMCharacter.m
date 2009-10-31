@@ -3,11 +3,11 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/19/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Michael Tindal. All rights reserved.
 //
 
 #import "KMCharacter.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMRoom.h"
 #import "KMConnectionCoordinator.h"
 

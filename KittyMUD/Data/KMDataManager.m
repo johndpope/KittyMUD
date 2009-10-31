@@ -8,7 +8,7 @@
 
 #import "KMDataManager.h"
 
-@interface KMDataManagerCustomLoading : NSObject {
+@interface  KMDataManagerCustomLoading  : KMObject {
 	id<KMDataCustomLoader> loader;
 	void* context;
 	NSString* key;

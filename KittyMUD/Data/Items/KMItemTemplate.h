@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMStat.h"
+#import "KMObject.h"
 
 typedef enum {
 	KMItemRarityTrash,
@@ -19,7 +20,7 @@ typedef enum {
 	KMItemRarityArtifact,
 } KMItemRarity;
 
-@interface KMItemTemplate : NSObject {
+@interface  KMItemTemplate  : KMObject {
 	KMItemRarity rarity;
 	NSString* itemID;
 	NSString* itemType;

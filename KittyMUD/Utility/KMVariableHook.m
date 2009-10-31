@@ -7,7 +7,7 @@
 //
 
 #import "KMVariableHook.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 
 @implementation KMVariableHook
 

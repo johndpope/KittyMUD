@@ -6,9 +6,8 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
-#import <XDF/XDF.h>
 #import "KMPlayingLogic.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMServer.h"
 #import "KMConnectionCoordinator.h"
 #import "KMExitInfo.h"
@@ -21,7 +20,6 @@
 -(id) initializeWithCommandInterpreter:(id)cmdInterpreter
 {
 	self = [super init];
-	[XDFEngine registerFunctionWithName:@"bonus" withSelector:@selector(getBonusForNumber:) andTarget:self];
 	return self;
 }
 
@@ -188,12 +186,5 @@ CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 	NSNumber* res = [NSNumber numberWithInt:(-5 + ([number intValue] / 2))];
 	NSLog(@"Result of getBonusForNumber: %d", [res intValue]);
 	return res;
-}
-
-CIMPL(testxdf,testxdf:,nil,nil,nil,1) {
-	NSString* inputString = @"<maximumhp>*((25+{bonus(<physical::constitution>)})%)";
-	XDFReference* ref = [XDFReference createReferenceFromSource:inputString];
-	NSNumber* num = [ref resolveReferenceWithObject:[coordinator valueForKeyPath:@"properties.current-character"]];
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Result of XDF Test: %d, Expected: 25", [num intValue]]];
 }
 @end

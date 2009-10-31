@@ -6,8 +6,9 @@
 //  Copyright 2009 Gravinity Studios. All rights reserved.
 //
 
+// EC_MOVE:  This class belongs in Eternity Chronicles.  It is not important to KittyMUD and the same functionality is easily duplicated.
 #import "KMVariableManager.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 
 @implementation KMVariableManager
 

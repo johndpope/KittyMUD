@@ -34,7 +34,7 @@
 	return [[KMPlayingState alloc] init];
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"ChooseCharacter";
 }

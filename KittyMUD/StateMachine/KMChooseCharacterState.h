@@ -12,8 +12,9 @@
 #import "KMMenuHandler.h"
 #import "KMCharacter.h"
 #import "KMRoom.h"
+#import "KMObject.h"
 
-@interface KMChooseCharacterState : NSObject <KMState,KMAccountMenu> {
+@interface  KMChooseCharacterState  : KMObject <KMState,KMAccountMenu> {
 	KMMenuHandler* menu;
 }
 

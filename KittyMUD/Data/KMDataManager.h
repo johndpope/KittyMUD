@@ -8,10 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMStat.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMDataStartup.h"
+#import "KMObject.h"
 
-@interface KMDataManager : NSObject {
+@interface  KMDataManager  : KMObject {
 	NSMutableDictionary* tagReferences;
 	NSMutableDictionary* subtagReferences;
 	NSMutableDictionary* attributeReferences;

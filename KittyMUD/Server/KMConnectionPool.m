@@ -10,8 +10,9 @@
 #import "KMServer.h"
 #import "KMBasicInterpreter.h"
 #import "KMAccountNameState.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMState.h"
+#import "KMAccountNameState.h"
 
 NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
@@ -65,8 +66,6 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 }
 
-static NSString* greeting;
-
 
 -(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot {
 	return [self newConnectionWithSocketHandle:handle softReboot:softReboot withName:nil];
@@ -75,14 +74,10 @@ static NSString* greeting;
 -(KMConnectionCoordinator*) newConnectionWithSocketHandle:(CFSocketNativeHandle) handle softReboot:(BOOL)softReboot withName:(NSString*)name
 {
 	if(!greeting) {
-		NSFileHandle* greetingf = [NSFileHandle fileHandleForReadingAtPath:[@"$(DataDir)/greeting.xml" replaceAllVariables]];
-		if(!greetingf) {
-			greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
-		} else {
-			NSXMLDocument* greetingxml = [[NSXMLDocument alloc] initWithData:[greetingf readDataToEndOfFile] options:0 error:NULL];
-			NSXMLElement* greetingtext = [[[greetingxml rootElement] elementsForName:@"text"] objectAtIndex:0];
-			greeting = [greetingtext stringValue];
-		}
+		greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
+	}
+	if(!defaultState) {
+		defaultState = [KMAccountNameState class];
 	}
 	KMConnectionCoordinator* coordinator;
 	if(!softReboot) {
@@ -96,7 +91,7 @@ static NSString* greeting;
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		[coordinator setCurrentState:[[KMAccountNameState alloc] init]];
+		[coordinator setCurrentState:[[defaultState alloc] init]];
 	} else {
 		[[coordinator currentState] softRebootMessage:coordinator];
 		[coordinator setFlag:@"no-message"];
@@ -141,4 +136,6 @@ static NSString* greeting;
 @synthesize connections;
 @synthesize hooks;
 @synthesize readCallback;
+@synthesize greeting;
+@synthesize defaultState;
 @end

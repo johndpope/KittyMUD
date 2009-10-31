@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMState.h"
+#import "KMObject.h"
 
-@interface KMConfirmStatAllocationState : NSObject <KMState> {
+@interface  KMConfirmStatAllocationState  : KMObject <KMState> {
 
 }
 

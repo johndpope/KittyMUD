@@ -1,5 +1,5 @@
 //
-//  KMString.h
+//  NSString+KMAdditions.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 9/15/09.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (KMString)
+@interface NSString (KMAdditions)
 
 +(void) initializeVariableDictionary;
 
@@ -21,6 +21,7 @@
 -(NSString*) replaceAllVariablesWithDictionary:(NSDictionary*)dictionary;
 
 -(NSString*) getSpacing;
+
 -(NSString*) MD5;
 
 -(NSString*) stringValue;

@@ -1,5 +1,5 @@
 //
-//  KMJob.h
+//  KMClass.h
 //  KittyMUD
 //
 //  Created by Michael Tindal on 10/10/09.
@@ -11,8 +11,9 @@
 #import "KMDataManager.h"
 #import "KMMenu.h"
 #import "KMStat.h"
+#import "KMObject.h"
 
-@interface KMJob : NSObject <KMDataStartup,KMMenu> {
+@interface  KMClass  : KMObject <KMDataStartup,KMMenu> {
 	NSString* name;
 	NSString* abbreviation;
 	int tier;
@@ -21,9 +22,9 @@
 
 +(NSArray*)getAllJobs;
 
-+(KMJob*)getJobByName:(NSString*)jobname;
++(KMClass*)getJobByName:(NSString*)klassname;
 
-+(KMJob*)loadJobWithPath:(NSString*)path;
++(KMClass*)loadJobWithPath:(NSString*)path;
 
 -(BOOL) meetsRequirements:(id)character;
 

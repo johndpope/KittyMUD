@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMConnectionCoordinator.h"
+#import "KMObject.h"
 
-@interface KMCommandInfo : NSObject {
+@interface  KMCommandInfo  : KMObject {
 	NSString* method;
 	NSString* name;
 	NSMutableArray* optArgs;

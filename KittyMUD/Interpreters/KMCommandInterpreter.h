@@ -11,8 +11,9 @@
 #import "KMCommandInterpreterLogic.h"
 #import "KMConnectionCoordinator.h"
 #import "KMCommandInfo.h"
+#import "KMObject.h"
 
-@interface KMCommandInterpreter : NSObject <KMInterpreter> {
+@interface  KMCommandInterpreter  : KMObject <KMInterpreter> {
 	NSMutableArray* commands;
 	NSMutableDictionary* logics;
 	id<KMCommandInterpreterLogic> defaultTarget;

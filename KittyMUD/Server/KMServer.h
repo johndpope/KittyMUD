@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreFoundation/CoreFoundation.h>
 #import "KMConnectionPool.h"
+#import "KMObject.h"
 
 NSString* const KMServerErrorDomain;
 
@@ -17,7 +18,7 @@ typedef enum {
     kKMServerNoSocketsAvailable = 2,
 } KMServerErrorCode;
 
-@interface KMServer : NSObject {
+@interface  KMServer  : KMObject {
 	@private
 	CFSocketRef serverSocket;
 	int currentPoolId;

@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KMObject.h"
 
-
-@interface KMInfoDisplay : NSObject {
+@interface  KMInfoDisplay  : KMObject {
 	NSMutableString* display;
 }
 

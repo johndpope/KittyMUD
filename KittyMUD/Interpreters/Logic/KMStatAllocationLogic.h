@@ -10,6 +10,7 @@
 #import "KMCommandInterpreterLogic.h"
 #import "KMCommandInterpreter.h"
 #import "KMStat.h"
+#import "KMObject.h"
 
 #ifndef F
 #define F(x) 1 << x
@@ -21,7 +22,7 @@ typedef enum {
 	KMStatAllocationReset = F(2),
 } KMStatAllocationChangeType;
 
-@interface KMStatAllocationLogic : NSObject <KMCommandInterpreterLogic> {
+@interface  KMStatAllocationLogic  : KMObject <KMCommandInterpreterLogic> {
 	@private
 	KMStat* base;
 	KMStat* allocBase;

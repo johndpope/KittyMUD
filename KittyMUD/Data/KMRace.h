@@ -11,8 +11,9 @@
 #import "KMStat.h"
 #import "KMDataStartup.h"
 #import "KMMenu.h"
+#import "KMObject.h"
 
-@interface KMRace : NSObject <KMDataStartup,KMMenu> {
+@interface  KMRace  : KMObject <KMDataStartup,KMMenu> {
 	NSString* name;
 	NSString* abbreviation;
 	KMStat* bonuses;

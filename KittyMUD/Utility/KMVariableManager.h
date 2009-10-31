@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KMObject.h"
 
-
-@interface KMVariableManager : NSObject {
+@interface  KMVariableManager  : KMObject {
 	NSString* fileName;
 	NSMutableDictionary* variables;
 }

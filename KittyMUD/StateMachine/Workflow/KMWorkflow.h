@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "KMWorkflowStep.h"
 #import "KMState.h"
+#import "KMObject.h"
 
-@interface KMWorkflow : NSObject {
+@interface  KMWorkflow  : KMObject {
 	NSMutableDictionary* steps;
 	KMWorkflowStep* currentStep;
 }

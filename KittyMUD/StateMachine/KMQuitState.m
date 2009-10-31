@@ -18,7 +18,7 @@
 	return nil;
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"Quit";
 }

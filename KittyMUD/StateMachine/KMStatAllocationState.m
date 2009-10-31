@@ -19,7 +19,7 @@
 	return self;
 }
 
-+(NSString*) getName
+-(NSString*) getName
 {
 	return @"StatAllocation";
 }

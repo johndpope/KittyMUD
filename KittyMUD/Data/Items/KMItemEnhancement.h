@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMStat.h"
+#import "KMObject.h"
 
 typedef enum {
 	KMItemEnhancementPrefix,
@@ -23,7 +24,7 @@ typedef enum {
 	KMItemBonusMultiplyPercent = KMItemBonusPercent | KMItemBonusMultiply,
 } KMItemEnhancementBonusType;
 
-@interface KMItemEnhancement : NSObject {
+@interface  KMItemEnhancement  : KMObject {
 	KMItemEnhancementType enhType;
 	KMItemEnhancementBonusType bonusType;
 	NSString* statToMultiply;

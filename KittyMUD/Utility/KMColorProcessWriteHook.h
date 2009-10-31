@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "KMWriteHook.h"
+#import "KMObject.h"
 
-@interface KMColorProcessWriteHook : NSObject <KMWriteHook> {
+@interface  KMColorProcessWriteHook  : KMObject <KMWriteHook> {
 	NSDictionary* colors;
 }
 

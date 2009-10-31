@@ -10,10 +10,10 @@
 #import "KMConnectionCoordinator.h"
 #import "KMCharacter.h"
 #import "KMStatCopy.h"
-#import "KMString.h"
+#import "NSString+KMAdditions.h"
 #import "KMColorProcessWriteHook.h"
 #import "KMInfoDisplay.h"
-#import "KMJob.h"
+#import "KMClass.h"
 #import "KMConfirmStatAllocationState.h"
 #import "KMBasicInterpreter.h"
 #import "KMWorkflow.h"
@@ -180,18 +180,18 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 
 -(BOOL) confirmStats:(id)coordinator {
 	KMCharacter* character = [coordinator valueForKeyPath:@"properties.current-character"];
-	NSArray* avail = [KMJob getAvailableJobs:character];
+	NSArray* avail = [KMClass getAvailableJobs:character];
 	
 	if( [avail count] == 0 ) {
-		[coordinator sendMessageToBuffer:@"No jobs available for chosen stats.\n"];
+		[coordinator sendMessageToBuffer:@"No classes available for chosen stats.\n"];
 		return NO;
 	}
 	
 	int i = 0;
 	
 	NSMutableString* sb = [[NSMutableString alloc] init];
-	[sb appendString:@"Available jobs: \n"];
-	for(KMJob* j in avail) {
+	[sb appendString:@"Available classes: \n"];
+	for(KMClass* j in avail) {
 		[sb appendFormat:@"%@", [j name]];
 		if( i % 5 == 0 )
 			[sb appendString:@"\n\r"];
