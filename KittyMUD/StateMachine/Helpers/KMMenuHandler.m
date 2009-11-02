@@ -24,12 +24,19 @@
 	[coordinator sendMessageToBuffer:@"Please make a choice from the following selections:>"];
 	for(int i = 1; i <= [myItems count]; i++) {
 		id item = [myItems objectAtIndex:(i-1)];
+		NSString* menuLine = nil;
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
-			NSLog(@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
-			return;
+			if([item isKindOfClass:[NSString class]])
+				menuLine = [item capitalizedString];
+			else {
+				NSLog(@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
+				return;
+			}
 		}
-		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`#`c[`G%d`c] `w%@`x", i, [item menuLine]]];
+		if(!menuLine)
+			menuLine = [item menuLine];
+		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`#`c[`G%d`c] `w%@`x", i, menuLine]];
 	}
 	[coordinator sendMessageToBuffer:@"`@"];
 	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]]];
