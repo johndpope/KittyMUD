@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "KMDataStartup.h"
 #import "KMObject.h"
+#import "KMStatCopy.h"
 
 typedef enum
 {
@@ -63,9 +64,17 @@ typedef enum
 
 +(KMStat*) loadFromTemplateWithData:(NSData*)data withType:(KMStatLoadType)loadType;
 
++(KMStat*) loadFromTemplateWithString:(NSString*)string;
+
++(KMStat*) loadFromTemplateWithString:(NSString*) string withType:(KMStatLoadType)loadType;
+
 -(NSXMLElement*) saveToXML;
 
 -(NSArray*) getChildren;
+
+-(void) copyStat:(KMStat*)stat;
+
+-(void) copyStat:(KMStat*)stat withSettings:(KMStatCopySettings)settings;
 
 @property (retain,readonly,getter=getChildren) NSArray* children;
 @property (assign) int statvalue;

@@ -21,6 +21,8 @@
 
 +(NSArray*)getAllRaces;
 
++(void)addRaces:(NSArray*)_races;
+
 +(KMRace*)getRaceByName:(NSString*)racename;
 
 +(KMRace*)loadRaceWithPath:(NSString*)path;

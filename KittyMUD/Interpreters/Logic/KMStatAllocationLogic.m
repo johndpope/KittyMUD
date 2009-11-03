@@ -150,8 +150,17 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 {
 	self = [super init];
 	if(self) {
-		allocBase = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables] withType:KMStatLoadTypeAllocation];
-		base = [[KMStat alloc] init];
+		if(![KMCharacter defaultStats]) {
+			allocBase = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables] withType:KMStatLoadTypeAllocation];
+		} else {
+			allocBase = [[[[KMCharacter defaultStats] class] alloc] init];
+			[allocBase copyStat:[KMCharacter defaultStats] withSettings:KMStatCopySettingsAll];
+		}
+		if(![KMCharacter defaultStats]) {
+			base = [[KMStat alloc] init];
+		} else {
+			base =[[[[KMCharacter defaultStats] class] alloc] init];
+		}
 		validStats = [[NSMutableArray alloc] init];
 		[self generateValidStats];
 		copiedAllocatable = NO;
@@ -226,7 +235,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	}
 	
 	KMInfoDisplay* display = [[KMInfoDisplay alloc] init];
-	NSPredicate* changeable = [NSPredicate predicateWithFormat:@"children.@count > 0 and properties.changeable == yes"];
+	NSPredicate* changeable = [NSPredicate predicateWithFormat:@"properties.changeable == yes"];
 	NSArray* changeableCollections = [[current getChildren] filteredArrayUsingPredicate:changeable];
 	NSMutableString* allocatabledisplay = [[NSMutableString alloc] init];
 	for(KMStat* stat in changeableCollections)

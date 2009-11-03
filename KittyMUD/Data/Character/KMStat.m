@@ -311,6 +311,14 @@
 	return [self loadFromTemplateUsingXmlDocument:doc withType:loadType];
 }
 
++(KMStat*) loadFromTemplateWithString:(NSString*)string {
+	return [self loadFromTemplateWithData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
++(KMStat*) loadFromTemplateWithString:(NSString*) string withType:(KMStatLoadType)loadType {
+	return [self loadFromTemplateWithData:[string dataUsingEncoding:NSUTF8StringEncoding] withType:loadType];
+}
+
 -(void) debugPrintTree:(int)tabLevel
 {
 	return;
@@ -359,6 +367,46 @@
 	}
 	return mainElement;
 }
+
+-(void) copyStat:(KMStat*)stat
+{
+	[self copyStat:stat withSettings:KMStatCopySettingsAllExceptName];
+}
+
+-(void) copyStat:(KMStat*)stat withSettings:(KMStatCopySettings)settings
+{
+	if(!stat)
+		return;
+	
+	if(settings & KMStatCopySettingsName)
+	{
+		[self setName:[stat name]];
+		[self setAbbreviation:[stat abbreviation]];
+	}
+	if(settings & KMStatCopySettingsValue)
+		[self setStatvalue:[stat statvalue]];
+	if(settings & KMStatCopySettingsChangeable && [stat valueForKeyPath:@"properties.changeable"])
+		[[self getProperties] setObject:[[stat getProperties] objectForKey:@"changeable"] forKey:@"changeable"];
+	if(settings & KMStatCopySettingsAllocatable && [stat valueForKeyPath:@"properties.allocatable"])
+		[[self getProperties] setObject:[[stat getProperties] objectForKey:@"allocatable"] forKey:@"allocatable"];
+	if([stat hasChildren]) {
+		for(KMStat* child in [stat getChildren]) {
+			if([child name] == nil || [child abbreviation] == nil)
+				continue;
+			KMStat* mychild = [self findStatWithPath:[child name]];
+			BOOL toAdd = NO;
+			if(!mychild) {
+				mychild = [[KMStat alloc] init];
+				toAdd = YES;
+			}
+			[mychild copyStat:child withSettings:settings];
+			if(toAdd)
+				[self addChild:mychild];
+		}
+	}
+}
+
+
 @synthesize statvalue;
 @synthesize name;
 @synthesize parent;

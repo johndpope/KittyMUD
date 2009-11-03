@@ -32,7 +32,7 @@
 		return self;
 	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
 	[[character getProperties] setObject:[race name] forKey:@"race"];
-	[[character stats] copyStat:[race bonuses]];
+	[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
 	KMCommandInterpreter* statAllocatableInterpreter = [[KMCommandInterpreter alloc] init];
 	[statAllocatableInterpreter registerLogic:[KMStatAllocationLogic class] asDefaultTarget:YES];
 	[coordinator setInterpreter:statAllocatableInterpreter];

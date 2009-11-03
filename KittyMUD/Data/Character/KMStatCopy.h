@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "KMStat.h"
 
 #ifndef F
 #define F(x) 1 << x
@@ -47,11 +46,3 @@ typedef enum {
 	/// </summary>
 	KMStatCopySettingsAll = KMStatCopySettingsName | KMStatCopySettingsValue | KMStatCopySettingsAllocatable | KMStatCopySettingsChangeable
 } KMStatCopySettings;
-
-@interface KMStat (Copy)
-
--(void) copyStat:(KMStat*)stat;
-
--(void) copyStat:(KMStat*)stat withSettings:(KMStatCopySettings)settings;
-
-@end

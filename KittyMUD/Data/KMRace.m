@@ -47,6 +47,17 @@ KMDataManager* kmrace_setUpDataManager() {
 	return (NSArray*)races;
 }
 
++(void)addRaces:(NSArray*)_races {
+	if(!races) {
+		races = [[NSMutableArray alloc] init];
+	}
+	for(id obj in _races) {
+		if([obj isKindOfClass:[KMRace class]]) {
+			[races addObject:obj];
+		}
+	}
+}
+
 +(KMRace*)getRaceByName:(NSString*)racename
 {
 	NSPredicate* racePred = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@", racename, racename];

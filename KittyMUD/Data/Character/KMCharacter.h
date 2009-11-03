@@ -19,6 +19,10 @@
 	unsigned int currentbitpower;
 }
 
++(void) setDefaultStats:(KMStat*)def;
+
++(KMStat*) defaultStats;
+
 -(NSMutableDictionary*) getProperties;
 
 -(id)initializeWithName:(NSString*)name;

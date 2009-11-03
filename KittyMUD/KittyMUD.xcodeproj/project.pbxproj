@@ -31,7 +31,6 @@
 		3A2F78791098CB9000EA69DC /* KMStat.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78731098CB9000EA69DC /* KMStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2F787A1098CB9000EA69DC /* KMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78741098CB9000EA69DC /* KMStat.m */; };
 		3A2F787B1098CB9000EA69DC /* KMStatCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78751098CB9000EA69DC /* KMStatCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F787C1098CB9000EA69DC /* KMStatCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78761098CB9000EA69DC /* KMStatCopy.m */; };
 		3A2F78851098CBBA00EA69DC /* KMBasicInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F787D1098CBBA00EA69DC /* KMBasicInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2F78861098CBBA00EA69DC /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F787E1098CBBA00EA69DC /* KMBasicInterpreter.m */; };
 		3A2F78871098CBBA00EA69DC /* KMCommandInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F787F1098CBBA00EA69DC /* KMCommandInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,7 +145,6 @@
 		3A2F78731098CB9000EA69DC /* KMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStat.h; sourceTree = "<group>"; };
 		3A2F78741098CB9000EA69DC /* KMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStat.m; sourceTree = "<group>"; };
 		3A2F78751098CB9000EA69DC /* KMStatCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatCopy.h; sourceTree = "<group>"; };
-		3A2F78761098CB9000EA69DC /* KMStatCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatCopy.m; sourceTree = "<group>"; };
 		3A2F787D1098CBBA00EA69DC /* KMBasicInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBasicInterpreter.h; sourceTree = "<group>"; };
 		3A2F787E1098CBBA00EA69DC /* KMBasicInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBasicInterpreter.m; sourceTree = "<group>"; };
 		3A2F787F1098CBBA00EA69DC /* KMCommandInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInfo.h; sourceTree = "<group>"; };
@@ -408,7 +406,6 @@
 				3A2F78731098CB9000EA69DC /* KMStat.h */,
 				3A2F78741098CB9000EA69DC /* KMStat.m */,
 				3A2F78751098CB9000EA69DC /* KMStatCopy.h */,
-				3A2F78761098CB9000EA69DC /* KMStatCopy.m */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -692,7 +689,6 @@
 				3A2F786F1098CB0800EA69DC /* KMRace.m in Sources */,
 				3A2F78781098CB9000EA69DC /* KMCharacter.m in Sources */,
 				3A2F787A1098CB9000EA69DC /* KMStat.m in Sources */,
-				3A2F787C1098CB9000EA69DC /* KMStatCopy.m in Sources */,
 				3A2F78861098CBBA00EA69DC /* KMBasicInterpreter.m in Sources */,
 				3A2F78881098CBBA00EA69DC /* KMCommandInfo.m in Sources */,
 				3A2F788A1098CBBA00EA69DC /* KMCommandInterpreter.m in Sources */,

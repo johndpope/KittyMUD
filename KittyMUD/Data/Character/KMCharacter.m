@@ -10,8 +10,19 @@
 #import "NSString+KMAdditions.h"
 #import "KMRoom.h"
 #import "KMConnectionCoordinator.h"
+#import "KMStatCopy.h"
+
+static KMStat* defaultStats;
 
 @implementation KMCharacter
+
++(void) setDefaultStats:(KMStat *)def {
+	defaultStats = def;
+}
+
++(KMStat*) defaultStats {
+	return defaultStats;
+}
 
 -(BOOL) isFlagSet:(NSString*)flagName
 {
@@ -70,7 +81,12 @@
 		properties = [[NSMutableDictionary alloc] init];
 		[properties setObject:name forKey:@"name"];
 		[properties setValue:@"`B[ `GHP`w:`c[`r$(CurHp)/`R$(MaxHp)`c]  `CMP`w:`c[`g$(CurMp)/`G$(MaxMp)`c] `YLvl:`w(`y$(Lvl)`w) `B]`x:" forKey:@"prompt"];
-		stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
+		if(defaultStats) {
+			stats = [[[defaultStats class] alloc] init];
+			[stats copyStat:defaultStats withSettings:KMStatCopySettingsAll];
+		} else {
+			stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
+		}
 		flags = [[NSMutableDictionary alloc] init];
 		flagbase = [[NSMutableArray alloc] init];
 		[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
