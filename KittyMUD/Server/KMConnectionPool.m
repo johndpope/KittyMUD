@@ -91,7 +91,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
 		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		[coordinator setCurrentState:[[defaultState alloc] init]];
+		[coordinator setCurrentState:[[(id)defaultState alloc] init]];
 	} else {
 		[[coordinator currentState] softRebootMessage:coordinator];
 		[coordinator setFlag:@"no-message"];

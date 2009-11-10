@@ -410,8 +410,6 @@
 @synthesize statvalue;
 @synthesize name;
 @synthesize parent;
-
 @synthesize abbreviation;
-@synthesize properties;
 @synthesize children;
 @end

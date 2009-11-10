@@ -17,22 +17,12 @@
 	NSString* inputBuffer;
 	NSString* outputBuffer;
 	NSDate* lastReadTime;
-	NSMutableArray* flagbase;
-	NSMutableDictionary* flags;
-	unsigned int currentbitpower;
 	id<KMState> currentState;
 	id<KMInterpreter> interpreter;
-	NSMutableDictionary* properties;
 	NSMutableArray* characters;
 }
 
 -(id) init;
-
--(BOOL) isFlagSet:(NSString*)flagName;
-
--(void) setFlag:(NSString*)flagName;
-
--(void) clearFlag:(NSString*)flagName;
 
 -(BOOL) sendMessage:(NSString*)message;
 
@@ -60,15 +50,5 @@
 @property (copy) NSString* outputBuffer;
 @property (retain) id<KMState> currentState;
 @property (retain,setter=setInterpreter:) id<KMInterpreter> interpreter;
-@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
 @property (retain,readonly,getter=getCharacters) NSMutableArray* characters;
-@property (retain,readonly) NSMutableArray* flagbase;
-@property (retain,readonly) NSMutableDictionary* flags;
-@property (readonly) unsigned int currentbitpower;
-@end
-
-@interface KMConnectionCoordinator ()
-
--(void) debugPrintFlagStatus;
-
 @end

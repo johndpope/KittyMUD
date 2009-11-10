@@ -18,7 +18,6 @@
 	NSString* roomTitle;
 	NSString* roomDescription;
 	NSString* sector;
-	NSMutableDictionary* properties;
 	BOOL isDefault;
 }
 
@@ -44,7 +43,6 @@
 @property (copy) NSString* roomID;
 @property (copy) NSString* roomTitle;
 @property (copy) NSString* roomDescription;
-@property (retain,readonly) NSMutableDictionary* properties;
 @property (assign) BOOL isDefault;
 @property (copy) NSString* sector;
 

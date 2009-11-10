@@ -23,64 +23,9 @@
 {
 	self = [super init];
 	if( self ) {
-		flags = [[NSMutableDictionary alloc] init];
-		flagbase = [[NSMutableArray alloc] init];
-		[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
-		properties = [[NSMutableDictionary alloc] init];
-		currentbitpower = 0; // this will be saved in the save file so we make sure we dont overwrite existing flags
 		characters = [[NSMutableArray alloc] init];
 	}
 	return self;
-}
-
--(BOOL) isFlagSet:(NSString*)flagName
-{
-	NSString* fp = [flags objectForKey:flagName];
-	int flagpower = -1;
-	if(fp == nil)
-		return NO;
-	flagpower = [fp intValue];
-	
-	return (1ULL << (flagpower % 64)) == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & (1ULL << (flagpower % 64)));
-}
-
--(void) setFlag:(NSString*)flagName
-{
-	NSString* fp = [flags objectForKey:flagName];
-	int flagpower = -1;
-	if( fp != nil )
-		flagpower = [fp intValue];
-	else {
-		[flags setObject:[NSString stringWithFormat:@"%d", currentbitpower] forKey:flagName];
-		if([flagbase count] <= ((currentbitpower) / 64))
-			[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
-		flagpower = currentbitpower++;
-	}
-	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (1ULL << (flagpower % 64))]];
-}
-
--(void) clearFlag:(NSString*)flagName
-{
-	NSString* fp = [flags objectForKey:flagName];
-	int flagpower = -1;
-	if( fp == nil )
-		return;
-	flagpower = [fp intValue];
-	if([self isFlagSet:flagName])
-		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (1ULL << (flagpower % 64))]];
-}
-
--(void) debugPrintFlagStatus
-{
-	for(NSString* flag in [flags allKeys])
-	{
-		NSString* flagstatus;
-		if([self isFlagSet:flag])
-			flagstatus = @"SET";
-		else
-			flagstatus = @"CLEAR";
-		NSLog(@"Flag %@: %@", flag, flagstatus);
-	}
 }
 
 static NSString* sendMessageBase(NSString* message) {
@@ -241,9 +186,5 @@ static NSString* sendMessageBase(NSString* message) {
 @synthesize currentState;
 @synthesize interpreter;
 @synthesize characters;
-@synthesize flagbase;
-@synthesize flags;
-@synthesize currentbitpower;
-@synthesize properties;
 @synthesize inputBuffer;
 @end

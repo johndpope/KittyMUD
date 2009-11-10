@@ -82,7 +82,7 @@
 	[command setHelp:[[NSMutableDictionary alloc] initWithObjectsAndKeys:shorttext,@"short",longtextname,@"long"]];
 }
 
--(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)flags withMinimumLevel:(int)level
+-(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)cflags withMinimumLevel:(int)level
 {
 	KMCommandInfo* cmd = [self findCommandByName:name];
 	if(cmd != nil) {
@@ -93,7 +93,7 @@
 	[command setAliases:[[NSMutableArray alloc] initWithArray:aliases]];
 	[command setOptArgs:[[NSMutableArray alloc] initWithArray:optional]];
 	[command setMethod:NSStringFromSelector(commandSelector)];
-	[command setFlags:[[NSMutableArray alloc] initWithArray:flags]];
+	[command setCmdflags:[[NSMutableArray alloc] initWithArray:cflags]];
 	[command setMinLevel:level];
 	[command setTarget:target];
 	[commands addObject:command];
@@ -165,8 +165,8 @@
 			return NO;
 		}
 	}
-	if([command flags]) {
-		for(NSString* flag in [command flags]) {
+	if([command cmdflags]) {
+		for(NSString* flag in [command cmdflags]) {
 			if(![[coordinator valueForKeyPath:@"properties.current-character"] isFlagSet:flag]) {
 				[coordinator sendMessage:@"Failed flags."];
 				return NO;
@@ -226,7 +226,7 @@ CIMPL(displaycommand,displaycommand:command:,nil,nil,nil,1) command:(NSString*)c
 	if(cmd == nil) {
 		[coordinator sendMessageToBuffer:@"No command found."];
 	}
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Command %@, Optional Arguments: %d, Flags Required: %d",[cmd name], [[cmd optArgs] count], [[cmd flags] count]]];
+	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Command %@, Optional Arguments: %d, Flags Required: %d",[cmd name], [[cmd optArgs] count], [[cmd cmdflags] count]]];
 }
 
 -(void) rebuildLogics:(id)coordinator {

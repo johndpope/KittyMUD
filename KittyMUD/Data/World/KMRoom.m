@@ -76,7 +76,6 @@ extern KMExitDirection directionFromString( NSString* dir );
 	self = [super init];
 	if(self) {
 		exitInfo = [[NSMutableArray alloc] init];
-		properties = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
@@ -279,7 +278,6 @@ extern KMExitDirection directionFromString( NSString* dir );
 @synthesize exitInfo;
 @synthesize roomTitle;
 @synthesize roomDescription;
-@synthesize properties;
 @synthesize sector;
 @synthesize isDefault;
 

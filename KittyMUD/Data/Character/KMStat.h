@@ -27,7 +27,6 @@ typedef enum
 	NSString* abbreviation;
 	KMStat* parent;
 	NSMutableArray* children;
-	NSMutableDictionary* properties;
 }
 
 -(id) init;
@@ -78,7 +77,6 @@ typedef enum
 
 @property (retain,readonly,getter=getChildren) NSArray* children;
 @property (assign) int statvalue;
-@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
 @property (copy) NSString* name;
 @property (retain) KMStat* parent;
 @property (retain) NSString* abbreviation;

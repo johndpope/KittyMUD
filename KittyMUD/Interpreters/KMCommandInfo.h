@@ -15,7 +15,7 @@
 	NSString* name;
 	NSMutableArray* optArgs;
 	NSMutableArray* aliases;
-	NSMutableArray* flags;
+	NSMutableArray* cmdflags;
 	NSMutableDictionary* help;
 	int minLevel;
 	id target;
@@ -27,7 +27,7 @@
 @property (retain) NSString* name;
 @property (retain) NSMutableArray* optArgs;
 @property (retain) NSMutableArray* aliases;
-@property (retain) NSMutableArray* flags;
+@property (retain) NSMutableArray* cmdflags;
 @property (retain) NSMutableDictionary* help;
 @property int minLevel;
 @property (retain) id target;

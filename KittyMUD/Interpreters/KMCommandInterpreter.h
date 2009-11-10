@@ -26,7 +26,7 @@
 
 -(void) registerLogic:(Class)clogic asDefaultTarget:(BOOL)dt;
 
--(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)flags withMinimumLevel:(int)level;
+-(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)cflags withMinimumLevel:(int)level;
 
 -(void) interpret:(id)coordinator;
 

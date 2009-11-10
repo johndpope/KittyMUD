@@ -10,7 +10,25 @@
 
 
 @interface  KMObject  : NSObject {
-
+	NSMutableDictionary* properties;
+	NSMutableArray* flagbase;
+	NSMutableDictionary* flags;
+	NSMutableDictionary* flagreasons;
+	unsigned int currentbitpower;
 }
+
+-(BOOL) isFlagSet:(NSString*)flagName;
+
+-(void) setFlag:(NSString*)flagName;
+
+-(void) setFlag:(NSString *)flagName reason:(NSString*)reason;
+
+-(NSString*) reasonForFlag:(NSString *)flagName;
+
+-(void) clearFlag:(NSString*)flagName;
+
+-(void) debugPrintFlagStatus:(id)coordinator;
+
+@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
 
 @end

@@ -78,7 +78,6 @@ static KMStat* defaultStats;
 {
 	self = [super init];
 	if(self) {
-		properties = [[NSMutableDictionary alloc] init];
 		[properties setObject:name forKey:@"name"];
 		[properties setValue:@"`B[ `GHP`w:`c[`r$(CurHp)/`R$(MaxHp)`c]  `CMP`w:`c[`g$(CurMp)/`G$(MaxMp)`c] `YLvl:`w(`y$(Lvl)`w) `B]`x:" forKey:@"prompt"];
 		if(defaultStats) {
@@ -87,10 +86,6 @@ static KMStat* defaultStats;
 		} else {
 			stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
 		}
-		flags = [[NSMutableDictionary alloc] init];
-		flagbase = [[NSMutableArray alloc] init];
-		[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
-		currentbitpower = 0;
 	}
 	return self;
 }
@@ -166,8 +161,4 @@ static KMStat* defaultStats;
 }
 
 @synthesize stats;
-@synthesize properties;
-@synthesize flagbase;
-@synthesize flags;
-@synthesize currentbitpower;
 @end

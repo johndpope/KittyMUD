@@ -16,7 +16,7 @@
 	if(self) {
 		optArgs = [[NSArray alloc] init];
 		aliases = [[NSArray alloc] init];
-		flags = [[NSArray alloc] init];
+		cmdflags = [[NSArray alloc] init];
 		help = [[NSDictionary alloc] init];
 	}
 	return self;
@@ -26,7 +26,7 @@
 @synthesize name;
 @synthesize optArgs;
 @synthesize aliases;
-@synthesize flags;
+@synthesize cmdflags;
 @synthesize help;
 @synthesize minLevel;
 @synthesize target;
