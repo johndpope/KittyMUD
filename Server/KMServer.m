@@ -13,7 +13,7 @@
 #include <unistd.h>
 
 NSString* const KMServerErrorDomain = @"KMServerErrorDomain";
-static KMServer* defaultServerBase;
+KMServer* defaultServerBase;
 
 static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info)
 {
@@ -35,13 +35,16 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 
 +(void) initialize
 {
-	if(!defaultServerBase)
-		defaultServerBase = [[KMServer alloc] init];
+	defaultServerBase = [[KMServer alloc] init];
+	[[NSGarbageCollector defaultCollector] disableCollectorForPointer:defaultServerBase];
 }
 
 -(id) init
 {
-	connectionPool = [[KMConnectionPool alloc] init];
+	self = [super init];
+	if(self) {
+		connectionPool = [[KMConnectionPool alloc] init];
+	}
 	return self;
 }
 
@@ -55,6 +58,10 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	CFSocketContext serverContext = {0, self, NULL, NULL, NULL};
 	serverSocket = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, IPPROTO_TCP, kCFSocketAcceptCallBack, (CFSocketCallBack)&ServerBaseCallout, &serverContext);
 	
+	if(!error) {
+		NSError* errorTmp = [[NSError alloc] init];
+		error = &errorTmp;
+	}
 	if (serverSocket == NULL) {
 		if(error) *error = [[NSError alloc] initWithDomain:KMServerErrorDomain code:kKMServerNoSocketsAvailable userInfo:nil];
 		return NO;

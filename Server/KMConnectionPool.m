@@ -20,9 +20,12 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
 -(id) init
 {
-	connections = [[NSMutableArray alloc] init];
-	hooks = [[NSMutableArray alloc] init];
-	readCallback = nil;
+	self = [super init];
+	if(self) {
+		connections = [[NSMutableArray alloc] init];
+		hooks = [[NSMutableArray alloc] init];
+		readCallback = nil;
+	}
 	return self;
 }
 
@@ -96,6 +99,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		[[coordinator currentState] softRebootMessage:coordinator];
 		[coordinator setFlag:@"no-message"];
 	}
+	[coordinator sendMessageToBuffer:@"`Y[`y\u2606`wAchievement Test`y\u2606 `w(`G10`w)`Y]`x"];
 	return coordinator;
 }
 

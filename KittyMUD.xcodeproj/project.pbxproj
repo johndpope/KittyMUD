@@ -100,12 +100,27 @@
 		3A427CB6109B42A500E1C502 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F79041098CDC400EA69DC /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
+		3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XDF.framework */; };
 		3AFA20E8109945D40038B52D /* KMWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA20E7109945D40038B52D /* KMWorkflowTests.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* XDF.framework */;
+			remoteInfo = XDF;
+		};
+		3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* XDF */;
+			remoteInfo = XDF;
+		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -213,6 +228,7 @@
 		3A427B86109A9AC800E1C502 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
+		3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XDF.xcodeproj; path = ../XDF/XDF.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3AFA20C41099437E0038B52D /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
 		3AFA20E6109945D40038B52D /* KMWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowTests.h; sourceTree = "<group>"; };
@@ -239,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */,
 			);
@@ -277,6 +294,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -501,6 +519,14 @@
 			path = Server;
 			sourceTree = "<group>";
 		};
+		3A7EA38010B16D0D00533965 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A7EA38410B16D0D00533965 /* XDF.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3AFA20E41099449F0038B52D /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +628,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3A7EA3A310B16DF300533965 /* PBXTargetDependency */,
 			);
 			name = KittyMUD;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -623,6 +650,12 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* KittyMUD */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3A7EA38010B16D0D00533965 /* Products */;
+					ProjectRef = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* KittyMUD */,
@@ -630,6 +663,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A7EA38410B16D0D00533965 /* XDF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XDF.framework;
+			remoteRef = 3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3AFA20BF1099437E0038B52D /* Resources */ = {
@@ -723,6 +766,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A7EA3A310B16DF300533965 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XDF;
+			targetProxy = 3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */;
+		};
 		3AFA20CB109943CF0038B52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* KittyMUD */;
@@ -751,6 +799,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -777,6 +826,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -850,6 +900,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -896,6 +947,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -974,6 +1026,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;

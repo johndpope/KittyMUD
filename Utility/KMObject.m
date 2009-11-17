@@ -8,6 +8,7 @@
 
 #import "KMObject.h"
 #import "KMConnectionCoordinator.h"
+#import <XDF/XDF.h>
 #import <objc/runtime.h>
 
 @interface NSObject (private)
@@ -16,9 +17,22 @@
 
 +(BOOL) addToClass:(Class)aClass error:(NSError **)error;
 
+#ifdef USE_XDF
++(void) myinitialize;
+#endif
 @end
 
 @implementation KMObject
+
++(void) initialize {
+#ifdef USE_XDF
+	NSError* error = nil;
+	[XDFCodingAspect addToClass:[self class] error:&error];
+	if(error) {
+		NSLog(@"Error adding support to %@...",NSStringFromClass([self class]));
+	}
+#endif
+}
 
 -(id)init {
 	self = [super init];
@@ -90,59 +104,6 @@
 			flagstatus = @"CLEAR";
 		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Flag %@: %@", flag, flagstatus]];
 	}
-}
-
--(BOOL) respondsToSelector:(SEL)aSelector {
-	SEL selector = aSelector;
-	Class c = NSClassFromString(@"XDFCodingAspect");
-	if(([NSStringFromSelector(selector) isEqualTo:NSStringFromSelector(@selector(encodeWithCoder:))] ||
-		[NSStringFromSelector(selector) isEqualTo:NSStringFromSelector(@selector(initWithCoder:))]) && c) {
-		NSError* error = [[NSError alloc] init];
-		BOOL res = [c addToClass:[self class] error:&error];
-		if(res)
-			return YES;
-	}
-	return [super respondsToSelector:selector];
-}
-
--(BOOL) conformsToProtocol:(Protocol *)aProtocol {
-	Class c = NSClassFromString(@"XDFCodingAspect");
-	if([NSStringFromProtocol(aProtocol) isEqualTo:NSStringFromProtocol(@protocol(NSCoding))] && c)
-	{
-		NSError* error = [[NSError alloc] init];
-		BOOL res = [c addToClass:[self class] error:&error];
-		if(res)
-			return YES;
-	}
-	return [super conformsToProtocol:aProtocol];
-}
-
--(void) forwardInvocation:(NSInvocation*)invocation {
-	SEL selector = [invocation selector];
-	Class c = NSClassFromString(@"XDFCodingAspect");
-	if(([NSStringFromSelector(selector) isEqualTo:NSStringFromSelector(@selector(encodeWithCoder:))] ||
-	   [NSStringFromSelector(selector) isEqualTo:NSStringFromSelector(@selector(initWithCoder:))]) && c) {
-		NSError* error = [[NSError alloc] init];
-		BOOL res = [c addToClass:[self class] error:&error];
-		if(res) {
-			[invocation invokeWithTarget:self];
-			return;
-		}
-	}
-	[super forwardInvocation:invocation];
-}
-
--(NSMethodSignature*) methodSignatureForSelector:(SEL)selector {
-	Class c = NSClassFromString(@"XDFCodingAspect");
-	if(([NSStringFromSelector(selector) isEqualTo:NSStringFromSelector(@selector(encodeWithCoder:))] ||
-		[NSStringFromSelector(selector) isEqualTo:NSStringFromSelector(@selector(initWithCoder:))]) && c) {
-		NSError* error = [[NSError alloc] init];
-		BOOL res = [c addToClass:[self class] error:&error];
-		if(res) {
-			return [self methodSignatureForSelector:selector];
-		}
-	}
-	return [super methodSignatureForSelector:selector];
 }
 
 @synthesize properties;
