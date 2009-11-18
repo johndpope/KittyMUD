@@ -20,9 +20,12 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 
 -(id) init
 {
-	connections = [[NSMutableArray alloc] init];
-	hooks = [[NSMutableArray alloc] init];
-	readCallback = nil;
+	self = [super init];
+	if(self) {
+		connections = [[NSMutableArray alloc] init];
+		hooks = [[NSMutableArray alloc] init];
+		readCallback = nil;
+	}
 	return self;
 }
 
