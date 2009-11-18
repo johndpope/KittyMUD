@@ -101,6 +101,10 @@
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
 		3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XDF.framework */; };
+		3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22C710B31A790070FCDB /* KMAchievement.h */; };
+		3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22C810B31A790070FCDB /* KMAchievement.m */; };
+		3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */; };
+		3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */; };
 		3AFA20E8109945D40038B52D /* KMWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA20E7109945D40038B52D /* KMWorkflowTests.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
@@ -111,14 +115,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* XDF.framework */;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = XDF;
 		};
 		3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* XDF */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = XDF;
 		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
@@ -229,6 +233,10 @@
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
 		3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XDF.xcodeproj; path = ../XDF/XDF.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3AEF22C710B31A790070FCDB /* KMAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievement.h; sourceTree = "<group>"; };
+		3AEF22C810B31A790070FCDB /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievement.m; sourceTree = "<group>"; };
+		3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievementEngine.h; sourceTree = "<group>"; };
+		3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievementEngine.m; sourceTree = "<group>"; };
 		3AFA20C41099437E0038B52D /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
 		3AFA20E6109945D40038B52D /* KMWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowTests.h; sourceTree = "<group>"; };
@@ -313,6 +321,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3AEF22C410B31A170070FCDB /* Achievements */,
 				3A2F78EB1098CD2000EA69DC /* Server */,
 				3A2F78A81098CC4200EA69DC /* StateMachine */,
 				3A2F788D1098CBE600EA69DC /* Utility */,
@@ -527,6 +536,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3AEF22C410B31A170070FCDB /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				3AEF22C710B31A790070FCDB /* KMAchievement.h */,
+				3AEF22C810B31A790070FCDB /* KMAchievement.m */,
+				3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */,
+				3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
 		3AFA20E41099449F0038B52D /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +611,8 @@
 				3A427B6B109A99D000E1C502 /* KMWorkflowStep.h in Headers */,
 				3A427CB6109B42A500E1C502 /* KMState.h in Headers */,
 				3A427E59109C7D6700E1C502 /* KMObject.h in Headers */,
+				3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */,
+				3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +782,8 @@
 				3A427B69109A99D000E1C502 /* KMWorkflow.m in Sources */,
 				3A427B6A109A99D000E1C502 /* KMWorkflowStep.m in Sources */,
 				3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */,
+				3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */,
+				3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

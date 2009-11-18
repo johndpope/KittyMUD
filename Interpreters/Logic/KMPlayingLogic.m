@@ -181,9 +181,4 @@ CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 	}
 
 }
-
--(NSNumber*) getBonusForNumber:(NSNumber*)number {
-	NSNumber* res = [NSNumber numberWithInt:(-5 + ([number intValue] / 2))];
-	return res;
-}
 @end
