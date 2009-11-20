@@ -44,7 +44,7 @@
 	int difference = 0;
 	switch(type) {
 		case KMStatAllocationIncrease:
-			NSLog(@"%d <-> %d", value, [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]);
+			OCLog(@"kittymud",debug,@"%d <-> %d", value, [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]);
 			if(value > [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]) {
 				[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Not enough points remaining to increase %@.",stat]];
 				return;
@@ -125,21 +125,21 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	[allocBase debugPrintTree:0];
 	for(KMStat* stat in [allocBase getChildren]) {
 		[stat debugPrintTree:0];
-		NSLog(@"%d %@", [[stat valueForKeyPath:@"children.@count"] intValue], [[stat valueForKeyPath:@"properties.changeable"] boolValue] ? @"YES" : @"NO");
+		OCLog(@"kittymud",debug,@"%d %@", [[stat valueForKeyPath:@"children.@count"] intValue], [[stat valueForKeyPath:@"properties.changeable"] boolValue] ? @"YES" : @"NO");
 	}
 	NSArray* changeableCollection = [[allocBase getChildren] filteredArrayUsingPredicate:changeableOnCollection];
-	NSLog(@"Filtered array.");
+	OCLog(@"kittymud",debug,@"Filtered array.");
 	for(KMStat* stat in changeableCollection) {
-		NSLog(@"%@",[NSString stringWithFormat:@"(%@|%@)",[stat name], [stat abbreviation]]);
+		OCLog(@"kittymud",debug,@"%@",[NSString stringWithFormat:@"(%@|%@)",[stat name], [stat abbreviation]]);
 		[validStats addObject:[NSString stringWithFormat:@"(%@|%@)",[stat name], [stat abbreviation]]];
 		NSPredicate* changeableOnCollectionReverse = [NSPredicate predicateWithFormat:@"children.@count.intValue == 0 and properties.changeable == yes"];
 		NSArray* changeableCollectionReverse = [[stat getChildren] filteredArrayUsingPredicate:changeableOnCollectionReverse];
 		for(KMStat* child in changeableCollectionReverse) {
 			if([[[child parent] name] isEqualToString:@"main"]) {
-				NSLog(@"%@", [NSString stringWithFormat:@"(%@|%@)",[child name], [child abbreviation]]);
+				OCLog(@"kittymud",debug,@"%@", [NSString stringWithFormat:@"(%@|%@)",[child name], [child abbreviation]]);
 				[validStats addObject:[NSString stringWithFormat:@"(%@|%@)",[child name], [child abbreviation]]];
 			} else {
-				NSLog(@"%@", [NSString stringWithFormat:@"(%@|%@)::(%@|%@)",[[child parent] name],[[child parent] abbreviation], [child name], [child abbreviation]]);
+				OCLog(@"kittymud",debug,@"%@", [NSString stringWithFormat:@"(%@|%@)::(%@|%@)",[[child parent] name],[[child parent] abbreviation], [child name], [child abbreviation]]);
 				[validStats addObject:[NSString stringWithFormat:@"(%@|%@)::(%@|%@)",[[child parent] name],[[child parent] abbreviation], [child name], [child abbreviation]]];
 			}
 		}

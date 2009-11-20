@@ -20,11 +20,11 @@
 	KMStat* requirements;
 }
 
-+(NSArray*)getAllJobs;
++(NSArray*)getAllClasses;
 
 +(KMClass*)getJobByName:(NSString*)klassname;
 
-+(KMClass*)loadJobWithPath:(NSString*)path;
++(KMClass*)loadClassWithPath:(NSString*)path;
 
 -(BOOL) meetsRequirements:(id)character;
 

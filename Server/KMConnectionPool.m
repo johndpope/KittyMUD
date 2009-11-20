@@ -55,7 +55,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	KMConnectionCoordinator* coordinator = (KMConnectionCoordinator*)info;
 	NSString* inputString = [[NSString alloc] initWithData:(NSData*)data encoding:NSUTF8StringEncoding];
 	if([inputString characterAtIndex:0] == '\x04') {
-		NSLog(@"Encountered end-of-file from socket %d, closing connection...", CFSocketGetNative( socket ));
+		OCLog(@"kittymud",info,@"Encountered end-of-file from socket %d, closing connection...", CFSocketGetNative( socket ));
 		[pool removeConnection:coordinator];
 		return;
 	}
@@ -132,7 +132,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		int native = CFSocketGetNative([connection getSocket]);
 		CFSocketInvalidate([connection getSocket]);
 		[connection releaseSocket];
-		NSLog(@"Closing socket %d.", native);
+		OCLog(@"kittymud",info,@"Closing socket %d.", native);
 	}
 }
 

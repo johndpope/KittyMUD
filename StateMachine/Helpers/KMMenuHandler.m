@@ -30,7 +30,7 @@
 			if([item isKindOfClass:[NSString class]])
 				menuLine = [item capitalizedString];
 			else {
-				NSLog(@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
+				OCLog(@"kittymud",info,@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
 				return;
 			}
 		}

@@ -108,7 +108,6 @@
 	
 	if(command == NULL)
 	{
-		[coordinator sendMessageToBuffer:@"Failed to find command."];
 		[coordinator sendMessageToBuffer:@"Unknown command entered."];
 		return;
 	}
@@ -161,14 +160,12 @@
 		int numOpt = [[command optArgs] count];
 		if([commandmakeup count] < (numArgs - 3 - numOpt)) {
 			[coordinator sendMessage:[NSString stringWithFormat:@"%d arguments expected, %d gotten", numArgs, [commandmakeup count]]];
-			[coordinator sendMessage:@"Failed arguments."];
 			return NO;
 		}
 	}
 	if([command cmdflags]) {
 		for(NSString* flag in [command cmdflags]) {
 			if(![[coordinator valueForKeyPath:@"properties.current-character"] isFlagSet:flag]) {
-				[coordinator sendMessage:@"Failed flags."];
 				return NO;
 			}
 		}

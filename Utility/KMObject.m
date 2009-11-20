@@ -24,12 +24,17 @@
 
 @implementation KMObject
 
+static BOOL setUpOCLChannel = NO;
 +(void) initialize {
+	if(!setUpOCLChannel) {
+		setUpOCLChannel = YES;
+		[[OCLogMaster defaultMaster] registerChannel:[OCLogChannel channelWithName:@"kittymud"]];
+	}
 #ifdef USE_XDF
 	NSError* error = nil;
 	[XDFCodingAspect addToClass:[self class] error:&error];
 	if(error) {
-		NSLog(@"Error adding support to %@...",NSStringFromClass([self class]));
+		OCLog(@"kittymud",info,@"Error adding support to %@...",NSStringFromClass([self class]));
 	}
 #endif
 }

@@ -10,59 +10,59 @@
 #import "KMStack.h"
 #import "KMCharacter.h"
 
-static KMDataManager* klassLoader;
-static NSMutableArray* klasses;
+static KMDataManager* classLoader;
+static NSMutableArray* classes;
 
 @implementation KMClass
 static KMStatLoadType KMClassCustomLoadingContext = KMStatLoadTypeJob;
 
 KMDataManager* KMClass_setUpDataManager() {
 	KMDataManager* jl = [[KMDataManager alloc] init];
-	[jl registerTag:@"klass",@"name",@"name",@"abbr",@"abbreviation",@"tier",@"tier",nil];
+	[jl registerTag:@"class",@"name",@"name",@"abbr",@"abbreviation",@"tier",@"tier",nil];
 	[jl registerTag:@"stattemplate" forKey:@"requirements" forCustomLoading:[KMStat class] withContext:&KMClassCustomLoadingContext];
 	return jl;
 }
 
 +(void)initData
 {
-	NSArray* klassesToLoad = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[@"$(KMClassSourceDir)" replaceAllVariables] error:NULL];
+	NSArray* classesToLoad = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[@"$(KMClassSourceDir)" replaceAllVariables] error:NULL];
 	
-	if(!klassesToLoad)
+	if(!classesToLoad)
 		return;
 	
-	klasses = [[NSMutableArray alloc] init];
-	for(NSString* klassToLoad in klassesToLoad) {
-		if(![[klassToLoad substringWithRange:NSMakeRange([klassToLoad length] - 4, 4)] isEqualToString:@".xml"])
+	classes = [[NSMutableArray alloc] init];
+	for(NSString* classToLoad in classesToLoad) {
+		if(![[classToLoad substringWithRange:NSMakeRange([classToLoad length] - 4, 4)] isEqualToString:@".xml"])
 			continue;
-		KMClass* klass = [KMClass loadJobWithPath:[[NSString stringWithFormat:@"$(KMClassSourceDir)/%@",klassToLoad] replaceAllVariables]];
-		NSLog(@"Adding klass %@(%@) (Tier: %d) to list of klasses.", [klass name], [klass abbreviation], [klass tier]);
-		[klasses addObject:klass];
+		KMClass* klass = [KMClass loadClassWithPath:[[NSString stringWithFormat:@"$(KMClassSourceDir)/%@",classToLoad] replaceAllVariables]];
+		OCLog(@"kittymud",info,@"Adding class %@(%@) (Tier: %d) to list of classes.", [klass name], [klass abbreviation], [klass tier]);
+		[classes addObject:klass];
 	}
 }
 
-+(NSArray*)getAllJobs
++(NSArray*)getAllClasses
 {
-	return (NSArray*)klasses;
+	return (NSArray*)classes;
 }
 
-+(KMClass*)getJobByName:(NSString*)klassname
++(KMClass*)getJobByName:(NSString*)classname
 {
-	NSPredicate* klassPred = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@", klassname, klassname];
-	NSArray* klassMatches = [klasses filteredArrayUsingPredicate:klassPred];
-	if([klassMatches count] > 0)
-		return [klassMatches objectAtIndex:0];
+	NSPredicate* classPred = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@", classname, classname];
+	NSArray* classMatches = [classes filteredArrayUsingPredicate:classPred];
+	if([classMatches count] > 0)
+		return [classMatches objectAtIndex:0];
 	else {
 		return nil;
 	}
 }
 
-+(KMClass*)loadJobWithPath:(NSString*)path
++(KMClass*)loadClassWithPath:(NSString*)path
 {
-	if(klassLoader == nil)
-		klassLoader = KMClass_setUpDataManager();
+	if(classLoader == nil)
+		classLoader = KMClass_setUpDataManager();
 	
 	KMClass* klass = [[KMClass alloc] init];
-	[klassLoader loadFromPath:path toObject:&klass];
+	[classLoader loadFromPath:path toObject:&klass];
 	return klass;
 }
 
@@ -117,7 +117,7 @@ KMDataManager* KMClass_setUpDataManager() {
 
 +(NSArray*)getAvailableJobs:(id)character {
 	NSMutableArray* klasses = [[NSMutableArray alloc] init];
-	for(KMClass* j in [self getAllJobs]) {
+	for(KMClass* j in [self getAllClasses]) {
 		if([j meetsRequirements:character])
 			[klasses addObject:j];
 	}

@@ -16,7 +16,7 @@ static NSMutableArray* menuItems;
 
 @implementation KMAccountMenuState
 
-+(void)load
++(void)initialize
 {
 	menuItems = [[NSMutableArray alloc] init];
 	__strong Class* classes;
@@ -33,7 +33,7 @@ static NSMutableArray* menuItems;
 			}
 			if(class_respondsToSelector(c,@selector(conformsToProtocol:))) {
 				if([c conformsToProtocol:@protocol(KMAccountMenu)]) {
-					NSLog(@"Adding %@ to account menu items with priority %d", [c className], [c priority]);
+					OCLog(@"kittymud",info,@"Adding %@ to account menu items with priority %d", [c className], [c priority]);
 					[menuItems addObject:c];
 				}
 			}

@@ -66,7 +66,7 @@ static NSString* sendMessageBase(NSString* message) {
 	message = sendMessageBase(message);
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	if(CFSocketSendData(socket, NULL, (CFDataRef)data, 0) != kCFSocketSuccess) {
-		NSLog(@"Error sending data to connection, closing connection...");
+		OCLog(@"kittymud",info,@"Error sending data to connection, closing connection...");
 		[[[KMServer getDefaultServer] getConnectionPool] removeConnection:self];
 		return NO;
 	}
@@ -104,7 +104,7 @@ static NSString* sendMessageBase(NSString* message) {
 	CFSocketContext newContext = { 0, self, NULL, NULL, NULL };
 	socket = CFSocketCreateWithNative(kCFAllocatorDefault, handle, kCFSocketDataCallBack, callback, &newContext);
 	if(socket == NULL) {
-		NSLog(@"[WARNING] Error creating new socket, not adding to pool and closing...");
+		OCLog(@"kittymud",info,@"[WARNING] Error creating new socket, not adding to pool and closing...");
 		close( handle );
 		return NO;
 	}

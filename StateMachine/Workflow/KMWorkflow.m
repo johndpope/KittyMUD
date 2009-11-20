@@ -22,7 +22,7 @@
 	KMWorkflowStep* step = [steps objectForKey:[(id)firstState getName]];
 	int zstep = 1;
 	do {
-		NSLog(@"Step #%d: %@", zstep++, [(id)[step myState] getName]);
+		OCLog(@"kittymud",debug,@"Step #%d: %@", zstep++, [(id)[step myState] getName]);
 		step = [step nextStep];
 	} while (step);
 }

@@ -35,7 +35,7 @@ KMDataManager* kmrace_setUpDataManager() {
 			continue;
 		KMRace* race = [KMRace loadRaceWithPath:[[NSString stringWithFormat:@"$(KMRaceSourceDir)/%@",raceToLoad] replaceAllVariables]];
 		if([race name]) {
-			NSLog(@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
+			OCLog(@"kittymud",info,@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
 			[races addObject:race];
 			[[race bonuses] debugPrintTree:0];
 		}
@@ -89,7 +89,7 @@ KMDataManager* kmrace_setUpDataManager() {
 @synthesize bonuses;
 
 -(void)debugPrint {
-	NSLog(@"Race name = %@, abbreviation = %@", name, abbreviation);
+	OCLog(@"kittymud",info,@"Race name = %@, abbreviation = %@", name, abbreviation);
 	[bonuses debugPrintTree:0];
 }
 

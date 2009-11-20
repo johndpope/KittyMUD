@@ -22,9 +22,9 @@
 	} else {
 		if(newState == [coordinator currentState])
 			return;
-		NSLog(@"Current step in workflow: %@", [(id)[coordinator currentState] className]);
+		OCLog(@"kittymud",debug,@"Current step in workflow: %@", [(id)[coordinator currentState] className]);
 		id<KMState> nextStep = [workflow advanceWorkflow];
-		NSLog(@"Advanced workflow, new step in workflow: %@", [(id)[coordinator currentState] className]);
+		OCLog(@"kittymud",debug,@"Advanced workflow, new step in workflow: %@", [(id)[coordinator currentState] className]);
 		[coordinator setCurrentState:nextStep];
 		KMWorkflowStep* currentStep = [workflow getStepForState:nextStep];
 		if(![currentStep nextStep])
