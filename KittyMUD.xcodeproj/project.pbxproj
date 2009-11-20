@@ -101,6 +101,7 @@
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
 		3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XDF.framework */; };
+		3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC1606D10B64B6300728F74 /* OCLog.framework */; };
 		3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22C710B31A790070FCDB /* KMAchievement.h */; };
 		3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22C810B31A790070FCDB /* KMAchievement.m */; };
 		3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */; };
@@ -124,6 +125,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = XDF;
+		};
+		3AC1606C10B64B6300728F74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* OCLog.framework */;
+			remoteInfo = OCLog;
+		};
+		3AC1607110B64B7400728F74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* OCLog */;
+			remoteInfo = OCLog;
 		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -233,6 +248,7 @@
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
 		3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XDF.xcodeproj; path = ../XDF/XDF.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3AC1606810B64B6300728F74 /* OCLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCLog.xcodeproj; path = ../OCLog/OCLog.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3AEF22C710B31A790070FCDB /* KMAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievement.h; sourceTree = "<group>"; };
 		3AEF22C810B31A790070FCDB /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievement.m; sourceTree = "<group>"; };
 		3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievementEngine.h; sourceTree = "<group>"; };
@@ -263,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */,
 				3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */,
@@ -302,6 +319,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3AC1606810B64B6300728F74 /* OCLog.xcodeproj */,
 				3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
@@ -536,6 +554,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3AC1606910B64B6300728F74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AC1606D10B64B6300728F74 /* OCLog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3AEF22C410B31A170070FCDB /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +677,7 @@
 			);
 			dependencies = (
 				3A7EA3A310B16DF300533965 /* PBXTargetDependency */,
+				3AC1607210B64B7400728F74 /* PBXTargetDependency */,
 			);
 			name = KittyMUD;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -674,6 +701,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 3AC1606910B64B6300728F74 /* Products */;
+					ProjectRef = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+				},
+				{
 					ProductGroup = 3A7EA38010B16D0D00533965 /* Products */;
 					ProjectRef = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
 				},
@@ -692,6 +723,13 @@
 			fileType = wrapper.framework;
 			path = XDF.framework;
 			remoteRef = 3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3AC1606D10B64B6300728F74 /* OCLog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OCLog.framework;
+			remoteRef = 3AC1606C10B64B6300728F74 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -795,6 +833,11 @@
 			name = XDF;
 			targetProxy = 3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */;
 		};
+		3AC1607210B64B7400728F74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OCLog;
+			targetProxy = 3AC1607110B64B7400728F74 /* PBXContainerItemProxy */;
+		};
 		3AFA20CB109943CF0038B52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* KittyMUD */;
@@ -834,6 +877,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = ../build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -858,6 +902,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = ../build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -935,6 +980,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = ../build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -982,6 +1028,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = ../build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -1061,6 +1108,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = ../build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
