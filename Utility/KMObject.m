@@ -34,7 +34,7 @@ static BOOL setUpOCLChannel = NO;
 	NSError* error = nil;
 	[XDFCodingAspect addToClass:[self class] error:&error];
 	if(error) {
-		OCLog(@"kittymud",info,@"Error adding support to %@...",NSStringFromClass([self class]));
+		OCLog(@"kittymud",warning,@"Error adding support to %@...",NSStringFromClass([self class]));
 	}
 #endif
 }

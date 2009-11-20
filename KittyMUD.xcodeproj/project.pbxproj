@@ -866,7 +866,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -877,7 +880,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
-				SYMROOT = ../build;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -894,7 +897,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -902,7 +908,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
-				SYMROOT = ../build;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -969,7 +975,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -980,7 +989,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
-				SYMROOT = ../build;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -1017,7 +1026,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1028,7 +1040,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
-				SYMROOT = ../build;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -1097,7 +1109,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1108,7 +1123,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = KittyMUD;
-				SYMROOT = ../build;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
