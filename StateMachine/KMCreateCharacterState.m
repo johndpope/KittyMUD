@@ -40,13 +40,8 @@
 	[coordinator setFlag:@"has-character"];
 	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
 	[[coordinator getCharacters] addObject:character];
-	[[coordinator getProperties] setObject:character forKey:@"current-character"];
-	KMWorkflow* wf = [KMWorkflow createWorkflowForSteps:[[KMChooseRaceState alloc] init],[[KMStatAllocationState alloc] init], [[KMPlayingState alloc] init], nil];
-	[wf insertStep:[[KMChooseClassState alloc] init] before:[[KMPlayingState alloc] init]];
-	[wf insertStep:[[KMConfirmStatAllocationState alloc] init] after:[[KMStatAllocationState alloc] init]];
-	id<KMState> state = [wf startWorkflowAtStep:[[KMChooseRaceState alloc] init]];
-	[coordinator setValue:wf forKeyPath:@"properties.current-workflow"];
-	return state;
+	[[KMWorkflow getWorkflowForName:KMCreateCharacterWorkflow] startWorkflowForCoordinator:coordinator];
+	return nil;
 }
 
 -(NSString*) getName

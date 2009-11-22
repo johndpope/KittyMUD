@@ -130,14 +130,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* OCLog.framework */;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = OCLog;
 		};
 		3AC1607110B64B7400728F74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* OCLog */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = OCLog;
 		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {

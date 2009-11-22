@@ -34,7 +34,7 @@
 			while(![c returned]);
 			BOOL earn = [[c returnValue] boolValue];
 			if(earn) {
-				[a displayAchievementEarnedMessage:coordinator];
+				[a displayAchievementHasBeenEarnedMessageTo:coordinator];
 				/// TODO:  Add achievement point stuff here
 			}
 		}

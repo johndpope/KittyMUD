@@ -7,8 +7,23 @@
 //
 
 #import "KMWorkflow.h"
+#import "KMChooseRaceState.h"
+#import "KMStatAllocationState.h"
+#import "KMConfirmStatAllocationState.h"
+#import "KMChooseClassState.h"
+#import "KMPlayingState.h"
+
+static NSMutableDictionary* kwfWorkflows;
+NSString* KMCreateCharacterWorkflow = @"KMCreateCharacterWorkflow";
 
 @implementation KMWorkflow
+
++(void) initialize {
+	kwfWorkflows = [NSMutableDictionary dictionary];
+	KMWorkflow* wf = [self createWorkflowForSteps:[[KMChooseRaceState alloc] init],[[KMStatAllocationState alloc] init], [[KMConfirmStatAllocationState alloc] init], [[KMChooseClassState alloc] init], [[KMPlayingState alloc] init], nil];
+	[self setWorkflow:wf forName:KMCreateCharacterWorkflow];
+}
+
 -(id) init
 {
 	self = [super init];
@@ -32,6 +47,7 @@
 	va_start(steps,firstStep);
 	KMWorkflow* wf = [[KMWorkflow alloc] init];
 	[wf addStep:firstStep];
+	[wf setFirstStep:firstStep];
 	KMWorkflowStep* cstep = [[wf steps] objectForKey:[(id)firstStep getName]];
 	id<KMState> state;
 	while(state = va_arg(steps,id<KMState>)) {
@@ -44,12 +60,19 @@
 	return wf;
 }
 
--(id<KMState>) startWorkflowAtStep:(id<KMState>)state {
+-(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator {
 	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
 	if(!step)
-		return nil;
+		return;
 	currentStep = step;
-	return [currentStep myState];
+	[coordinator setValue:[currentStep myState] forKeyPath:@"properties.current-state"];
+	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
+}
+
+-(void) startWorkflowForCoordinator:(id)coordinator {
+	currentStep = [self firstStep];
+	[coordinator setValue:[currentStep myState] forKeyPath:@"properties.current-state"];
+	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
 -(id<KMState>) advanceWorkflow {
@@ -130,6 +153,15 @@
 	return step;
 }
 
++(void) setWorkflow:(KMWorkflow *)aWorkflow forName:(NSString *)aString {
+	[kwfWorkflows setObject:aWorkflow forKey:aString];
+}
+
++(KMWorkflow*) getWorkflowForName:(NSString *)string {
+	return [kwfWorkflows objectForKey:string];
+}
+
 @synthesize steps;
 @synthesize currentStep;
+@synthesize firstStep;
 @end
