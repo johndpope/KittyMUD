@@ -16,24 +16,24 @@
 -(void) interpret:(id)coordinator
 {
 	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
-	id<KMState> newState = [[coordinator currentState] processState:coordinator];
-	if(!workflow) {
-		[coordinator setCurrentState:newState];
-	} else {
-		if(newState == [coordinator currentState])
+	KMGetStateFromCoordinator(state);
+	[state processState:coordinator];
+	KMGetStateFromCoordinator(newState);
+	if(workflow) {
+		if(newState == state)
 			return;
-		OCLog(@"kittymud",debug,@"Current step in workflow: %@", [(id)[coordinator currentState] className]);
-		id<KMState> nextStep = [workflow advanceWorkflow];
-		OCLog(@"kittymud",debug,@"Advanced workflow, new step in workflow: %@", [(id)[coordinator currentState] className]);
-		[coordinator setCurrentState:nextStep];
-		KMWorkflowStep* currentStep = [workflow getStepForState:nextStep];
-		if(![currentStep nextStep])
-			[coordinator setFlag:@"clear-workflow"];
-		
+		[workflow advanceWorkflowForCoordinator:coordinator];
+		if(![[workflow currentStep] nextStep]) {
+			[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
+		}
 	}
+	KMGetInterpreterForState(newState,interpreter);
+	if(!interpreter)
+		interpreter = [[KMBasicInterpreter alloc] init];
+	KMSetInterpreterForCoordinatorTo(interpreter);
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
-		[[coordinator currentState] softRebootMessage:coordinator];
+		[newState softRebootMessage:coordinator];
 	}
 	else
 		[coordinator clearFlag:@"no-message"];	

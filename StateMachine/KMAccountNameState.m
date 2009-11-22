@@ -16,7 +16,7 @@
 
 @implementation KMAccountNameState
 
--(id<KMState>) processState:(id)coordinator 
++(void) processState:(id)coordinator 
 {
 	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.xml", [coordinator getInputBuffer]] replaceAllVariables];
 	id<KMState> returnState;
@@ -24,7 +24,7 @@
 	if([[[[[KMServer getDefaultServer] getConnectionPool] connections] filteredArrayUsingPredicate:accountNameTest] count] > 0) {
 		[coordinator sendMessageToBuffer:@"Account name already logged in."];
 		[self softRebootMessage:coordinator];
-		return self;
+		return;
 	}
 	[[coordinator getProperties] setObject:[coordinator getInputBuffer] forKey:@"name"];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
@@ -32,21 +32,21 @@
 		if([coordinator isFlagSet:@"locked"]) {
 			[coordinator sendMessage:[@"Your account is locked.  Contact an administrator at $(AdminEmail) to unlock your account." replaceAllVariables]];
 			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
-			return nil;
+			return;
 		}
 		returnState = [[KMConfirmPasswordState alloc] init];
 	} else {
 		returnState = [[KMNewPasswordState alloc] init];
 	}
-	return returnState;
+	KMSetStateForCoordinatorTo(returnState);
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"AccountName";
 }
 
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
 	[coordinator sendMessageToBuffer:@"Please enter your account name:"];
 }

@@ -115,10 +115,6 @@ static NSString* sendMessageBase(NSString* message) {
 	return YES;
 }
 
--(void) setInterpreter:(id<KMInterpreter>)interp {
-	interpreter = interp;
-}
-
 -(void) saveToXML:(NSString*)dirToSave
 {
 	if(![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]])
@@ -183,8 +179,6 @@ static NSString* sendMessageBase(NSString* message) {
 
 @synthesize lastReadTime;
 @synthesize outputBuffer;
-@synthesize currentState;
-@synthesize interpreter;
 @synthesize characters;
 @synthesize inputBuffer;
 @end

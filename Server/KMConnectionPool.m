@@ -38,7 +38,8 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 			[coordinator setOutputBuffer:@""];
 			[coordinator setFlag:@"message-direct"];
 			if(![coordinator isFlagSet:@"no-message"]) {
-				[[coordinator currentState] softRebootMessage:coordinator];
+				KMGetStateFromCoordinator(currentState);
+				[currentState softRebootMessage:coordinator];
 			}
 			[coordinator clearFlag:@"no-message"];
 			[coordinator clearFlag:@"message-direct"];
@@ -93,10 +94,10 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		[connections addObject:coordinator];
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
-		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		[coordinator setCurrentState:[[(id)defaultState alloc] init]];
+		KMSetStateForCoordinatorTo(defaultState);
 	} else {
-		[[coordinator currentState] softRebootMessage:coordinator];
+		KMGetStateFromCoordinator(currentState);
+		[currentState softRebootMessage:coordinator];
 		[coordinator setFlag:@"no-message"];
 	}
 	return coordinator;

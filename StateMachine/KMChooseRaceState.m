@@ -17,38 +17,32 @@
 
 @implementation KMChooseRaceState
 
--(id)init
++(void) processState:(id)coordinator
 {
-	self = [super init];
-	if(self)
-		menu = [[KMMenuHandler alloc] initializeWithItems:[KMRace getAllRaces]];
-	return self;
-}
-
--(id<KMState>) processState:(id)coordinator
-{
+	KMGetMenuFromCoordinator(menu);
 	KMRace* race = [menu getSelection:coordinator];
 	if(!race)
-		return self;
+		return;
 	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
 	[[character getProperties] setObject:[race name] forKey:@"race"];
 	[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
-	KMCommandInterpreter* statAllocatableInterpreter = [[KMCommandInterpreter alloc] init];
-	[statAllocatableInterpreter registerLogic:[KMStatAllocationLogic class] asDefaultTarget:YES];
-	[coordinator setInterpreter:statAllocatableInterpreter];
-	return [[KMStatAllocationState alloc] init];
+	KMSetStateForCoordinatorTo(KMStatAllocationState);
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"ChooseRace";
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
+	KMGetMenuFromCoordinator(menu);
+	if(!menu) {
+		menu = [[KMMenuHandler alloc] initializeWithItems:[KMRace getAllRaces]];
+		KMSetMenuForCoordinatorTo(menu);
+	}
 	[menu displayMenu:coordinator];
 }
 
-@synthesize menu;
 @end

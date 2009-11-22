@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMInterpreter.h"
+#import "KMBasicInterpreter.h"
 #import "KMCommandInterpreterLogic.h"
 #import "KMConnectionCoordinator.h"
 #import "KMCommandInfo.h"
 #import "KMObject.h"
 
-@interface  KMCommandInterpreter  : KMObject <KMInterpreter> {
+@interface  KMCommandInterpreter  : KMBasicInterpreter {
 	NSMutableArray* commands;
 	NSMutableDictionary* logics;
 	id<KMCommandInterpreterLogic> defaultTarget;

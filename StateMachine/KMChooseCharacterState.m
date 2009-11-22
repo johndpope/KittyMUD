@@ -14,36 +14,28 @@
 
 @implementation KMChooseCharacterState
 
--(id) init {
-	self = [super init];
-	if(self) {
-		menu = nil;
-	}
-	return self;
-}
-
--(id<KMState>) processState:(id)coordinator
++(void) processState:(id)coordinator
 {
+	KMGetMenuFromCoordinator(menu);
 	KMCharacter* character = [menu getSelection:coordinator];
 	if(!character)
-		return self;
+		return;
 	[coordinator setValue:character forKeyPath:@"properties.current-character"];
-	KMCommandInterpreter* playingInterpreter = [[KMCommandInterpreter alloc] init];
-	[playingInterpreter registerLogic:[KMPlayingLogic class] asDefaultTarget:NO];
-	[coordinator setInterpreter:playingInterpreter];
-	return [[KMPlayingState alloc] init];
+	KMSetStateForCoordinatorTo(KMPlayingState);
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"ChooseCharacter";
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
+	KMGetMenuFromCoordinator(menu);
 	if(!menu) {
 		menu = [[KMMenuHandler alloc] initializeWithItems:[coordinator getCharacters]];
+		KMSetMenuForCoordinatorTo(menu);
 	}
 	[menu displayMenu:coordinator];
 }
@@ -63,5 +55,4 @@
 	return 2;
 }
 
-@synthesize menu;
 @end

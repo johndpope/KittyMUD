@@ -98,14 +98,7 @@ CHELP(quit,@"Quits the allocation, saves changes.  Does not confirm even if you 
 CIMPL(quit,quit:,nil,nil,nil,1) {
 	BOOL ready = [self confirmStats:coordinator];	
 	if( ready ) {
-		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		KMWorkflow* wf = [coordinator valueForKeyPath:@"properties.current-workflow"];
-		if(wf) {
-			id<KMState> newState = [wf advanceWorkflow];
-			[coordinator setCurrentState:newState];
-		} else {
-			[coordinator setCurrentState:[[KMConfirmStatAllocationState alloc] init]];
-		}
+		KMSetStateForCoordinatorTo(KMConfirmStatAllocationState);
 		[[coordinator valueForKeyPath:@"properties.current-character"] setFlag:@"allocated"];
 		return;
 	}

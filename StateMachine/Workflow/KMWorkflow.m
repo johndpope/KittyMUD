@@ -15,10 +15,12 @@
 
 static NSMutableDictionary* kwfWorkflows;
 NSString* KMCreateCharacterWorkflow = @"KMCreateCharacterWorkflow";
+NSMutableDictionary* interpreters;
 
 @implementation KMWorkflow
 
 +(void) initialize {
+	interpreters = [NSMutableDictionary dictionary];
 	kwfWorkflows = [NSMutableDictionary dictionary];
 	KMWorkflow* wf = [self createWorkflowForSteps:[[KMChooseRaceState alloc] init],[[KMStatAllocationState alloc] init], [[KMConfirmStatAllocationState alloc] init], [[KMChooseClassState alloc] init], [[KMPlayingState alloc] init], nil];
 	[self setWorkflow:wf forName:KMCreateCharacterWorkflow];
@@ -60,24 +62,30 @@ NSString* KMCreateCharacterWorkflow = @"KMCreateCharacterWorkflow";
 	return wf;
 }
 
+#define KMWFSS do { \
+	KMSetStateForCoordinatorTo([currentStep myState]); \
+} while(0)
+
 -(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator {
 	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
 	if(!step)
 		return;
 	currentStep = step;
-	[coordinator setValue:[currentStep myState] forKeyPath:@"properties.current-state"];
+	KMWFSS;
 	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
 -(void) startWorkflowForCoordinator:(id)coordinator {
 	currentStep = [self firstStep];
-	[coordinator setValue:[currentStep myState] forKeyPath:@"properties.current-state"];
+	KMWFSS;
 	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
--(id<KMState>) advanceWorkflow {
+-(void) advanceWorkflowForCoordinator:(id)coordinator {
 	currentStep = [currentStep nextStep];
-	return currentStep ? [currentStep myState] : nil;
+	if(!currentStep)
+		return;
+	KMWFSS;
 }
 
 -(void) addStep:(id<KMState>)state {

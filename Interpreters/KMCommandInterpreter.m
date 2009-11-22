@@ -145,10 +145,7 @@
 		}
 	}
 	[invocation invoke];
-	if(![coordinator isFlagSet:@"no-message"]) {
-		[[coordinator currentState] softRebootMessage:coordinator];
-		[coordinator setFlag:@"no-message"];
-	}
+	[super interpret:coordinator];
 }
 
 -(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl
@@ -211,11 +208,15 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 
 CHELP(rebuildlogics,@"Rebuilds the logics for all command interpreters in use at the time.  Used when soft rebooting with changed commands.",nil)
 CIMPL(rebuildlogics,rebuildlogics:,nil,nil,@"admin",1) {
+	KMConnectionCoordinator* tc = coordinator;
 	for(KMConnectionCoordinator* coord in [[[KMServer getDefaultServer] getConnectionPool] connections]) {
-		if([[coord interpreter] isKindOfClass:[KMCommandInterpreter class]]) {
-			[(KMCommandInterpreter*)[coord interpreter] rebuildLogics:coord];
+		coordinator = coord;
+		KMGetInterpreterForCoordinator(interpreter);
+		if([interpreter isKindOfClass:[KMCommandInterpreter class]]) {
+			[(KMCommandInterpreter*)interpreter rebuildLogics:coord];
 		}
 	}
+	coordinator = tc;
 }
 
 CIMPL(displaycommand,displaycommand:command:,nil,nil,nil,1) command:(NSString*)command {

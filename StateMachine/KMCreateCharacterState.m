@@ -20,7 +20,7 @@
 
 @implementation KMCreateCharacterState
 
--(id<KMState>) processState:(id)coordinator
++(void) processState:(id)coordinator
 {
 	NSFileHandle* usedNamesFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(UsedCharacterFile)" replaceAllVariables]];
 	NSString* name = [coordinator getInputBuffer];
@@ -31,7 +31,7 @@
 		if([[names filteredArrayUsingPredicate:pred] count] > 0) {
 			[coordinator sendMessageToBuffer:@"Character name already in use, please choose another."];
 			[self softRebootMessage:coordinator];
-			return self;
+			return;
 		}
 	} else {
 		[[NSFileManager defaultManager] createFileAtPath:[@"$(UsedCharacterFile)" replaceAllVariables] contents:nil attributes:nil];
@@ -41,16 +41,16 @@
 	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
 	[[coordinator getCharacters] addObject:character];
 	[[KMWorkflow getWorkflowForName:KMCreateCharacterWorkflow] startWorkflowForCoordinator:coordinator];
-	return nil;
+	return;
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"CreateCharacter";
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
 	[coordinator sendMessageToBuffer:@"Please enter a name for your new character:"];
 }

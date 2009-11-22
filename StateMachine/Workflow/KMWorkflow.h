@@ -15,6 +15,7 @@
 	NSMutableDictionary* steps;
 	KMWorkflowStep* currentStep;
 	KMWorkflowStep* firstStep;
+	NSMutableDictionary* interpretersForStep;
 }
 
 -(void) addStep:(id<KMState>)state;
@@ -37,7 +38,7 @@
 
 -(void) startWorkflowForCoordinator:(id)coordinator;
 
--(id<KMState>) advanceWorkflow;
+-(void) advanceWorkflowForCoordinator:(id)coordinator;
 
 -(KMWorkflowStep*) getStepForState:(id<KMState>)state;
 

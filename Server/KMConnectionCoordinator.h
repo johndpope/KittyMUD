@@ -17,8 +17,6 @@
 	NSString* inputBuffer;
 	NSString* outputBuffer;
 	NSDate* lastReadTime;
-	id<KMState> currentState;
-	id<KMInterpreter> interpreter;
 	NSMutableArray* characters;
 }
 
@@ -48,7 +46,5 @@
 @property (copy,getter=getInputBuffer) NSString* inputBuffer;
 @property (getter=getSocket,setter=setSocket:) CFSocketRef socket;
 @property (copy) NSString* outputBuffer;
-@property (retain) id<KMState> currentState;
-@property (retain,setter=setInterpreter:) id<KMInterpreter> interpreter;
 @property (retain,readonly,getter=getCharacters) NSMutableArray* characters;
 @end

@@ -15,9 +15,6 @@
 #import "KMObject.h"
 
 @interface  KMChooseCharacterState  : KMObject <KMState,KMAccountMenu> {
-	KMMenuHandler* menu;
 }
 
--(id) init;
-@property (retain) KMMenuHandler* menu;
 @end
