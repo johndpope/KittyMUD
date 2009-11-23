@@ -24,8 +24,14 @@
 	if(!race)
 		return;
 	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
-	[[character getProperties] setObject:[race name] forKey:@"race"];
-	[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
+	if(character) {
+		[[character getProperties] setObject:[race name] forKey:@"race"];
+		[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
+	} else {
+		[coordinator setValue:[race name] forKey:@"race"];
+		[coordinator setFlag:@"race-before-character"];
+	}
+	
 	KMSetStateForCoordinatorTo(KMStatAllocationState);
 }
 

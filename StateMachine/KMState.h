@@ -27,6 +27,8 @@ extern NSMutableDictionary* interpreters;
 
 #define KMGetMenuFromCoordinator(m) KMMenuHandler* m = [coordinator valueForKeyPath:@"properties.menu"]
 
+#define KMSLGetMenuFromCoordinator(m) m = [coordinator valueForKeyPath:@"properties.menu"]
+
 #define KMSetStateForCoordinatorTo(s) do { \
 	[coordinator setValue:[s class] forKeyPath:@"properties.current-state"]; \
 } while(0)
@@ -34,7 +36,7 @@ extern NSMutableDictionary* interpreters;
 #define KMGetStateFromCoordinator(s) id<KMState> s = [coordinator valueForKeyPath:@"properties.current-state"]
 
 #define KMSetInterpreterForStateTo(s,i) do { \
-	[interpreters setValue:i forKey:[(id)[s class] getName]]; \
+	[interpreters setValue:i forKey:[[[s class] class] getName]]; \
 } while(0)
 	
-#define KMGetInterpreterForState(s,l) id<KMInterpreter> l = [interpreters valueForKey:[(id)[s class] getName]];
+#define KMGetInterpreterForState(s,l) id<KMInterpreter> l = [interpreters valueForKey:[[[s class] class] getName]];

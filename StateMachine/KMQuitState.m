@@ -12,6 +12,7 @@
 
 @implementation KMQuitState
 
+
 +(void) processState:(id)coordinator
 {
 	[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];

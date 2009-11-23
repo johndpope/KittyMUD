@@ -38,7 +38,7 @@
 			[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
 			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
 		}
-		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Invalid password, please re-enter (%d attempts left):",5-attempts]];
+		[coordinator sendMessageToBuffer:@"Invalid password, please re-enter (%d attempts left):",5-attempts];
 		[coordinator setFlag:@"no-message"];
 		return;
 	}

@@ -107,7 +107,7 @@ static BOOL setUpOCLChannel = NO;
 			flagstatus = @"SET";
 		else
 			flagstatus = @"CLEAR";
-		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Flag %@: %@", flag, flagstatus]];
+		[coordinator sendMessageToBuffer:@"Flag %@: %@", flag, flagstatus];
 	}
 }
 

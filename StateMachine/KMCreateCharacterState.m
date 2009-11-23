@@ -17,29 +17,12 @@
 #import "KMConfirmStatAllocationState.h"
 #import "KMWorkflow.h"
 #import "KMPlayingState.h"
+#import "KMRace.h"
 
 @implementation KMCreateCharacterState
 
 +(void) processState:(id)coordinator
 {
-	NSFileHandle* usedNamesFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(UsedCharacterFile)" replaceAllVariables]];
-	NSString* name = [coordinator getInputBuffer];
-	if(usedNamesFile != nil)
-	{
-		NSArray* names = [[[NSString alloc] initWithData:[usedNamesFile readDataToEndOfFile] encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-		NSPredicate* pred = [NSPredicate predicateWithFormat:@"self like[cd] %@", name];
-		if([[names filteredArrayUsingPredicate:pred] count] > 0) {
-			[coordinator sendMessageToBuffer:@"Character name already in use, please choose another."];
-			[self softRebootMessage:coordinator];
-			return;
-		}
-	} else {
-		[[NSFileManager defaultManager] createFileAtPath:[@"$(UsedCharacterFile)" replaceAllVariables] contents:nil attributes:nil];
-	}
-	[coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
-	[coordinator setFlag:@"has-character"];
-	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
-	[[coordinator getCharacters] addObject:character];
 	[[KMWorkflow getWorkflowForName:KMCreateCharacterWorkflow] startWorkflowForCoordinator:coordinator];
 	return;
 }
@@ -52,7 +35,6 @@
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
 +(void) softRebootMessage:(id)coordinator
 {
-	[coordinator sendMessageToBuffer:@"Please enter a name for your new character:"];
 }
 
 +(NSArray*)requirements

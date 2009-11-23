@@ -156,7 +156,7 @@
 	if(!ofl) {
 		int numOpt = [[command optArgs] count];
 		if([commandmakeup count] < (numArgs - 3 - numOpt)) {
-			[coordinator sendMessage:[NSString stringWithFormat:@"%d arguments expected, %d gotten", numArgs, [commandmakeup count]]];
+			[coordinator sendMessage:@"%d arguments expected, %d gotten", numArgs, [commandmakeup count]];
 			return NO;
 		}
 	}
@@ -224,7 +224,7 @@ CIMPL(displaycommand,displaycommand:command:,nil,nil,nil,1) command:(NSString*)c
 	if(cmd == nil) {
 		[coordinator sendMessageToBuffer:@"No command found."];
 	}
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Command %@, Optional Arguments: %d, Flags Required: %d",[cmd name], [[cmd optArgs] count], [[cmd cmdflags] count]]];
+	[coordinator sendMessageToBuffer:@"Command %@, Optional Arguments: %d, Flags Required: %d",[cmd name], [[cmd optArgs] count], [[cmd cmdflags] count]];
 }
 
 -(void) rebuildLogics:(id)coordinator {

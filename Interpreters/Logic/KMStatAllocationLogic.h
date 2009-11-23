@@ -23,7 +23,7 @@ typedef enum {
 } KMStatAllocationChangeType;
 
 @interface  KMStatAllocationLogic  : KMObject <KMCommandInterpreterLogic> {
-	@private
+	@protected
 	KMStat* base;
 	KMStat* allocBase;
 	BOOL copiedAllocatable;

@@ -10,7 +10,7 @@
 #import "KMConnectionCoordinator.h"
 #import "KMAccountMenu.h"
 #import "KMState.h"
-
+#import <objc/runtime.h>
 
 static NSMutableArray* KMAccountMenuItems;
 @implementation KMAccountMenuState
@@ -67,6 +67,7 @@ static NSMutableArray* KMAccountMenuItems;
 	KMSetMenuForCoordinatorTo(menu);
 }
 
+NSInteger ComparePriority(id,id,void*);
 NSInteger ComparePriority(id a, id b, void* c) {
 	if([a priority] < [b priority])
 		return NSOrderedAscending;
@@ -97,7 +98,7 @@ NSInteger ComparePriority(id a, id b, void* c) {
 	KMGetMenuFromCoordinator(menu);
 	if(!menu) {
 		[self initializeWithCoordinator:coordinator];
-		KMSetMenuForCoordinatorTo(menu);
+		KMSLGetMenuFromCoordinator(menu);
 	}
 	[menu displayMenu:coordinator withSortFunction:ComparePriority];
 }

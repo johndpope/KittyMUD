@@ -23,11 +23,11 @@
 }
 
 -(void) displayAchievementHasBeenEarnedMessageTo:(id)coordinator {
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`Y[`y\u2606`w%@`y\u2606 `w(`G%d`w)`Y] `Wearned!`x",name,[pointValue intValue]]];
+	[coordinator sendMessageToBuffer:@"`Y[`y\u2606`w%@`y\u2606 `w(`G%d`w)`Y] `Wearned!`x",name,[pointValue intValue]];
 }
 
 -(void) displayAchievementDetailMessageTo:(id)coordinator {
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`Y[`y\u2606`w%@`y\u2606 `w(`G%d`w)`Y]`x",name,[pointValue intValue]]];
+	[coordinator sendMessageToBuffer:@"`Y[`y\u2606`w%@`y\u2606 `w(`G%d`w)`Y]`x",name,[pointValue intValue]];
 	[coordinator sendMessageToBuffer:description];
 }
 

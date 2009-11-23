@@ -46,7 +46,7 @@
 		case KMStatAllocationIncrease:
 			OCLog(@"kittymud",debug,@"%d <-> %d", value, [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]);
 			if(value > [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]) {
-				[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Not enough points remaining to increase %@.",stat]];
+				[coordinator sendMessageToBuffer:@"Not enough points remaining to increase %@.",stat];
 				return;
 			}
 			[st setStatvalue:([st statvalue] + value)];
@@ -54,7 +54,7 @@
 			break;
 		case KMStatAllocationDecrease:
 			if( value > ([st statvalue] - [baseStat statvalue]) ) {
-				[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Not enough points to decrease %@.",stat]];
+				[coordinator sendMessageToBuffer:@"Not enough points to decrease %@.",stat];
 				return;
 			}
 			[st setStatvalue:([st statvalue] - value)];

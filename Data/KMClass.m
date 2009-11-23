@@ -13,6 +13,8 @@
 static KMDataManager* classLoader;
 static NSMutableArray* classes;
 
+KMDataManager* KMClass_setUpDataManager(void);
+
 @implementation KMClass
 static KMStatLoadType KMClassCustomLoadingContext = KMStatLoadTypeJob;
 

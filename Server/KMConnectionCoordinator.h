@@ -22,9 +22,9 @@
 
 -(id) init;
 
--(BOOL) sendMessage:(NSString*)message;
+-(BOOL) sendMessage:(NSString*)message,...;
 
--(void) sendMessageToBuffer:(NSString*)message;
+-(void) sendMessageToBuffer:(NSString*)message,...;
 
 -(CFSocketRef) getSocket;
 
@@ -36,9 +36,9 @@
 
 -(void) loadFromXML:(NSString*)path;
 
--(id) valueForUndefinedKey:(NSString *)key;
+// -(id) valueForUndefinedKey:(NSString *)key;
 
--(void) setValue:(id)value forUndefinedKey:(NSString*)key;
+// -(void) setValue:(id)value forUndefinedKey:(NSString*)key;
 
 -(void) releaseSocket;
 

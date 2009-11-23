@@ -36,10 +36,10 @@ NSMutableDictionary* interpreters;
 }
 
 -(void) debugPrintWorkflow:(id<KMState>)firstState {
-	KMWorkflowStep* step = [steps objectForKey:[(id)firstState getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[firstState class] getName]];
 	int zstep = 1;
 	do {
-		OCLog(@"kittymud",debug,@"Step #%d: %@", zstep++, [(id)[step myState] getName]);
+		OCLog(@"kittymud",debug,@"Step #%d: %@", zstep++, [[[step myState] class] getName]);
 		step = [step nextStep];
 	} while (step);
 }
@@ -49,12 +49,12 @@ NSMutableDictionary* interpreters;
 	va_start(steps,firstStep);
 	KMWorkflow* wf = [[KMWorkflow alloc] init];
 	[wf addStep:firstStep];
-	[wf setFirstStep:firstStep];
-	KMWorkflowStep* cstep = [[wf steps] objectForKey:[(id)firstStep getName]];
+	[wf setFirstStep:[[wf steps] objectForKey:[[firstStep class] getName]]];
+	KMWorkflowStep* cstep = [[wf steps] objectForKey:[[firstStep class] getName]];
 	id<KMState> state;
 	while(state = va_arg(steps,id<KMState>)) {
 		[wf addStep:state];
-		KMWorkflowStep* nstep = [[wf steps] objectForKey:[(id)state getName]];
+		KMWorkflowStep* nstep = [[wf steps] objectForKey:[[state class] getName]];
 		[cstep setNextStep:nstep];
 		cstep = nstep;
 	}
@@ -67,7 +67,7 @@ NSMutableDictionary* interpreters;
 } while(0)
 
 -(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator {
-	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(!step)
 		return;
 	currentStep = step;
@@ -89,19 +89,19 @@ NSMutableDictionary* interpreters;
 }
 
 -(void) addStep:(id<KMState>)state {
-	if([steps objectForKey:[(id)state getName]] != nil)
+	if([steps objectForKey:[[state class] getName]] != nil)
 		return;
-	[steps setObject:[[KMWorkflowStep alloc] initWithState:state] forKey:[(id)state getName]];
+	[steps setObject:[[KMWorkflowStep alloc] initWithState:state] forKey:[[state class] getName]];
 }
 
 -(void) setNextStepFor:(id<KMState>)state toState:(id<KMState>)nextState {
-	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(step)
 	{
-		KMWorkflowStep* nextstep = [steps objectForKey:[(id)nextState getName]];
+		KMWorkflowStep* nextstep = [steps objectForKey:[[nextState class] getName]];
 		if(!nextstep) {
 			[self addStep:nextState];
-			nextstep = [steps objectForKey:[(id)nextState getName]];
+			nextstep = [steps objectForKey:[[nextState class] getName]];
 		}
 		[step setNextStep:nextstep];
 	}
@@ -109,16 +109,16 @@ NSMutableDictionary* interpreters;
 
 -(void) insertStep:(id<KMState>)newState before:(id<KMState>)state
 {
-	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(!step)
 		return;
 	for(id<KMState>xstate in [steps allKeys]) {
 		KMWorkflowStep* xstep = [steps objectForKey:xstate];
 		if([xstep nextStep] == step) {
-			KMWorkflowStep* newStep = [steps objectForKey:[(id)newState getName]];
+			KMWorkflowStep* newStep = [steps objectForKey:[[newState class] getName]];
 			if(!newStep) {
 				[self addStep:newState];
-				newStep = [steps objectForKey:[(id)newState getName]];
+				newStep = [steps objectForKey:[[newState class] getName]];
 			}
 			[newStep setNextStep:[xstep nextStep]];
 			[xstep setNextStep:newStep];
@@ -129,13 +129,13 @@ NSMutableDictionary* interpreters;
 
 -(void) insertStep:(id<KMState>)newState after:(id<KMState>)state
 {
-	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(!step)
 		return;
-	KMWorkflowStep* newStep = [steps objectForKey:[(id)newState getName]];
+	KMWorkflowStep* newStep = [steps objectForKey:[[newState class] getName]];
 	if(!newStep) {
 		[self addStep:newState];
-		newStep = [steps objectForKey:[(id)newState getName]];
+		newStep = [steps objectForKey:[[newState class] getName]];
 	}
 	[newStep setNextStep:[step nextStep]];
 	[step setNextStep:newStep];
@@ -143,7 +143,7 @@ NSMutableDictionary* interpreters;
 
 -(void) removeStep:(id<KMState>)state
 {
-	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(!step)
 		return;
 	for(id<KMState>xstate in [steps allKeys]) {
@@ -157,7 +157,7 @@ NSMutableDictionary* interpreters;
 }
 
 -(KMWorkflowStep*) getStepForState:(id<KMState>)state {
-	KMWorkflowStep* step = [steps objectForKey:[(id)state getName]];
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	return step;
 }
 

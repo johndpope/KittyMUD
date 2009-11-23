@@ -15,6 +15,8 @@ static NSMutableArray* races;
 
 static KMStatLoadType KMRaceCustomLoadingContext = KMStatLoadTypeRace;
 
+KMDataManager* kmrace_setUpDataManager(void);
+
 KMDataManager* kmrace_setUpDataManager() {
 	KMDataManager* rl = [[KMDataManager alloc] init];
 	[rl registerTag:@"race",@"name",@"name",@"abbr",@"abbreviation",nil];

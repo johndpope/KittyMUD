@@ -36,10 +36,10 @@
 		}
 		if(!menuLine)
 			menuLine = [item menuLine];
-		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`#`c[`G%d`c] `w%@`x", i, menuLine]];
+		[coordinator sendMessageToBuffer:@"`#`c[`G%d`c] `w%@`x", i, menuLine];
 	}
 	[coordinator sendMessageToBuffer:@"`@"];
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]]];
+	[coordinator sendMessageToBuffer:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]];
 	
 }
 

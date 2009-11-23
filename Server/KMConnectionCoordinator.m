@@ -9,7 +9,7 @@
 #import "KMConnectionCoordinator.h"
 #import "KMServer.h"
 #import "KMCharacter.h"
-
+#import "KMBasicInterpreter.h"
 
 /*
  * This class represents the abstraction between the socket and the rest of the MUD.
@@ -24,6 +24,7 @@
 	self = [super init];
 	if( self ) {
 		characters = [[NSMutableArray alloc] init];
+		[self setValue:[[KMBasicInterpreter alloc] init] forKeyPath:@"properties.current-interpreter"];
 	}
 	return self;
 }
@@ -61,8 +62,12 @@ static NSString* sendMessageBase(NSString* message) {
 	return message;
 }
 
--(BOOL) sendMessage:(NSString*)message
+-(BOOL) sendMessage:(NSString*)message,...
 {
+	va_list args;
+	va_start(args,message);
+	message = [[NSString alloc] initWithFormat:message arguments:args];
+	va_end(args);
 	message = sendMessageBase(message);
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	if(CFSocketSendData(socket, NULL, (CFDataRef)data, 0) != kCFSocketSuccess) {
@@ -73,8 +78,12 @@ static NSString* sendMessageBase(NSString* message) {
 	return YES;
 }
 
--(void) sendMessageToBuffer:(NSString *)message
+-(void) sendMessageToBuffer:(NSString *)message,...
 {
+	va_list args;
+	va_start(args,message);
+	message = [[NSString alloc] initWithFormat:message arguments:args];
+	va_end(args);
 	if([self isFlagSet:@"message-direct"]) {
 		[self sendMessage:message];
 		return;
@@ -169,13 +178,13 @@ static NSString* sendMessageBase(NSString* message) {
 	[fh closeFile];
 }
 
--(id) valueForUndefinedKey:(NSString *)key {
+/*-(id) valueForUndefinedKey:(NSString *)key {
 	return [NSNull null];
 }
 
 -(void) setValue:(id)value forUndefinedKey:(NSString*)key {
 	return;
-}
+}*/
 
 @synthesize lastReadTime;
 @synthesize outputBuffer;
