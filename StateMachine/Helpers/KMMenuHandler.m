@@ -7,7 +7,7 @@
 //
 
 #import "KMMenuHandler.h"
-
+#import <OCMock/OCMock.h>
 
 @implementation KMMenuHandler
 
@@ -27,15 +27,18 @@
 		NSString* menuLine = nil;
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
-			if([item isKindOfClass:[NSString class]])
-				menuLine = [item capitalizedString];
+			if([item isKindOfClass:[NSString class]]) {
+				id m = [item copy];
+				item = [OCMockObject mockForProtocol:@protocol(KMMenu)];
+				[[[item stub] andReturn:[m capitalizedString]] menuLine];
+				[myItems replaceObjectAtIndex:(i-1) withObject:item];
+			}
 			else {
 				OCLog(@"kittymud",info,@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
 				return;
 			}
 		}
-		if(!menuLine)
-			menuLine = [item menuLine];
+		menuLine = [item menuLine];
 		[coordinator sendMessageToBuffer:@"`#`c[`G%d`c] `w%@`x", i, menuLine];
 	}
 	[coordinator sendMessageToBuffer:@"`@"];
@@ -52,7 +55,11 @@
 -(id)getSelection:(KMConnectionCoordinator *)coordinator withSortFunction:(NSInteger (*)(id, id, void*))sortFunction
 {
 	[myItems sortUsingFunction:sortFunction context:NULL];
-	return [self getSelection:coordinator];
+	id selection = [self getSelection:coordinator];
+	if(selection) {
+		KMSetMenuForCoordinatorTo(nil);
+	}
+	return selection;
 }
 
 -(id)getSelection:(KMConnectionCoordinator*)coordinator

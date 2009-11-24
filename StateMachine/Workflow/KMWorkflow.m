@@ -66,18 +66,24 @@ NSMutableDictionary* interpreters;
 	KMSetStateForCoordinatorTo([currentStep myState]); \
 } while(0)
 
+#define KMWFSRM do { \
+	[[currentStep myState] softRebootMessage:coordinator]; \
+} while(0)
+
 -(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator {
 	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(!step)
 		return;
 	currentStep = step;
 	KMWFSS;
+	KMWFSRM;
 	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
 -(void) startWorkflowForCoordinator:(id)coordinator {
 	currentStep = [self firstStep];
 	KMWFSS;
+	KMWFSRM;
 	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
@@ -154,6 +160,14 @@ NSMutableDictionary* interpreters;
 			return;
 		}
 	}
+}
+
+-(void) setWorkflowToStep:(id<KMState>)state forCoordinator:(id)coordinator {
+	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
+	if(!step)
+		return;
+	currentStep = step;
+	KMWFSS;
 }
 
 -(KMWorkflowStep*) getStepForState:(id<KMState>)state {

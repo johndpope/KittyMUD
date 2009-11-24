@@ -40,3 +40,7 @@ extern NSMutableDictionary* interpreters;
 } while(0)
 	
 #define KMGetInterpreterForState(s,l) id<KMInterpreter> l = [interpreters valueForKey:[[[s class] class] getName]];
+
+@interface KMNullState : NSObject <KMState>
+
+@end

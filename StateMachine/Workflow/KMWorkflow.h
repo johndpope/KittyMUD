@@ -40,6 +40,8 @@
 
 -(void) advanceWorkflowForCoordinator:(id)coordinator;
 
+-(void) setWorkflowToStep:(id<KMState>)state forCoordinator:(id)coordinator;
+
 -(KMWorkflowStep*) getStepForState:(id<KMState>)state;
 
 @property (retain,readonly) NSMutableDictionary* steps;

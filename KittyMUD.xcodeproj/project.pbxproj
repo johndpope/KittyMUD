@@ -103,6 +103,8 @@
 		3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XDF.framework */; };
 		3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */; };
+		3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
+		3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */; };
 		3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC1606D10B64B6300728F74 /* OCLog.framework */; };
 		3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22C710B31A790070FCDB /* KMAchievement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22C810B31A790070FCDB /* KMAchievement.m */; };
@@ -252,6 +254,7 @@
 		3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XDF.xcodeproj; path = ../XDF/XDF.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterNameState.h; sourceTree = "<group>"; };
 		3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterNameState.m; sourceTree = "<group>"; };
+		3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNullState.m; sourceTree = "<group>"; };
 		3AC1606810B64B6300728F74 /* OCLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCLog.xcodeproj; path = ../OCLog/OCLog.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3AEF22C710B31A790070FCDB /* KMAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievement.h; sourceTree = "<group>"; };
 		3AEF22C810B31A790070FCDB /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievement.m; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */,
 				3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */,
 				3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
@@ -510,9 +514,10 @@
 				3A2F78BF1098CCC800EA69DC /* KMQuitState.m */,
 				3A2F78C01098CCC800EA69DC /* KMStatAllocationState.h */,
 				3A2F78C11098CCC800EA69DC /* KMStatAllocationState.m */,
-				3A2F78A91098CC5B00EA69DC /* Helpers */,
 				3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */,
 				3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */,
+				3A2F78A91098CC5B00EA69DC /* Helpers */,
+				3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -830,6 +835,7 @@
 				3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */,
 				3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */,
 				3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */,
+				3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +883,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
 					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -928,6 +935,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
 					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
@@ -1026,6 +1034,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
 					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1097,6 +1106,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
 					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1200,6 +1210,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
 					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;

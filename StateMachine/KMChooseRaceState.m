@@ -25,10 +25,10 @@
 		return;
 	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
 	if(character) {
-		[[character getProperties] setObject:[race name] forKey:@"race"];
+		[[character getProperties] setValue:[race name] forKeyPath:@"properties.race"];
 		[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
 	} else {
-		[coordinator setValue:[race name] forKey:@"race"];
+		[coordinator setValue:[race name] forKeyPath:@"properties.race"];
 		[coordinator setFlag:@"race-before-character"];
 	}
 	

@@ -41,6 +41,7 @@
 	}
 		
 	[[coordinator getCharacters] addObject:character];
+	KMSetStateForCoordinatorTo(KMNullState);
 }
 
 +(NSString*) getName

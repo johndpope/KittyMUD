@@ -26,6 +26,7 @@
 		if(![[workflow currentStep] nextStep]) {
 			[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
 		}
+		newState = [[workflow currentStep] myState];
 	}
 	KMGetInterpreterForState(newState,interpreter);
 	if(!interpreter)
