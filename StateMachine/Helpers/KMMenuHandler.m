@@ -56,9 +56,6 @@
 {
 	[myItems sortUsingFunction:sortFunction context:NULL];
 	id selection = [self getSelection:coordinator];
-	if(selection) {
-		KMSetMenuForCoordinatorTo(nil);
-	}
 	return selection;
 }
 
@@ -69,6 +66,7 @@
 		[coordinator sendMessageToBuffer:@"Invalid selection.\n\r "];
 		return nil;
 	}
+	KMSetMenuForCoordinatorTo(nil);
 	id item = [myItems objectAtIndex:(selection - 1)];
 	return item;
 }
