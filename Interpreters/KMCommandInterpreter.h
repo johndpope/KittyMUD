@@ -54,10 +54,10 @@ CDECL(displaycommand) command:(NSString*)command;
 
 @interface KMCommandInterpreter ()
 
--(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl;
+-(BOOL) KM_validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl;
 
--(KMCommandInfo*) findCommandByName:(NSString*)name;
+-(KMCommandInfo*) KM_findCommandByName:(NSString*)name;
 
--(void) rebuildLogics:(id)coordinator;
+-(void) KM_rebuildLogics:(id)coordinator;
 
 @end

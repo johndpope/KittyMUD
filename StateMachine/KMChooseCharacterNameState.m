@@ -30,16 +30,23 @@
 	}
 	[coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
 	[coordinator setFlag:@"has-character"];
-	KMCharacter* character = [[KMCharacter alloc] initializeWithName:name];
+	KMCharacter* character = nil;
+	if(![coordinator valueForKeyPath:@"properties.current-character"]) {
+		character = [[KMCharacter alloc] initializeWithName:name];
+	} else {
+		character = [coordinator valueForKeyPath:@"properties.current-character"];
+	}
 	if([coordinator isFlagSet:@"race-before-character"]) {
 		NSString* r = [coordinator valueForKeyPath:@"properties.race"];
 		KMRace* race = [KMRace getRaceByName:r];
 		[[character getProperties] setObject:[race name] forKey:@"race"];
-		[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
+		if(![coordinator isFlagSet:@"race-bonuses-after-allocation"]) {
+			[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
+		}
 		[coordinator setValue:nil forKeyPath:@"properties.race"];
 		[coordinator clearFlag:@"race-before-character"];
 	}
-		
+	[coordinator setValue:character forKeyPath:@"properties.current-character"];
 	[[coordinator getCharacters] addObject:character];
 	KMSetStateForCoordinatorTo(KMNullState);
 }

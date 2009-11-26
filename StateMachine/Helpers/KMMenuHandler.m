@@ -8,14 +8,17 @@
 
 #import "KMMenuHandler.h"
 #import <OCMock/OCMock.h>
+#import <objc/runtime.h>
 
 @implementation KMMenuHandler
 
 -(id)initializeWithItems:(NSArray*)items
 {
 	self = [super init];
-	if(self)
+	if(self) {
 		myItems = [[NSMutableArray alloc] initWithArray:items];
+		myRealItems = [NSMutableArray arrayWithCapacity:[myItems count]];
+	}
 	return self;
 }
 
@@ -25,12 +28,16 @@
 	for(int i = 1; i <= [myItems count]; i++) {
 		id item = [myItems objectAtIndex:(i-1)];
 		NSString* menuLine = nil;
+		[myRealItems addObject:item];
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
 			if([item isKindOfClass:[NSString class]]) {
 				id m = [item copy];
 				item = [OCMockObject mockForProtocol:@protocol(KMMenu)];
-				[[[item stub] andReturn:[m capitalizedString]] menuLine];
+				NSMutableArray* mParts = [NSMutableArray arrayWithArray:[m componentsSeparatedByString:@" "]];
+				[mParts replaceObjectAtIndex:0 withObject:[[mParts objectAtIndex:0] capitalizedString]];
+				m = [mParts componentsJoinedByString:@" "];
+				[[[item stub] andReturn:m] menuLine];
 				[myItems replaceObjectAtIndex:(i-1) withObject:item];
 			}
 			else {
@@ -67,7 +74,7 @@
 		return nil;
 	}
 	KMSetMenuForCoordinatorTo(nil);
-	id item = [myItems objectAtIndex:(selection - 1)];
+	id item = [myRealItems objectAtIndex:(selection - 1)];
 	return item;
 }
 

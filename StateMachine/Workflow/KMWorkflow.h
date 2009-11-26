@@ -49,4 +49,4 @@
 @property (retain) KMWorkflowStep* firstStep;
 @end
 
-extern NSString* KMCreateCharacterWorkflow;
+extern NSString* const KMCreateCharacterWorkflow;

@@ -23,7 +23,7 @@
 	KMRace* race = [menu getSelection:coordinator];
 	if(!race)
 		return;
-	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
+	KMCharacter* character = [[coordinator getProperties] objectForKey:@"properties.current-character"];
 	if(character) {
 		[[character getProperties] setValue:[race name] forKeyPath:@"properties.race"];
 		[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
@@ -32,7 +32,7 @@
 		[coordinator setFlag:@"race-before-character"];
 	}
 	
-	KMSetStateForCoordinatorTo(KMStatAllocationState);
+	KMSetStateForCoordinatorTo(KMNullState);
 }
 
 +(NSString*) getName

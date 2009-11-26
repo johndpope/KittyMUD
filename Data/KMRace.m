@@ -39,7 +39,7 @@ KMDataManager* kmrace_setUpDataManager() {
 		if([race name]) {
 			OCLog(@"kittymud",info,@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
 			[races addObject:race];
-			[[race bonuses] debugPrintTree:0];
+			[[race bonuses] KM_debugPrintTree:0];
 		}
 	}
 }
@@ -92,7 +92,7 @@ KMDataManager* kmrace_setUpDataManager() {
 
 -(void)debugPrint {
 	OCLog(@"kittymud",info,@"Race name = %@, abbreviation = %@", name, abbreviation);
-	[bonuses debugPrintTree:0];
+	[bonuses KM_debugPrintTree:0];
 }
 
 @end

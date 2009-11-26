@@ -11,6 +11,7 @@
 
 @interface  KMInfoDisplay  : KMObject {
 	NSMutableString* display;
+	NSString* oldColor;
 }
 
 -(id) init;

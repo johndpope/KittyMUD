@@ -19,19 +19,23 @@
 	KMGetStateFromCoordinator(state);
 	[state processState:coordinator];
 	KMGetStateFromCoordinator(newState);
-	if(workflow) {
-		if(newState == state)
-			return;
-		[workflow advanceWorkflowForCoordinator:coordinator];
-		if(![[workflow currentStep] nextStep]) {
-			[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
+	if(newState != state) {
+		if(workflow) {
+			if([workflow getStepForState:newState]) {
+				[workflow setWorkflowToStep:newState forCoordinator:coordinator];
+			} else {
+				[workflow advanceWorkflowForCoordinator:coordinator];
+				if(![[workflow currentStep] nextStep]) {
+					[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
+				}
+			}
+			newState = [[workflow currentStep] myState];					
 		}
-		newState = [[workflow currentStep] myState];
+		KMGetInterpreterForState(newState,interpreter);
+		if(!interpreter)
+			interpreter = [[KMBasicInterpreter alloc] init];
+		KMSetInterpreterForCoordinatorTo(interpreter);
 	}
-	KMGetInterpreterForState(newState,interpreter);
-	if(!interpreter)
-		interpreter = [[KMBasicInterpreter alloc] init];
-	KMSetInterpreterForCoordinatorTo(interpreter);
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
 		[newState softRebootMessage:coordinator];

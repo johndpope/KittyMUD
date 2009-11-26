@@ -36,10 +36,10 @@ extern NSMutableDictionary* interpreters;
 #define KMGetStateFromCoordinator(s) id<KMState> s = [coordinator valueForKeyPath:@"properties.current-state"]
 
 #define KMSetInterpreterForStateTo(s,i) do { \
-	[interpreters setValue:i forKey:[[[s class] class] getName]]; \
+	[interpreters setValue:i forKey:[[s class] getName]]; \
 } while(0)
 	
-#define KMGetInterpreterForState(s,l) id<KMInterpreter> l = [interpreters valueForKey:[[[s class] class] getName]];
+#define KMGetInterpreterForState(s,l) id<KMInterpreter> l = [interpreters valueForKey:[[s class] getName]];
 
 @interface KMNullState : NSObject <KMState>
 

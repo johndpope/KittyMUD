@@ -92,7 +92,7 @@ static NSMutableDictionary* kmMudVariables = nil;
 		NSMutableString* spacing = [[NSMutableString alloc] init];
 		NSString* clrString = [hook processHook:string replace:NO];
 		int i = [clrString length];
-		while(i++ < 79) {
+		while(i++ < 78) {
 			[spacing appendString:@" "];
 		}
 		return (NSString*)spacing;

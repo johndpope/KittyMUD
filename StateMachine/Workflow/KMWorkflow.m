@@ -14,13 +14,16 @@
 #import "KMPlayingState.h"
 
 static NSMutableDictionary* kwfWorkflows;
-NSString* KMCreateCharacterWorkflow = @"KMCreateCharacterWorkflow";
+NSString* const KMCreateCharacterWorkflow = @"KMCreateCharacterWorkflow";
 NSMutableDictionary* interpreters;
 
 @implementation KMWorkflow
 
++(void) load {
+	interpreters = [[NSMutableDictionary alloc] init];
+}
+
 +(void) initialize {
-	interpreters = [NSMutableDictionary dictionary];
 	kwfWorkflows = [NSMutableDictionary dictionary];
 	KMWorkflow* wf = [self createWorkflowForSteps:[[KMChooseRaceState alloc] init],[[KMStatAllocationState alloc] init], [[KMConfirmStatAllocationState alloc] init], [[KMChooseClassState alloc] init], [[KMPlayingState alloc] init], nil];
 	[self setWorkflow:wf forName:KMCreateCharacterWorkflow];

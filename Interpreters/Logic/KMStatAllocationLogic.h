@@ -52,6 +52,8 @@ CDECL(showvalid);
 
 -(BOOL) confirmStats:(id)coordinator;
 
+-(void) generateValidStats;
+
 @property (retain) KMStat* base;
 @property (retain) KMStat* allocBase;
 @property BOOL copiedAllocatable;

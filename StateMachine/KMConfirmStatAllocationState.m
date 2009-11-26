@@ -18,7 +18,7 @@
 	NSString* message = [coordinator getInputBuffer];
 	NSPredicate* yesPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'y'"];
 	if([yesPredicate evaluateWithObject:message])
-		KMSetStateForCoordinatorTo(KMChooseClassState);
+		KMSetStateForCoordinatorTo(KMNullState);
 	return;
 }
 
