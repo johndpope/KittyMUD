@@ -54,6 +54,8 @@
 		logic = [[clogic alloc] initializeWithCommandInterpreter:self];
 	else
 		logic = target;
+	if(class_getSuperclass(clogic))
+		[self KM_registerLogic:class_getSuperclass(clogic) asDefaultTarget:NO withRealTarget:logic];
 	unsigned int count;
 	Method* classMethods = class_copyMethodList(clogic, &count);
 	if(count == 0)
@@ -86,9 +88,8 @@
 	}
 	if(dt)
 		[self setDefaultTarget:logic];
-	[myLogics addObject:NSStringFromClass(clogic)];
-	if(class_getSuperclass(clogic))
-		[self KM_registerLogic:class_getSuperclass(clogic) asDefaultTarget:NO withRealTarget:logic];
+	if(!target)
+		[myLogics addObject:NSStringFromClass(clogic)];
 }	
 
 -(void) registerCommandHelp:(NSString*)name usingShortText:(NSString*)shorttext withLongTextFile:(NSString*)longtextname {

@@ -44,7 +44,6 @@
 	int difference = 0;
 	switch(type) {
 		case KMStatAllocationIncrease:
-			OCLog(@"kittymud",debug,@"%d <-> %d", value, [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]);
 			if(value > [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]) {
 				[coordinator sendMessageToBuffer:@"Not enough points remaining to increase %@.",stat];
 				return;
