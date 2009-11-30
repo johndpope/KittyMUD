@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KMInterpreter.h"
+#import "KMBasicInterpreter.h"
 #import "KMCommandInterpreterLogic.h"
 #import "KMConnectionCoordinator.h"
 #import "KMCommandInfo.h"
 #import "KMObject.h"
 
-@interface  KMCommandInterpreter  : KMObject <KMInterpreter> {
+@interface  KMCommandInterpreter  : KMBasicInterpreter {
 	NSMutableArray* commands;
 	NSMutableDictionary* logics;
 	id<KMCommandInterpreterLogic> defaultTarget;
@@ -53,10 +54,10 @@ CDECL(displaycommand) command:(NSString*)command;
 
 @interface KMCommandInterpreter ()
 
--(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl;
+-(BOOL) KM_validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl;
 
--(KMCommandInfo*) findCommandByName:(NSString*)name;
+-(KMCommandInfo*) KM_findCommandByName:(NSString*)name;
 
--(void) rebuildLogics:(id)coordinator;
+-(void) KM_rebuildLogics:(id)coordinator;
 
 @end

@@ -28,10 +28,10 @@ extern KMExitDirection directionFromString( NSString* dir );
 		if(![[roomToLoad substringWithRange:NSMakeRange([roomToLoad length] - 4, 4)] isEqualToString:@".xml"])
 			continue;
 		NSArray* room = [KMRoom loadRoomWithPath:[[NSString stringWithFormat:@"$(KMRoomSourceDir)/%@",roomToLoad] replaceAllVariables]];
-		NSLog(@"Adding rooms for sector %@...", [[room objectAtIndex:0] sector]);
+		OCLog(@"kittymud",info,@"Adding rooms for sector %@...", [[room objectAtIndex:0] sector]);
 		[rooms addObjectsFromArray:room];
 	}
-	NSLog(@"Resolving exits...");
+	OCLog(@"kittymud",info,@"Resolving exits...");
 	[KMRoom resolveExits:YES];
 }	
 
@@ -106,18 +106,18 @@ extern KMExitDirection directionFromString( NSString* dir );
 			NSArray* roomsWhichPass = [rooms filteredArrayUsingPredicate:exitTest];
 			if([roomsWhichPass count] > 0) {
 				if([roomsWhichPass count] > 1) {
-					NSLog(@"Ambiguous reference for exit %@ in room %@.", [exit destination], [room roomID]);
+					OCLog(@"kittymud",info,@"Ambiguous reference for exit %@ in room %@.", [exit destination], [room roomID]);
 					if(remove) {
-						NSLog(@"Removing exit %@ from room %@.", [exit destination], [room roomID]);
+						OCLog(@"kittymud",info,@"Removing exit %@ from room %@.", [exit destination], [room roomID]);
 						[[room exitInfo] removeObject:exit];
 					}
 					continue;
 				}
 				[exit setRoom:[roomsWhichPass objectAtIndex:0]];
 			} else {
-				NSLog(@"Unable to resolve exit %@ in room %@.", [exit destination], [room roomID]);
+				OCLog(@"kittymud",info,@"Unable to resolve exit %@ in room %@.", [exit destination], [room roomID]);
 				if(remove) {
-					NSLog(@"Removing exit %@ from room %@.", [exit destination], [room roomID]);
+					OCLog(@"kittymud",info,@"Removing exit %@ from room %@.", [exit destination], [room roomID]);
 					[[room exitInfo] removeObject:exit];
 				}
 				continue;
@@ -219,7 +219,7 @@ extern KMExitDirection directionFromString( NSString* dir );
 
 +(void) debugPrintInfo {
 	for(KMRoom* room in rooms) {
-		NSLog(@"%@::%@ (%@)", [room sector], [room roomID], [room roomTitle]);
+		OCLog(@"kittymud",info,@"%@::%@ (%@)", [room sector], [room roomID], [room roomTitle]);
 		for(KMExitInfo* exit in [room exitInfo]) {
 			NSString* direction = @"north: ";
 			switch([exit direction]) {
@@ -242,7 +242,7 @@ extern KMExitDirection directionFromString( NSString* dir );
 					direction = @"down: ";
 					break;
 			}
-			NSLog(@"  %@%@,%@::%@", direction, [exit destination], [[exit room] sector], [[exit room] roomID]);
+			OCLog(@"kittymud",info,@"  %@%@,%@::%@", direction, [exit destination], [[exit room] sector], [[exit room] roomID]);
 		}
 	}
 }

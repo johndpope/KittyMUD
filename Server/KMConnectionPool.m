@@ -38,7 +38,8 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 			[coordinator setOutputBuffer:@""];
 			[coordinator setFlag:@"message-direct"];
 			if(![coordinator isFlagSet:@"no-message"]) {
-				[[coordinator currentState] softRebootMessage:coordinator];
+				KMGetStateFromCoordinator(currentState);
+				[currentState softRebootMessage:coordinator];
 			}
 			[coordinator clearFlag:@"no-message"];
 			[coordinator clearFlag:@"message-direct"];
@@ -55,7 +56,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	KMConnectionCoordinator* coordinator = (KMConnectionCoordinator*)info;
 	NSString* inputString = [[NSString alloc] initWithData:(NSData*)data encoding:NSUTF8StringEncoding];
 	if([inputString characterAtIndex:0] == '\x04') {
-		NSLog(@"Encountered end-of-file from socket %d, closing connection...", CFSocketGetNative( socket ));
+		OCLog(@"kittymud",info,@"Encountered end-of-file from socket %d, closing connection...", CFSocketGetNative( socket ));
 		[pool removeConnection:coordinator];
 		return;
 	}
@@ -93,10 +94,10 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		[connections addObject:coordinator];
 	if(!softReboot) {
 		[coordinator sendMessageToBuffer:greeting];
-		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		[coordinator setCurrentState:[[(id)defaultState alloc] init]];
+		KMSetStateForCoordinatorTo(defaultState);
 	} else {
-		[[coordinator currentState] softRebootMessage:coordinator];
+		KMGetStateFromCoordinator(currentState);
+		[currentState softRebootMessage:coordinator];
 		[coordinator setFlag:@"no-message"];
 	}
 	return coordinator;
@@ -132,7 +133,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		int native = CFSocketGetNative([connection getSocket]);
 		CFSocketInvalidate([connection getSocket]);
 		[connection releaseSocket];
-		NSLog(@"Closing socket %d.", native);
+		OCLog(@"kittymud",info,@"Closing socket %d.", native);
 	}
 }
 

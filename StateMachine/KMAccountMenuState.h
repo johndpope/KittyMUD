@@ -12,12 +12,6 @@
 #import "KMObject.h"
 
 @interface  KMAccountMenuState  : KMObject <KMState> {
-	NSMutableArray* myItems;
-	KMMenuHandler* menu;
 }
 
--(id) initializeWithCoordinator:(id)coordinator;
-
-@property (copy) NSMutableArray* myItems;
-@property (retain) KMMenuHandler* menu;
 @end

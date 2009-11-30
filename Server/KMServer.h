@@ -18,7 +18,7 @@ typedef enum {
     kKMServerNoSocketsAvailable = 2,
 } KMServerErrorCode;
 
-@interface  KMServer  : KMObject {
+@interface  KMServer  : NSObject {
 	@private
 	CFSocketRef serverSocket;
 	int currentPoolId;

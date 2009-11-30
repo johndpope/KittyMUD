@@ -100,12 +100,50 @@
 		3A427CB6109B42A500E1C502 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F79041098CDC400EA69DC /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
+		3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XDF.framework */; };
+		3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */; };
+		3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
+		3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */; };
+		3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC1606D10B64B6300728F74 /* OCLog.framework */; };
+		3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22C710B31A790070FCDB /* KMAchievement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22C810B31A790070FCDB /* KMAchievement.m */; };
+		3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */; };
 		3AFA20E8109945D40038B52D /* KMWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA20E7109945D40038B52D /* KMWorkflowTests.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = XDF;
+		};
+		3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = XDF;
+		};
+		3AC1606C10B64B6300728F74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = OCLog;
+		};
+		3AC1607110B64B7400728F74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = OCLog;
+		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -213,6 +251,15 @@
 		3A427B86109A9AC800E1C502 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
+		3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XDF.xcodeproj; path = ../XDF/XDF.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterNameState.h; sourceTree = "<group>"; };
+		3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterNameState.m; sourceTree = "<group>"; };
+		3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNullState.m; sourceTree = "<group>"; };
+		3AC1606810B64B6300728F74 /* OCLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCLog.xcodeproj; path = ../OCLog/OCLog.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3AEF22C710B31A790070FCDB /* KMAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievement.h; sourceTree = "<group>"; };
+		3AEF22C810B31A790070FCDB /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievement.m; sourceTree = "<group>"; };
+		3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievementEngine.h; sourceTree = "<group>"; };
+		3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievementEngine.m; sourceTree = "<group>"; };
 		3AFA20C41099437E0038B52D /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
 		3AFA20E6109945D40038B52D /* KMWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowTests.h; sourceTree = "<group>"; };
@@ -239,6 +286,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */,
+				3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */,
+				3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */,
 			);
@@ -277,6 +327,8 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3AC1606810B64B6300728F74 /* OCLog.xcodeproj */,
+				3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -295,6 +347,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3AEF22C410B31A170070FCDB /* Achievements */,
 				3A2F78EB1098CD2000EA69DC /* Server */,
 				3A2F78A81098CC4200EA69DC /* StateMachine */,
 				3A2F788D1098CBE600EA69DC /* Utility */,
@@ -461,7 +514,10 @@
 				3A2F78BF1098CCC800EA69DC /* KMQuitState.m */,
 				3A2F78C01098CCC800EA69DC /* KMStatAllocationState.h */,
 				3A2F78C11098CCC800EA69DC /* KMStatAllocationState.m */,
+				3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */,
+				3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */,
 				3A2F78A91098CC5B00EA69DC /* Helpers */,
+				3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -499,6 +555,33 @@
 				3A2F78F11098CD4600EA69DC /* KMServer.m */,
 			);
 			path = Server;
+			sourceTree = "<group>";
+		};
+		3A7EA38010B16D0D00533965 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A7EA38410B16D0D00533965 /* XDF.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AC1606910B64B6300728F74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AC1606D10B64B6300728F74 /* OCLog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AEF22C410B31A170070FCDB /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				3AEF22C710B31A790070FCDB /* KMAchievement.h */,
+				3AEF22C810B31A790070FCDB /* KMAchievement.m */,
+				3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */,
+				3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */,
+			);
+			path = Achievements;
 			sourceTree = "<group>";
 		};
 		3AFA20E41099449F0038B52D /* Unit Tests */ = {
@@ -565,6 +648,9 @@
 				3A427B6B109A99D000E1C502 /* KMWorkflowStep.h in Headers */,
 				3A427CB6109B42A500E1C502 /* KMState.h in Headers */,
 				3A427E59109C7D6700E1C502 /* KMObject.h in Headers */,
+				3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */,
+				3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */,
+				3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +688,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				3A7EA3A310B16DF300533965 /* PBXTargetDependency */,
+				3AC1607210B64B7400728F74 /* PBXTargetDependency */,
 			);
 			name = KittyMUD;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -623,6 +711,16 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* KittyMUD */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3AC1606910B64B6300728F74 /* Products */;
+					ProjectRef = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+				},
+				{
+					ProductGroup = 3A7EA38010B16D0D00533965 /* Products */;
+					ProjectRef = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* KittyMUD */,
@@ -630,6 +728,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A7EA38410B16D0D00533965 /* XDF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XDF.framework;
+			remoteRef = 3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3AC1606D10B64B6300728F74 /* OCLog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OCLog.framework;
+			remoteRef = 3AC1606C10B64B6300728F74 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3AFA20BF1099437E0038B52D /* Resources */ = {
@@ -717,12 +832,26 @@
 				3A427B69109A99D000E1C502 /* KMWorkflow.m in Sources */,
 				3A427B6A109A99D000E1C502 /* KMWorkflowStep.m in Sources */,
 				3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */,
+				3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */,
+				3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */,
+				3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */,
+				3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A7EA3A310B16DF300533965 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XDF;
+			targetProxy = 3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */;
+		};
+		3AC1607210B64B7400728F74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OCLog;
+			targetProxy = 3AC1607110B64B7400728F74 /* PBXContainerItemProxy */;
+		};
 		3AFA20CB109943CF0038B52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* KittyMUD */;
@@ -751,6 +880,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -758,9 +892,31 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = .;
+				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -777,13 +933,40 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = .;
+				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -850,6 +1033,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -857,9 +1045,31 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = .;
+				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -896,6 +1106,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -903,9 +1118,31 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = .;
+				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;
@@ -974,6 +1211,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../OCLog/build/",
+					"$(SRCROOT)/../XDF/build/",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -981,9 +1223,31 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = .;
+				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
+				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_EXPORT_DECL = "";
 				VERSION_INFO_PREFIX = KM;

@@ -5,3 +5,10 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+#define USE_XDF
+#include <OCLog/OCLog.h>
+
+#define KMECS(n) extern NSString* const n
+
+#define KMCS(n,v) NSString* const n = v

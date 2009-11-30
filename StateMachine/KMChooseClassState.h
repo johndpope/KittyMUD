@@ -12,12 +12,6 @@
 #import "KMObject.h"
 
 @interface  KMChooseClassState  : KMObject <KMState> {
-	NSArray* klasses;
-	KMMenuHandler* menu;
 }
 
--(id)init;
-
-@property (retain) NSArray* klasses;
-@property (retain) KMMenuHandler* menu;
 @end

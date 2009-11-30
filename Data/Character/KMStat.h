@@ -84,7 +84,7 @@ typedef enum
 
 @interface KMStat ()
 
--(void)debugPrintTree:(int)tabLevel;
+-(void)KM_debugPrintTree:(int)tabLevel;
 
 @end 
 

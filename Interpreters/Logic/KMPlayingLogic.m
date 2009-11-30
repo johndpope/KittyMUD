@@ -79,6 +79,7 @@ static void moveBase(KMConnectionCoordinator* coordinator, KMExitDirection exitD
 	}
 }
 
+KMExitDirection directionFromString(NSString*);
 KMExitDirection directionFromString( NSString* dir ) {
 	if([@"north" hasPrefix:dir])
 		return KMExitNorth;

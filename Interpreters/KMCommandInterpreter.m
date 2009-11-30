@@ -13,6 +13,12 @@
 #import "KMServer.h"
 #import <objc/runtime.h>
 
+@interface KMCommandInterpreter ()
+
+-(void) KM_registerLogic:(Class)clogic asDefaultTarget:(BOOL)dt withRealTarget:(id)target;
+
+@end
+
 @implementation KMCommandInterpreter
 
 -(id) init {
@@ -35,11 +41,21 @@
 	[self registerLogic:clogic asDefaultTarget:NO];
 }
 
--(void) registerLogic:(Class)clogic asDefaultTarget:(BOOL)dt
+-(void) registerLogic:(Class)clogic asDefaultTarget:(BOOL)dt {
+	[self KM_registerLogic:clogic asDefaultTarget:dt withRealTarget:nil];
+}
+
+-(void) KM_registerLogic:(Class)clogic asDefaultTarget:(BOOL)dt withRealTarget:(id)target
 {
 	if(!class_conformsToProtocol(clogic, @protocol(KMCommandInterpreterLogic)))
 		return;
-	id<KMCommandInterpreterLogic> logic = [[clogic alloc] initializeWithCommandInterpreter:self];
+	id<KMCommandInterpreterLogic> logic;
+	if(!target) 
+		logic = [[clogic alloc] initializeWithCommandInterpreter:self];
+	else
+		logic = target;
+	if(class_getSuperclass(clogic))
+		[self KM_registerLogic:class_getSuperclass(clogic) asDefaultTarget:NO withRealTarget:logic];
 	unsigned int count;
 	Method* classMethods = class_copyMethodList(clogic, &count);
 	if(count == 0)
@@ -72,11 +88,12 @@
 	}
 	if(dt)
 		[self setDefaultTarget:logic];
-	[myLogics addObject:NSStringFromClass(clogic)];
+	if(!target)
+		[myLogics addObject:NSStringFromClass(clogic)];
 }	
 
 -(void) registerCommandHelp:(NSString*)name usingShortText:(NSString*)shorttext withLongTextFile:(NSString*)longtextname {
-	KMCommandInfo* command = [self findCommandByName:name];
+	KMCommandInfo* command = [self KM_findCommandByName:name];
 	if(!command)
 		return;
 	[command setHelp:[[NSMutableDictionary alloc] initWithObjectsAndKeys:shorttext,@"short",longtextname,@"long"]];
@@ -84,7 +101,7 @@
 
 -(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)cflags withMinimumLevel:(int)level
 {
-	KMCommandInfo* cmd = [self findCommandByName:name];
+	KMCommandInfo* cmd = [self KM_findCommandByName:name];
 	if(cmd != nil) {
 		[commands removeObject:cmd];
 	}
@@ -104,16 +121,15 @@
 {
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
-	KMCommandInfo* command = [self findCommandByName:commandName];
+	KMCommandInfo* command = [self KM_findCommandByName:commandName];
 	
 	if(command == NULL)
 	{
-		[coordinator sendMessageToBuffer:@"Failed to find command."];
 		[coordinator sendMessageToBuffer:@"Unknown command entered."];
 		return;
 	}
 	
-	if([commandmakeup count] > 1 && [[commandmakeup objectAtIndex:1] isEqualToString:@"-help"] && [self validateInput:command forCoordinator:coordinator onlyFlagsAndLevel:YES]) {
+	if([commandmakeup count] > 1 && [[commandmakeup objectAtIndex:1] isEqualToString:@"-help"] && [self KM_validateInput:command forCoordinator:coordinator onlyFlagsAndLevel:YES]) {
 		if(![[command help] objectForKey:@"short"]) {
 			[coordinator sendMessageToBuffer:@"Help not available for command."];
 			if(defaultTarget) {
@@ -125,7 +141,7 @@
 		[coordinator sendMessageToBuffer:[[command help] objectForKey:@"short"]];
 		return;
 	}
-	if(![self validateInput:command forCoordinator:coordinator onlyFlagsAndLevel:NO])
+	if(![self KM_validateInput:command forCoordinator:coordinator onlyFlagsAndLevel:NO])
 	{
 		[coordinator sendMessageToBuffer:@"Unknown command entered."];
 		return;
@@ -146,13 +162,10 @@
 		}
 	}
 	[invocation invoke];
-	if(![coordinator isFlagSet:@"no-message"]) {
-		[[coordinator currentState] softRebootMessage:coordinator];
-		[coordinator setFlag:@"no-message"];
-	}
+	[super interpret:coordinator];
 }
 
--(BOOL) validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl
+-(BOOL) KM_validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl
 {
 	Method m = class_getInstanceMethod([[command target] class], NSSelectorFromString([command method]));
 	int numArgs = method_getNumberOfArguments(m);
@@ -160,15 +173,13 @@
 	if(!ofl) {
 		int numOpt = [[command optArgs] count];
 		if([commandmakeup count] < (numArgs - 3 - numOpt)) {
-			[coordinator sendMessage:[NSString stringWithFormat:@"%d arguments expected, %d gotten", numArgs, [commandmakeup count]]];
-			[coordinator sendMessage:@"Failed arguments."];
+			[coordinator sendMessage:@"%d arguments expected, %d gotten", numArgs, [commandmakeup count]];
 			return NO;
 		}
 	}
 	if([command cmdflags]) {
 		for(NSString* flag in [command cmdflags]) {
 			if(![[coordinator valueForKeyPath:@"properties.current-character"] isFlagSet:flag]) {
-				[coordinator sendMessage:@"Failed flags."];
 				return NO;
 			}
 		}
@@ -179,7 +190,7 @@
 	return YES;
 }
 
--(KMCommandInfo*) findCommandByName:(NSString*)name
+-(KMCommandInfo*) KM_findCommandByName:(NSString*)name
 {
 	for(KMCommandInfo* cmd in commands) {
 		if([[cmd name] hasPrefix:name])
@@ -201,8 +212,8 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 			[defaultTarget displayHelpToCoordinator:coordinator];
 		return;
 	}
-	KMCommandInfo* cmd = [self findCommandByName:command];
-	if(!cmd || ![self validateInput:cmd forCoordinator:coordinator onlyFlagsAndLevel:YES]) {
+	KMCommandInfo* cmd = [self KM_findCommandByName:command];
+	if(!cmd || ![self KM_validateInput:cmd forCoordinator:coordinator onlyFlagsAndLevel:YES]) {
 		[coordinator sendMessageToBuffer:@"Unknown command."];
 		return;
 	}
@@ -214,22 +225,26 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 
 CHELP(rebuildlogics,@"Rebuilds the logics for all command interpreters in use at the time.  Used when soft rebooting with changed commands.",nil)
 CIMPL(rebuildlogics,rebuildlogics:,nil,nil,@"admin",1) {
+	KMConnectionCoordinator* tc = coordinator;
 	for(KMConnectionCoordinator* coord in [[[KMServer getDefaultServer] getConnectionPool] connections]) {
-		if([[coord interpreter] isKindOfClass:[KMCommandInterpreter class]]) {
-			[(KMCommandInterpreter*)[coord interpreter] rebuildLogics:coord];
+		coordinator = coord;
+		KMGetInterpreterForCoordinator(interpreter);
+		if([interpreter isKindOfClass:[KMCommandInterpreter class]]) {
+			[(KMCommandInterpreter*)interpreter KM_rebuildLogics:coord];
 		}
 	}
+	coordinator = tc;
 }
 
 CIMPL(displaycommand,displaycommand:command:,nil,nil,nil,1) command:(NSString*)command {
-	KMCommandInfo* cmd = [self findCommandByName:command];
+	KMCommandInfo* cmd = [self KM_findCommandByName:command];
 	if(cmd == nil) {
 		[coordinator sendMessageToBuffer:@"No command found."];
 	}
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Command %@, Optional Arguments: %d, Flags Required: %d",[cmd name], [[cmd optArgs] count], [[cmd cmdflags] count]]];
+	[coordinator sendMessageToBuffer:@"Command %@, Optional Arguments: %d, Flags Required: %d",[cmd name], [[cmd optArgs] count], [[cmd cmdflags] count]];
 }
 
--(void) rebuildLogics:(id)coordinator {
+-(void) KM_rebuildLogics:(id)coordinator {
 	[coordinator sendMessageToBuffer:@"Rebuilding your command interpreter logics...please stand by."];
 	[commands removeAllObjects];
 	[self commandSetuphelp:self];

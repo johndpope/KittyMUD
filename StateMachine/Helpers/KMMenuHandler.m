@@ -7,15 +7,18 @@
 //
 
 #import "KMMenuHandler.h"
-
+#import <OCMock/OCMock.h>
+#import <objc/runtime.h>
 
 @implementation KMMenuHandler
 
 -(id)initializeWithItems:(NSArray*)items
 {
 	self = [super init];
-	if(self)
+	if(self) {
 		myItems = [[NSMutableArray alloc] initWithArray:items];
+		myRealItems = [NSMutableArray arrayWithCapacity:[myItems count]];
+	}
 	return self;
 }
 
@@ -25,21 +28,28 @@
 	for(int i = 1; i <= [myItems count]; i++) {
 		id item = [myItems objectAtIndex:(i-1)];
 		NSString* menuLine = nil;
+		[myRealItems addObject:item];
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
-			if([item isKindOfClass:[NSString class]])
-				menuLine = [item capitalizedString];
+			if([item isKindOfClass:[NSString class]]) {
+				id m = [item copy];
+				item = [OCMockObject mockForProtocol:@protocol(KMMenu)];
+				NSMutableArray* mParts = [NSMutableArray arrayWithArray:[m componentsSeparatedByString:@" "]];
+				[mParts replaceObjectAtIndex:0 withObject:[[mParts objectAtIndex:0] capitalizedString]];
+				m = [mParts componentsJoinedByString:@" "];
+				[[[item stub] andReturn:m] menuLine];
+				[myItems replaceObjectAtIndex:(i-1) withObject:item];
+			}
 			else {
-				NSLog(@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
+				OCLog(@"kittymud",info,@"Non-conforming menu item.  Please fix this, otherwise the menu handler breaks.  Terminating loop.  Your user will see a broken menu and will not be able to progress.");
 				return;
 			}
 		}
-		if(!menuLine)
-			menuLine = [item menuLine];
-		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"`#`c[`G%d`c] `w%@`x", i, menuLine]];
+		menuLine = [item menuLine];
+		[coordinator sendMessageToBuffer:@"`#`c[`G%d`c] `w%@`x", i, menuLine];
 	}
 	[coordinator sendMessageToBuffer:@"`@"];
-	[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]]];
+	[coordinator sendMessageToBuffer:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]];
 	
 }
 
@@ -52,7 +62,8 @@
 -(id)getSelection:(KMConnectionCoordinator *)coordinator withSortFunction:(NSInteger (*)(id, id, void*))sortFunction
 {
 	[myItems sortUsingFunction:sortFunction context:NULL];
-	return [self getSelection:coordinator];
+	id selection = [self getSelection:coordinator];
+	return selection;
 }
 
 -(id)getSelection:(KMConnectionCoordinator*)coordinator
@@ -62,7 +73,8 @@
 		[coordinator sendMessageToBuffer:@"Invalid selection.\n\r "];
 		return nil;
 	}
-	id item = [myItems objectAtIndex:(selection - 1)];
+	KMSetMenuForCoordinatorTo(nil);
+	id item = [myRealItems objectAtIndex:(selection - 1)];
 	return item;
 }
 

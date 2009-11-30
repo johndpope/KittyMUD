@@ -16,23 +16,25 @@
 
 @implementation KMPlayingState
 
--(id<KMState>) processState:(id)coordinator
-{
-	return self;
++(void) initialize {
+	KMCommandInterpreter* playingInterpreter = [[KMCommandInterpreter alloc] init];
+	[playingInterpreter registerLogic:[KMPlayingLogic class] asDefaultTarget:NO];
+	KMSetInterpreterForStateTo(KMPlayingState,playingInterpreter);
 }
 
--(NSString*) getName
++(void) processState:(id)coordinator
+{
+	return;
+}
+
++(NSString*) getName
 {
 	return @"Playing";
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
-	if([coordinator isFlagSet:@"clear-workflow"]) {
-		[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
-		[coordinator clearFlag:@"clear-workflow"];
-	}
 	if(![coordinator isFlagSet:@"no-display-room"])
 		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
 	NSMutableDictionary* promptVars = [[NSMutableDictionary alloc] init];

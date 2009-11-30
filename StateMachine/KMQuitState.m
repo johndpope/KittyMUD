@@ -12,19 +12,19 @@
 
 @implementation KMQuitState
 
--(id<KMState>) processState:(id)coordinator
+
++(void) processState:(id)coordinator
 {
 	[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
-	return nil;
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"Quit";
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
 	[coordinator sendMessage:@"Thanks for playing, hope we see you again soon."];
 	[self processState:coordinator];

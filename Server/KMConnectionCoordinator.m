@@ -9,7 +9,7 @@
 #import "KMConnectionCoordinator.h"
 #import "KMServer.h"
 #import "KMCharacter.h"
-
+#import "KMBasicInterpreter.h"
 
 /*
  * This class represents the abstraction between the socket and the rest of the MUD.
@@ -24,6 +24,7 @@
 	self = [super init];
 	if( self ) {
 		characters = [[NSMutableArray alloc] init];
+		[self setValue:[[KMBasicInterpreter alloc] init] forKeyPath:@"properties.current-interpreter"];
 	}
 	return self;
 }
@@ -61,20 +62,28 @@ static NSString* sendMessageBase(NSString* message) {
 	return message;
 }
 
--(BOOL) sendMessage:(NSString*)message
+-(BOOL) sendMessage:(NSString*)message,...
 {
+	va_list args;
+	va_start(args,message);
+	message = [[NSString alloc] initWithFormat:message arguments:args];
+	va_end(args);
 	message = sendMessageBase(message);
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	if(CFSocketSendData(socket, NULL, (CFDataRef)data, 0) != kCFSocketSuccess) {
-		NSLog(@"Error sending data to connection, closing connection...");
+		OCLog(@"kittymud",info,@"Error sending data to connection, closing connection...");
 		[[[KMServer getDefaultServer] getConnectionPool] removeConnection:self];
 		return NO;
 	}
 	return YES;
 }
 
--(void) sendMessageToBuffer:(NSString *)message
+-(void) sendMessageToBuffer:(NSString *)message,...
 {
+	va_list args;
+	va_start(args,message);
+	message = [[NSString alloc] initWithFormat:message arguments:args];
+	va_end(args);
 	if([self isFlagSet:@"message-direct"]) {
 		[self sendMessage:message];
 		return;
@@ -104,7 +113,7 @@ static NSString* sendMessageBase(NSString* message) {
 	CFSocketContext newContext = { 0, self, NULL, NULL, NULL };
 	socket = CFSocketCreateWithNative(kCFAllocatorDefault, handle, kCFSocketDataCallBack, callback, &newContext);
 	if(socket == NULL) {
-		NSLog(@"[WARNING] Error creating new socket, not adding to pool and closing...");
+		OCLog(@"kittymud",info,@"[WARNING] Error creating new socket, not adding to pool and closing...");
 		close( handle );
 		return NO;
 	}
@@ -113,10 +122,6 @@ static NSString* sendMessageBase(NSString* message) {
 	CFRunLoopAddSource(rl, connRLS, kCFRunLoopCommonModes);
 	CFRelease(connRLS);
 	return YES;
-}
-
--(void) setInterpreter:(id<KMInterpreter>)interp {
-	interpreter = interp;
 }
 
 -(void) saveToXML:(NSString*)dirToSave
@@ -173,18 +178,16 @@ static NSString* sendMessageBase(NSString* message) {
 	[fh closeFile];
 }
 
--(id) valueForUndefinedKey:(NSString *)key {
+/*-(id) valueForUndefinedKey:(NSString *)key {
 	return [NSNull null];
 }
 
 -(void) setValue:(id)value forUndefinedKey:(NSString*)key {
 	return;
-}
+}*/
 
 @synthesize lastReadTime;
 @synthesize outputBuffer;
-@synthesize currentState;
-@synthesize interpreter;
 @synthesize characters;
 @synthesize inputBuffer;
 @end

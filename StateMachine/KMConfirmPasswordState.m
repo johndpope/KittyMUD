@@ -16,7 +16,7 @@
 
 @implementation KMConfirmPasswordState
 
--(id<KMState>) processState:(id)coordinator
++(void) processState:(id)coordinator
 {
 	NSString* hash = [[coordinator getInputBuffer] MD5];
 	if(![[[coordinator getProperties] objectForKey:@"password"] isEqualToString:hash])
@@ -24,7 +24,8 @@
 		if([coordinator isFlagSet:@"new-password"])
 		{
 			[coordinator sendMessageToBuffer:@"Your passwords do not match, please re-enter:"];
-			return [[KMNewPasswordState alloc] init];
+			KMSetStateForCoordinatorTo(KMNewPasswordState);
+			return;
 		}
 		id attemptString = [[coordinator getProperties] objectForKey:@"password-attempts"];
 		int attempts = 1;
@@ -37,21 +38,21 @@
 			[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
 			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
 		}
-		[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Invalid password, please re-enter (%d attempts left):",5-attempts]];
+		[coordinator sendMessageToBuffer:@"Invalid password, please re-enter (%d attempts left):",5-attempts];
 		[coordinator setFlag:@"no-message"];
-		return [[KMConfirmPasswordState alloc] init];
+		return;
 	}
 	[coordinator clearFlag:@"new-password"];
 	[[coordinator getProperties] setObject:@"0" forKey:@"password-attempts"];
-	return [[KMAccountMenuState alloc] initializeWithCoordinator:coordinator];
+	KMSetStateForCoordinatorTo(KMAccountMenuState);
 }
 
--(NSString*) getName
++(NSString*) getName
 {
 	return @"ConfirmPassword";
 }
 
--(void) softRebootMessage:(id)coordinator
++(void) softRebootMessage:(id)coordinator
 {
 	if([coordinator isFlagSet:@"new-password"])
 		[coordinator sendMessageToBuffer:@"Please confirm your password:"];

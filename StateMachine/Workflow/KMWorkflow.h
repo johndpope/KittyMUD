@@ -14,9 +14,9 @@
 @interface  KMWorkflow  : KMObject {
 	NSMutableDictionary* steps;
 	KMWorkflowStep* currentStep;
+	KMWorkflowStep* firstStep;
+	NSMutableDictionary* interpretersForStep;
 }
-
--(id) init;
 
 -(void) addStep:(id<KMState>)state;
 
@@ -30,12 +30,23 @@
 
 +(KMWorkflow*)createWorkflowForSteps:(id<KMState>)firstStep,...;
 
--(id<KMState>) startWorkflowAtStep:(id<KMState>)state;
++(void) setWorkflow:(KMWorkflow*)aWorkflow forName:(NSString*)aString;
 
--(id<KMState>) advanceWorkflow;
++(KMWorkflow*) getWorkflowForName:(NSString*)string;
+
+-(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator;
+
+-(void) startWorkflowForCoordinator:(id)coordinator;
+
+-(void) advanceWorkflowForCoordinator:(id)coordinator;
+
+-(void) setWorkflowToStep:(id<KMState>)state forCoordinator:(id)coordinator;
 
 -(KMWorkflowStep*) getStepForState:(id<KMState>)state;
 
 @property (retain,readonly) NSMutableDictionary* steps;
 @property (retain) KMWorkflowStep* currentStep;
+@property (retain) KMWorkflowStep* firstStep;
 @end
+
+extern NSString* const KMCreateCharacterWorkflow;

@@ -44,9 +44,8 @@
 	int difference = 0;
 	switch(type) {
 		case KMStatAllocationIncrease:
-			NSLog(@"%d <-> %d", value, [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]);
 			if(value > [[[st parent] valueForKeyPath:@"properties.allocatable"] intValue]) {
-				[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Not enough points remaining to increase %@.",stat]];
+				[coordinator sendMessageToBuffer:@"Not enough points remaining to increase %@.",stat];
 				return;
 			}
 			[st setStatvalue:([st statvalue] + value)];
@@ -54,7 +53,7 @@
 			break;
 		case KMStatAllocationDecrease:
 			if( value > ([st statvalue] - [baseStat statvalue]) ) {
-				[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"Not enough points to decrease %@.",stat]];
+				[coordinator sendMessageToBuffer:@"Not enough points to decrease %@.",stat];
 				return;
 			}
 			[st setStatvalue:([st statvalue] - value)];
@@ -98,14 +97,7 @@ CHELP(quit,@"Quits the allocation, saves changes.  Does not confirm even if you 
 CIMPL(quit,quit:,nil,nil,nil,1) {
 	BOOL ready = [self confirmStats:coordinator];	
 	if( ready ) {
-		[coordinator setInterpreter:[[KMBasicInterpreter alloc] init]];
-		KMWorkflow* wf = [coordinator valueForKeyPath:@"properties.current-workflow"];
-		if(wf) {
-			id<KMState> newState = [wf advanceWorkflow];
-			[coordinator setCurrentState:newState];
-		} else {
-			[coordinator setCurrentState:[[KMConfirmStatAllocationState alloc] init]];
-		}
+		KMSetStateForCoordinatorTo(KMNullState);
 		[[coordinator valueForKeyPath:@"properties.current-character"] setFlag:@"allocated"];
 		return;
 	}
@@ -121,25 +113,16 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 
 -(void) generateValidStats
 {
-	NSPredicate* changeableOnCollection = [NSPredicate predicateWithFormat:@"children.@count.intValue > 0 and properties.changeable == yes"];
-	[allocBase debugPrintTree:0];
-	for(KMStat* stat in [allocBase getChildren]) {
-		[stat debugPrintTree:0];
-		NSLog(@"%d %@", [[stat valueForKeyPath:@"children.@count"] intValue], [[stat valueForKeyPath:@"properties.changeable"] boolValue] ? @"YES" : @"NO");
-	}
+	NSPredicate* changeableOnCollection = [NSPredicate predicateWithFormat:@"properties.changeable == yes"];
 	NSArray* changeableCollection = [[allocBase getChildren] filteredArrayUsingPredicate:changeableOnCollection];
-	NSLog(@"Filtered array.");
 	for(KMStat* stat in changeableCollection) {
-		NSLog(@"%@",[NSString stringWithFormat:@"(%@|%@)",[stat name], [stat abbreviation]]);
 		[validStats addObject:[NSString stringWithFormat:@"(%@|%@)",[stat name], [stat abbreviation]]];
 		NSPredicate* changeableOnCollectionReverse = [NSPredicate predicateWithFormat:@"children.@count.intValue == 0 and properties.changeable == yes"];
 		NSArray* changeableCollectionReverse = [[stat getChildren] filteredArrayUsingPredicate:changeableOnCollectionReverse];
 		for(KMStat* child in changeableCollectionReverse) {
 			if([[[child parent] name] isEqualToString:@"main"]) {
-				NSLog(@"%@", [NSString stringWithFormat:@"(%@|%@)",[child name], [child abbreviation]]);
 				[validStats addObject:[NSString stringWithFormat:@"(%@|%@)",[child name], [child abbreviation]]];
 			} else {
-				NSLog(@"%@", [NSString stringWithFormat:@"(%@|%@)::(%@|%@)",[[child parent] name],[[child parent] abbreviation], [child name], [child abbreviation]]);
 				[validStats addObject:[NSString stringWithFormat:@"(%@|%@)::(%@|%@)",[[child parent] name],[[child parent] abbreviation], [child name], [child abbreviation]]];
 			}
 		}
@@ -239,7 +222,11 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	[display appendSeperator];
 	
 	for(KMStat* stat in changeableCollections) {
-		NSString* allocatableEntry = [NSString stringWithFormat:@"    `c%@: `G%d `w(`WAllocatable to children: `c%d`w)", [stat name], [stat statvalue], [[stat valueForKeyPath:@"properties.allocatable"] intValue]];
+		NSString* childDisplay = @"";
+		if([stat hasChildren]) {
+			childDisplay = [NSString stringWithFormat:@"`w(`WAllocatable to children: `c%d`w)", [[stat valueForKeyPath:@"properties.allocatable"] intValue]];
+		}
+		NSString* allocatableEntry = [NSString stringWithFormat:@"    `c%@: `G%d %@", [stat name], [stat statvalue],childDisplay];
 		[display appendLine:allocatableEntry];
 		
 		NSPredicate* allocatableChildrenP = [NSPredicate predicateWithFormat:@"children.@count == 0 and properties.changeable == yes"];

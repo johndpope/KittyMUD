@@ -16,24 +16,29 @@
 -(void) interpret:(id)coordinator
 {
 	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
-	id<KMState> newState = [[coordinator currentState] processState:coordinator];
-	if(!workflow) {
-		[coordinator setCurrentState:newState];
-	} else {
-		if(newState == [coordinator currentState])
-			return;
-		NSLog(@"Current step in workflow: %@", [(id)[coordinator currentState] className]);
-		id<KMState> nextStep = [workflow advanceWorkflow];
-		NSLog(@"Advanced workflow, new step in workflow: %@", [(id)[coordinator currentState] className]);
-		[coordinator setCurrentState:nextStep];
-		KMWorkflowStep* currentStep = [workflow getStepForState:nextStep];
-		if(![currentStep nextStep])
-			[coordinator setFlag:@"clear-workflow"];
-		
+	KMGetStateFromCoordinator(state);
+	[state processState:coordinator];
+	KMGetStateFromCoordinator(newState);
+	if(newState != state) {
+		if(workflow) {
+			if([workflow getStepForState:newState]) {
+				[workflow setWorkflowToStep:newState forCoordinator:coordinator];
+			} else {
+				[workflow advanceWorkflowForCoordinator:coordinator];
+				if(![[workflow currentStep] nextStep]) {
+					[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
+				}
+			}
+			newState = [[workflow currentStep] myState];					
+		}
+		KMGetInterpreterForState(newState,interpreter);
+		if(!interpreter)
+			interpreter = [[KMBasicInterpreter alloc] init];
+		KMSetInterpreterForCoordinatorTo(interpreter);
 	}
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
-		[[coordinator currentState] softRebootMessage:coordinator];
+		[newState softRebootMessage:coordinator];
 	}
 	else
 		[coordinator clearFlag:@"no-message"];	

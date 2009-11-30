@@ -319,7 +319,7 @@
 	return [self loadFromTemplateWithData:[string dataUsingEncoding:NSUTF8StringEncoding] withType:loadType];
 }
 
--(void) debugPrintTree:(int)tabLevel
+-(void) KM_debugPrintTree:(int)tabLevel
 {
 	return;
 	NSMutableString* line = [[NSMutableString alloc] init];
@@ -327,11 +327,11 @@
 		[line appendString:@"\t"];
 	[line appendFormat:@"%@(%@) = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self abbreviation], [self statvalue], [[self parent] name], [[[self getProperties] objectForKey:@"allocatable"] intValue],
 	 [[[self getProperties] objectForKey:@"changeable"] boolValue] ? @"YES" : @"NO"];
-	NSLog(@"%@", line);
+	OCLog(@"kittymud",debug,@"%@", line);
 	if([self hasChildren]) {
 		NSArray* child = [self getChildren];
 		for(int c = 0; c < [child count]; c++)
-			[[child objectAtIndex:c] debugPrintTree:(tabLevel + 1)];
+			[[child objectAtIndex:c] KM_debugPrintTree:(tabLevel + 1)];
 	}
 }
 

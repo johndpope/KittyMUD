@@ -23,7 +23,7 @@ typedef enum {
 } KMStatAllocationChangeType;
 
 @interface  KMStatAllocationLogic  : KMObject <KMCommandInterpreterLogic> {
-	@private
+	@protected
 	KMStat* base;
 	KMStat* allocBase;
 	BOOL copiedAllocatable;
@@ -51,6 +51,8 @@ CDECL(showvalid);
 -(void) displayStatAllocationScreenToCoordinator:(id)coordinator;
 
 -(BOOL) confirmStats:(id)coordinator;
+
+-(void) generateValidStats;
 
 @property (retain) KMStat* base;
 @property (retain) KMStat* allocBase;

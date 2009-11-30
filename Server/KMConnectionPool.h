@@ -20,7 +20,7 @@ typedef enum {
 
 typedef void (^KMConnectionReadCallback) (id);
 
-@interface  KMConnectionPool  : KMObject {
+@interface  KMConnectionPool  : NSObject {
 	NSMutableArray* connections;
 	NSMutableArray* hooks;
 	KMConnectionReadCallback readCallback;

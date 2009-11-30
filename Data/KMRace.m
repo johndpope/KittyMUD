@@ -15,6 +15,8 @@ static NSMutableArray* races;
 
 static KMStatLoadType KMRaceCustomLoadingContext = KMStatLoadTypeRace;
 
+KMDataManager* kmrace_setUpDataManager(void);
+
 KMDataManager* kmrace_setUpDataManager() {
 	KMDataManager* rl = [[KMDataManager alloc] init];
 	[rl registerTag:@"race",@"name",@"name",@"abbr",@"abbreviation",nil];
@@ -35,9 +37,9 @@ KMDataManager* kmrace_setUpDataManager() {
 			continue;
 		KMRace* race = [KMRace loadRaceWithPath:[[NSString stringWithFormat:@"$(KMRaceSourceDir)/%@",raceToLoad] replaceAllVariables]];
 		if([race name]) {
-			NSLog(@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
+			OCLog(@"kittymud",info,@"Adding race %@(%@) to list of races.", [race name], [race abbreviation]);
 			[races addObject:race];
-			[[race bonuses] debugPrintTree:0];
+			[[race bonuses] KM_debugPrintTree:0];
 		}
 	}
 }
@@ -89,8 +91,8 @@ KMDataManager* kmrace_setUpDataManager() {
 @synthesize bonuses;
 
 -(void)debugPrint {
-	NSLog(@"Race name = %@, abbreviation = %@", name, abbreviation);
-	[bonuses debugPrintTree:0];
+	OCLog(@"kittymud",info,@"Race name = %@, abbreviation = %@", name, abbreviation);
+	[bonuses KM_debugPrintTree:0];
 }
 
 @end

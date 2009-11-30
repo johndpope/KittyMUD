@@ -12,10 +12,6 @@
 #import "KMObject.h"
 
 @interface  KMChooseRaceState  : KMObject <KMState> {
-	KMMenuHandler* menu;
 }
 
--(id)init;
-
-@property (retain) KMMenuHandler* menu;
 @end

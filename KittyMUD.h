@@ -53,4 +53,7 @@
 #import "KMWorkflowStep.h"
 #import "KMWriteHook.h"
 #import "NSString+KMAdditions.h"
+#import "KMAchievement.h"
+#import "KMAchievementEngine.h"
+#import "KMChooseCharacterNameState.h"
 

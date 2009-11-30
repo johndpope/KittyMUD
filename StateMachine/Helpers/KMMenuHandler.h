@@ -13,6 +13,7 @@
 
 @interface  KMMenuHandler  : KMObject {
 	NSMutableArray* myItems;
+	NSMutableArray* myRealItems;
 }
 
 -(id)initializeWithItems:(NSArray*)items;

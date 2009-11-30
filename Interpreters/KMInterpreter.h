@@ -14,3 +14,9 @@
 -(void) interpret:(id)coordinator;
 
 @end
+
+#define KMGetInterpreterForCoordinator(i) id<KMInterpreter> i = [coordinator valueForKeyPath:@"properties.current-interpreter"]
+
+#define KMSetInterpreterForCoordinatorTo(i) do { \
+	[coordinator setValue:i forKeyPath:@"properties.current-interpreter"]; \
+} while(0)

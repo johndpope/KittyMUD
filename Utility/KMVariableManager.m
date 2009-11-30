@@ -33,7 +33,7 @@
 
 -(void) loadAllVariables
 {
-	NSLog(@"Reading configuration file %@...", fileName);
+	OCLog(@"kittymud",info,@"Reading configuration file %@...", fileName);
 	NSFileHandle* configFile = [NSFileHandle fileHandleForReadingAtPath:fileName];
 	if(configFile != nil) {
 		NSData* rawcontents = [configFile readDataToEndOfFile];
@@ -52,7 +52,7 @@
 			}
 			[NSString addVariableWithKey:name andValue:value];
 			[variables setObject:value forKey:name];
-			NSLog(@"Set variable $(%@) to value %@.", name, value);
+			OCLog(@"kittymud",info,@"Set variable $(%@) to value %@.", name, value);
 		}
 	}
 }

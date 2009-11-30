@@ -10,15 +10,14 @@
 #import "KMConnectionCoordinator.h"
 #import "KMAccountMenu.h"
 #import "KMState.h"
+#import <objc/runtime.h>
 
-
-static NSMutableArray* menuItems;
-
+static NSMutableArray* KMAccountMenuItems;
 @implementation KMAccountMenuState
 
-+(void)load
++(void)initialize
 {
-	menuItems = [[NSMutableArray alloc] init];
+	KMAccountMenuItems = [[NSMutableArray alloc] init];
 	__strong Class* classes;
 	int numClasses = objc_getClassList(NULL, 0);
 	
@@ -33,8 +32,8 @@ static NSMutableArray* menuItems;
 			}
 			if(class_respondsToSelector(c,@selector(conformsToProtocol:))) {
 				if([c conformsToProtocol:@protocol(KMAccountMenu)]) {
-					NSLog(@"Adding %@ to account menu items with priority %d", [c className], [c priority]);
-					[menuItems addObject:c];
+					OCLog(@"kittymud",info,@"Adding %@ to account menu items with priority %d", [c className], [c priority]);
+					[KMAccountMenuItems addObject:c];
 				}
 			}
 		}
@@ -44,34 +43,31 @@ static NSMutableArray* menuItems;
 	}
 }
 
--(id) initializeWithCoordinator:(id)coordinator
++(void) initializeWithCoordinator:(id)coordinator
 {
-	self = [super init];
-	if(self) {
-		myItems = [[NSMutableArray alloc] init];
-		for(Class c in menuItems) {
-			NSArray* reqs = [c requirements];
-			if(reqs != nil) {
-				BOOL meetsReqs = YES;
-				for(id item in reqs) {
-					if([item isKindOfClass:[NSNumber class]]) {
-						// we check the coordinators characters to see if they match the minimum level
-					} else {
-						if(![coordinator isFlagSet:item])
-							meetsReqs = NO;
-					}
+	NSMutableArray* myItems = [[NSMutableArray alloc] init];
+	for(Class c in KMAccountMenuItems) {
+		NSArray* reqs = [c requirements];
+		if(reqs != nil) {
+			BOOL meetsReqs = YES;
+			for(id item in reqs) {
+				if([item isKindOfClass:[NSNumber class]]) {
+					// we check the coordinators characters to see if they match the minimum level
+				} else {
+					if(![coordinator isFlagSet:item])
+						meetsReqs = NO;
 				}
-				if(meetsReqs)
-					[myItems addObject:c];
-			} else
+			}
+			if(meetsReqs)
 				[myItems addObject:c];
-		}
-		menu = [[KMMenuHandler alloc] initializeWithItems:myItems];
+		} else
+			[myItems addObject:c];
 	}
-	
-	return self;
+	KMMenuHandler* menu = [[KMMenuHandler alloc] initializeWithItems:myItems];
+	KMSetMenuForCoordinatorTo(menu);
 }
 
+NSInteger ComparePriority(id,id,void*);
 NSInteger ComparePriority(id a, id b, void* c) {
 	if([a priority] < [b priority])
 		return NSOrderedAscending;
@@ -81,31 +77,30 @@ NSInteger ComparePriority(id a, id b, void* c) {
 		return NSOrderedSame;
 }
 
--(id<KMState>) processState:(id)coordinator
++(void) processState:(id)coordinator
 {
+	KMGetMenuFromCoordinator(menu);
 	Class menuClass = [menu getSelection:(coordinator) withSortFunction:ComparePriority];
-	if(!menuClass)
-		return self;
+	if(!menuClass || ![menuClass conformsToProtocol:@protocol(KMState)])
+		return;
 	
-	id<KMState> state;
-	if([menuClass respondsToSelector:@selector(initializeWithCoordinator:)])
-	   state = [[menuClass alloc] initializeWithCoordinator:coordinator];
-	else
-	   state = [[menuClass alloc] init];
-	return state;
+	KMSetStateForCoordinatorTo(menuClass);
 }
 	   
--(NSString*) getName
++(NSString*) getName
 {
 	return @"AccountMenu";
 }
 
-// Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator
+// Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot+
++(void) softRebootMessage:(id)coordinator
 {
+	KMGetMenuFromCoordinator(menu);
+	if(!menu) {
+		[self initializeWithCoordinator:coordinator];
+		KMSLGetMenuFromCoordinator(menu);
+	}
 	[menu displayMenu:coordinator withSortFunction:ComparePriority];
 }
 
-@synthesize myItems;
-@synthesize menu;
 @end
