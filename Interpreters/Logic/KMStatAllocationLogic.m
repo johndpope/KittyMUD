@@ -222,7 +222,11 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	[display appendSeperator];
 	
 	for(KMStat* stat in changeableCollections) {
-		NSString* allocatableEntry = [NSString stringWithFormat:@"    `c%@: `G%d `w(`WAllocatable to children: `c%d`w)", [stat name], [stat statvalue], [[stat valueForKeyPath:@"properties.allocatable"] intValue]];
+		NSString* childDisplay = @"";
+		if([stat hasChildren]) {
+			childDisplay = [NSString stringWithFormat:@"`w(`WAllocatable to children: `c%d`w)", [[stat valueForKeyPath:@"properties.allocatable"] intValue]];
+		}
+		NSString* allocatableEntry = [NSString stringWithFormat:@"    `c%@: `G%d %@", [stat name], [stat statvalue],childDisplay];
 		[display appendLine:allocatableEntry];
 		
 		NSPredicate* allocatableChildrenP = [NSPredicate predicateWithFormat:@"children.@count == 0 and properties.changeable == yes"];

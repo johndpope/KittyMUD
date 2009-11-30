@@ -42,8 +42,9 @@
 			areWeTooLong = [NSString stringWithFormat:@"%@ %@",tmpLine,[components objectAtIndex:i]];
 			if(([areWeTooLong length] + 4)  < 80) {
 				NSString* c = [components objectAtIndex:i++];
-				if([c length] && [c characterAtIndex:0] == '`') {
-					oldColor = [c substringToIndex:2];
+				NSRange colorRange = [c rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"`"]];
+				if(colorRange.location != NSNotFound) {
+					oldColor = [c substringWithRange:NSMakeRange(colorRange.location,2)];
 				}
 				[tmpLine appendString:[NSString stringWithFormat:@" %@",c]];
 			}
