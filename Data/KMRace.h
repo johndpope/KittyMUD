@@ -17,6 +17,7 @@
 	NSString* name;
 	NSString* abbreviation;
 	KMStat* bonuses;
+	NSMutableArray* specials;
 }
 
 +(NSArray*)getAllRaces;
@@ -30,5 +31,6 @@
 @property (copy,readwrite) NSString* name;
 @property (copy,readwrite) NSString* abbreviation;
 @property (retain,readwrite) KMStat* bonuses;
+@property (retain,readonly) NSMutableArray* specials;
 
 @end
