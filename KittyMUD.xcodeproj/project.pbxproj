@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0B48C110CB008F00F31850 /* KMSpecial.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0B48BF10CB008F00F31850 /* KMSpecial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A0B48C210CB008F00F31850 /* KMSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B48C010CB008F00F31850 /* KMSpecial.m */; };
+		3A0B4E4210CC26CB00F31850 /* KMExtensibleDataLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A0B4E4310CC26CB00F31850 /* KMExtensibleDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */; };
+		3A0B4E4410CC26CB00F31850 /* KMExtensibleDataSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2F78451098C9B700EA69DC /* KMExitInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78411098C9B700EA69DC /* KMExitInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2F78461098C9B700EA69DC /* KMExitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78421098C9B700EA69DC /* KMExitInfo.m */; };
 		3A2F78471098C9B700EA69DC /* KMRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78431098C9B700EA69DC /* KMRoom.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,7 +105,7 @@
 		3A427CB6109B42A500E1C502 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F79041098CDC400EA69DC /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
-		3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XDF.framework */; };
+		3A7EA38710B16D1900533965 /* XSHRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EA38410B16D0D00533965 /* XSHRuntime.framework */; };
 		3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */; };
 		3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
@@ -118,14 +123,14 @@
 /* Begin PBXContainerItemProxy section */
 		3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+			containerPortal = 3A7EA37F10B16D0D00533965 /* XSH.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = XDF;
 		};
 		3A7EA3A210B16DF300533965 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+			containerPortal = 3A7EA37F10B16D0D00533965 /* XSH.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = XDF;
@@ -159,6 +164,11 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* KittyMUD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD_Prefix.pch; sourceTree = "<group>"; };
+		3A0B48BF10CB008F00F31850 /* KMSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMSpecial.h; sourceTree = "<group>"; };
+		3A0B48C010CB008F00F31850 /* KMSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMSpecial.m; sourceTree = "<group>"; };
+		3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExtensibleDataLoader.h; sourceTree = "<group>"; };
+		3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExtensibleDataLoader.m; sourceTree = "<group>"; };
+		3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExtensibleDataSchema.h; sourceTree = "<group>"; };
 		3A2F78411098C9B700EA69DC /* KMExitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExitInfo.h; sourceTree = "<group>"; };
 		3A2F78421098C9B700EA69DC /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExitInfo.m; sourceTree = "<group>"; };
 		3A2F78431098C9B700EA69DC /* KMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRoom.h; sourceTree = "<group>"; };
@@ -251,7 +261,7 @@
 		3A427B86109A9AC800E1C502 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
-		3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XDF.xcodeproj; path = ../XDF/XDF.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3A7EA37F10B16D0D00533965 /* XSH.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XSH.xcodeproj; path = ../XSH/XSH.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterNameState.h; sourceTree = "<group>"; };
 		3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterNameState.m; sourceTree = "<group>"; };
 		3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNullState.m; sourceTree = "<group>"; };
@@ -288,7 +298,7 @@
 			files = (
 				3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */,
 				3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */,
-				3A7EA38710B16D1900533965 /* XDF.framework in Frameworks */,
+				3A7EA38710B16D1900533965 /* XSHRuntime.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */,
 			);
@@ -328,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				3AC1606810B64B6300728F74 /* OCLog.xcodeproj */,
-				3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */,
+				3A7EA37F10B16D0D00533965 /* XSH.xcodeproj */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -426,6 +436,9 @@
 		3A2F78581098CA8C00EA69DC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */,
+				3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */,
+				3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */,
 				3A2F78401098C98600EA69DC /* World */,
 				3A2F78701098CB6700EA69DC /* Character */,
 				3A2F78621098CB0800EA69DC /* KMDataManager.h */,
@@ -436,6 +449,8 @@
 				3A2F78671098CB0800EA69DC /* KMRace.h */,
 				3A2F78681098CB0800EA69DC /* KMRace.m */,
 				3A2F78591098CA9F00EA69DC /* Items */,
+				3A0B48BF10CB008F00F31850 /* KMSpecial.h */,
+				3A0B48C010CB008F00F31850 /* KMSpecial.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -560,7 +575,7 @@
 		3A7EA38010B16D0D00533965 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A7EA38410B16D0D00533965 /* XDF.framework */,
+				3A7EA38410B16D0D00533965 /* XSHRuntime.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -651,6 +666,9 @@
 				3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */,
 				3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */,
 				3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */,
+				3A0B48C110CB008F00F31850 /* KMSpecial.h in Headers */,
+				3A0B4E4210CC26CB00F31850 /* KMExtensibleDataLoader.h in Headers */,
+				3A0B4E4410CC26CB00F31850 /* KMExtensibleDataSchema.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +736,7 @@
 				},
 				{
 					ProductGroup = 3A7EA38010B16D0D00533965 /* Products */;
-					ProjectRef = 3A7EA37F10B16D0D00533965 /* XDF.xcodeproj */;
+					ProjectRef = 3A7EA37F10B16D0D00533965 /* XSH.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -730,10 +748,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3A7EA38410B16D0D00533965 /* XDF.framework */ = {
+		3A7EA38410B16D0D00533965 /* XSHRuntime.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = XDF.framework;
+			path = XSHRuntime.framework;
 			remoteRef = 3A7EA38310B16D0D00533965 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -836,6 +854,8 @@
 				3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */,
 				3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */,
 				3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */,
+				3A0B48C210CB008F00F31850 /* KMSpecial.m in Sources */,
+				3A0B4E4310CC26CB00F31850 /* KMExtensibleDataLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,7 +902,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XDF/build/",
+					"$(SRCROOT)/../XSH/build/",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -935,7 +955,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XDF/build/",
+					"$(SRCROOT)/../XSH/build/",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -1035,7 +1055,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XDF/build/",
+					"$(SRCROOT)/../XSH/build/",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -1108,7 +1128,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XDF/build/",
+					"$(SRCROOT)/../XSH/build/",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -1213,7 +1233,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XDF/build/",
+					"$(SRCROOT)/../XSH/build/",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
