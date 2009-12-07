@@ -56,4 +56,7 @@
 #import "KMAchievement.h"
 #import "KMAchievementEngine.h"
 #import "KMChooseCharacterNameState.h"
+#import "KMSpecial.h"
+#import "KMExtensibleDataLoader.h"
+#import "KMExtensibleDataSchema.h"
 
