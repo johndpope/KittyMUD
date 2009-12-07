@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <XDF/XDF.h>
+#import <XSHRuntime/XSHRuntime.h>
 
 /*! @class KMAchievement
 	@abstract Represents an achievement in a KittyMUD game.
