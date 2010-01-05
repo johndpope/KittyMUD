@@ -10,6 +10,7 @@
 #import "NSString+KMAdditions.h"
 #import "KMRoom.h"
 #import "KMConnectionCoordinator.h"
+#import "KMServer.h"
 
 @implementation KMCharacter
 
@@ -17,8 +18,8 @@
 {
 	self = [super init];
 	if(self) {
-		[properties setObject:name forKey:@"name"];
-		[properties setValue:@"`B[ `GHP`w:`c[`r$(CurHp)/`R$(MaxHp)`c]  `CMP`w:`c[`g$(CurMp)/`G$(MaxMp)`c] `YLvl:`w(`y$(Lvl)`w) `B]`x:" forKey:@"prompt"];
+		[[self getProperties] setObject:name forKey:@"name"];
+		[[self getProperties] setObject:@"`B[ `GHP`w:`c[`r$(CurHp)/`R$(MaxHp)`c]  `CMP`w:`c[`g$(CurMp)/`G$(MaxMp)`c] `YLvl:`w(`y$(Lvl)`w) `B]`x:" forKey:@"prompt"];
 		stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
 	}
 	return self;
@@ -88,6 +89,14 @@
 	}
 	[character setStats:[KMStat loadFromTemplateWithRootElement:xelem withType:KMStatLoadTypeSave]];
 	return character;
+}
+
++(KMCharacter*) characterForName:(NSString*)name {
+	for(KMConnectionCoordinator* coordinator in [[[KMServer getDefaultServer] getConnectionPool] connections]) {
+		if(![[coordinator valueForKeyPath:@"properties.current-character.properties.name"] caseInsensitiveCompare:name])
+			return [coordinator valueForKeyPath:@"properties.current-character"];
+	}
+	return nil;
 }
 
 -(NSString*) menuLine {

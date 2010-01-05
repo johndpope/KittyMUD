@@ -20,6 +20,8 @@
 	NSMutableArray* characters;
 }
 
++(KMConnectionCoordinator*) getCoordinatorForCharacterWithName:(NSString*)name;
+
 -(id) init;
 
 -(BOOL) sendMessage:(NSString*)message,...;

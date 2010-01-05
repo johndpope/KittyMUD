@@ -19,6 +19,14 @@
 
 @implementation KMConnectionCoordinator
 
++(KMConnectionCoordinator*) getCoordinatorForCharacterWithName:(NSString *)name {
+	for(KMConnectionCoordinator* coordinator in [[[KMServer getDefaultServer] getConnectionPool] connections]) {
+		if(![[coordinator valueForKeyPath:@"properties.current-character.properties.name"] caseInsensitiveCompare:name])
+			return coordinator;
+	}
+	return nil;
+}
+
 -(id) init
 {
 	self = [super init];

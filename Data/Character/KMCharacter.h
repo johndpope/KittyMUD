@@ -21,5 +21,7 @@
 
 +(KMCharacter*) loadFromXML:(NSXMLElement*)xelem;
 
++(KMCharacter*) characterForName:(NSString*)name;
+
 @property (retain) KMStat* stats;
 @end
