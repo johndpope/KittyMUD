@@ -9,6 +9,7 @@
 #import "NSString+KMAdditions.h"
 #import "KMColorProcessWriteHook.h"
 #import <openssl/md5.h>
+#import <malloc/malloc.h>
 
 static NSMutableDictionary* kmMudVariables = nil;
 
@@ -102,6 +103,16 @@ static NSMutableDictionary* kmMudVariables = nil;
 }
 
 -(NSString*) stringValue {
+	return self;
+}
+
+-(NSString*) initWithFormat:(NSString*)format andArray:(NSArray*)array {
+	self = [format copy];
+	if(self) {
+		for(int i = 0; i < [array count]; i++) {
+			self = [self stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%d}",i] withString:[[array objectAtIndex:i] description]];
+		}
+	}
 	return self;
 }
 

@@ -26,4 +26,5 @@
 
 -(NSString*) stringValue;
 
+-(NSString*) initWithFormat:(NSString*)format andArray:(NSArray*)array;
 @end
