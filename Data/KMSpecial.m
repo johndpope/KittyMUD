@@ -7,7 +7,7 @@
 //
 
 #import "KMSpecial.h"
-
+#import "KMConnectionCoordinator.h"
 
 @implementation KMSpecial
 
@@ -40,7 +40,9 @@
 	action = [XSHNode createNodeFromSource:[actAttribute stringValue]];
 	return [[KMSpecial alloc] initWithType:type identifier:iden displayName:displayName andAction:action];
 }
-	
+
+-(id) executeSpecial:(KMConnectionCoordinator*)coordinator {
+}
 @synthesize type;
 @synthesize myId;
 @synthesize displayName;
