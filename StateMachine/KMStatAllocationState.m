@@ -10,7 +10,8 @@
 #import "KMConnectionCoordinator.h"
 #import "KMCommandInterpreter.h"
 #import "KMStatAllocationLogic.h"
-
+#import "KMCharacter.h"
+#import <XSHRuntime/XSHRuntime.h>
 
 @implementation KMStatAllocationState
 
