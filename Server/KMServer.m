@@ -56,7 +56,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 -(BOOL) initializeServerWithPort:(int)port error:(NSError**)error
 {
 	CFSocketContext serverContext = {0, self, NULL, NULL, NULL};
-	serverSocket = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, IPPROTO_TCP, kCFSocketAcceptCallBack, (CFSocketCallBack)&ServerBaseCallout, &serverContext);
+	serverSocket = CFSocketCreate(kCFAllocatorDefault, PF_INET6, SOCK_STREAM, IPPROTO_TCP, kCFSocketAcceptCallBack, (CFSocketCallBack)&ServerBaseCallout, &serverContext);
 	
 	if(!error) {
 		NSError* errorTmp = [[NSError alloc] init];
@@ -70,14 +70,16 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	int yes = 1;
 	int serverSocketNative = CFSocketGetNative(serverSocket);
 	setsockopt(serverSocketNative, SOL_SOCKET, SO_REUSEADDR, (void*)&yes, sizeof(yes));
-	
-	struct sockaddr_in serverAddr;
+
+	const struct in6_addr in6addr_any = IN6ADDR_ANY_INIT;
+
+	struct sockaddr_in6 serverAddr;
 	
 	memset(&serverAddr, 0, sizeof(serverAddr));
-	serverAddr.sin_len = sizeof(serverAddr);
-	serverAddr.sin_family = AF_INET;
-	serverAddr.sin_port = htons(port);
-	serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	serverAddr.sin6_len = sizeof(serverAddr);
+	serverAddr.sin6_family = AF_INET6;
+	serverAddr.sin6_port = htons(port);
+	serverAddr.sin6_addr = in6addr_any;
 	
 	NSData* serverAddrData = [NSData dataWithBytes:&serverAddr length:sizeof(serverAddr)];
 	
