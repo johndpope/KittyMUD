@@ -30,6 +30,7 @@
 	for(NSString* category in [achievements allKeys]) {
 		for(KMAchievement* a in [achievements objectForKey:category]) {
 			XSHNode* c = [a earnCriteria];
+			[[c scope] registerVariable:coordinator withName:@"coordinator"];
 			BOOL earn =  [[c execute] boolValue];
 			if(earn) {
 				[a displayAchievementHasBeenEarnedMessageTo:coordinator];
