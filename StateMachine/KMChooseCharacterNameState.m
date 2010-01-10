@@ -10,6 +10,7 @@
 #import "KMRace.h"
 #import "NSString+KMAdditions.h"
 #import "KMConnectionCoordinator.h"
+#import <XSHRuntime/XSHRuntime.h>
 
 @implementation KMChooseCharacterNameState
 
@@ -48,7 +49,14 @@
 	}
 	[coordinator setValue:character forKeyPath:@"properties.current-character"];
 	[[coordinator getCharacters] addObject:character];
-	KMSetStateForCoordinatorTo(KMNullState);
+	XSHNode* node = [XSHNode createNodeFromSource:@"coordinator->makeChoice(['acid','cold','fire','lightning','poison']);"];
+	[[node scope] registerVariable:coordinator withName:@"coordinator"];
+	[node execute];
+	[NSThread sleepForTimeInterval:.05];
+	KMGetStateFromCoordinator(state);
+	if(state == self) {
+		KMSetStateForCoordinatorTo(KMNullState);
+	}
 }
 
 +(NSString*) getName

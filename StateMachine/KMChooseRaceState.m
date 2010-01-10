@@ -32,7 +32,10 @@
 		[coordinator setFlag:@"race-before-character"];
 	}
 	
-	KMSetStateForCoordinatorTo(KMNullState);
+	KMGetStateFromCoordinator(state);
+	if(state == self) {
+		KMSetStateForCoordinatorTo(KMNullState);
+	}
 }
 
 +(NSString*) getName

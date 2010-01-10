@@ -28,7 +28,10 @@
 	[character setValue:[klass name] forKeyPath:@"properties.class"];
 	[character setValue:[KMRoom getDefaultRoom] forKeyPath:@"properties.current-room"];
 	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
-	KMSetStateForCoordinatorTo(KMNullState);
+	KMGetStateFromCoordinator(state);
+	if(state == self) {
+		KMSetStateForCoordinatorTo(KMNullState);
+	}
 }
 
 +(NSString*) getName
