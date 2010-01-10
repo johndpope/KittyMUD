@@ -71,8 +71,6 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	int serverSocketNative = CFSocketGetNative(serverSocket);
 	setsockopt(serverSocketNative, SOL_SOCKET, SO_REUSEADDR, (void*)&yes, sizeof(yes));
 
-	const struct in6_addr in6addr_any = IN6ADDR_ANY_INIT;
-
 	struct sockaddr_in6 serverAddr;
 	
 	memset(&serverAddr, 0, sizeof(serverAddr));
