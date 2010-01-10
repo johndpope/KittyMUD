@@ -9,6 +9,7 @@
 #import "KMMenuHandler.h"
 #import <OCMock/OCMock.h>
 #import <objc/runtime.h>
+#import <XSHRuntime/XSHRuntime.h>
 
 @implementation KMMenuHandler
 
@@ -31,6 +32,9 @@
 		[myRealItems addObject:item];
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
+			if([item isKindOfClass:NSClassFromString(@"XSHString")]) {
+				item = [item string];
+			}
 			if([item isKindOfClass:[NSString class]]) {
 				id m = [item copy];
 				item = [OCMockObject mockForProtocol:@protocol(KMMenu)];
