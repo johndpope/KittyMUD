@@ -15,10 +15,10 @@
 
 -(void) interpret:(id)coordinator
 {
-	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
 	KMGetStateFromCoordinator(state);
 	[state processState:coordinator];
 	KMGetStateFromCoordinator(newState);
+	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
 	if(newState != state) {
 		if(workflow) {
 			if([workflow getStepForState:newState]) {
