@@ -37,7 +37,11 @@
 	displayName = [name stringValue];
 	NSXMLElement* act = [[root elementsForName:@"action"] objectAtIndex:0];
 	NSXMLNode* actAttribute = [act attributeForName:@"act"];
-	action = [ECSNode createNodeFromSource:[actAttribute stringValue]];
+	NSString* actText = [actAttribute stringValue];
+	if([actText isEqualToString:@":[text]"]) {
+		actText = [act stringValue];
+	}
+	action = [ECSNode createNodeFromSource:actText];
 	return [[KMSpecial alloc] initWithType:type identifier:iden displayName:displayName andAction:action];
 }
 
