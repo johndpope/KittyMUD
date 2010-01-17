@@ -156,6 +156,10 @@
 		if(!strcmp(argType,"i")) {
 			__strong int num = [[commandmakeup objectAtIndex:i] intValue];
 			[invocation setArgument:&num atIndex:(i+2)];
+		} else if(!strcmp(argType,"{NSArray=#}")) {
+			NSArray* rest = [commandmakeup subarrayWithRange:NSMakeRange(i, [commandmakeup count]-i)];
+			[invocation setArgument:&rest atIndex:i+2];
+			break;
 		} else {
 			id arg = [commandmakeup objectAtIndex:i];
 			[invocation setArgument:&arg atIndex:(i+2)];
