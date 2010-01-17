@@ -14,6 +14,8 @@
 
 }
 
++(NSString*) currentFileName;
+
 -(NSArray*) loadFile:(NSString*)path withSchema:(id<KMExtensibleDataSchema>)schema;
 
 @end

@@ -8,8 +8,13 @@
 
 #import "KMExtensibleDataLoader.h"
 
+NSString* currentFileName;
 
 @implementation KMExtensibleDataLoader
+
++(NSString*) currentFileName {
+	return currentFileName;
+}
 
 -(NSArray*) loadFile:(NSString*)path withSchema:(id<KMExtensibleDataSchema>)schema {
 	Class type = [schema schemaType];
@@ -17,6 +22,7 @@
 	NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:path];
 	if(!fh)
 		return nil;
+	currentFileName = [path lastPathComponent];
 	NSData* data = [fh readDataToEndOfFile];
 	NSXMLDocument* doc = [[NSXMLDocument alloc] initWithData:data options:NSXMLDocumentXInclude error:NULL];
 	if(!doc)
