@@ -141,4 +141,6 @@ KMDataManager* KMClass_setUpDataManager() {
 @synthesize abbreviation;
 @synthesize requirements;
 @synthesize tier;
+@synthesize specials;
+
 @end

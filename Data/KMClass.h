@@ -18,6 +18,7 @@
 	NSString* abbreviation;
 	int tier;
 	KMStat* requirements;
+	NSMutableArray* specials;
 }
 
 +(NSArray*)getAllClasses;
@@ -36,4 +37,6 @@
 @property (copy,readwrite) NSString* abbreviation;
 @property (retain,readwrite) KMStat* requirements;
 @property (assign,readwrite) int tier;
+@property (retain,readonly) NSMutableArray* specials;
+
 @end
