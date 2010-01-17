@@ -30,6 +30,8 @@
 	type = KMRacialSpecial;
 	if([typeName isEqualToString:@"racial"]) {
 		type = KMRacialSpecial;
+	} else if([typeName isEqualToString:@"class"]) {
+		type = KMClassSpecial;
 	}
 	NSXMLElement* idElem = [[root elementsForName:@"id"] objectAtIndex:0];
 	iden = [idElem stringValue];
