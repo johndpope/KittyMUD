@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<greeting>
+	<text>
+		<![CDATA[
+`g'`G||''''|    `G.                             |`g|    `g.
+ `g|`G|  .    `g.`G||.    `g.`G...  `g.`G.. ..  .. ..`g.   `G..`g.  `G.||`g.  `G.... ..`g.
+ `g|`G|''|     `g|`G|   `g.`G|...||  `g|`G|' ''  ||  |`g|   `G|`g|   `G|`g|    `G'|.  `g|
+ `g|`G|        `g|`G|   `g|`G|       `g|`G|      ||  |`g|   `G|`g|   `G|`g|     `G'|.`g|
+ `g|`G|.....|  `g'|`G.' `g'`G|...'  `g.|`G|.    .||. ||`g. `G.||`g.  `G'|.`g'    `G'`g|
+                                                    `G.. `g|
+                                                     `G'`g'
+
+`r.`R.|'''.|   `r'|`R|                                `r|`R|          '|`r|
+`r.`R|'     '   `r|`R| ..   `r.`R.. ..    `r.`R..   `r.`R. ...   ..`r.    `R...`r.   `R|`r|    `R...`r.   `R...`r.
+`r|`R|          `r|`R|' ||   `r|`R|' '' `r.`R|  '|.  `r|`R|  ||   |`r|  `R.|   '`r'  `R|`r|  `R.|...|`r| `R||. `r'
+`r'`R|.      `r.  `R||  ||   `r|`R|     `r|`R|   ||  `r|`R|  ||   |`r|  `R|`r|       `R|`r|  `R|`r|      `R. '|.`r.
+`r'`R'|....'   `r.`R||. ||. `r.`R||.     `r'`R|..|' `r.`R||. ||. .||`r.  `R'|...`r' `R.||`r.  `R'|...`r' `R|'..|`r'
+
+`wPowered by $(Name)`x.
+
+Please enter your account name:]]>
+	</text>
+</greeting>

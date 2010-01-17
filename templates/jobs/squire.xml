@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<job name="squire" abbr="sqr" tier="3">
+	<skillset>
+		<skill name="charge" lvl="1"/>
+		<skill name="stun" lvl="5"/>
+		<skill name="chant" lvl="7"/>
+		<skill name="slash" lvl="10"/>
+		<skill name="crush" lvl="15"/>
+		<skill name="whirlwind" lvl="20"/>
+		<skill name="swordrush" lvl="30"/>
+	</skillset>
+	<stattemplate>
+	<statcollection statname="main" abbr="main">
+		<statcollection statname="physical" abbr="phys" jobreq="12">
+			<stat statname="strength" abbr="str" jobreq="8"/>
+			<stat statname="constitution" abbr="con" jobreq="8"/>
+			<stat statname="dexterity" abbr="dex" jobreq="8"/>
+		</statcollection>
+		<statcollection statname="jobs" abbr="jobs">
+			<stat statname="page" abbr="page" jobreq="20" />
+		</statcollection>
+	</statcollection>
+	</stattemplate>
+</job>
