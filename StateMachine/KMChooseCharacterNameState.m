@@ -55,6 +55,9 @@
 		[coordinator setValue:nil forKeyPath:@"properties.class"];
 		[coordinator clearFlag:@"class-before-character"];
 	}
+	// we do this here because its the only time we can gaurantee we have a character
+	[[character stats] setValueOfChildAtPath:[NSString stringWithFormat:@"class::%@",[character valueForKeyPath:@"properties.class"]] withValue:1];
+	[[character stats] setValueOfChildAtPath:[NSString stringWithFormat:@"race::%@",[character valueForKeyPath:@"properties.race"]] withValue:1];
 	[coordinator setValue:character forKeyPath:@"properties.current-character"];
 	[[coordinator getCharacters] addObject:character];
 	KMGetStateFromCoordinator(state);
