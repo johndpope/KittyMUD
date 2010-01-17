@@ -29,7 +29,7 @@
 		[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
 	} else {
 		[coordinator setValue:[race name] forKeyPath:@"properties.race"];
-		[coordinator setFlag:@"race-before-character"];
+		[(KMObject*)coordinator setFlag:@"race-before-character"];
 	}
 	
 	KMGetStateFromCoordinator(state);

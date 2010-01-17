@@ -98,7 +98,7 @@ CIMPL(quit,quit:,nil,nil,nil,1) {
 	BOOL ready = [self confirmStats:coordinator];	
 	if( ready ) {
 		KMSetStateForCoordinatorTo(KMNullState);
-		[[coordinator valueForKeyPath:@"properties.current-character"] setFlag:@"allocated"];
+		[(KMObject*)[coordinator valueForKeyPath:@"properties.current-character"] setFlag:@"allocated"];
 		return;
 	}
 }
@@ -148,7 +148,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	[coordinator sendMessageToBuffer:@"reset (<stat>|-help)\n"];
 	[coordinator sendMessageToBuffer:@"save quit valid (-help)\n"];
 	[coordinator sendMessageToBuffer:@"Enter command:"];
-	[coordinator setFlag:@"no-message"];
+	[(KMObject*)coordinator setFlag:@"no-message"];
 }
 
 -(void) repeatCommandsToCoordinator:(id)coordinator

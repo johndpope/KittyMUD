@@ -29,7 +29,7 @@
 		[[character getProperties] setValue:[klass name] forKeyPath:@"properties.class"];
 	} else {
 		[coordinator setValue:[klass name] forKeyPath:@"properties.class"];
-		[coordinator setFlag:@"class-before-character"];
+		[(KMObject*)coordinator setFlag:@"class-before-character"];
 	}
 	KMGetStateFromCoordinator(state);
 	if(state == self) {
