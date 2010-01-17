@@ -22,7 +22,9 @@
 
 +(NSArray*)getAllClasses;
 
-+(KMClass*)getJobByName:(NSString*)klassname;
++(void)addClasses:(NSArray*)_classes;
+
++(KMClass*)getClassByName:(NSString*)klassname;
 
 +(KMClass*)loadClassWithPath:(NSString*)path;
 

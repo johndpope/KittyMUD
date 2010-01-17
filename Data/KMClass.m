@@ -47,7 +47,7 @@ KMDataManager* KMClass_setUpDataManager() {
 	return (NSArray*)classes;
 }
 
-+(KMClass*)getJobByName:(NSString*)classname
++(KMClass*)getClassByName:(NSString*)classname
 {
 	NSPredicate* classPred = [NSPredicate predicateWithFormat:@"self.name like[cd] %@ or self.abbreviation like[cd] %@", classname, classname];
 	NSArray* classMatches = [classes filteredArrayUsingPredicate:classPred];
@@ -55,6 +55,17 @@ KMDataManager* KMClass_setUpDataManager() {
 		return [classMatches objectAtIndex:0];
 	else {
 		return nil;
+	}
+}
+
++(void)addClasses:(NSArray*)_classes {
+	if(!classes) {
+		classes = [[NSMutableArray alloc] init];
+	}
+	for(id obj in _classes) {
+		if([obj isKindOfClass:[KMClass class]]) {
+			[classes addObject:obj];
+		}
 	}
 }
 

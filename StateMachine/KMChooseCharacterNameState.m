@@ -30,8 +30,8 @@
 	} else {
 		[[NSFileManager defaultManager] createFileAtPath:[@"$(UsedCharacterFile)" replaceAllVariables] contents:nil attributes:nil];
 	}
-	[coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
-	[coordinator setFlag:@"has-character"];
+	[(KMConnectionCoordinator*)coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
+	[(KMConnectionCoordinator*)coordinator setFlag:@"has-character"];
 	KMCharacter* character = nil;
 	if(![coordinator valueForKeyPath:@"properties.current-character"]) {
 		character = [[KMCharacter alloc] initializeWithName:name];
@@ -48,12 +48,15 @@
 		[coordinator setValue:nil forKeyPath:@"properties.race"];
 		[coordinator clearFlag:@"race-before-character"];
 	}
+	if([coordinator isFlagSet:@"class-before-character"]) {
+		NSString* c = [coordinator valueForKeyPath:@"properties.class"];
+		KMClass* klass = [KMClass getClassByName:c];
+		[[character getProperties] setObject:[klass name] forKey:@"class"];
+		[coordinator setValue:nil forKeyPath:@"properties.class"];
+		[coordinator clearFlag:@"class-before-character"];
+	}
 	[coordinator setValue:character forKeyPath:@"properties.current-character"];
 	[[coordinator getCharacters] addObject:character];
-	XSHNode* node = [XSHNode createNodeFromSource:@"coordinator->makeChoice(['acid','cold','fire','lightning','poison']);"];
-	[[node scope] registerVariable:coordinator withName:@"coordinator"];
-	[node execute];
-	[NSThread sleepForTimeInterval:.05];
 	KMGetStateFromCoordinator(state);
 	if(state == self) {
 		KMSetStateForCoordinatorTo(KMNullState);

@@ -24,10 +24,13 @@
 	KMClass* klass = [menu getSelection:coordinator];
 	if(!klass)
 		return;
-	KMCharacter* character = [coordinator valueForKeyPath:@"properties.current-character"];
-	[character setValue:[klass name] forKeyPath:@"properties.class"];
-	[character setValue:[KMRoom getDefaultRoom] forKeyPath:@"properties.current-room"];
-	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
+	KMCharacter* character = [[coordinator getProperties] objectForKey:@"properties.current-character"];
+	if(character) {
+		[[character getProperties] setValue:[klass name] forKeyPath:@"properties.class"];
+	} else {
+		[coordinator setValue:[klass name] forKeyPath:@"properties.class"];
+		[coordinator setFlag:@"class-before-character"];
+	}
 	KMGetStateFromCoordinator(state);
 	if(state == self) {
 		KMSetStateForCoordinatorTo(KMNullState);
