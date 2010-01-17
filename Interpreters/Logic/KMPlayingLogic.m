@@ -136,9 +136,9 @@ CIMPL(look,look:direction:,@"direction",nil,nil,1) direction:(NSString*)dir {
 	
 	if(lookDir) {
 		moveBase(coordinator,edir,NO);
-		[coordinator setFlag:@"no-display-room"];
+		[(KMObject*)coordinator setFlag:@"no-display-room"];
 	} else {
-		[coordinator setFlag:@"no-display-room"];
+		[(KMObject*)coordinator setFlag:@"no-display-room"];
 		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
 	}
 }
