@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <XSHRuntime/XSHRuntime.h>
+#import <ECScript/ECScript.h>
 #import "KMExtensibleDataSchema.h"
 
-@interface KMExtensibleDataLoader : XSHRoot {
+@interface KMExtensibleDataLoader : ECSRoot {
 
 }
 

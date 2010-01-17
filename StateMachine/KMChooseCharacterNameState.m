@@ -8,9 +8,10 @@
 
 #import "KMChooseCharacterNameState.h"
 #import "KMRace.h"
+#import "KMClass.h"
 #import "NSString+KMAdditions.h"
 #import "KMConnectionCoordinator.h"
-#import <XSHRuntime/XSHRuntime.h>
+#import <ECScript/ECScript.h>
 
 @implementation KMChooseCharacterNameState
 

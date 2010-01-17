@@ -11,7 +11,7 @@
 
 @implementation KMSpecial
 
--(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(XSHNode*)act {
+-(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(ECSNode*)act {
 	self = [super init];
 	if(self) {
 		type = myType;
@@ -37,7 +37,7 @@
 	displayName = [name stringValue];
 	NSXMLElement* act = [[root elementsForName:@"action"] objectAtIndex:0];
 	NSXMLNode* actAttribute = [act attributeForName:@"act"];
-	action = [XSHNode createNodeFromSource:[actAttribute stringValue]];
+	action = [ECSNode createNodeFromSource:[actAttribute stringValue]];
 	return [[KMSpecial alloc] initWithType:type identifier:iden displayName:displayName andAction:action];
 }
 

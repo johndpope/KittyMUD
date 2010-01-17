@@ -8,7 +8,7 @@
 
 #import "KMObject.h"
 #import "KMConnectionCoordinator.h"
-#import <XSHRuntime/XSHRuntime.h>
+#import <ECScript/ECScript.h>
 #import <objc/runtime.h>
 
 @interface NSObject (private)
@@ -32,7 +32,7 @@ static BOOL setUpOCLChannel = NO;
 	}
 #ifdef USE_XDF
 	NSError* error = nil;
-	[XSHCodingSupportAspect addToClass:[self class] error:&error];
+	[ECSCodingSupportAspect addToClass:[self class] error:&error];
 	if(error) {
 		OCLog(@"kittymud",warning,@"Error adding support to %@...",NSStringFromClass([self class]));
 	}

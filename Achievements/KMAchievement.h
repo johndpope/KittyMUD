@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <XSHRuntime/XSHRuntime.h>
+#import <ECScript/ECScript.h>
 
 /*! @class KMAchievement
 	@abstract Represents an achievement in a KittyMUD game.
@@ -18,7 +18,7 @@
 	NSNumber* pointValue;
 	NSString* name;
 	NSString* description;
-	XSHNode* earnCriteria;
+	ECSNode* earnCriteria;
 }
 
 /*! @method initWithName:description:points:criteria:
@@ -27,10 +27,10 @@
 	@param aName The name of the achievement.
 	@param aDescription The description for the achievement.
 	@param thePointValue A NSNumber representing an int value of the amount of points this achievement is worth.
-	@param theNode: An XSHNode representing the earn criteria for earning this achievement.
+	@param theNode: An ECSNode representing the earn criteria for earning this achievement.
 	@result The newly initialized achievement or nil if an error occured.
  */
--(id) initWithName:(NSString*)aName description:(NSString*)aDescription points:(NSNumber*)thePointValue criteria:(XSHNode*)theNode;
+-(id) initWithName:(NSString*)aName description:(NSString*)aDescription points:(NSNumber*)thePointValue criteria:(ECSNode*)theNode;
 
 /*! @method displayAchievementHasBeenEarnedMessageTo:
 	@abstract Sends the achievement earned message.
@@ -44,6 +44,6 @@
 @property (retain) NSNumber* pointValue;
 @property (retain) NSString* name;
 @property (retain) NSString* description;
-@property (retain) XSHNode* earnCriteria;
+@property (retain) ECSNode* earnCriteria;
 
 @end

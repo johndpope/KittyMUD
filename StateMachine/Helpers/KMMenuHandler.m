@@ -9,7 +9,7 @@
 #import "KMMenuHandler.h"
 #import <OCMock/OCMock.h>
 #import <objc/runtime.h>
-#import <XSHRuntime/XSHRuntime.h>
+#import <ECScript/ECScript.h>
 
 @implementation KMMenuHandler
 
@@ -32,7 +32,7 @@
 		[myRealItems addObject:item];
 		if(![item conformsToProtocol:@protocol(KMMenu)])
 		{
-			if([item isKindOfClass:NSClassFromString(@"XSHString")]) {
+			if([item isKindOfClass:NSClassFromString(@"ECSString")]) {
 				item = [item string];
 			}
 			if([item isKindOfClass:[NSString class]]) {

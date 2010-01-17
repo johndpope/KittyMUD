@@ -11,7 +11,7 @@
 #import "KMCommandInterpreter.h"
 #import "KMStatAllocationLogic.h"
 #import "KMCharacter.h"
-#import <XSHRuntime/XSHRuntime.h>
+#import <ECScript/ECScript.h>
 
 @implementation KMStatAllocationState
 
