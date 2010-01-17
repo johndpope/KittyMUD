@@ -12,12 +12,14 @@
 #import "KMDataStartup.h"
 #import "KMMenu.h"
 #import "KMObject.h"
+#import "KMPower.h"
 
 @interface  KMRace  : KMObject <KMDataStartup,KMMenu> {
 	NSString* name;
 	NSString* abbreviation;
 	KMStat* bonuses;
 	NSMutableArray* specials;
+	NSMutableArray* powers;
 }
 
 +(NSArray*)getAllRaces;
@@ -32,5 +34,6 @@
 @property (copy,readwrite) NSString* abbreviation;
 @property (retain,readwrite) KMStat* bonuses;
 @property (retain,readonly) NSMutableArray* specials;
+@property (retain,readonly) NSMutableArray* powers;
 
 @end

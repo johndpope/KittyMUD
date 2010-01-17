@@ -85,6 +85,7 @@ KMDataManager* kmrace_setUpDataManager() {
 	self = [super init];
 	if(self) {
 		specials = [NSMutableArray array];
+		powers = [NSMutableArray array];
 	}
 	return self;
 }
@@ -98,6 +99,7 @@ KMDataManager* kmrace_setUpDataManager() {
 @synthesize abbreviation;
 @synthesize bonuses;
 @synthesize specials;
+@synthesize powers;
 
 -(void)debugPrint {
 	OCLog(@"kittymud",info,@"Race name = %@, abbreviation = %@", name, abbreviation);

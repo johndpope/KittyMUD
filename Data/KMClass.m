@@ -79,6 +79,15 @@ KMDataManager* KMClass_setUpDataManager() {
 	return klass;
 }
 
+-(id) init {
+	self = [super init];
+	if(self) {
+		specials = [NSMutableArray array];
+		powers = [NSMutableArray array];
+	}
+	return self;
+}
+
 -(NSString*)menuLine
 {
 	return [[self name] capitalizedString];
@@ -142,5 +151,6 @@ KMDataManager* KMClass_setUpDataManager() {
 @synthesize requirements;
 @synthesize tier;
 @synthesize specials;
+@synthesize powers;
 
 @end

@@ -12,6 +12,7 @@
 #import "KMMenu.h"
 #import "KMStat.h"
 #import "KMObject.h"
+#import "KMPower.h"
 
 @interface  KMClass  : KMObject <KMDataStartup,KMMenu> {
 	NSString* name;
@@ -19,6 +20,7 @@
 	int tier;
 	KMStat* requirements;
 	NSMutableArray* specials;
+	NSMutableArray* powers;
 }
 
 +(NSArray*)getAllClasses;
@@ -38,5 +40,6 @@
 @property (retain,readwrite) KMStat* requirements;
 @property (assign,readwrite) int tier;
 @property (retain,readonly) NSMutableArray* specials;
+@property (retain,readonly) NSMutableArray* powers;
 
 @end
