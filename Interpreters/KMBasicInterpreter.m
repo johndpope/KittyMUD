@@ -29,20 +29,24 @@
 					[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
 				}
 			}
-			newState = [[workflow currentStep] myState];					
+			newState = [[workflow currentStep] myState];
+			KMSetStateForCoordinatorTo(newState);
 		}
 		KMGetInterpreterForState(newState,interpreter);
 		if(!interpreter)
 			interpreter = [[KMBasicInterpreter alloc] init];
 		KMSetInterpreterForCoordinatorTo(interpreter);
 	}
+	[coordinator clearFlag:@"softreboot-displayed"];
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
-		[newState softRebootMessage:coordinator];
+		KMGetStateFromCoordinator(xstate);
+		[xstate softRebootMessage:coordinator];
 	}
 	else
 		[coordinator clearFlag:@"no-message"];	
 	[coordinator clearFlag:@"message-direct"];
+	[coordinator setFlag:@"softreboot-displayed"];
 }
 
 @end
