@@ -12,3 +12,5 @@
 #define KMECS(n) extern NSString* const n
 
 #define KMCS(n,v) NSString* const n = v
+
+#define KMSoftRebootCheck if([coordinator isFlagSet:@"softreboot-displayed"]) return
