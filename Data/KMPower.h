@@ -39,8 +39,8 @@ typedef enum {
 	NSString* displayName;
 	ECSNode* definition;
 	NSString* command;
-	int defargs;
-	NSArray* variables;
+	NSArray* defargs;
+	NSMutableDictionary* variables;
 	KMPowerActionType action;
 }
 
@@ -51,8 +51,8 @@ typedef enum {
 @property (copy) NSString* myId;
 @property (copy) NSString* displayName;
 @property (retain) ECSNode* definition;
-@property (assign) int defargs;
-@property (assign) NSArray* variables;
+@property (assign) NSArray* defargs;
+@property (assign) NSMutableDictionary* variables;
 @property (assign) KMPowerActionType action;
 @property (copy) NSString* command;
 

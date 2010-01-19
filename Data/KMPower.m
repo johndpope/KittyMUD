@@ -26,8 +26,8 @@
 	NSString* myId;
 	NSString* displayName;
 	ECSNode* definition;
-	int defargs;
-	NSArray* variables;
+	NSArray* defargs;
+	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSString* command;
 
@@ -66,21 +66,30 @@
 		action = KMPowerNoAction;
 	}
 
+	NSXMLElement* typeElem = [[root elementsForName:@"type"] objectAtIndex:0];
+	NSString* typeText = [typeElem stringValue];
+	if([typeText isEqualToString:@"feature"])
+		type = KMPowerFeatureType;
+	else if([typeText isEqualToString:@"attack"])
+		type = KMPowerAttackType;
+	else if([typeText isEqualToString:@"utility"])
+		type = KMPowerUtilityType;
 	NSArray* variableElems = [root elementsForName:@"variable"];
-	NSMutableArray* rawVariables = [NSMutableArray array];
+	NSMutableDictionary* rawVariables = [NSMutableDictionary dictionary];
 	for(NSXMLElement* elem in variableElems) {
+		NSXMLNode* nameAttribute = [elem attributeForName:@"name"];
 		NSXMLNode* defAttribute = [elem attributeForName:@"def"];
-		[rawVariables addObject:[ECSNode createNodeFromSource:[defAttribute stringValue]]];
+		[rawVariables setObject:[ECSNode createNodeFromSource:[defAttribute stringValue]] forKey:[nameAttribute stringValue]];
 	}
 	
 	variables = rawVariables;
 	
-	defargs = 0;
+	defargs = nil;
 	NSArray* argsArray = [root elementsForName:@"args"];
 	NSXMLElement* args = [argsArray count] ? [argsArray objectAtIndex:0] : nil;
 	if(args) {
 		NSXMLNode* namesAttribute = [args attributeForName:@"names"];
-		defargs = [[[namesAttribute stringValue] componentsSeparatedByString:@","] count];
+		defargs = [[namesAttribute stringValue] componentsSeparatedByString:@","];
 	}
 	
 	NSXMLElement* cmd = [[root elementsForName:@"command"] objectAtIndex:0];
