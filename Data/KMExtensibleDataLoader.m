@@ -53,10 +53,12 @@ NSString* currentFileName;
 					[ainv invoke];
 					id arval;
 					[ainv getReturnValue:&arval];
-					if([akey isEqualToString:@"self"]) {
-						object = arval;
-					} else {
-						[object setValue:arval forKeyPath:akey];
+					if(arval) {
+						if([akey isEqualToString:@"self"]) {
+							object = arval;
+						} else {
+							[object setValue:arval forKeyPath:akey];
+						}
 					}
 				} else {
 					if([akey isEqualToString:@"self"]) {
