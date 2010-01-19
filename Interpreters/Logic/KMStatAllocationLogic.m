@@ -97,7 +97,7 @@ CHELP(quit,@"Quits the allocation, saves changes.  Does not confirm even if you 
 CIMPL(quit,quit:,nil,nil,nil,1) {
 	BOOL ready = [self confirmStats:coordinator];	
 	if( ready ) {
-		KMSetStateForCoordinatorTo(KMNullState);
+		KMSetStateForCoordinatorTo([KMNullState class]);
 		[(KMObject*)[coordinator valueForKeyPath:@"properties.current-character"] setFlag:@"allocated"];
 		return;
 	}
