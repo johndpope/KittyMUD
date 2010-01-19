@@ -15,7 +15,7 @@
 
 @implementation KMChooseCharacterNameState
 
-+(void) processState:(id)coordinator {
+-(void) processState:(id)coordinator {
 	NSFileHandle* usedNamesFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(UsedCharacterFile)" replaceAllVariables]];
 	NSString* name = [coordinator getInputBuffer];
 	if(usedNamesFile != nil)
@@ -62,7 +62,7 @@
 	[[coordinator getCharacters] addObject:character];
 	KMGetStateFromCoordinator(state);
 	if(state == self) {
-		KMSetStateForCoordinatorTo(KMNullState);
+		KMSetStateForCoordinatorTo([KMNullState class]);
 	}
 }
 
@@ -72,8 +72,9 @@
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	[coordinator sendMessageToBuffer:@"Please enter a name for your new character:"];
 }
 

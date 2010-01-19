@@ -15,11 +15,11 @@
 
 @implementation KMNewPasswordState
 
-+(void) processState:(id)coordinator
+-(void) processState:(id)coordinator
 {
 	[coordinator setFlag:@"new-password"];
 	[[coordinator getProperties] setObject:[[coordinator getInputBuffer] MD5] forKey:@"password"];
-	KMSetStateForCoordinatorTo(KMConfirmPasswordState);
+	KMSetStateForCoordinatorTo([KMConfirmPasswordState class]);
 }
 
 +(NSString*) getName
@@ -27,8 +27,9 @@
 	return @"NewPassword";
 }
 
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	[coordinator sendMessageToBuffer:@"Please enter a password for your account:"];
 }
 

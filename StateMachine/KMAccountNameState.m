@@ -16,7 +16,7 @@
 
 @implementation KMAccountNameState
 
-+(void) processState:(id)coordinator 
+-(void) processState:(id)coordinator 
 {
 	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.xml", [coordinator getInputBuffer]] replaceAllVariables];
 	id<KMState> returnState;
@@ -46,8 +46,9 @@
 	return @"AccountName";
 }
 
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	[coordinator sendMessageToBuffer:@"Please enter your account name:"];
 }
 @end

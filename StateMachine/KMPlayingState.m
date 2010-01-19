@@ -22,7 +22,7 @@
 	KMSetInterpreterForStateTo(KMPlayingState,playingInterpreter);
 }
 
-+(void) processState:(id)coordinator
+-(void) processState:(id)coordinator
 {
 	return;
 }
@@ -33,8 +33,9 @@
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	if(![coordinator isFlagSet:@"no-display-room"])
 		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
 	NSMutableDictionary* promptVars = [[NSMutableDictionary alloc] init];

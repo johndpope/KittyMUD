@@ -18,7 +18,7 @@
 
 @implementation KMChooseClassState
 
-+(void) processState:(id)coordinator
+-(void) processState:(id)coordinator
 {
 	KMGetMenuFromCoordinator(menu);
 	KMClass* klass = [menu getSelection:coordinator];
@@ -33,7 +33,7 @@
 	}
 	KMGetStateFromCoordinator(state);
 	if(state == self) {
-		KMSetStateForCoordinatorTo(KMNullState);
+		KMSetStateForCoordinatorTo([KMNullState class]);
 	}
 }
 
@@ -43,12 +43,13 @@
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	KMGetMenuFromCoordinator(menu);
 	if(!menu) {
 		NSArray* klasses = [KMClass getAvailableJobs:[coordinator valueForKeyPath:@"properties.current-character"]];
-		menu = [[KMMenuHandler alloc] initializeWithItems:klasses];
+		menu = [[KMMenuHandler alloc] initWithItems:klasses message:@"Please choose a class from the following selection:>"];
 		KMSetMenuForCoordinatorTo(menu);
 	}
 	[menu displayMenu:coordinator];

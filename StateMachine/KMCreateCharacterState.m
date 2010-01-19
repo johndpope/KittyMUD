@@ -21,7 +21,7 @@
 
 @implementation KMCreateCharacterState
 
-+(void) processState:(id)coordinator
+-(void) processState:(id)coordinator
 {
 	return;
 }
@@ -32,8 +32,9 @@
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	[[KMWorkflow getWorkflowForName:KMCreateCharacterWorkflow] startWorkflowForCoordinator:coordinator];
 }
 

@@ -43,28 +43,32 @@ static NSMutableArray* KMAccountMenuItems;
 	}
 }
 
-+(void) initializeWithCoordinator:(id)coordinator
+-(id) initWithCoordinator:(id)coordinator
 {
-	NSMutableArray* myItems = [[NSMutableArray alloc] init];
-	for(Class c in KMAccountMenuItems) {
-		NSArray* reqs = [c requirements];
-		if(reqs != nil) {
-			BOOL meetsReqs = YES;
-			for(id item in reqs) {
-				if([item isKindOfClass:[NSNumber class]]) {
-					// we check the coordinators characters to see if they match the minimum level
-				} else {
-					if(![coordinator isFlagSet:item])
-						meetsReqs = NO;
+	self = [super init];
+	if(self) {
+		NSMutableArray* myItems = [[NSMutableArray alloc] init];
+		for(Class c in KMAccountMenuItems) {
+			NSArray* reqs = [c requirements];
+			if(reqs != nil) {
+				BOOL meetsReqs = YES;
+				for(id item in reqs) {
+					if([item isKindOfClass:[NSNumber class]]) {
+						// we check the coordinators characters to see if they match the minimum level
+					} else {
+						if(![coordinator isFlagSet:item])
+							meetsReqs = NO;
+					}
 				}
-			}
-			if(meetsReqs)
+				if(meetsReqs)
+					[myItems addObject:c];
+			} else
 				[myItems addObject:c];
-		} else
-			[myItems addObject:c];
+		}
+		KMMenuHandler* menu = [[KMMenuHandler alloc] initWithItems:myItems];
+		KMSetMenuForCoordinatorTo(menu);
 	}
-	KMMenuHandler* menu = [[KMMenuHandler alloc] initializeWithItems:myItems];
-	KMSetMenuForCoordinatorTo(menu);
+	return self;
 }
 
 NSInteger ComparePriority(id,id,void*);
@@ -77,7 +81,7 @@ NSInteger ComparePriority(id a, id b, void* c) {
 		return NSOrderedSame;
 }
 
-+(void) processState:(id)coordinator
+-(void) processState:(id)coordinator
 {
 	KMGetMenuFromCoordinator(menu);
 	Class menuClass = [menu getSelection:(coordinator) withSortFunction:ComparePriority];
@@ -86,18 +90,19 @@ NSInteger ComparePriority(id a, id b, void* c) {
 	
 	KMSetStateForCoordinatorTo(menuClass);
 }
-	   
+
 +(NSString*) getName
 {
 	return @"AccountMenu";
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot+
-+(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage:(id)coordinator
 {
+	KMSoftRebootCheck;
 	KMGetMenuFromCoordinator(menu);
 	if(!menu) {
-		[self initializeWithCoordinator:coordinator];
+		[self initWithCoordinator:coordinator];
 		KMSLGetMenuFromCoordinator(menu);
 	}
 	[menu displayMenu:coordinator withSortFunction:ComparePriority];

@@ -60,3 +60,4 @@
 #import "KMExtensibleDataLoader.h"
 #import "KMExtensibleDataSchema.h"
 
+#define KMSoftRebootCheck if([coordinator isFlagSet:@"softreboot-displayed"]) return

@@ -10,12 +10,12 @@
 
 @protocol KMState <NSObject>
 
-+(void) processState:(id)coordinator;
-
 +(NSString*) getName;
 
+-(void) processState:(id)coordinator;
+
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
-+(void) softRebootMessage:(id)coordinator;
+-(void) softRebootMessage:(id)coordinator;
 
 @end
 
@@ -30,10 +30,15 @@ extern NSMutableDictionary* interpreters;
 #define KMSLGetMenuFromCoordinator(m) m = [coordinator valueForKeyPath:@"properties.menu"]
 
 #define KMSetStateForCoordinatorTo(s) do { \
-	[coordinator setValue:[s class] forKeyPath:@"properties.current-state"]; \
+	id st = s; \
+	if(![s respondsToSelector:@selector(processState:)]) \
+		st = [[(id)s alloc] init]; \
+	[coordinator setValue:st forKeyPath:@"properties.current-state"]; \
 } while(0)
 
-#define KMGetStateFromCoordinator(s) id<KMState> s = [coordinator valueForKeyPath:@"properties.current-state"]
+#define KMGetStateFromCoordinator(s) id<KMState> s = [coordinator valueForKeyPath:@"properties.current-state"]; \
+	if(![s respondsToSelector:@selector(processState:)]) \
+		s = [[(id)s alloc] init]
 
 #define KMSetInterpreterForStateTo(s,i) do { \
 	[interpreters setValue:i forKey:[[s class] getName]]; \
