@@ -13,19 +13,25 @@
 
 @implementation KMMenuHandler
 
--(id)initializeWithItems:(NSArray*)items
+-(id)initWithItems:(NSArray*)items
+{
+	return [self initWithItems:items message:@"Please make a choice from the following selections:>"];
+}
+
+-(id)initWithItems:(NSArray *)items message:(NSString*)msg
 {
 	self = [super init];
 	if(self) {
 		myItems = [[NSMutableArray alloc] initWithArray:items];
 		myRealItems = [NSMutableArray arrayWithCapacity:[myItems count]];
+		message = [msg copy];
 	}
 	return self;
 }
 
 -(void)displayMenu:(KMConnectionCoordinator*)coordinator
 {
-	[coordinator sendMessageToBuffer:@"Please make a choice from the following selections:>"];
+	[coordinator sendMessageToBuffer:message];
 	for(int i = 1; i <= [myItems count]; i++) {
 		id item = [myItems objectAtIndex:(i-1)];
 		NSString* menuLine = nil;
@@ -67,6 +73,9 @@
 {
 	[myItems sortUsingFunction:sortFunction context:NULL];
 	id selection = [self getSelection:coordinator];
+	if([selection isKindOfClass:[ECSNode class]]) {
+		selection = resolveNode(selection);
+	}
 	return selection;
 }
 

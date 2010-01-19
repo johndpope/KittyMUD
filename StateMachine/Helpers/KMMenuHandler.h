@@ -14,9 +14,12 @@
 @interface  KMMenuHandler  : KMObject {
 	NSMutableArray* myItems;
 	NSMutableArray* myRealItems;
+	NSString* message;
 }
 
--(id)initializeWithItems:(NSArray*)items;
+-(id)initWithItems:(NSArray*)items;
+
+-(id) initWithItems:(NSArray*)items message:(NSString*)msg;
 
 -(void)displayMenu:(KMConnectionCoordinator*)coordinator;
 
