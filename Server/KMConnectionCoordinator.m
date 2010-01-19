@@ -27,6 +27,10 @@
 	return nil;
 }
 
+-(id) copyWithZone:(NSZone*)zone {
+	return self;
+}
+
 -(id) init
 {
 	self = [super init];
