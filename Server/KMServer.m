@@ -111,6 +111,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForWritingAtPath:sr];
 	for(KMConnectionCoordinator* coordinator in [connectionPool connections]) {
 		[coordinator setFlag:@"soft-reboot"];
+		[coordinator clearFlag:@"softreboot-displayed"];
 		[coordinator setOutputBuffer:@""];
 		BOOL res = [NSKeyedArchiver archiveRootObject:coordinator toFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables]];
 		if(!res) {
