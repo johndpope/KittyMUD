@@ -59,8 +59,11 @@
 		[coordinator sendMessageToBuffer:@"`#`c[`G%d`c] `w%@`x", i, menuLine];
 	}
 	[coordinator sendMessageToBuffer:@"`@"];
-	[coordinator sendMessageToBuffer:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]];
-	
+	if([[myItems objectAtIndex:0] respondsToSelector:@selector(keyForInfo)]) {
+		[coordinator sendMessageToBuffer:@"Please make your selection (`c1`x - `c%d`x) or type info <selection> for more information:", [myItems count]];
+	} else {
+		[coordinator sendMessageToBuffer:@"Please make your selection (`c1`x - `c%d`x):", [myItems count]];
+	}
 }
 
 -(void)displayMenu:(KMConnectionCoordinator*)coordinator withSortFunction:(NSInteger (*)(id, id, void *))sortFunction
@@ -71,24 +74,48 @@
 
 -(id)getSelection:(KMConnectionCoordinator *)coordinator withSortFunction:(NSInteger (*)(id, id, void*))sortFunction
 {
-	[myItems sortUsingFunction:sortFunction context:NULL];
-	id selection = [self getSelection:coordinator];
+	if(sortFunction) {
+		[myItems sortUsingFunction:sortFunction context:NULL];
+	}
+	[coordinator setFlag:@"no-message"];
+	int sel = [[coordinator getInputBuffer] intValue];
+	if(!sel || (sel > [myItems count]) || sel < 1) {
+		if(![[coordinator getInputBuffer] hasPrefix:@"info"])
+			[coordinator sendMessageToBuffer:@"\n\rInvalid selection.\n\r"];
+		else {
+			if([[coordinator getInputBuffer] hasPrefix:@"info"]) {
+				NSArray* infoMakeup = [[coordinator getInputBuffer] componentsSeparatedByString:@" "];
+				if([infoMakeup count] > 1) {
+					int selection = [[infoMakeup objectAtIndex:1] intValue];
+					if(!selection || (selection > [myItems count]) || selection < 1) {
+						[coordinator sendMessageToBuffer:@"\n\rInvalid selection.\n\r"];
+					} else {
+						id item = [myRealItems objectAtIndex:(selection - 1)];
+						if([item respondsToSelector:@selector(keyForInfo)]) {
+							[coordinator sendMessageToBuffer:[NSString stringWithFormat:@"\n\r%@\n\r",[item valueForKeyPath:[item keyForInfo]]]];
+						} else {
+							[coordinator sendMessageToBuffer:@"\n\rNo info available for given selection.\n\r"];
+						}
+					}
+				}
+			} else {
+				[coordinator sendMessageToBuffer:@"\n\rUsage:  info <num>\n\r"];
+			}
+		}
+		return nil;
+	}
+	KMSetMenuForCoordinatorTo(nil);
+	id selection = [myRealItems objectAtIndex:(sel - 1)];
 	if([selection isKindOfClass:[ECSNode class]]) {
 		selection = resolveNode(selection);
 	}
+	[coordinator clearFlag:@"no-message"];
 	return selection;
 }
 
 -(id)getSelection:(KMConnectionCoordinator*)coordinator
 {
-	int selection = [[coordinator getInputBuffer] intValue];
-	if(!selection || (selection > [myItems count]) || selection < 0) {
-		[coordinator sendMessageToBuffer:@"Invalid selection.\n\r "];
-		return nil;
-	}
-	KMSetMenuForCoordinatorTo(nil);
-	id item = [myRealItems objectAtIndex:(selection - 1)];
-	return item;
+	return [self getSelection:coordinator withSortFunction:NULL];
 }
 
 @synthesize myItems;

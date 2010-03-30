@@ -16,4 +16,8 @@
 
 +(NSString*)menuLine;
 
+-(NSString*)keyForInfo;
+
++(NSString*)keyForInfo;
+
 @end
