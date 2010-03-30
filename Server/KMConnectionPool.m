@@ -55,7 +55,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	KMConnectionPool* pool = [[KMServer getDefaultServer] getConnectionPool];
 	KMConnectionCoordinator* coordinator = (KMConnectionCoordinator*)info;
 	NSString* inputString = [[NSString alloc] initWithData:(NSData*)data encoding:NSUTF8StringEncoding];
-	if([inputString characterAtIndex:0] == '\x04') {
+	if(![inputString length] || [inputString characterAtIndex:0] == '\x04') {
 		OCLog(@"kittymud",info,@"Encountered end-of-file from socket %d, closing connection...", CFSocketGetNative( socket ));
 		[pool removeConnection:coordinator];
 		return;
