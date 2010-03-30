@@ -121,7 +121,7 @@
 	
 	if(![self hasChildren])
 	{
-		KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
+		KMStat* parentStat = [[[self class] alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
 		if(childString) {
 			[parentStat setValueOfChildAtPath:childString withValue:val];
 		} else {
@@ -137,7 +137,7 @@
 			else
 				return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setStatvalue:val];
 		} else {
-			KMStat* parentStat = [[KMStat alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
+			KMStat* parentStat = [[[self class] alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
 			if(childString) {
 				[parentStat setValueOfChildAtPath:childString withValue:val];
 			} else {
@@ -202,7 +202,7 @@
 
 +(KMStat*) loadFromTemplateWithRootElement:(NSXMLElement *)root withType:(KMStatLoadType)loadType
 {
-	__block KMStat* main = [[KMStat alloc] initializeWithName:@"main" andValue:0];
+	__block KMStat* main = [[self alloc] initializeWithName:@"main" andValue:0];
 	if(root == nil)
 		return main;
 	
@@ -257,7 +257,7 @@
 		if(valueAttribute != nil)
 			_statvalue = [[valueAttribute stringValue] intValue];
 		
-		stat = [[KMStat alloc] initializeWithName:statName andAbbreviation:statAbbr andValue:0];
+		stat = [[self alloc] initializeWithName:statName andAbbreviation:statAbbr andValue:0];
 		if(loadType == KMStatLoadTypeAllocation) {
 			[[stat getProperties] setObject:[NSNumber numberWithInt:_statvalue] forKey:@"allocatable"];
 			NSXMLNode* changeableAttribute = [element valueForKey:@"changeable"];
@@ -396,7 +396,7 @@
 			KMStat* mychild = [self findStatWithPath:[child name]];
 			BOOL toAdd = NO;
 			if(!mychild) {
-				mychild = [[KMStat alloc] init];
+				mychild = [[[child class] alloc] init];
 				toAdd = YES;
 			}
 			[mychild copyStat:child withSettings:settings];
