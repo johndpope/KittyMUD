@@ -175,7 +175,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	NSMutableString* sb = [[NSMutableString alloc] init];
 	[sb appendString:@"Available classes: \n"];
 	for(KMClass* j in avail) {
-		[sb appendFormat:@"%@", [j name]];
+		[sb appendFormat:@"%@ ", [j name]];
 		if( i % 5 == 0 )
 			[sb appendString:@"\n\r"];
 		i++;
