@@ -19,7 +19,8 @@ typedef enum {
 typedef enum {
 	KMPowerAtWill,
 	KMPowerEncounter,
-	KMPowerDaily
+	KMPowerDaily,
+	KMPowerSpecial
 } KMPowerUsage;
 
 typedef enum {
@@ -42,6 +43,8 @@ typedef enum {
 	NSArray* defargs;
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
+	NSInteger level;
+	ECSNode* usageTest;
 }
 
 +(KMPower*) createPowerWithRootElement:(NSXMLElement*)root;
@@ -55,5 +58,6 @@ typedef enum {
 @property (assign) NSMutableDictionary* variables;
 @property (assign) KMPowerActionType action;
 @property (copy) NSString* command;
-
+@property (assign) NSInteger level;
+@property (retain) ECSNode* usageTest;
 @end

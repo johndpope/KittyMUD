@@ -30,6 +30,7 @@
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSString* command;
+	ECSNode* usageTest = nil;
 
 	NSXMLNode* usageAttribute = [root attributeForName:@"usage"];
 	NSString* usageName = [usageAttribute stringValue];
@@ -40,8 +41,14 @@
 		usage = KMPowerEncounter;
 	} else if([usageName isEqualToString:@"daily"]) {
 		usage = KMPowerDaily;
-	}	
-
+	} else if([usageName isEqualToString:@"special"]) {
+		usage = KMPowerSpecial;
+		NSXMLElement* usgElem = [[root elementsForName:@"usage"] objectAtIndex:0];
+		NSXMLNode* testAttribute = [usgElem attributeForName:@"test"];
+		NSLog(@"%@",[testAttribute stringValue]);
+		usageTest = [ECSNode createNodeFromSource:[testAttribute stringValue]];
+	}
+	
 	NSXMLElement* idElem = [[root elementsForName:@"id"] objectAtIndex:0];
 	myId = [idElem stringValue];
 	NSXMLElement* name = [[root elementsForName:@"name"] objectAtIndex:0];
@@ -108,7 +115,14 @@
 	}
 	definition = [ECSNode createNodeFromSource:defText usingFileName:[KMExtensibleDataLoader currentFileName]];
 
-	KMPower* power = [[KMPower alloc] init];
+	NSInteger level = 0;
+	NSArray* elems = [root elementsForName:@"level"];
+	if([elems count]) {
+		NSXMLElement* lvl = [elems objectAtIndex:0];
+		level = [[lvl stringValue] intValue];
+	}
+	
+	KMPower* power = [[self alloc] init];
 	power.type = type;
 	power.usage = usage;
 	power.myId = myId;
@@ -118,6 +132,8 @@
 	power.variables = variables;
 	power.action = action;
 	power.command = command;
+	power.level = level;
+	power.usageTest = usageTest;
 	return power;
 }
 
@@ -130,4 +146,6 @@
 @synthesize variables;
 @synthesize action;
 @synthesize command;
+@synthesize level;
+@synthesize usageTest;
 @end
