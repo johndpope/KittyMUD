@@ -165,8 +165,9 @@
 			[invocation setArgument:&arg atIndex:(i+2)];
 		}
 	}
+	KMGetStateFromCoordinator(state);
 	[invocation invoke];
-	[super interpret:coordinator];
+	[super interpret:coordinator withOldState:state];
 }
 
 -(BOOL) KM_validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl

@@ -13,10 +13,7 @@
 
 @implementation KMBasicInterpreter
 
--(void) interpret:(id)coordinator
-{
-	KMGetStateFromCoordinator(state);
-	[state processState:coordinator];
+-(void) interpret:(id)coordinator withOldState:(id)state {
 	KMGetStateFromCoordinator(newState);
 	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
 	if(newState != state) {
@@ -37,7 +34,6 @@
 			interpreter = [[KMBasicInterpreter alloc] init];
 		KMSetInterpreterForCoordinatorTo(interpreter);
 	}
-	[coordinator clearFlag:@"softreboot-displayed"];
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
 		KMGetStateFromCoordinator(xstate);
@@ -46,7 +42,14 @@
 	else
 		[coordinator clearFlag:@"no-message"];	
 	[coordinator clearFlag:@"message-direct"];
-	[coordinator setFlag:@"softreboot-displayed"];
+}
+
+-(void) interpret:(id)coordinator
+{
+	[coordinator clearFlag:@"softreboot-displayed"];
+	KMGetStateFromCoordinator(state);
+	[state processState:coordinator];
+	[self interpret:coordinator withOldState:state];
 }
 
 @end

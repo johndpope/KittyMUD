@@ -14,4 +14,6 @@
 
 }
 
+-(void) interpret:(id)coordinator withOldState:(id)state;
+
 @end
