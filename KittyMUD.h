@@ -59,5 +59,9 @@
 #import "KMSpecial.h"
 #import "KMExtensibleDataLoader.h"
 #import "KMExtensibleDataSchema.h"
+#import "KMEventDuration.h"
+#import "KMEnumFactory.h"
 
-#define KMSoftRebootCheck if([coordinator isFlagSet:@"softreboot-displayed"]) return
+#define KMSoftRebootCheck if([coordinator isFlagSet:@"softreboot-displayed"]) return; [coordinator setFlag:@"softreboot-displayed"]
+
+#define KMCurrentCharacter(coor) [coor valueForKeyPath:@"properties.current-character"]
