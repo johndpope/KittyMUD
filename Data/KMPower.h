@@ -9,29 +9,32 @@
 #import <Cocoa/Cocoa.h>
 #import <ECScript/ECScript.h>
 #import "KMObject.h"
+#import "KMEnumFactory.h"
 
-typedef enum {
-	KMPowerAttackType,
-	KMPowerFeatureType,
-	KMPowerUtilityType
-} KMPowerType;
+#define KM_POWER_TYPE(XX) \
+	XX(KMPowerAttackType,,@"attack") \
+	XX(KMPowerFeatureType,,@"feature") \
+	XX(KMPowerUtilityType,,@"utility") \
 
-typedef enum {
-	KMPowerAtWill,
-	KMPowerEncounter,
-	KMPowerDaily,
-	KMPowerSpecial
-} KMPowerUsage;
+KMDeclareEnum(KM,PowerType,KM_POWER_TYPE);
 
-typedef enum {
-	KMPowerFreeAction,
-	KMPowerMinorAction,
-	KMPowerMoveAction,
-	KMPowerStandardAction,
-	KMPowerImmediateInterrupt,
-	KMPowerImmediateReaction,
-	KMPowerNoAction
-} KMPowerActionType;
+#define KM_POWER_USAGE(XX) \
+	XX(KMPowerAtWill,,@"at-will") \
+	XX(KMPowerEncounter,,@"encounter") \
+	XX(KMPowerDaily,,@"daily") \
+
+KMDeclareEnum(KM,PowerUsage,KM_POWER_USAGE);
+
+#define KM_POWER_ACTION_TYPE(XX) \
+	XX(KMPowerFreeAction,,@"free") \
+	XX(KMPowerMinorAction,,@"minor") \
+	XX(KMPowerMoveAction,,@"move") \
+	XX(KMPowerStandardAction,,@"standard") \
+	XX(KMPowerImmediateInterrupt,,@"immediate interrupt") \
+	XX(KMPowerImmediateReaction,,@"immediate reaction") \
+	XX(KMPowerNoAction,,@"no") \
+
+KMDeclareEnum(KM,PowerActionType,KM_POWER_ACTION_TYPE);
 
 @interface KMPower : KMObject {
 	KMPowerType type;
@@ -44,10 +47,14 @@ typedef enum {
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSInteger level;
+	BOOL hasSpecialUsage;
 	ECSNode* usageTest;
+	NSArray* keywords;
 }
 
 +(KMPower*) createPowerWithRootElement:(NSXMLElement*)root;
+
+-(BOOL) hasKeyword:(NSString*)keyword;
 
 @property (assign) KMPowerType type;
 @property (assign) KMPowerUsage usage;
@@ -60,4 +67,6 @@ typedef enum {
 @property (copy) NSString* command;
 @property (assign) NSInteger level;
 @property (retain) ECSNode* usageTest;
+@property (assign) BOOL hasSpecialUsage;
+@property (retain) NSArray* keywords;
 @end

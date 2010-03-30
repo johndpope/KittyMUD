@@ -13,6 +13,19 @@
 
 @implementation KMPower
 
+ECSDefineBridgeFunctions(KM,PowerType);
+ECSDefineBridgeFunctions(KM,PowerUsage);
+ECSDefineBridgeFunctions(KM,PowerActionType);
+
++(void) load {
+	ECSRegisterEnum(KM_POWER_TYPE);
+	ECSRegisterEnum(KM_POWER_USAGE);
+	ECSRegisterEnum(KM_POWER_ACTION_TYPE);
+	ECSRegisterBridgeFunctions(KM,PowerType);
+	ECSRegisterBridgeFunctions(KM,PowerUsage);
+	ECSRegisterBridgeFunctions(KM,PowerActionType);
+}
+
 +(void) executePower:(id)coordinator withArgs:(NSArray*)args {
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
@@ -31,22 +44,28 @@
 	KMPowerActionType action;
 	NSString* command;
 	ECSNode* usageTest = nil;
+	NSArray* keywords = nil;
+	BOOL hasSpecialUsage = NO;
 
 	NSXMLNode* usageAttribute = [root attributeForName:@"usage"];
 	NSString* usageName = [usageAttribute stringValue];
 	usage = KMPowerEncounter;
-	if([usageName isEqualToString:@"atwill"]) {
+	if([usageName hasPrefix:@"atwill"]) {
 		usage = KMPowerAtWill;
-	} else if([usageName isEqualToString:@"encounter"]) {
+	} else if([usageName hasPrefix:@"encounter"]) {
 		usage = KMPowerEncounter;
-	} else if([usageName isEqualToString:@"daily"]) {
+	} else if([usageName hasPrefix:@"daily"]) {
 		usage = KMPowerDaily;
-	} else if([usageName isEqualToString:@"special"]) {
-		usage = KMPowerSpecial;
+	}
+	if([usageName hasSuffix:@"[special]"]) {
+		hasSpecialUsage = YES;
 		NSXMLElement* usgElem = [[root elementsForName:@"usage"] objectAtIndex:0];
 		NSXMLNode* testAttribute = [usgElem attributeForName:@"test"];
-		NSLog(@"%@",[testAttribute stringValue]);
-		usageTest = [ECSNode createNodeFromSource:[testAttribute stringValue]];
+		NSString* usageText = [testAttribute stringValue];
+		if([usageText isEqualToString:@":[text]"]) {
+			usageText = [usgElem stringValue];
+		}
+		usageTest = [ECSNode createNodeFromSource:usageText];
 	}
 	
 	NSXMLElement* idElem = [[root elementsForName:@"id"] objectAtIndex:0];
@@ -99,6 +118,12 @@
 		defargs = [[namesAttribute stringValue] componentsSeparatedByString:@","];
 	}
 	
+	NSArray* keyArray = [root elementsForName:@"keywords"];
+	NSXMLElement* keys = [keyArray count] ? [keyArray objectAtIndex:0] : nil;
+	if(keys) {
+		keywords = [[keys stringValue] componentsSeparatedByString:@","];
+	}
+	
 	NSXMLElement* cmd = [[root elementsForName:@"command"] objectAtIndex:0];
 	command = @"";
 	if(cmd) {
@@ -133,8 +158,14 @@
 	power.action = action;
 	power.command = command;
 	power.level = level;
+	power.hasSpecialUsage = hasSpecialUsage;
 	power.usageTest = usageTest;
+	power.keywords = keywords;
 	return power;
+}
+
+-(BOOL) hasKeyword:(NSString*)keyword {
+	return [keywords containsObject:keyword];
 }
 
 @synthesize type;
@@ -148,4 +179,10 @@
 @synthesize command;
 @synthesize level;
 @synthesize usageTest;
+@synthesize hasSpecialUsage;
+@synthesize keywords;
 @end
+
+KMDefineEnum(KM,PowerType,KM_POWER_TYPE);
+KMDefineEnum(KM,PowerUsage,KM_POWER_USAGE);
+KMDefineEnum(KM,PowerActionType,KM_POWER_ACTION_TYPE);
