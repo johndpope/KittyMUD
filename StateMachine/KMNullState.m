@@ -11,10 +11,11 @@
 
 @implementation KMNullState
 
--(void) processState:(id)coordinator { }
+-(void) processState { }
 
 +(NSString*) getName { return @"Null"; }
 
--(void) softRebootMessage:(id)coordinator { }
+-(void) softRebootMessage { }
+
 @end
 

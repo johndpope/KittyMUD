@@ -7,15 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KMObject.h"
 
-@protocol KMState <NSObject>
+@class KMConnectionCoordinator;
+
+@interface KMState : KMObject
+{
+	KMConnectionCoordinator* coordinator;
+}
 
 +(NSString*) getName;
 
--(void) processState:(id)coordinator;
+-(id) initWithCoordinator:(id)coord;
+
+@property (retain) KMConnectionCoordinator* coordinator;
+
+@end
+
+@protocol KMState <NSObject>
+
+-(id) initWithCoordinator:(KMConnectionCoordinator*)coord;
+
++(NSString*) getName;
+
+-(void) processState;
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator;
+-(void) softRebootMessage;
 
 @end
 
@@ -31,14 +49,10 @@ extern NSMutableDictionary* interpreters;
 
 #define KMSetStateForCoordinatorTo(s) do { \
 	id st = s; \
-	if(![s respondsToSelector:@selector(processState:)]) \
-		st = [[(id)s alloc] init]; \
-	[coordinator setValue:st forKeyPath:@"properties.current-state"]; \
+	[coordinator setValue:[[st alloc] initWithCoordinator:coordinator] forKeyPath:@"properties.current-state"]; \
 } while(0)
 
-#define KMGetStateFromCoordinator(s) id<KMState> s = [coordinator valueForKeyPath:@"properties.current-state"]; \
-	if(![s respondsToSelector:@selector(processState:)]) \
-		s = [[(id)s alloc] init]
+#define KMGetStateFromCoordinator(s) id<KMState> s = [coordinator valueForKeyPath:@"properties.current-state"];
 
 #define KMSetInterpreterForStateTo(s,i) do { \
 	[interpreters setValue:i forKey:[[s class] getName]]; \
@@ -46,6 +60,6 @@ extern NSMutableDictionary* interpreters;
 	
 #define KMGetInterpreterForState(s,l) id<KMInterpreter> l = [interpreters valueForKey:[[s class] getName]];
 
-@interface KMNullState : NSObject <KMState>
+@interface KMNullState : KMState <KMState>
 
 @end

@@ -10,7 +10,7 @@
 #import "KMState.h"
 #import "KMObject.h"
 
-@interface  KMPlayingState  : KMObject <KMState> {
+@interface  KMPlayingState  : KMState <KMState> {
 
 }
 

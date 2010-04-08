@@ -14,7 +14,7 @@
 #import "KMRoom.h"
 #import "KMObject.h"
 
-@interface  KMChooseCharacterState  : KMObject <KMState,KMAccountMenu> {
+@interface  KMChooseCharacterState  : KMState <KMState,KMAccountMenu> {
 }
 
 @end

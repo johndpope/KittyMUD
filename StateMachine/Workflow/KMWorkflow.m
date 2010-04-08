@@ -71,7 +71,7 @@ NSMutableDictionary* interpreters;
 
 #define KMWFSRM do { \
 	KMGetStateFromCoordinator(state); \
-	[state softRebootMessage:coordinator]; \
+	[state softRebootMessage]; \
 } while(0)
 
 -(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator {

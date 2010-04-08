@@ -13,7 +13,7 @@
 
 @implementation KMConfirmStatAllocationState
 
--(void) processState:(id)coordinator
+-(void) processState
 {
 	NSString* message = [coordinator getInputBuffer];
 	NSPredicate* yesPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'y'"];
@@ -32,7 +32,7 @@
 }
 
 // Because soft reboot under KittyMUD does not discriminate based on the state, we use this so we can remind players what they were doing after a soft reboot
--(void) softRebootMessage:(id)coordinator {
+-(void) softRebootMessage {
 	KMSoftRebootCheck;
 	[coordinator sendMessageToBuffer:@"Do you wish to continue with these stats (yes/no):"];
 }

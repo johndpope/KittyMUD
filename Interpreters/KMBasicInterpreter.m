@@ -37,7 +37,7 @@
 	[coordinator setFlag:@"message-direct"];
 	if(![coordinator isFlagSet:@"no-message"]) {
 		KMGetStateFromCoordinator(xstate);
-		[xstate softRebootMessage:coordinator];
+		[xstate softRebootMessage];
 	}
 	else
 		[coordinator clearFlag:@"no-message"];	
@@ -48,7 +48,7 @@
 {
 	[coordinator clearFlag:@"softreboot-displayed"];
 	KMGetStateFromCoordinator(state);
-	[state processState:coordinator];
+	[state processState];
 	[self interpret:coordinator withOldState:state];
 }
 

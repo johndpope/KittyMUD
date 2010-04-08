@@ -15,7 +15,7 @@
 
 @implementation KMNewPasswordState
 
--(void) processState:(id)coordinator
+-(void) processState
 {
 	[coordinator setFlag:@"new-password"];
 	[[coordinator getProperties] setObject:[[coordinator getInputBuffer] MD5] forKey:@"password"];
@@ -27,7 +27,7 @@
 	return @"NewPassword";
 }
 
--(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage
 {
 	KMSoftRebootCheck;
 	[coordinator sendMessageToBuffer:@"Please enter a password for your account:"];

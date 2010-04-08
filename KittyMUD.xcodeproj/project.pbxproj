@@ -92,6 +92,7 @@
 		3A2F78F61098CD4600EA69DC /* KMServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78F01098CD4600EA69DC /* KMServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2F78F71098CD4600EA69DC /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78F11098CD4600EA69DC /* KMServer.m */; };
 		3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2F79631098D35D00EA69DC /* libcrypto.dylib */; };
+		3A369FCD116A309F00298324 /* KMState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A369FCC116A309F00298324 /* KMState.m */; };
 		3A427B23109A2B2700E1C502 /* KittyMUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427B22109A2AD000E1C502 /* KittyMUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427B68109A99D000E1C502 /* KMWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78E31098CD1500EA69DC /* KMWorkflow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427B69109A99D000E1C502 /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78E41098CD1500EA69DC /* KMWorkflow.m */; };
@@ -275,6 +276,7 @@
 		3A2F78F11098CD4600EA69DC /* KMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMServer.m; sourceTree = "<group>"; };
 		3A2F79041098CDC400EA69DC /* KMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMState.h; sourceTree = "<group>"; };
 		3A2F79631098D35D00EA69DC /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		3A369FCC116A309F00298324 /* KMState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMState.m; sourceTree = "<group>"; };
 		3A427B22109A2AD000E1C502 /* KittyMUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD.h; sourceTree = "<group>"; };
 		3A427B7C109A9A9F00E1C502 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3A427B80109A9AB900E1C502 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -539,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2F79041098CDC400EA69DC /* KMState.h */,
+				3A369FCC116A309F00298324 /* KMState.m */,
 				3A2F78E21098CCFA00EA69DC /* Workflow */,
 				3A2F78AA1098CCC800EA69DC /* KMAccountMenuState.h */,
 				3A2F78AB1098CCC800EA69DC /* KMAccountMenuState.m */,
@@ -915,6 +918,7 @@
 				3AEA2D6D110388F400F3426B /* KMPower.m in Sources */,
 				3ACDAA211112FC5700108E16 /* KMEventDuration.m in Sources */,
 				3AB8B7051153EC07005DE7AA /* KMRequirement.m in Sources */,
+				3A369FCD116A309F00298324 /* KMState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

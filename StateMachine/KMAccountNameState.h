@@ -10,7 +10,7 @@
 #import "KMState.h"
 #import "KMObject.h"
 
-@interface  KMAccountNameState  : KMObject <KMState> {
+@interface  KMAccountNameState  : KMState <KMState> {
 
 }
 

@@ -16,7 +16,7 @@
 
 @implementation KMConfirmPasswordState
 
--(void) processState:(id)coordinator
+-(void) processState
 {
 	NSString* hash = [[coordinator getInputBuffer] MD5];
 	if(![[[coordinator getProperties] objectForKey:@"password"] isEqualToString:hash])
@@ -52,7 +52,7 @@
 	return @"ConfirmPassword";
 }
 
--(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage
 {
 	KMSoftRebootCheck;
 	if([coordinator isFlagSet:@"new-password"])

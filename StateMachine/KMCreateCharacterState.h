@@ -11,7 +11,7 @@
 #import "KMAccountMenu.h"
 #import "KMObject.h"
 
-@interface  KMCreateCharacterState  : KMObject <KMState,KMAccountMenu> {
+@interface  KMCreateCharacterState  : KMState <KMState,KMAccountMenu> {
 
 }
 

@@ -16,14 +16,14 @@
 
 @implementation KMAccountNameState
 
--(void) processState:(id)coordinator 
+-(void) processState
 {
 	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.xml", [coordinator getInputBuffer]] replaceAllVariables];
 	id<KMState> returnState;
 	NSPredicate* accountNameTest = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@", [coordinator getInputBuffer]];
 	if([[[[[KMServer getDefaultServer] getConnectionPool] connections] filteredArrayUsingPredicate:accountNameTest] count] > 0) {
 		[coordinator sendMessageToBuffer:@"Account name already logged in."];
-		[self softRebootMessage:coordinator];
+		[self softRebootMessage];
 		return;
 	}
 	[[coordinator getProperties] setObject:[coordinator getInputBuffer] forKey:@"name"];
@@ -34,9 +34,9 @@
 			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
 			return;
 		}
-		returnState = [[KMConfirmPasswordState alloc] init];
+		returnState = [KMConfirmPasswordState class];
 	} else {
-		returnState = [[KMNewPasswordState alloc] init];
+		returnState = [KMNewPasswordState class];
 	}
 	KMSetStateForCoordinatorTo(returnState);
 }
@@ -46,7 +46,7 @@
 	return @"AccountName";
 }
 
--(void) softRebootMessage:(id)coordinator
+-(void) softRebootMessage
 {
 	KMSoftRebootCheck;
 	[coordinator sendMessageToBuffer:@"Please enter your account name:"];
