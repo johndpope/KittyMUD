@@ -38,12 +38,12 @@ ECSDefineBridgeFunctions(KM,PowerActionType);
 	KMPowerUsage usage;
 	NSString* myId;
 	NSString* displayName;
-	ECSNode* definition;
+	NSString* definition;
 	NSArray* defargs;
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSString* command;
-	ECSNode* usageTest = nil;
+	NSString* usageTest = nil;
 	NSArray* keywords = nil;
 	BOOL hasSpecialUsage = NO;
 
@@ -65,7 +65,7 @@ ECSDefineBridgeFunctions(KM,PowerActionType);
 		if([usageText isEqualToString:@":[text]"]) {
 			usageText = [usgElem stringValue];
 		}
-		usageTest = [ECSNode createNodeFromSource:usageText];
+		usageTest = usageText;
 	}
 	
 	NSXMLElement* idElem = [[root elementsForName:@"id"] objectAtIndex:0];
@@ -105,7 +105,7 @@ ECSDefineBridgeFunctions(KM,PowerActionType);
 	for(NSXMLElement* elem in variableElems) {
 		NSXMLNode* nameAttribute = [elem attributeForName:@"name"];
 		NSXMLNode* defAttribute = [elem attributeForName:@"def"];
-		[rawVariables setObject:[ECSNode createNodeFromSource:[defAttribute stringValue]] forKey:[nameAttribute stringValue]];
+		[rawVariables setObject:[defAttribute stringValue] forKey:[nameAttribute stringValue]];
 	}
 	
 	variables = rawVariables;
@@ -138,7 +138,7 @@ ECSDefineBridgeFunctions(KM,PowerActionType);
 	if([defText isEqualToString:@":[text]"]) {
 		defText = [def stringValue];
 	}
-	definition = [ECSNode createNodeFromSource:defText usingFileName:[KMExtensibleDataLoader currentFileName]];
+	definition = defText;
 
 	NSInteger level = 0;
 	NSArray* elems = [root elementsForName:@"level"];

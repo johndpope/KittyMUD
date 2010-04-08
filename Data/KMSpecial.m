@@ -11,13 +11,13 @@
 
 @implementation KMSpecial
 
--(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(ECSNode*)act {
+-(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(NSString*)act {
 	self = [super init];
 	if(self) {
 		type = myType;
 		myId = [iden copy];
 		displayName = [dname copy];
-		action = act;
+		action = [act copy];
 	}
 	return self;
 }
@@ -43,7 +43,7 @@
 	if([actText isEqualToString:@":[text]"]) {
 		actText = [act stringValue];
 	}
-	action = [ECSNode createNodeFromSource:actText];
+	action = [actText copy];
 	return [[KMSpecial alloc] initWithType:type identifier:iden displayName:displayName andAction:action];
 }
 
