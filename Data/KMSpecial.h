@@ -18,15 +18,15 @@ typedef enum {
 	KMSpecialType type;
 	NSString* myId;
 	NSString* displayName;
-	NSString* action;
+	ECSNode* action;
 }
 
--(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(NSString*)act;
+-(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(ECSNode*)act;
 
 +(KMSpecial*) createSpecialWithRootElement:(NSXMLElement*)root;
 
 @property (assign) KMSpecialType type;
 @property (copy) NSString* myId;
 @property (copy) NSString* displayName;
-@property (copy) NSString* action;
+@property (retain) ECSNode* action;
 @end

@@ -41,14 +41,14 @@ KMDeclareEnum(KM,PowerActionType,KM_POWER_ACTION_TYPE);
 	KMPowerUsage usage;
 	NSString* myId;
 	NSString* displayName;
-	NSString* definition;
+	ECSNode* definition;
 	NSString* command;
 	NSArray* defargs;
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSInteger level;
 	BOOL hasSpecialUsage;
-	NSString* usageTest;
+	ECSNode* usageTest;
 	NSArray* keywords;
 }
 
@@ -60,13 +60,13 @@ KMDeclareEnum(KM,PowerActionType,KM_POWER_ACTION_TYPE);
 @property (assign) KMPowerUsage usage;
 @property (copy) NSString* myId;
 @property (copy) NSString* displayName;
-@property (copy) NSString* definition;
+@property (retain) ECSNode* definition;
 @property (assign) NSArray* defargs;
 @property (assign) NSMutableDictionary* variables;
 @property (assign) KMPowerActionType action;
 @property (copy) NSString* command;
 @property (assign) NSInteger level;
-@property (copy) NSString* usageTest;
+@property (retain) ECSNode* usageTest;
 @property (assign) BOOL hasSpecialUsage;
 @property (retain) NSArray* keywords;
 @end
