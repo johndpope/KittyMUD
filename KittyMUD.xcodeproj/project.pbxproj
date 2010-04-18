@@ -996,7 +996,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = .;
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
@@ -1046,7 +1046,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = .;
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
@@ -1149,7 +1149,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = .;
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
@@ -1222,7 +1222,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = .;
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
@@ -1327,7 +1327,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = .;
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
