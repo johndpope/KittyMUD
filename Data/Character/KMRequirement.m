@@ -25,6 +25,7 @@
 @implementation KMRequirement
 
 -(BOOL) resolveWithCharacter:(KMCharacter*)character {
+#pragma unused(character)
 	return NO;
 }
 

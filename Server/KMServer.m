@@ -28,7 +28,7 @@
 NSString* const KMServerErrorDomain = @"KMServerErrorDomain";
 KMServer* defaultServerBase;
 
-static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info)
+static void ServerBaseCallout(CFSocketRef __unused socket, CFSocketCallBackType callbackType, CFDataRef __unused address, const void *data, void *info)
 {
 	if(callbackType != kCFSocketAcceptCallBack)
 		return;
@@ -89,7 +89,7 @@ static void ServerBaseCallout(CFSocketRef socket, CFSocketCallBackType callbackT
 	memset(&serverAddr, 0, sizeof(serverAddr));
 	serverAddr.sin6_len = sizeof(serverAddr);
 	serverAddr.sin6_family = AF_INET6;
-	serverAddr.sin6_port = htons(port);
+	serverAddr.sin6_port = htons((__uint16_t)port);
 	serverAddr.sin6_addr = in6addr_any;
 	
 	NSData* serverAddrData = [NSData dataWithBytes:&serverAddr length:sizeof(serverAddr)];

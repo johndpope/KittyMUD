@@ -45,7 +45,7 @@
 -(void)displayMenu:(KMConnectionCoordinator*)coordinator
 {
 	[coordinator sendMessageToBuffer:message];
-	for(int i = 1; i <= [myItems count]; i++) {
+	for(NSUInteger i = 1; i <= [myItems count]; i++) {
 		id item = [myItems objectAtIndex:(i-1)];
 		NSString* menuLine = nil;
 		[myRealItems addObject:item];
@@ -91,7 +91,7 @@
 		[myItems sortUsingFunction:sortFunction context:NULL];
 	}
 	[coordinator setFlag:@"no-message"];
-	int sel = [[coordinator getInputBuffer] intValue];
+	NSUInteger sel = (NSUInteger)[[coordinator getInputBuffer] intValue];
 	if(!sel || (sel > [myItems count]) || sel < 1) {
 		if(![[coordinator getInputBuffer] hasPrefix:@"info"])
 			[coordinator sendMessageToBuffer:@"\n\rInvalid selection.\n\r"];
@@ -99,7 +99,7 @@
 			if([[coordinator getInputBuffer] hasPrefix:@"info"]) {
 				NSArray* infoMakeup = [[coordinator getInputBuffer] componentsSeparatedByString:@" "];
 				if([infoMakeup count] > 1) {
-					int selection = [[infoMakeup objectAtIndex:1] intValue];
+					NSUInteger selection = (NSUInteger)[[infoMakeup objectAtIndex:1] intValue];
 					if(!selection || (selection > [myItems count]) || selection < 1) {
 						[coordinator sendMessageToBuffer:@"\n\rInvalid selection.\n\r"];
 					} else {

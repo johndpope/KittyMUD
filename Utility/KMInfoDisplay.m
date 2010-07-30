@@ -45,10 +45,10 @@
 	if(([line length] + 4) >= 80) {
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		NSMutableString* tmpLine = [NSMutableString string];
-		int i = 1;
+		NSUInteger i = 1;
 		NSString* areWeTooLong;
 		[tmpLine appendString:[components objectAtIndex:0]];
-		int o;
+		NSUInteger o;
 		oldColor = @"";
 		do {
 			o = i;

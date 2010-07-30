@@ -73,7 +73,7 @@ static BOOL setUpOCLChannel = NO;
 		return NO;
 	flagpower = [fp intValue];
 	
-	return (1ULL << (flagpower % 64)) == ([[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] & (1ULL << (flagpower % 64)));
+	return (1ULL << (flagpower % 64)) == ([[flagbase objectAtIndex:(NSUInteger)(flagpower / 64)] unsignedLongLongValue] & (1ULL << (flagpower % 64)));
 }
 
 -(void) setFlag:(NSString*)flagName
@@ -86,9 +86,9 @@ static BOOL setUpOCLChannel = NO;
 		[flags setObject:[NSString stringWithFormat:@"%d", currentbitpower] forKey:flagName];
 		if([flagbase count] <= ((currentbitpower) / 64))
 			[flagbase addObject:[NSNumber numberWithUnsignedLongLong:0]];
-		flagpower = currentbitpower++;
+		flagpower = (int)currentbitpower++;
 	}
-	[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] | (1ULL << (flagpower % 64))]];
+	[flagbase replaceObjectAtIndex:(NSUInteger)(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(NSUInteger)(flagpower / 64)] unsignedLongLongValue] | (1ULL << (flagpower % 64))]];
 }
 
 -(void) setFlag:(NSString*)flagName reason:(NSString*)reason {
@@ -108,7 +108,7 @@ static BOOL setUpOCLChannel = NO;
 		return;
 	flagpower = [fp intValue];
 	if([self isFlagSet:flagName])
-		[flagbase replaceObjectAtIndex:(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(flagpower / 64)] unsignedLongLongValue] ^ (1ULL << (flagpower % 64))]];
+		[flagbase replaceObjectAtIndex:(NSUInteger)(flagpower / 64) withObject:[NSNumber numberWithUnsignedLongLong:[[flagbase objectAtIndex:(NSUInteger)(flagpower / 64)] unsignedLongLongValue] ^ (1ULL << (flagpower % 64))]];
 }
 
 -(void) debugPrintFlagStatus:(id)coordinator

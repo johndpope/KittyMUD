@@ -77,6 +77,7 @@
 		NSString* var = [NSString stringWithFormat:@"%@=%@;\n",key,[variables objectForKey:key]];
 		[configFile writeData:[var dataUsingEncoding:NSUTF8StringEncoding]];
 	}
+    return YES;
 }
 
 @synthesize fileName;

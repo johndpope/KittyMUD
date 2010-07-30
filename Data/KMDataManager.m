@@ -70,7 +70,7 @@
 	va_start(args,tag);
 	NSMutableDictionary* attributes = [[NSMutableDictionary alloc] init];
 	id attribute,key;
-	while(attribute = va_arg(args,id))
+	while((attribute = va_arg(args,id)))
 	{
 		key = va_arg(args,id);
 		[attributes setObject:key forKey:attribute];

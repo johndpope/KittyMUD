@@ -47,9 +47,9 @@
 			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
 			return;
 		}
-		returnState = [KMConfirmPasswordState class];
+		returnState = (id<KMState>)[KMConfirmPasswordState class];
 	} else {
-		returnState = [KMNewPasswordState class];
+		returnState = (id<KMState>)[KMNewPasswordState class];
 	}
 	KMSetStateForCoordinatorTo(returnState);
 }

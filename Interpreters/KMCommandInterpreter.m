@@ -74,7 +74,7 @@
 	if(count == 0)
 		return;
 	NSMutableDictionary* classMethodD = [[NSMutableDictionary alloc] init];
-	for(int i = 0; i < count; i++) {
+	for(NSUInteger i = 0; i < count; i++) {
 		NSString* methodName = [[NSString alloc] initWithCString:sel_getName(method_getName(classMethods[i]))];
 		[classMethodD setObject:[NSValue valueWithPointer:&(classMethods[i])] forKey:methodName];
 	}
@@ -109,7 +109,7 @@
 	KMCommandInfo* command = [self KM_findCommandByName:name];
 	if(!command)
 		return;
-	[command setHelp:[[NSMutableDictionary alloc] initWithObjectsAndKeys:shorttext,@"short",longtextname,@"long"]];
+	[command setHelp:[[NSMutableDictionary alloc] initWithObjectsAndKeys:shorttext,@"short",longtextname,@"long",nil]];
 }
 
 -(void)registerCommand:(id)target selector:(SEL)commandSelector withName:(NSString*)name andOptionalArguments:(NSArray*)optional andAliases:(NSArray*)aliases andFlags:(NSArray*)cflags withMinimumLevel:(int)level
@@ -164,18 +164,18 @@
 	[invocation setTarget:[command target]];
 	[invocation setSelector:NSSelectorFromString([command method])];
 	[invocation setArgument:&coordinator atIndex:2];
-	for(int i = 1; i < [commandmakeup count]; i++) {
-		__strong char* argType = method_copyArgumentType(class_getInstanceMethod([[command target] class], NSSelectorFromString([command method])), i + 2);
+	for(NSUInteger i = 1; i < [commandmakeup count]; i++) {
+		__strong char* argType = method_copyArgumentType(class_getInstanceMethod([[command target] class], NSSelectorFromString([command method])), (unsigned int)(i + 2));
 		if(!strcmp(argType,"i")) {
 			__strong int num = [[commandmakeup objectAtIndex:i] intValue];
-			[invocation setArgument:&num atIndex:(i+2)];
+			[invocation setArgument:&num atIndex:(NSInteger)(i+2)];
 		} else if(!strcmp(argType,"{NSArray=#}")) {
 			NSArray* rest = [commandmakeup subarrayWithRange:NSMakeRange(i, [commandmakeup count]-i)];
-			[invocation setArgument:&rest atIndex:i+2];
+			[invocation setArgument:&rest atIndex:(NSInteger)(i+2)];
 			break;
 		} else {
 			id arg = [commandmakeup objectAtIndex:i];
-			[invocation setArgument:&arg atIndex:(i+2)];
+			[invocation setArgument:&arg atIndex:(NSInteger)(i+2)];
 		}
 	}
 	KMGetStateFromCoordinator(state);
@@ -186,10 +186,10 @@
 -(BOOL) KM_validateInput:(KMCommandInfo*)command forCoordinator:(id)coordinator onlyFlagsAndLevel:(BOOL)ofl
 {
 	Method m = class_getInstanceMethod([[command target] class], NSSelectorFromString([command method]));
-	int numArgs = method_getNumberOfArguments(m);
+	unsigned int numArgs = method_getNumberOfArguments(m);
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	if(!ofl) {
-		int numOpt = [[command optArgs] count];
+		NSUInteger numOpt = [[command optArgs] count];
 		if([commandmakeup count] < (numArgs - 3 - numOpt)) {
 			[coordinator sendMessage:@"%d arguments expected, %d gotten", numArgs, [commandmakeup count]];
 			return NO;

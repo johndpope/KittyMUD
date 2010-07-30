@@ -24,7 +24,7 @@
 
 @implementation KMVariableHook
 
--(NSString*) processHook:(NSString*)input replace:(BOOL)rep
+-(NSString*) processHook:(NSString*)input replace:(BOOL) __unused rep
 {
 	return input; // no-op
 }

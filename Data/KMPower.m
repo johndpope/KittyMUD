@@ -26,23 +26,12 @@
 
 @implementation KMPower
 
-ECSDefineBridgeFunctions(KM,PowerType);
-ECSDefineBridgeFunctions(KM,PowerUsage);
-ECSDefineBridgeFunctions(KM,PowerActionType);
-
-+(void) load {
-	ECSRegisterEnum(KM_POWER_TYPE);
-	ECSRegisterEnum(KM_POWER_USAGE);
-	ECSRegisterEnum(KM_POWER_ACTION_TYPE);
-	ECSRegisterBridgeFunctions(KM,PowerType);
-	ECSRegisterBridgeFunctions(KM,PowerUsage);
-	ECSRegisterBridgeFunctions(KM,PowerActionType);
-}
 
 +(void) executePower:(id)coordinator withArgs:(NSArray*)args {
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
-	
+#pragma unused(args)
+#pragma unused(commandName)
 	return;
 }
 

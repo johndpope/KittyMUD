@@ -34,7 +34,7 @@ static KMStatLoadType KMClassCustomLoadingContext = KMStatLoadTypeJob;
 KMDataManager* KMClass_setUpDataManager() {
 	KMDataManager* jl = [[KMDataManager alloc] init];
 	[jl registerTag:@"class",@"name",@"name",@"abbr",@"abbreviation",@"tier",@"tier",nil];
-	[jl registerTag:@"stattemplate" forKey:@"requirements" forCustomLoading:[KMStat class] withContext:&KMClassCustomLoadingContext];
+	[jl registerTag:@"stattemplate" forKey:@"requirements" forCustomLoading:(id<KMDataCustomLoader>)[KMStat class] withContext:&KMClassCustomLoadingContext];
 	return jl;
 }
 

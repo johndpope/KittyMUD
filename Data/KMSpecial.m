@@ -61,6 +61,8 @@
 }
 
 -(id) executeSpecial:(KMConnectionCoordinator*)coordinator {
+#pragma unused(coordinator)
+    return nil;
 }
 @synthesize type;
 @synthesize myId;

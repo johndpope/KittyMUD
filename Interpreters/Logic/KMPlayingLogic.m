@@ -30,18 +30,18 @@
 
 @implementation KMPlayingLogic
 
--(id) initializeWithCommandInterpreter:(id)cmdInterpreter
+-(id) initializeWithCommandInterpreter:(id) __unused cmdInterpreter
 {
 	self = [super init];
 	return self;
 }
 
--(void) displayHelpToCoordinator:(id)coordinator
+-(void) displayHelpToCoordinator:(id) __unused coordinator
 {
 	return;
 }
 
--(void) repeatCommandsToCoordinator:(id)coordinator
+-(void) repeatCommandsToCoordinator:(id) __unused coordinator
 {
 	return;
 }
@@ -106,6 +106,7 @@ KMExitDirection directionFromString( NSString* dir ) {
 		return KMExitUp;
 	if([@"down" hasPrefix:dir])
 		return KMExitDown;
+    return (KMExitDirection)-1;
 }
 
 CHELP(north,@"Moves your character north.",nil)
@@ -158,7 +159,7 @@ CIMPL(look,look:direction:,@"direction",nil,nil,1) direction:(NSString*)dir {
 
 static int rebootTime = 0;
 
--(void) realSoftReboot:(NSTimer*)timer {
+-(void) realSoftReboot:(NSTimer*) __unused timer {
 	if(rebootTime > 0) {
 		rebootTime--;
 		BOOL displayWarning = NO;
@@ -183,6 +184,7 @@ static int rebootTime = 0;
 
 CHELP(reboot, @"Performs a soft reboot.", nil)
 CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
+#pragma unused(coordinator)
 	rebootTime = time;
 	if(time > 0) {
 		NSRunLoop* runLoop = [NSRunLoop currentRunLoop];

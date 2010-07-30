@@ -343,7 +343,7 @@
 	OCLog(@"kittymud",debug,@"%@", line);
 	if([self hasChildren]) {
 		NSArray* child = [self getChildren];
-		for(int c = 0; c < [child count]; c++)
+		for(NSUInteger c = 0; c < [child count]; c++)
 			[[child objectAtIndex:c] KM_debugPrintTree:(tabLevel + 1)];
 	}
 }

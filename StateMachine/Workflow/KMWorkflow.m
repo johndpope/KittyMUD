@@ -68,7 +68,7 @@ NSMutableDictionary* interpreters;
 	[wf setFirstStep:[[wf steps] objectForKey:[[firstStep class] getName]]];
 	KMWorkflowStep* cstep = [[wf steps] objectForKey:[[firstStep class] getName]];
 	id<KMState> state;
-	while(state = va_arg(steps,id<KMState>)) {
+	while((state = va_arg(steps,id<KMState>))) {
 		[wf addStep:state];
 		KMWorkflowStep* nstep = [[wf steps] objectForKey:[[state class] getName]];
 		[cstep setNextStep:nstep];
@@ -87,8 +87,8 @@ NSMutableDictionary* interpreters;
 	[state softRebootMessage]; \
 } while(0)
 
--(void) startWorkflowAtStep:(id<KMState>)state forCoordinator:(id)coordinator {
-	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
+-(void) startWorkflowAtStep:(id<KMState>)_state forCoordinator:(id)coordinator {
+	KMWorkflowStep* step = [steps objectForKey:[[_state class] getName]];
 	if(!step)
 		return;
 	currentStep = step;

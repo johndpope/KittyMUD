@@ -105,7 +105,7 @@ static NSMutableDictionary* kmMudVariables = nil;
 	NSString* (^getStringSpacing)(NSString*) = ^NSString*(NSString* string) {
 		NSMutableString* spacing = [[NSMutableString alloc] init];
 		NSString* clrString = [hook processHook:string replace:NO];
-		int i = [clrString length];
+		NSUInteger i = [clrString length];
 		while(i++ < 78) {
 			[spacing appendString:@" "];
 		}
@@ -122,7 +122,7 @@ static NSMutableDictionary* kmMudVariables = nil;
 -(NSString*) initWithFormat:(NSString*)format andArray:(NSArray*)array {
 	self = [format copy];
 	if(self) {
-		for(int i = 0; i < [array count]; i++) {
+		for(NSUInteger i = 0; i < [array count]; i++) {
 			self = [self stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"{%d}",i] withString:[[array objectAtIndex:i] description]];
 		}
 	}

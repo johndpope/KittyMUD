@@ -33,7 +33,7 @@ KMDataManager* kmrace_setUpDataManager(void);
 KMDataManager* kmrace_setUpDataManager() {
 	KMDataManager* rl = [[KMDataManager alloc] init];
 	[rl registerTag:@"race",@"name",@"name",@"abbr",@"abbreviation",nil];
-	[rl registerTag:@"stattemplate" forKey:@"bonuses" forCustomLoading:[KMStat class] withContext:&KMRaceCustomLoadingContext];
+	[rl registerTag:@"stattemplate" forKey:@"bonuses" forCustomLoading:(id<KMDataCustomLoader>)[KMStat class] withContext:&KMRaceCustomLoadingContext];
 	return rl;
 }
 

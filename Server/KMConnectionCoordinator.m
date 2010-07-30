@@ -40,7 +40,7 @@
 	return nil;
 }
 
--(id) copyWithZone:(NSZone*)zone {
+-(id) copyWithZone:(NSZone*) __unused zone {
 	return self;
 }
 

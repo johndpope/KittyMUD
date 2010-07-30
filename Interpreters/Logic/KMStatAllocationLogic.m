@@ -142,7 +142,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	}
 }
 
--(id) initializeWithCommandInterpreter:(id)cmdInterpreter
+-(id) initializeWithCommandInterpreter:(id) __unused cmdInterpreter
 {
 	self = [super init];
 	if(self) {

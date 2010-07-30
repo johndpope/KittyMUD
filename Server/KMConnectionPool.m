@@ -42,7 +42,7 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 	return self;
 }
 
--(void) checkOutputBuffers:(NSTimer *)timer
+-(void) checkOutputBuffers:(NSTimer *) __unused timer
 {
 	for(KMConnectionCoordinator* coordinator in connections) {
 		NSString* output = [coordinator outputBuffer];
@@ -60,7 +60,7 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 	}
 }
 
-static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info)
+static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType callbackType, CFDataRef  __unused address, const void *data, void *info)
 {
 	if(callbackType != kCFSocketDataCallBack)
 		return;
@@ -94,7 +94,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		greeting = @"`RWelcome to $(Name).\n\rPlease enter your account name:";
 	}
 	if(!defaultState) {
-		defaultState = [KMAccountNameState class];
+		defaultState = (id<KMState>)[KMAccountNameState class];
 	}
 	KMConnectionCoordinator* coordinator;
 	if(!softReboot) {

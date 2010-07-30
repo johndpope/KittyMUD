@@ -36,7 +36,7 @@
 }
 
 -(id) init;
-@property NSString* method;
+@property (copy) NSString* method;
 @property (retain) NSString* name;
 @property (retain) NSMutableArray* optArgs;
 @property (retain) NSMutableArray* aliases;

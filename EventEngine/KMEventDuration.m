@@ -25,27 +25,37 @@
 @implementation KMEventDuration
 
 +(KMEventDuration*) untilEndOfNextTurn {
+    return nil;
 }
 
 +(KMEventDuration*) once {
+        return nil;
 }
 
 +(KMEventDuration*) untilNextAttackRollAgainstTarget:(id)t{
+#pragma unused(t)
+        return nil;
 }
 
 +(KMEventDuration*) untilEndOfNextTurnForCharacter:(KMCharacter*)c{
+#pragma unused(c)
+        return nil;
 }
 
 +(KMEventDuration*) untilNextAttackRoll{
+        return nil;
 }
 
 +(KMEventDuration*) permanent{
+        return nil;
 }
 
 +(KMEventDuration*) untilAttackIsFinished{
+        return nil;
 }
 
 +(KMEventDuration*) untilLevelUp{
+        return nil;
 }
 
 @end

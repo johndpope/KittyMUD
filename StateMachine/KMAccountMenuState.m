@@ -34,7 +34,7 @@ static NSMutableArray* KMAccountMenuItems;
 	__strong Class* classes;
 	int numClasses = objc_getClassList(NULL, 0);
 	
-	classes = malloc(sizeof(Class) * numClasses);
+	classes = malloc(sizeof(Class) * (NSUInteger)numClasses);
 	objc_getClassList(classes, numClasses);
 	for(int i = 0; i < numClasses; i++) {
 		@try {
@@ -85,7 +85,7 @@ static NSMutableArray* KMAccountMenuItems;
 }
 
 NSInteger ComparePriority(id,id,void*);
-NSInteger ComparePriority(id a, id b, void* c) {
+NSInteger ComparePriority(id a, id b, void* __unused c) {
 	if([a priority] < [b priority])
 		return NSOrderedAscending;
 	else if([a priority] > [b priority])
