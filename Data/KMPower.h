@@ -20,7 +20,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <xi/xi.h>
+#import <ECScript/ECScript.h>
 #import "KMObject.h"
 #import "KMEnumFactory.h"
 
@@ -54,14 +54,14 @@ KMDeclareEnum(KM,PowerActionType,KM_POWER_ACTION_TYPE);
 	KMPowerUsage usage;
 	NSString* myId;
 	NSString* displayName;
-	XiNode* definition;
+	ECSNode* definition;
 	NSString* command;
 	NSArray* defargs;
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSInteger level;
 	BOOL hasSpecialUsage;
-	XiNode* usageTest;
+	ECSNode* usageTest;
 	NSArray* keywords;
 }
 
@@ -73,13 +73,13 @@ KMDeclareEnum(KM,PowerActionType,KM_POWER_ACTION_TYPE);
 @property (assign) KMPowerUsage usage;
 @property (copy) NSString* myId;
 @property (copy) NSString* displayName;
-@property (retain) XiNode* definition;
+@property (retain) ECSNode* definition;
 @property (assign) NSArray* defargs;
 @property (assign) NSMutableDictionary* variables;
 @property (assign) KMPowerActionType action;
 @property (copy) NSString* command;
 @property (assign) NSInteger level;
-@property (retain) XiNode* usageTest;
+@property (retain) ECSNode* usageTest;
 @property (assign) BOOL hasSpecialUsage;
 @property (retain) NSArray* keywords;
 @end

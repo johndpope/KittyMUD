@@ -40,12 +40,12 @@
 	KMPowerUsage usage;
 	NSString* myId;
 	NSString* displayName;
-	XiNode* definition;
+	ECSNode* definition;
 	NSArray* defargs;
 	NSMutableDictionary* variables;
 	KMPowerActionType action;
 	NSString* command;
-	XiNode* usageTest = nil;
+	ECSNode* usageTest = nil;
 	NSArray* keywords = nil;
 	BOOL hasSpecialUsage = NO;
 
@@ -67,7 +67,7 @@
 		if([usageText isEqualToString:@":[text]"]) {
 			usageText = [usgElem stringValue];
 		}
-		usageTest = [XiNode createNodeFromSource:usageText];
+		usageTest = [ECSNode createNodeFromSource:usageText];
 	}
 	
 	NSXMLElement* idElem = [[root elementsForName:@"id"] objectAtIndex:0];
@@ -107,7 +107,7 @@
 	for(NSXMLElement* elem in variableElems) {
 		NSXMLNode* nameAttribute = [elem attributeForName:@"name"];
 		NSXMLNode* defAttribute = [elem attributeForName:@"def"];
-		[rawVariables setObject:[XiNode createNodeFromSource:[defAttribute stringValue]] forKey:[nameAttribute stringValue]];
+		[rawVariables setObject:[ECSNode createNodeFromSource:[defAttribute stringValue]] forKey:[nameAttribute stringValue]];
 	}
 	
 	variables = rawVariables;
@@ -140,7 +140,7 @@
 	if([defText isEqualToString:@":[text]"]) {
 		defText = [def stringValue];
 	}
-	definition = [XiNode createNodeFromSource:defText];
+	definition = [ECSNode createNodeFromSource:defText];
 
 	NSInteger level = 0;
 	NSArray* elems = [root elementsForName:@"level"];

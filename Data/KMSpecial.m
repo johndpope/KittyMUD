@@ -24,7 +24,7 @@
 
 @implementation KMSpecial
 
--(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(XiNode*)act {
+-(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(ECSNode*)act {
 	self = [super init];
 	if(self) {
 		type = myType;
@@ -56,7 +56,7 @@
 	if([actText isEqualToString:@":[text]"]) {
 		actText = [act stringValue];
 	}
-	action = [XiNode createNodeFromSource:actText];
+	action = [ECSNode createNodeFromSource:actText];
 	return [[KMSpecial alloc] initWithType:type identifier:iden displayName:displayName andAction:action];
 }
 
