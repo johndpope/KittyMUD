@@ -278,7 +278,6 @@ CIMPL(displaycommand,displaycommand:command:,nil,nil,nil,1) command:(NSString*)c
 }
 
 @synthesize commands;
-@synthesize coordinator;
 @synthesize defaultTarget;
 @synthesize logics;
 @synthesize myLogics;

@@ -58,8 +58,6 @@ CDECL(displaycommand) command:(NSString*)command;
 
 @property (retain) id<KMCommandInterpreterLogic> defaultTarget;
 
-@property (retain) KMConnectionCoordinator* coordinator;
-
 @property (retain) NSMutableDictionary* logics;
 
 @property (retain) NSMutableArray* myLogics;
