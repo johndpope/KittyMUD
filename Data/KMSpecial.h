@@ -20,7 +20,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <ECScript/ECScript.h>
+#import <xi/xi.h>
 
 typedef enum {
 	KMRacialSpecial,
@@ -31,15 +31,15 @@ typedef enum {
 	KMSpecialType type;
 	NSString* myId;
 	NSString* displayName;
-	ECSNode* action;
+	XiNode* action;
 }
 
--(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(ECSNode*)act;
+-(id) initWithType:(KMSpecialType)myType identifier:(NSString*)iden displayName:(NSString*)dname andAction:(XiNode*)act;
 
 +(KMSpecial*) createSpecialWithRootElement:(NSXMLElement*)root;
 
 @property (assign) KMSpecialType type;
 @property (copy) NSString* myId;
 @property (copy) NSString* displayName;
-@property (retain) ECSNode* action;
+@property (retain) XiNode* action;
 @end

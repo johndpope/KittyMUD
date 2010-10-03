@@ -42,9 +42,12 @@
 -(void) checkForNewAchievements:(id)coordinator {
 	for(NSString* category in [achievements allKeys]) {
 		for(KMAchievement* a in [achievements objectForKey:category]) {
-			ECSNode* c = [a earnCriteria];
-			[[c scope] registerVariable:coordinator withName:@"coordinator"];
-			BOOL earn =  [[c execute] boolValue];
+			XiNode* c = [a earnCriteria];
+            NSMutableDictionary* context = [NSMutableDictionary dictionary];
+            [context createSymbolTable];
+            XiSymbol* co = [[context symbolTable] symbolWithName:@"coordinator"];
+            co.value = coordinator;
+			BOOL earn =  [[c evaluateWithContext:context] boolValue];
 			if(earn) {
 				[a displayAchievementHasBeenEarnedMessageTo:coordinator];
 				/// TODO:  Add achievement point stuff here

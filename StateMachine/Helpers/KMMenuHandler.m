@@ -22,7 +22,7 @@
 #import "KMMenuHandler.h"
 #import <OCMock/OCMock.h>
 #import <objc/runtime.h>
-#import <ECScript/ECScript.h>
+#import <xi/xi.h>
 
 @implementation KMMenuHandler
 
@@ -119,8 +119,8 @@
 	}
 	KMSetMenuForCoordinatorTo(nil);
 	id selection = [myRealItems objectAtIndex:(sel - 1)];
-	if([selection isKindOfClass:[ECSNode class]]) {
-		selection = resolveNode(selection);
+	if([selection isKindOfClass:[XiNode class]]) {
+		selection = [selection evaluateWithContext:nil];
 	}
 	[coordinator clearFlag:@"no-message"];
 	return selection;

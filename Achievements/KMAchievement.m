@@ -24,7 +24,7 @@
 
 @implementation KMAchievement
 
--(id) initWithName:(NSString *)n description:(NSString *)d points:(NSNumber *)p criteria:(ECSNode*)c{
+-(id) initWithName:(NSString *)n description:(NSString *)d points:(NSNumber *)p criteria:(XiNode*)c{
 	self = [super init];
 	if(self) {
 		name = n;

@@ -24,7 +24,7 @@
 #import "KMClass.h"
 #import "NSString+KMAdditions.h"
 #import "KMConnectionCoordinator.h"
-#import <ECScript/ECScript.h>
+#import <xi/xi.h>
 
 @implementation KMChooseCharacterNameState
 

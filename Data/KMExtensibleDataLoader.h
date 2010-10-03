@@ -20,10 +20,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <ECScript/ECScript.h>
 #import "KMExtensibleDataSchema.h"
 
-@interface KMExtensibleDataLoader : ECSRoot {
+@interface KMExtensibleDataLoader : NSObject {
 
 }
 

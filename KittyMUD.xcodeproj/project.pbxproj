@@ -105,19 +105,17 @@
 		3A427CB6109B42A500E1C502 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F79041098CDC400EA69DC /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
-		3AA667101101FFD400A678C0 /* ECScript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA667091101FFBB00A678C0 /* ECScript.framework */; };
+		3A468A3312557938004CA95B /* xi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A468A3212557938004CA95B /* xi.framework */; };
+		3A7C262312036D9E004B2157 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
+		3A9FB2541252A72C00DF0425 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29428E1251AA1100E51A70 /* OCLog.framework */; };
 		3AB8B7041153EC07005DE7AA /* KMRequirement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB8B7021153EC07005DE7AA /* KMRequirement.h */; };
 		3AB8B7051153EC07005DE7AA /* KMRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8B7031153EC07005DE7AA /* KMRequirement.m */; };
 		3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */; };
-		3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
 		3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */; };
-		3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC1606D10B64B6300728F74 /* OCLog.framework */; };
 		3ACDAA201112FC5700108E16 /* KMEventDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACDAA1E1112FC5700108E16 /* KMEventDuration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ACDAA211112FC5700108E16 /* KMEventDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDAA1F1112FC5700108E16 /* KMEventDuration.m */; };
 		3ACDAA73111571B500108E16 /* KMEnumFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACDAA72111571B500108E16 /* KMEnumFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AEA2CD11103781600F3426B /* KittyMUD.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* KittyMUD.framework */; };
-		3AEA2D121103783200F3426B /* KittyMUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* KittyMUD.framework */; };
 		3AEA2D6C110388F400F3426B /* KMPower.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEA2D6A110388F400F3426B /* KMPower.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEA2D6D110388F400F3426B /* KMPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA2D6B110388F400F3426B /* KMPower.m */; };
 		3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22C710B31A790070FCDB /* KMAchievement.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -130,33 +128,40 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3AA667081101FFBB00A678C0 /* PBXContainerItemProxy */ = {
+		3A29428D1251AA1100E51A70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3AA667041101FFBB00A678C0 /* ECScript.xcodeproj */;
+			containerPortal = 3A2942891251AA1100E51A70 /* OCLog.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = ECScript;
-		};
-		3AA6670C1101FFC500A678C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AA667041101FFBB00A678C0 /* ECScript.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = ECScript;
-		};
-		3AC1606C10B64B6300728F74 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteGlobalIDString = 3A29421A1251A85B00E51A70;
 			remoteInfo = OCLog;
 		};
-		3AC1607110B64B7400728F74 /* PBXContainerItemProxy */ = {
+		3A2942911251AA1800E51A70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+			containerPortal = 3A2942891251AA1100E51A70 /* OCLog.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = OCLog;
+		};
+		3A468A4E12557A94004CA95B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A468A4912557A93004CA95B /* xi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3ABB90061229AC5900046D3B;
+			remoteInfo = xi;
+		};
+		3A468A5012557A94004CA95B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A468A4912557A93004CA95B /* xi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3ABB90071229AC5900046D3B;
+			remoteInfo = xi_tests;
+		};
+		3A468A5212557A9A004CA95B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A468A4912557A93004CA95B /* xi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = xi;
 		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -174,7 +179,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3AEA2CD11103781600F3426B /* KittyMUD.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +195,7 @@
 		3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExtensibleDataLoader.h; sourceTree = "<group>"; };
 		3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExtensibleDataLoader.m; sourceTree = "<group>"; };
 		3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExtensibleDataSchema.h; sourceTree = "<group>"; };
+		3A2942891251AA1100E51A70 /* OCLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCLog.xcodeproj; path = ../OCLog/OCLog.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3A2F78411098C9B700EA69DC /* KMExitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExitInfo.h; sourceTree = "<group>"; };
 		3A2F78421098C9B700EA69DC /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExitInfo.m; sourceTree = "<group>"; };
 		3A2F78431098C9B700EA69DC /* KMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRoom.h; sourceTree = "<group>"; };
@@ -284,13 +289,15 @@
 		3A427B86109A9AC800E1C502 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
-		3AA667041101FFBB00A678C0 /* ECScript.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ECScript.xcodeproj; path = ../ECScript/ECScript.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3A468A3212557938004CA95B /* xi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = xi.framework; sourceTree = SOURCE_ROOT; };
+		3A468A4912557A93004CA95B /* xi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = xi.xcodeproj; path = /Users/mtindal/Projects/xi/xi.xcodeproj; sourceTree = "<absolute>"; };
+		3A8AA7D61252A33F005A9441 /* KittyMUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KittyMUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB8B7021153EC07005DE7AA /* KMRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRequirement.h; sourceTree = "<group>"; };
 		3AB8B7031153EC07005DE7AA /* KMRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRequirement.m; sourceTree = "<group>"; };
 		3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterNameState.h; sourceTree = "<group>"; };
 		3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterNameState.m; sourceTree = "<group>"; };
 		3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNullState.m; sourceTree = "<group>"; };
-		3AC1606810B64B6300728F74 /* OCLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCLog.xcodeproj; path = ../OCLog/OCLog.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3ACDAA1E1112FC5700108E16 /* KMEventDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEventDuration.h; sourceTree = "<group>"; };
 		3ACDAA1F1112FC5700108E16 /* KMEventDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMEventDuration.m; sourceTree = "<group>"; };
 		3ACDAA72111571B500108E16 /* KMEnumFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEnumFactory.h; sourceTree = "<group>"; };
@@ -300,12 +307,10 @@
 		3AEF22C810B31A790070FCDB /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievement.m; sourceTree = "<group>"; };
 		3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievementEngine.h; sourceTree = "<group>"; };
 		3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievementEngine.m; sourceTree = "<group>"; };
-		3AFA20C41099437E0038B52D /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
 		3AFA20E6109945D40038B52D /* KMWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowTests.h; sourceTree = "<group>"; };
 		3AFA20E7109945D40038B52D /* KMWorkflowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowTests.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* KittyMUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KittyMUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -314,7 +319,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AEA2D121103783200F3426B /* KittyMUD.framework in Frameworks */,
 				3A427B7D109A9A9F00E1C502 /* Cocoa.framework in Frameworks */,
 				3A427B81109A9AB900E1C502 /* SenTestingKit.framework in Frameworks */,
 				3A427B85109A9AC800E1C502 /* OCHamcrest.framework in Frameworks */,
@@ -326,11 +330,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AA667101101FFD400A678C0 /* ECScript.framework in Frameworks */,
-				3ABC9CBE10BADC3B008BD6B0 /* OCMock.framework in Frameworks */,
-				3AC1607010B64B6C00728F74 /* OCLog.framework in Frameworks */,
+				3A9FB2541252A72C00DF0425 /* OCLog.framework in Frameworks */,
+				3A7C262312036D9E004B2157 /* OCMock.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */,
+				3A468A3312557938004CA95B /* xi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,8 +344,8 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* KittyMUD.framework */,
-				3AFA20C41099437E0038B52D /* KittyMUDTests.octest */,
+				3A8AA7D61252A33F005A9441 /* KittyMUD.framework */,
+				3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				3A468A3212557938004CA95B /* xi.framework */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				3A2F79631098D35D00EA69DC /* libcrypto.dylib */,
 				3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */,
@@ -367,8 +372,8 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				3AA667041101FFBB00A678C0 /* ECScript.xcodeproj */,
-				3AC1606810B64B6300728F74 /* OCLog.xcodeproj */,
+				3A468A4912557A93004CA95B /* xi.xcodeproj */,
+				3A2942891251AA1100E51A70 /* OCLog.xcodeproj */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -424,6 +429,14 @@
 				32DBCF5E0370ADEE00C91783 /* KittyMUD_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3A29428A1251AA1100E51A70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A29428E1251AA1100E51A70 /* OCLog.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3A2F78401098C98600EA69DC /* World */ = {
@@ -610,10 +623,11 @@
 			path = Server;
 			sourceTree = "<group>";
 		};
-		3AA667051101FFBB00A678C0 /* Products */ = {
+		3A468A4A12557A93004CA95B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3AA667091101FFBB00A678C0 /* ECScript.framework */,
+				3A468A4F12557A94004CA95B /* xi.framework */,
+				3A468A5112557A94004CA95B /* xi_tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -623,14 +637,6 @@
 			children = (
 			);
 			name = Requirements;
-			sourceTree = "<group>";
-		};
-		3AC1606910B64B6300728F74 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3AC1606D10B64B6300728F74 /* OCLog.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		3ACDAA1B1112FC3300108E16 /* EventEngine */ = {
@@ -750,7 +756,7 @@
 			);
 			name = KittyMUDTests;
 			productName = KittyMUDTests;
-			productReference = 3AFA20C41099437E0038B52D /* KittyMUDTests.octest */;
+			productReference = 3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8DC2EF4F0486A6940098B216 /* KittyMUD */ = {
@@ -765,13 +771,13 @@
 			buildRules = (
 			);
 			dependencies = (
-				3AC1607210B64B7400728F74 /* PBXTargetDependency */,
-				3AA6670D1101FFC500A678C0 /* PBXTargetDependency */,
+				3A468A5312557A9A004CA95B /* PBXTargetDependency */,
+				3A2942921251AA1800E51A70 /* PBXTargetDependency */,
 			);
 			name = KittyMUD;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = KittyMUD;
-			productReference = 8DC2EF5B0486A6940098B216 /* KittyMUD.framework */;
+			productReference = 3A8AA7D61252A33F005A9441 /* KittyMUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -794,12 +800,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3AA667051101FFBB00A678C0 /* Products */;
-					ProjectRef = 3AA667041101FFBB00A678C0 /* ECScript.xcodeproj */;
+					ProductGroup = 3A29428A1251AA1100E51A70 /* Products */;
+					ProjectRef = 3A2942891251AA1100E51A70 /* OCLog.xcodeproj */;
 				},
 				{
-					ProductGroup = 3AC1606910B64B6300728F74 /* Products */;
-					ProjectRef = 3AC1606810B64B6300728F74 /* OCLog.xcodeproj */;
+					ProductGroup = 3A468A4A12557A93004CA95B /* Products */;
+					ProjectRef = 3A468A4912557A93004CA95B /* xi.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -811,18 +817,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3AA667091101FFBB00A678C0 /* ECScript.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ECScript.framework;
-			remoteRef = 3AA667081101FFBB00A678C0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3AC1606D10B64B6300728F74 /* OCLog.framework */ = {
+		3A29428E1251AA1100E51A70 /* OCLog.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = OCLog.framework;
-			remoteRef = 3AC1606C10B64B6300728F74 /* PBXContainerItemProxy */;
+			remoteRef = 3A29428D1251AA1100E51A70 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A468A4F12557A94004CA95B /* xi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = xi.framework;
+			remoteRef = 3A468A4E12557A94004CA95B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A468A5112557A94004CA95B /* xi_tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = xi_tests.octest;
+			remoteRef = 3A468A5012557A94004CA95B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -929,15 +942,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3AA6670D1101FFC500A678C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ECScript;
-			targetProxy = 3AA6670C1101FFC500A678C0 /* PBXContainerItemProxy */;
-		};
-		3AC1607210B64B7400728F74 /* PBXTargetDependency */ = {
+		3A2942921251AA1800E51A70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OCLog;
-			targetProxy = 3AC1607110B64B7400728F74 /* PBXContainerItemProxy */;
+			targetProxy = 3A2942911251AA1800E51A70 /* PBXContainerItemProxy */;
+		};
+		3A468A5312557A9A004CA95B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = xi;
+			targetProxy = 3A468A5212557A9A004CA95B /* PBXContainerItemProxy */;
 		};
 		3AFA20CB109943CF0038B52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -962,15 +975,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../ECScript/build/",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_DIR)/Local/Frameworks",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1002,6 +1016,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1015,15 +1030,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XSH/build/",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_DIR)/Local/Frameworks",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
@@ -1052,6 +1068,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1065,7 +1082,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1082,7 +1098,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1097,7 +1112,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1115,15 +1129,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XSH/build/",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_DIR)/Local/Frameworks",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1155,6 +1170,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1168,7 +1184,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -1188,15 +1203,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XSH/build/",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_DIR)/Local/Frameworks",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1228,6 +1244,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1242,10 +1259,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "";
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -1272,7 +1291,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../XDF/build/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -1293,15 +1311,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../OCLog/build/",
-					"$(SRCROOT)/../XSH/build/",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_DIR)/Local/Frameworks",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1333,6 +1352,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
 				PRODUCT_NAME = KittyMUD;
 				SYMROOT = build;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1347,10 +1367,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "";
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -1378,10 +1400,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "";
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -1410,9 +1434,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "";
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1433,11 +1459,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "";
+				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;

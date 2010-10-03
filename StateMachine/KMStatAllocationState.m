@@ -24,7 +24,7 @@
 #import "KMCommandInterpreter.h"
 #import "KMStatAllocationLogic.h"
 #import "KMCharacter.h"
-#import <ECScript/ECScript.h>
+#import <xi/xi.h>
 
 @implementation KMStatAllocationState
 
