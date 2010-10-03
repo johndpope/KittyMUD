@@ -26,7 +26,15 @@
 #import "KMConnectionCoordinator.h"
 #import <ECScript/ECScript.h>
 
+static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters with the same name while one is in the character creation process
+
 @implementation KMChooseCharacterNameState
+
++(void) initialize {
+    if(!tmpCharNames) {
+        tmpCharNames  = [NSMutableDictionary dictionary];
+    }
+}
 
 -(void) processState {
 	NSFileHandle* usedNamesFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(UsedCharacterFile)" replaceAllVariables]];
@@ -37,12 +45,17 @@
 		NSPredicate* pred = [NSPredicate predicateWithFormat:@"self like[cd] %@", name];
 		if([[names filteredArrayUsingPredicate:pred] count] > 0) {
 			[coordinator sendMessageToBuffer:@"Character name already in use, please choose another."];
-			[self softRebootMessage];
 			return;
 		}
 	} else {
 		[[NSFileManager defaultManager] createFileAtPath:[@"$(UsedCharacterFile)" replaceAllVariables] contents:nil attributes:nil];
 	}
+    if([tmpCharNames objectForKey:name]) {
+        [coordinator sendMessageToBuffer:@"Character name already in use, please choose another."];
+        return;
+    } else {
+        [tmpCharNames setObject:BL(YES) forKey:name];
+    }
 	[(KMConnectionCoordinator*)coordinator setFlag:[NSString stringWithFormat:@"new-character-%@",name]];
 	[(KMConnectionCoordinator*)coordinator setFlag:@"has-character"];
 	KMCharacter* character = nil;
