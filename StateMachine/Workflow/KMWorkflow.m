@@ -79,7 +79,7 @@ NSMutableDictionary* interpreters;
 }
 
 #define KMWFSS do { \
-	KMSetStateForCoordinatorTo([currentStep myState]); \
+	KMSetStateForCoordinatorTo([step myState]); \
 } while(0)
 
 #define KMWFSRM do { \
@@ -91,24 +91,27 @@ NSMutableDictionary* interpreters;
 	KMWorkflowStep* step = [steps objectForKey:[[_state class] getName]];
 	if(!step)
 		return;
-	currentStep = step;
+    [coordinator setValue:step forKeyPath:@"properties.current-workflow-step"];
 	KMWFSS;
 	KMWFSRM;
 	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
 -(void) startWorkflowForCoordinator:(id)coordinator {
-	currentStep = [self firstStep];
+	KMWorkflowStep* step = [self firstStep];
 	KMWFSS;
 	KMWFSRM;
+    [coordinator setValue:step forKeyPath:@"properties.current-workflow-step"];
 	[coordinator setValue:self forKeyPath:@"properties.current-workflow"];
 }
 
 -(void) advanceWorkflowForCoordinator:(id)coordinator {
-	currentStep = [currentStep nextStep];
-	if(!currentStep)
+    KMWorkflowStep* step = [coordinator valueForKeyPath:@"properties.current-workflow-step"];
+	step = [step nextStep];
+	if(!step)
 		return;
 	KMWFSS;
+    [coordinator setValue:step forKeyPath:@"properties.current-workflow-step"];
 }
 
 -(void) addStep:(id<KMState>)state {
@@ -183,7 +186,7 @@ NSMutableDictionary* interpreters;
 	KMWorkflowStep* step = [steps objectForKey:[[state class] getName]];
 	if(!step)
 		return;
-	currentStep = step;
+    [coordinator setValue:step forKeyPath:@"properties.current-workflow-step"];
 	KMWFSS;
 }
 
@@ -201,6 +204,5 @@ NSMutableDictionary* interpreters;
 }
 
 @synthesize steps;
-@synthesize currentStep;
 @synthesize firstStep;
 @end

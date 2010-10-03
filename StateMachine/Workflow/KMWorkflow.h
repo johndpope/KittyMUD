@@ -26,7 +26,6 @@
 
 @interface  KMWorkflow  : KMObject {
 	NSMutableDictionary* steps;
-	KMWorkflowStep* currentStep;
 	KMWorkflowStep* firstStep;
 	NSMutableDictionary* interpretersForStep;
 }
@@ -58,7 +57,6 @@
 -(KMWorkflowStep*) getStepForState:(id<KMState>)state;
 
 @property (retain,readonly) NSMutableDictionary* steps;
-@property (retain) KMWorkflowStep* currentStep;
 @property (retain) KMWorkflowStep* firstStep;
 @end
 

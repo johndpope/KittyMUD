@@ -29,17 +29,19 @@
 -(void) interpret:(id)coordinator withOldState:(id)state {
 	KMGetStateFromCoordinator(newState);
 	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
+    KMWorkflowStep* step = [coordinator valueForKeyPath:@"properties.current-workflow-step"];
 	if(newState != state) {
 		if(workflow) {
 			if([workflow getStepForState:newState]) {
 				[workflow setWorkflowToStep:newState forCoordinator:coordinator];
 			} else {
 				[workflow advanceWorkflowForCoordinator:coordinator];
-				if(![[workflow currentStep] nextStep]) {
+                step = [coordinator valueForKeyPath:@"properties.current-workflow-step"];
+				if(![step nextStep]) {
 					[coordinator setValue:nil forKeyPath:@"properties.current-workflow"];
 				}
 			}
-			newState = [[workflow currentStep] myState];
+			newState = [step myState];
 			KMSetStateForCoordinatorTo(newState);
 		}
 		KMGetInterpreterForState(newState,interpreter);
