@@ -57,7 +57,7 @@ typedef id KMS;
 }
 
 #define assertThatSteps(n) assertThat([NSNumber numberWithInt:[[[wf steps] allKeys] count]], equalTo([NSNumber numberWithInt:n]))
-
+/**/
 -(void) testCreateWorkflow {
 	KMS s1, s2, s3, s4, s5, s6;
 	s1 = [self createMockObject];
@@ -185,5 +185,5 @@ typedef id KMS;
 	s3 = [wf advanceWorkflow];
 	is(nilValue(s3));
 }
-
+*/
 @end
