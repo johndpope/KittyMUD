@@ -20,6 +20,7 @@
 //
 
 #import "KMExtensibleDataLoader.h"
+#import "NSString+KMAdditions.h"
 
 NSString* currentFileName;
 
@@ -37,7 +38,8 @@ NSString* currentFileName;
 		return nil;
 	currentFileName = [path lastPathComponent];
 	NSData* data = [fh readDataToEndOfFile];
-	NSXMLDocument* doc = [[NSXMLDocument alloc] initWithData:data options:NSXMLDocumentXInclude error:NULL];
+    NSString* string = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] replaceAllVariables];
+	NSXMLDocument* doc = [[NSXMLDocument alloc] initWithXMLString:string options:NSXMLDocumentXInclude error:NULL];
 	if(!doc)
 		return nil;
 	NSXMLElement* root = [doc rootElement];
@@ -61,7 +63,7 @@ NSString* currentFileName;
 				continue;
 			NSInvocation* ainv = [schema invocationToLoadKey:akey];
 			if(akey) {
-				if(ainv) {
+				if(ainv && [ainv isKindOfClass:[NSInvocation class]]) {
 					[ainv setArgument:&attribute atIndex:2];
 					[ainv invoke];
 					id arval;
@@ -88,7 +90,7 @@ NSString* currentFileName;
 				continue;
 			NSInvocation* inv = [schema invocationToLoadKey:key];
 			if(key) {
-				if(inv) {
+				if(inv && [inv isKindOfClass:[NSInvocation class]]) {
 					[inv setArgument:&echild atIndex:2];
 					[inv invoke];
 					id rval;
@@ -112,7 +114,7 @@ NSString* currentFileName;
 					continue;
 				NSInvocation* ainv = [schema invocationToLoadKey:akey];
 				if(akey) {
-					if(ainv) {
+					if(ainv && [ainv isKindOfClass:[NSInvocation class]]) {
 						[ainv setArgument:&attribute atIndex:2];
 						[ainv invoke];
 						id arval;
