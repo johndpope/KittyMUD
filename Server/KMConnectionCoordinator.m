@@ -23,6 +23,10 @@
 #import "KMServer.h"
 #import "KMCharacter.h"
 #import "KMBasicInterpreter.h"
+#import <ECScript/ECSObjcExtensions.h>
+#import <ECScript/ECSSymbol.h>
+#import <ECScript/ECSSymbolTable.h>
+#import <ECScript/NSMutableDictionary+ECSExtensions.h>
 
 /*
  * This class represents the abstraction between the socket and the rest of the MUD.
@@ -54,7 +58,7 @@
 	return self;
 }
 
-static NSString* sendMessageBase(NSString* message) {
+static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* message) {
 	message = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* (^sendMessageHelperStrip)(NSString*) = ^(NSString* input){
 		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
@@ -84,6 +88,11 @@ static NSString* sendMessageBase(NSString* message) {
 		current = [message copy];
 		message = sendMessageHelper(message);
 	}
+    NSMutableDictionary* context = [NSMutableDictionary dictionary];
+    [context createSymbolTable];
+    ECSSymbol* csym = [[context symbolTable] symbolWithName:@"coordinator"];
+    csym.value = _self;
+    message = [message evaluateWithContext:context];
 	return message;
 }
 
@@ -93,7 +102,7 @@ static NSString* sendMessageBase(NSString* message) {
 	va_start(args,message);
 	message = [[NSString alloc] initWithFormat:message arguments:args];
 	va_end(args);
-	message = sendMessageBase(message);
+	message = sendMessageBase(self,message);
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	if(CFSocketSendData(socket, NULL, (CFDataRef)data, 0) != kCFSocketSuccess) {
 		OCLog(@"kittymud",info,@"Error sending data to connection, closing connection...");
@@ -113,7 +122,7 @@ static NSString* sendMessageBase(NSString* message) {
 		[self sendMessage:message];
 		return;
 	}
-	message = sendMessageBase(message);
+	message = sendMessageBase(self,message);
 	if(!outputBuffer)
 		outputBuffer = [[NSString alloc] init];
 	outputBuffer = [outputBuffer stringByAppendingString:message];
