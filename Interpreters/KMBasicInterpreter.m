@@ -28,7 +28,7 @@
 
 -(void) interpret:(id)coordinator withOldState:(id)state {
 	KMGetStateFromCoordinator(newState);
-    usleep(500);
+    usleep(1000);
 	KMWorkflow* workflow = [coordinator valueForKeyPath:@"properties.current-workflow"];
     KMWorkflowStep* step = [coordinator valueForKeyPath:@"properties.current-workflow-step"];
 	if(newState != state) {
