@@ -32,7 +32,7 @@
 	self = [super init];
 	if(self) {
 		[[self getProperties] setObject:name forKey:@"name"];
-		[[self getProperties] setObject:@"`B[ `GHP`w:`c[`r$(CurHp)/`R$(MaxHp)`c]  `CMP`w:`c[`g$(CurMp)/`G$(MaxMp)`c] `YLvl:`w(`y$(Lvl)`w) `B]`x:" forKey:@"prompt"];
+		[[self getProperties] setObject:@"`B[ `GHP`w:`c[`r#{c->stat('hitpoints::current')}`w/`R#{c->stat('hitpoints::maximum')}`c]  `YLvL:`w(`y#{c->stat('level')}`w) `B]`x:" forKey:@"prompt"];
 		stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
 	}
 	return self;
