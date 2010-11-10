@@ -39,7 +39,6 @@
 -(void) command##name:(id)coordinator
 
 #define CMD(name) command##name:coordinator
-#define OPT(name) optArgs##name
 
 @protocol KMCommandInterpreterLogic <NSObject>
 
