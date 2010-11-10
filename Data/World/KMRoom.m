@@ -22,7 +22,6 @@
 #import "KMRoom.h"
 #import "KMConnectionCoordinator.h"
 
-static KMDataManager* roomLoader;
 static NSMutableArray* rooms;
 
 @implementation KMRoom
