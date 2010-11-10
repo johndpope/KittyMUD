@@ -47,7 +47,7 @@
 		[[coordinator getProperties] setObject:[NSString stringWithFormat:@"%d",attempts] forKey:@"password-attempts"];
 		if(attempts >= 5) {
 			[coordinator sendMessage:[@"Too many failed attempts.  Your account is now locked, you must contact an administrator at $(AdminEmail) to unlock it." replaceAllVariables]];
-			[coordinator setFlag:@"locked"];
+			[coordinator setFlag:@"locked" reason:@"Too many failed login attempts."];
 			[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
 			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
 		}
