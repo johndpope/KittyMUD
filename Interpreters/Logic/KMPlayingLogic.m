@@ -58,7 +58,7 @@ CIMPL(save,save:,nil,nil,nil,1) {
 
 CHELP(quit,@"Quits the game with saving.",nil)
 CIMPL(quit,quit:,nil,nil,nil,1) {
-	CMD(save);
+    [self CMD(save)];
 	[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
 }
 
