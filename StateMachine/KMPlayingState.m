@@ -26,6 +26,7 @@
 #import "KMRoom.h"
 #import "KMCommandInterpreter.h"
 #import "KMPlayingLogic.h"
+#import <ECScript/ECScript.h>
 
 @implementation KMPlayingState
 
@@ -51,15 +52,13 @@
 	KMSoftRebootCheck;
 	if(![coordinator isFlagSet:@"no-display-room"])
 		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
-	NSMutableDictionary* promptVars = [[NSMutableDictionary alloc] init];
 	NSString* prompt = [coordinator valueForKeyPath:@"properties.current-character.properties.prompt"];
-	NSDictionary* values = [NSDictionary dictionaryWithObjectsAndKeys:@"curhp",@"CurHp",@"maxhp",@"MaxHp",@"curmp",@"CurMp",@"maxmp",@"MaxMp",@"level",@"Lvl",@"xp",@"Xp",nil];
-	for(NSString* var in [values allKeys]) {
-		NSNumber* num = [NSNumber numberWithInt:[[[[coordinator valueForKeyPath:@"properties.current-character"] stats] findStatWithPath:[values objectForKey:var]] statvalue]];
-		[promptVars setObject:[num stringValue] forKey:var];
-	}
-	
-	[coordinator sendMessageToBuffer:[prompt replaceAllVariablesWithDictionary:promptVars]];
+	NSMutableDictionary* context = [NSMutableDictionary dictionary];
+    [context createSymbolTable];
+    ECSSymbol* sym = [[context symbolTable] symbolWithName:@"c"];
+    sym.value = [coordinator valueForKeyPath:@"properties.current-character"];
+    NSLog(@"%@ %@",prompt,[prompt evaluateWithContext:context]);
+    [coordinator sendMessageToBuffer:[prompt evaluateWithContext:context]];
 }
 
 @end
