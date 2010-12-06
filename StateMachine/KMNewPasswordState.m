@@ -31,7 +31,7 @@
 -(void) processState
 {
 	[coordinator setFlag:@"new-password"];
-	[[coordinator getProperties] setObject:[[coordinator getInputBuffer] MD5] forKey:@"password"];
+	[[coordinator properties] setObject:[[coordinator getInputBuffer] MD5] forKey:@"password"];
 	KMSetStateForCoordinatorTo([KMConfirmPasswordState class]);
 }
 

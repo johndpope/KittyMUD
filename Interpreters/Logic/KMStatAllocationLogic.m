@@ -45,7 +45,7 @@
 	BOOL valid = YES;
 	KMStat* st =[[character stats] findStatWithPath:stat];
 	
-	if(st == nil || ![[st getProperties] objectForKey:@"changeable"])
+	if(st == nil || ![[st properties] objectForKey:@"changeable"])
 		valid = NO;
 	
 	if(!valid) {
@@ -62,7 +62,7 @@
 				return;
 			}
 			[st setStatvalue:([st statvalue] + value)];
-			[[[st parent] getProperties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] - value)] forKey:@"allocatable"];
+			[[[st parent] properties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] - value)] forKey:@"allocatable"];
 			break;
 		case KMStatAllocationDecrease:
 			if( value > ([st statvalue] - [baseStat statvalue]) ) {
@@ -70,12 +70,12 @@
 				return;
 			}
 			[st setStatvalue:([st statvalue] - value)];
-			[[[st parent] getProperties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + value)] forKey:@"allocatable"];
+			[[[st parent] properties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + value)] forKey:@"allocatable"];
 			break;
 		case KMStatAllocationReset:
 			difference = ([st statvalue] - [baseStat statvalue]);
 			[st setStatvalue:[baseStat statvalue]];
-			[[[st parent] getProperties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + difference)] forKey:@"allocatable"];
+			[[[st parent] properties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + difference)] forKey:@"allocatable"];
 			break;
 	}
 }
@@ -203,7 +203,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 		__block void (^setAllocatableTo0)(KMStat*) = nil;
 		
 		setAllocatableTo0 = ^void(KMStat* stat) {
-			[[stat getProperties] setObject:[NSNumber numberWithInt:0] forKey:@"allocatable"];
+			[[stat properties] setObject:[NSNumber numberWithInt:0] forKey:@"allocatable"];
 			if([stat hasChildren]) {
 				for(KMStat* child in [stat getChildren]) {
 					setAllocatableTo0(child);

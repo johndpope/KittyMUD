@@ -39,7 +39,7 @@
 		[self softRebootMessage];
 		return;
 	}
-	[[coordinator getProperties] setObject:[coordinator getInputBuffer] forKey:@"name"];
+	[[coordinator properties] setObject:[coordinator getInputBuffer] forKey:@"name"];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
 		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables]];
 		if([coordinator isFlagSet:@"locked"]) {

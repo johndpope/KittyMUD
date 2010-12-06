@@ -202,7 +202,7 @@
 			}
 		}
 	}
-	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
+	KMCharacter* character = [[coordinator properties] objectForKey:@"current-character"];
 	if([[[character stats] findStatWithPath:@"level"] statvalue] < [command minLevel])
 		return NO;
 	return YES;

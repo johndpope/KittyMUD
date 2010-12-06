@@ -105,6 +105,8 @@
 		3A427CB6109B42A500E1C502 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F79041098CDC400EA69DC /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
+		3A72DE3F12AC9927002D7839 /* KMEventEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A72DE3D12AC9927002D7839 /* KMEventEngine.h */; };
+		3A72DE4012AC9927002D7839 /* KMEventEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72DE3E12AC9927002D7839 /* KMEventEngine.m */; };
 		3A7C262312036D9E004B2157 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
 		3A9FB2541252A72C00DF0425 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29428E1251AA1100E51A70 /* OCLog.framework */; };
 		3AB8B7041153EC07005DE7AA /* KMRequirement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB8B7021153EC07005DE7AA /* KMRequirement.h */; };
@@ -113,8 +115,6 @@
 		3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */; };
 		3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */; };
 		3AC305D51258FA6A00D43A85 /* ECScript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC305D41258FA6A00D43A85 /* ECScript.framework */; };
-		3ACDAA201112FC5700108E16 /* KMEventDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACDAA1E1112FC5700108E16 /* KMEventDuration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3ACDAA211112FC5700108E16 /* KMEventDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDAA1F1112FC5700108E16 /* KMEventDuration.m */; };
 		3ACDAA73111571B500108E16 /* KMEnumFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACDAA72111571B500108E16 /* KMEnumFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEA2D6C110388F400F3426B /* KMPower.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEA2D6A110388F400F3426B /* KMPower.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEA2D6D110388F400F3426B /* KMPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA2D6B110388F400F3426B /* KMPower.m */; };
@@ -146,28 +146,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 3ABB90061229AC5900046D3B /* ECScript.framework */;
+			remoteGlobalIDString = 3ABB90061229AC5900046D3B;
 			remoteInfo = ECScript;
 		};
 		3AC305C41258F9F600D43A85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 3ABB90071229AC5900046D3B /* ecs_tests.octest */;
+			remoteGlobalIDString = 3ABB90071229AC5900046D3B;
 			remoteInfo = ecs_tests;
 		};
 		3AC305D01258FA5800D43A85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ECScript */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = ECScript;
 		};
 		3AC305D21258FA5C00D43A85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 3A363C4F117F2C9100AB1D69 /* ecs_tests */;
+			remoteGlobalIDString = 3A363C4F117F2C9100AB1D69;
 			remoteInfo = ecs_tests;
 		};
 		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
@@ -296,6 +296,8 @@
 		3A427B86109A9AC800E1C502 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
 		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
 		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
+		3A72DE3D12AC9927002D7839 /* KMEventEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEventEngine.h; sourceTree = "<group>"; };
+		3A72DE3E12AC9927002D7839 /* KMEventEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMEventEngine.m; sourceTree = "<group>"; };
 		3A8AA7D61252A33F005A9441 /* KittyMUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KittyMUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB8B7021153EC07005DE7AA /* KMRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRequirement.h; sourceTree = "<group>"; };
@@ -305,8 +307,6 @@
 		3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNullState.m; sourceTree = "<group>"; };
 		3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ECScript.xcodeproj; path = /Users/mtindal/Projects/ECScript/ECScript.xcodeproj; sourceTree = "<absolute>"; };
 		3AC305D41258FA6A00D43A85 /* ECScript.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ECScript.framework; sourceTree = SOURCE_ROOT; };
-		3ACDAA1E1112FC5700108E16 /* KMEventDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEventDuration.h; sourceTree = "<group>"; };
-		3ACDAA1F1112FC5700108E16 /* KMEventDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMEventDuration.m; sourceTree = "<group>"; };
 		3ACDAA72111571B500108E16 /* KMEnumFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEnumFactory.h; sourceTree = "<group>"; };
 		3AEA2D6A110388F400F3426B /* KMPower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPower.h; sourceTree = "<group>"; };
 		3AEA2D6B110388F400F3426B /* KMPower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPower.m; sourceTree = "<group>"; };
@@ -649,8 +649,8 @@
 		3ACDAA1B1112FC3300108E16 /* EventEngine */ = {
 			isa = PBXGroup;
 			children = (
-				3ACDAA1E1112FC5700108E16 /* KMEventDuration.h */,
-				3ACDAA1F1112FC5700108E16 /* KMEventDuration.m */,
+				3A72DE3D12AC9927002D7839 /* KMEventEngine.h */,
+				3A72DE3E12AC9927002D7839 /* KMEventEngine.m */,
 			);
 			path = EventEngine;
 			sourceTree = "<group>";
@@ -737,9 +737,9 @@
 				3A0B4E4210CC26CB00F31850 /* KMExtensibleDataLoader.h in Headers */,
 				3A0B4E4410CC26CB00F31850 /* KMExtensibleDataSchema.h in Headers */,
 				3AEA2D6C110388F400F3426B /* KMPower.h in Headers */,
-				3ACDAA201112FC5700108E16 /* KMEventDuration.h in Headers */,
 				3ACDAA73111571B500108E16 /* KMEnumFactory.h in Headers */,
 				3AB8B7041153EC07005DE7AA /* KMRequirement.h in Headers */,
+				3A72DE3F12AC9927002D7839 /* KMEventEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,9 +941,9 @@
 				3A0B48C210CB008F00F31850 /* KMSpecial.m in Sources */,
 				3A0B4E4310CC26CB00F31850 /* KMExtensibleDataLoader.m in Sources */,
 				3AEA2D6D110388F400F3426B /* KMPower.m in Sources */,
-				3ACDAA211112FC5700108E16 /* KMEventDuration.m in Sources */,
 				3AB8B7051153EC07005DE7AA /* KMRequirement.m in Sources */,
 				3A369FCD116A309F00298324 /* KMState.m in Sources */,
+				3A72DE4012AC9927002D7839 /* KMEventEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

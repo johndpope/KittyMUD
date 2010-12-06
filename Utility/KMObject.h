@@ -20,9 +20,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "KMEventEngine.h"
 
 @interface  KMObject  : NSObject {
+    KMEventEngine* eventEngine;
 	NSMutableDictionary* properties;
 	NSMutableArray* flagbase;
 	NSMutableDictionary* flags;
@@ -42,6 +43,7 @@
 
 -(void) debugPrintFlagStatus:(id)coordinator;
 
-@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
+@property (retain,readonly) NSMutableDictionary* properties;
+@property KMEventEngine* eventEngine;
 
 @end

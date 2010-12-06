@@ -31,8 +31,8 @@
 {
 	self = [super init];
 	if(self) {
-		[[self getProperties] setObject:name forKey:@"name"];
-		[[self getProperties] setObject:@"`B[ `GHP`w:`c[`r#{c->stat('hitpoints::current')}`w/`R#{c->stat('hitpoints::maximum')}`c]  `YLvL:`w(`y#{c->stat('level')}`w) `B]`x:" forKey:@"prompt"];
+		[[self properties] setObject:name forKey:@"name"];
+		[[self properties] setObject:@"`B[ `GHP`w:`c[`r#{c->stat('hitpoints::current')}`w/`R#{c->stat('hitpoints::maximum')}`c]  `YLvL:`w(`y#{c->stat('level')}`w) `B]`x:" forKey:@"prompt"];
 		stats = [KMStat loadFromTemplateAtPath:[@"$(DataDir)/templates/stat_template.xml" replaceAllVariables]];
 	}
 	return self;
@@ -44,12 +44,12 @@
 	NSXMLNode* nameAttribute = [NSXMLNode attributeWithName:@"name" stringValue:[self valueForKeyPath:@"properties.name"]];
 	[characterElement addAttribute:nameAttribute];
 	NSXMLElement* propertiesElement = [[NSXMLElement alloc] initWithName:@"properties"];
-	for(NSString* property in [[self getProperties] allKeys]) {
+	for(NSString* property in [[self properties] allKeys]) {
 		if([property isEqualToString:@"name"])
 			continue;
 		NSXMLElement* propertyElement = [[NSXMLElement alloc] initWithName:@"property"];
 		NSXMLNode* propertyNameAttribute = [NSXMLNode attributeWithName:@"key" stringValue:property];
-		NSXMLNode* propertyValueAttribute = [NSXMLNode attributeWithName:@"value" stringValue:[[[self getProperties] objectForKey:property] stringValue]];
+		NSXMLNode* propertyValueAttribute = [NSXMLNode attributeWithName:@"value" stringValue:[[[self properties] objectForKey:property] stringValue]];
 		[propertyElement addAttribute:propertyNameAttribute];
 		[propertyElement addAttribute:propertyValueAttribute];
 		[propertiesElement addChild:propertyElement];

@@ -55,6 +55,7 @@ static BOOL setUpOCLChannel = NO;
 -(id)init {
 	self = [super init];
 	if(self) {
+        eventEngine = [[KMEventEngine alloc] init];
 		properties = [[NSMutableDictionary alloc] init];
 		flags = [[NSMutableDictionary alloc] init];
 		flagbase = [[NSMutableArray alloc] init];
@@ -126,6 +127,6 @@ static BOOL setUpOCLChannel = NO;
 	}
 }
 
-@synthesize properties;
+@synthesize properties,eventEngine;
 
 @end

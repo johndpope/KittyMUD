@@ -67,7 +67,7 @@ static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters
 	if([coordinator isFlagSet:@"race-before-character"]) {
 		NSString* r = [coordinator valueForKeyPath:@"properties.race"];
 		KMRace* race = [KMRace getRaceByName:r];
-		[[character getProperties] setObject:[race name] forKey:@"race"];
+		[[character properties] setObject:[race name] forKey:@"race"];
 		if(![coordinator isFlagSet:@"race-bonuses-after-allocation"]) {
 			[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
 		}
@@ -77,7 +77,7 @@ static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters
 	if([coordinator isFlagSet:@"class-before-character"]) {
 		NSString* c = [coordinator valueForKeyPath:@"properties.class"];
 		KMClass* klass = [KMClass getClassByName:c];
-		[[character getProperties] setObject:[klass name] forKey:@"class"];
+		[[character properties] setObject:[klass name] forKey:@"class"];
 		[coordinator setValue:nil forKeyPath:@"properties.class"];
 		[coordinator clearFlag:@"class-before-character"];
 	}

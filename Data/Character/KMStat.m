@@ -232,7 +232,7 @@
 	if(loadType == KMStatLoadTypeAllocation) {
 		NSXMLNode* allocAttribute = [mainElement valueForKey:@"alloc"];
 		if(allocAttribute != nil)
-			[[main getProperties] setObject:[NSNumber numberWithInt:[[allocAttribute stringValue] intValue]] forKey:@"allocatable"];
+			[[main properties] setObject:[NSNumber numberWithInt:[[allocAttribute stringValue] intValue]] forKey:@"allocatable"];
 	}
 	
 	NSString* attributeToLookFor;
@@ -272,14 +272,14 @@
 		
 		stat = [[self alloc] initializeWithName:statName andAbbreviation:statAbbr andValue:0];
 		if(loadType == KMStatLoadTypeAllocation) {
-			[[stat getProperties] setObject:[NSNumber numberWithInt:_statvalue] forKey:@"allocatable"];
+			[[stat properties] setObject:[NSNumber numberWithInt:_statvalue] forKey:@"allocatable"];
 			NSXMLNode* changeableAttribute = [element valueForKey:@"changeable"];
 			if(changeableAttribute != nil)
 				changeable = [[changeableAttribute stringValue] boolValue];
 		} else
 			[stat setStatvalue:_statvalue];
 		
-		[[stat getProperties] setObject:[NSNumber numberWithBool:changeable] forKey:@"changeable"];
+		[[stat properties] setObject:[NSNumber numberWithBool:changeable] forKey:@"changeable"];
 		[stat setParent:statParent];
 		
 		return stat;
@@ -338,8 +338,8 @@
 	NSMutableString* line = [[NSMutableString alloc] init];
 	for(int i = 0; i < tabLevel; i++)
 		[line appendString:@"\t"];
-	[line appendFormat:@"%@(%@) = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self abbreviation], [self statvalue], [[self parent] name], [[[self getProperties] objectForKey:@"allocatable"] intValue],
-	 [[[self getProperties] objectForKey:@"changeable"] boolValue] ? @"YES" : @"NO"];
+	[line appendFormat:@"%@(%@) = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self abbreviation], [self statvalue], [[self parent] name], [[[self properties] objectForKey:@"allocatable"] intValue],
+	 [[[self properties] objectForKey:@"changeable"] boolValue] ? @"YES" : @"NO"];
 	OCLog(@"kittymud",debug,@"%@", line);
 	if([self hasChildren]) {
 		NSArray* child = [self getChildren];
@@ -399,9 +399,9 @@
 	if(settings & KMStatCopySettingsValue)
 		[self setStatvalue:[stat statvalue]];
 	if(settings & KMStatCopySettingsChangeable && [stat valueForKeyPath:@"properties.changeable"])
-		[[self getProperties] setObject:[[stat getProperties] objectForKey:@"changeable"] forKey:@"changeable"];
+		[[self properties] setObject:[[stat properties] objectForKey:@"changeable"] forKey:@"changeable"];
 	if(settings & KMStatCopySettingsAllocatable && [stat valueForKeyPath:@"properties.allocatable"])
-		[[self getProperties] setObject:[[stat getProperties] objectForKey:@"allocatable"] forKey:@"allocatable"];
+		[[self properties] setObject:[[stat properties] objectForKey:@"allocatable"] forKey:@"allocatable"];
 	if([stat hasChildren]) {
 		for(KMStat* child in [stat getChildren]) {
 			if([child name] == nil || [child abbreviation] == nil)

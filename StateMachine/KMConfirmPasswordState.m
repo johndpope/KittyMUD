@@ -32,7 +32,7 @@
 -(void) processState
 {
 	NSString* hash = [[coordinator getInputBuffer] MD5];
-	if(![[[coordinator getProperties] objectForKey:@"password"] isEqualToString:hash])
+	if(![[[coordinator properties] objectForKey:@"password"] isEqualToString:hash])
 	{
 		if([coordinator isFlagSet:@"new-password"])
 		{
@@ -40,11 +40,11 @@
 			KMSetStateForCoordinatorTo([KMNewPasswordState class]);
 			return;
 		}
-		id attemptString = [[coordinator getProperties] objectForKey:@"password-attempts"];
+		id attemptString = [[coordinator properties] objectForKey:@"password-attempts"];
 		int attempts = 1;
 		if(attemptString != nil)
 			attempts = [attemptString intValue] + 1;
-		[[coordinator getProperties] setObject:[NSString stringWithFormat:@"%d",attempts] forKey:@"password-attempts"];
+		[[coordinator properties] setObject:[NSString stringWithFormat:@"%d",attempts] forKey:@"password-attempts"];
 		if(attempts >= 5) {
 			[coordinator sendMessage:[@"Too many failed attempts.  Your account is now locked, you must contact an administrator at $(AdminEmail) to unlock it." replaceAllVariables]];
 			[coordinator setFlag:@"locked" reason:@"Too many failed login attempts."];
@@ -56,7 +56,7 @@
 		return;
 	}
 	[coordinator clearFlag:@"new-password"];
-	[[coordinator getProperties] setObject:@"0" forKey:@"password-attempts"];
+	[[coordinator properties] setObject:@"0" forKey:@"password-attempts"];
 	KMSetStateForCoordinatorTo([KMAccountMenuState class]);
 }
 
