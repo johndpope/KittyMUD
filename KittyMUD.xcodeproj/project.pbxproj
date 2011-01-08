@@ -3,980 +3,730 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A0B48C110CB008F00F31850 /* KMSpecial.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0B48BF10CB008F00F31850 /* KMSpecial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A0B48C210CB008F00F31850 /* KMSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B48C010CB008F00F31850 /* KMSpecial.m */; };
-		3A0B4E4210CC26CB00F31850 /* KMExtensibleDataLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A0B4E4310CC26CB00F31850 /* KMExtensibleDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */; };
-		3A0B4E4410CC26CB00F31850 /* KMExtensibleDataSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78451098C9B700EA69DC /* KMExitInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78411098C9B700EA69DC /* KMExitInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78461098C9B700EA69DC /* KMExitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78421098C9B700EA69DC /* KMExitInfo.m */; };
-		3A2F78471098C9B700EA69DC /* KMRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78431098C9B700EA69DC /* KMRoom.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78481098C9B700EA69DC /* KMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78441098C9B700EA69DC /* KMRoom.m */; };
-		3A2F78541098CA7700EA69DC /* KMPlayingLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78501098CA7700EA69DC /* KMPlayingLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78551098CA7700EA69DC /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78511098CA7700EA69DC /* KMPlayingLogic.m */; };
-		3A2F78561098CA7700EA69DC /* KMStatAllocationLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78521098CA7700EA69DC /* KMStatAllocationLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78571098CA7700EA69DC /* KMStatAllocationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78531098CA7700EA69DC /* KMStatAllocationLogic.m */; };
-		3A2F785E1098CADC00EA69DC /* KMItemEnhancement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F785A1098CADC00EA69DC /* KMItemEnhancement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F785F1098CADC00EA69DC /* KMItemEnhancement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F785B1098CADC00EA69DC /* KMItemEnhancement.m */; };
-		3A2F78601098CADC00EA69DC /* KMItemTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F785C1098CADC00EA69DC /* KMItemTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78611098CADC00EA69DC /* KMItemTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F785D1098CADC00EA69DC /* KMItemTemplate.m */; };
-		3A2F78691098CB0800EA69DC /* KMDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78621098CB0800EA69DC /* KMDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F786A1098CB0800EA69DC /* KMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78631098CB0800EA69DC /* KMDataManager.m */; };
-		3A2F786B1098CB0800EA69DC /* KMDataStartup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78641098CB0800EA69DC /* KMDataStartup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F786C1098CB0800EA69DC /* KMClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78651098CB0800EA69DC /* KMClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F786D1098CB0800EA69DC /* KMClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78661098CB0800EA69DC /* KMClass.m */; };
-		3A2F786E1098CB0800EA69DC /* KMRace.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78671098CB0800EA69DC /* KMRace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F786F1098CB0800EA69DC /* KMRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78681098CB0800EA69DC /* KMRace.m */; };
-		3A2F78771098CB9000EA69DC /* KMCharacter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78711098CB9000EA69DC /* KMCharacter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78781098CB9000EA69DC /* KMCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78721098CB9000EA69DC /* KMCharacter.m */; };
-		3A2F78791098CB9000EA69DC /* KMStat.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78731098CB9000EA69DC /* KMStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F787A1098CB9000EA69DC /* KMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78741098CB9000EA69DC /* KMStat.m */; };
-		3A2F787B1098CB9000EA69DC /* KMStatCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78751098CB9000EA69DC /* KMStatCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78851098CBBA00EA69DC /* KMBasicInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F787D1098CBBA00EA69DC /* KMBasicInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78861098CBBA00EA69DC /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F787E1098CBBA00EA69DC /* KMBasicInterpreter.m */; };
-		3A2F78871098CBBA00EA69DC /* KMCommandInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F787F1098CBBA00EA69DC /* KMCommandInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78881098CBBA00EA69DC /* KMCommandInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78801098CBBA00EA69DC /* KMCommandInfo.m */; };
-		3A2F78891098CBBA00EA69DC /* KMCommandInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78811098CBBA00EA69DC /* KMCommandInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F788A1098CBBA00EA69DC /* KMCommandInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78821098CBBA00EA69DC /* KMCommandInterpreter.m */; };
-		3A2F788B1098CBBA00EA69DC /* KMCommandInterpreterLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78831098CBBA00EA69DC /* KMCommandInterpreterLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F788C1098CBBA00EA69DC /* KMInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78841098CBBA00EA69DC /* KMInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F789B1098CC2B00EA69DC /* KMColorProcessWriteHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F788E1098CC2B00EA69DC /* KMColorProcessWriteHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F789C1098CC2B00EA69DC /* KMColorProcessWriteHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F788F1098CC2B00EA69DC /* KMColorProcessWriteHook.m */; };
-		3A2F789D1098CC2B00EA69DC /* KMInfoDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78901098CC2B00EA69DC /* KMInfoDisplay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F789E1098CC2B00EA69DC /* KMInfoDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78911098CC2B00EA69DC /* KMInfoDisplay.m */; };
-		3A2F789F1098CC2B00EA69DC /* KMStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78921098CC2B00EA69DC /* KMStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78A01098CC2B00EA69DC /* KMStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78931098CC2B00EA69DC /* KMStack.m */; };
-		3A2F78A11098CC2B00EA69DC /* NSString+KMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78941098CC2B00EA69DC /* NSString+KMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78A21098CC2B00EA69DC /* NSString+KMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78951098CC2B00EA69DC /* NSString+KMAdditions.m */; };
-		3A2F78A31098CC2B00EA69DC /* KMVariableHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78961098CC2B00EA69DC /* KMVariableHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78A41098CC2B00EA69DC /* KMVariableHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78971098CC2B00EA69DC /* KMVariableHook.m */; };
-		3A2F78A51098CC2B00EA69DC /* KMVariableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78981098CC2B00EA69DC /* KMVariableManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78A61098CC2B00EA69DC /* KMVariableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78991098CC2B00EA69DC /* KMVariableManager.m */; };
-		3A2F78A71098CC2B00EA69DC /* KMWriteHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F789A1098CC2B00EA69DC /* KMWriteHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78C21098CCC800EA69DC /* KMAccountMenuState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78AA1098CCC800EA69DC /* KMAccountMenuState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78C31098CCC800EA69DC /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78AB1098CCC800EA69DC /* KMAccountMenuState.m */; };
-		3A2F78C41098CCC800EA69DC /* KMAccountNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78AC1098CCC800EA69DC /* KMAccountNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78C51098CCC800EA69DC /* KMAccountNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78AD1098CCC800EA69DC /* KMAccountNameState.m */; };
-		3A2F78C61098CCC800EA69DC /* KMChooseCharacterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78AE1098CCC800EA69DC /* KMChooseCharacterState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78C71098CCC800EA69DC /* KMChooseCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78AF1098CCC800EA69DC /* KMChooseCharacterState.m */; };
-		3A2F78C81098CCC800EA69DC /* KMChooseClassState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78B01098CCC800EA69DC /* KMChooseClassState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78C91098CCC800EA69DC /* KMChooseClassState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78B11098CCC800EA69DC /* KMChooseClassState.m */; };
-		3A2F78CA1098CCC800EA69DC /* KMChooseRaceState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78B21098CCC800EA69DC /* KMChooseRaceState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78CB1098CCC800EA69DC /* KMChooseRaceState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78B31098CCC800EA69DC /* KMChooseRaceState.m */; };
-		3A2F78CC1098CCC800EA69DC /* KMConfirmPasswordState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78B41098CCC800EA69DC /* KMConfirmPasswordState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78CD1098CCC800EA69DC /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78B51098CCC800EA69DC /* KMConfirmPasswordState.m */; };
-		3A2F78CE1098CCC800EA69DC /* KMConfirmStatAllocationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78B61098CCC800EA69DC /* KMConfirmStatAllocationState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78CF1098CCC800EA69DC /* KMConfirmStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78B71098CCC800EA69DC /* KMConfirmStatAllocationState.m */; };
-		3A2F78D01098CCC800EA69DC /* KMCreateCharacterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78B81098CCC800EA69DC /* KMCreateCharacterState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78D11098CCC800EA69DC /* KMCreateCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78B91098CCC800EA69DC /* KMCreateCharacterState.m */; };
-		3A2F78D21098CCC800EA69DC /* KMNewPasswordState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78BA1098CCC800EA69DC /* KMNewPasswordState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78D31098CCC800EA69DC /* KMNewPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78BB1098CCC800EA69DC /* KMNewPasswordState.m */; };
-		3A2F78D41098CCC800EA69DC /* KMPlayingState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78BC1098CCC800EA69DC /* KMPlayingState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78D51098CCC800EA69DC /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78BD1098CCC800EA69DC /* KMPlayingState.m */; };
-		3A2F78D61098CCC800EA69DC /* KMQuitState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78BE1098CCC800EA69DC /* KMQuitState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78D71098CCC800EA69DC /* KMQuitState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78BF1098CCC800EA69DC /* KMQuitState.m */; };
-		3A2F78D81098CCC800EA69DC /* KMStatAllocationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78C01098CCC800EA69DC /* KMStatAllocationState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78D91098CCC800EA69DC /* KMStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78C11098CCC800EA69DC /* KMStatAllocationState.m */; };
-		3A2F78DE1098CCF400EA69DC /* KMAccountMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78DA1098CCF400EA69DC /* KMAccountMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78DF1098CCF400EA69DC /* KMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78DB1098CCF400EA69DC /* KMMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78E01098CCF400EA69DC /* KMMenuHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78DC1098CCF400EA69DC /* KMMenuHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78E11098CCF400EA69DC /* KMMenuHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78DD1098CCF400EA69DC /* KMMenuHandler.m */; };
-		3A2F78F21098CD4600EA69DC /* KMConnectionCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78EC1098CD4600EA69DC /* KMConnectionCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78F31098CD4600EA69DC /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78ED1098CD4600EA69DC /* KMConnectionCoordinator.m */; };
-		3A2F78F41098CD4600EA69DC /* KMConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78EE1098CD4600EA69DC /* KMConnectionPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78F51098CD4600EA69DC /* KMConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78EF1098CD4600EA69DC /* KMConnectionPool.m */; };
-		3A2F78F61098CD4600EA69DC /* KMServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78F01098CD4600EA69DC /* KMServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A2F78F71098CD4600EA69DC /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78F11098CD4600EA69DC /* KMServer.m */; };
-		3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2F79631098D35D00EA69DC /* libcrypto.dylib */; };
-		3A369FCD116A309F00298324 /* KMState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A369FCC116A309F00298324 /* KMState.m */; };
-		3A427B23109A2B2700E1C502 /* KittyMUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427B22109A2AD000E1C502 /* KittyMUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A427B68109A99D000E1C502 /* KMWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78E31098CD1500EA69DC /* KMWorkflow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A427B69109A99D000E1C502 /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78E41098CD1500EA69DC /* KMWorkflow.m */; };
-		3A427B6A109A99D000E1C502 /* KMWorkflowStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F78E61098CD1500EA69DC /* KMWorkflowStep.m */; };
-		3A427B6B109A99D000E1C502 /* KMWorkflowStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F78E51098CD1500EA69DC /* KMWorkflowStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A427B7D109A9A9F00E1C502 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B7C109A9A9F00E1C502 /* Cocoa.framework */; };
-		3A427B81109A9AB900E1C502 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B80109A9AB900E1C502 /* SenTestingKit.framework */; };
-		3A427B85109A9AC800E1C502 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B84109A9AC800E1C502 /* OCHamcrest.framework */; };
-		3A427B87109A9AC800E1C502 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
-		3A427CB6109B42A500E1C502 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2F79041098CDC400EA69DC /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A427E59109C7D6700E1C502 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A427E57109C7D6700E1C502 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A427E58109C7D6700E1C502 /* KMObject.m */; };
-		3A72DE3F12AC9927002D7839 /* KMEventEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A72DE3D12AC9927002D7839 /* KMEventEngine.h */; };
-		3A72DE4012AC9927002D7839 /* KMEventEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A72DE3E12AC9927002D7839 /* KMEventEngine.m */; };
-		3A7C262312036D9E004B2157 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A427B86109A9AC800E1C502 /* OCMock.framework */; };
-		3A9FB2541252A72C00DF0425 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29428E1251AA1100E51A70 /* OCLog.framework */; };
-		3AB8B7041153EC07005DE7AA /* KMRequirement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB8B7021153EC07005DE7AA /* KMRequirement.h */; };
-		3AB8B7051153EC07005DE7AA /* KMRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8B7031153EC07005DE7AA /* KMRequirement.m */; };
-		3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */; };
-		3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */; };
-		3AC305D51258FA6A00D43A85 /* ECScript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC305D41258FA6A00D43A85 /* ECScript.framework */; };
-		3ACDAA73111571B500108E16 /* KMEnumFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACDAA72111571B500108E16 /* KMEnumFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AEA2D6C110388F400F3426B /* KMPower.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEA2D6A110388F400F3426B /* KMPower.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AEA2D6D110388F400F3426B /* KMPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA2D6B110388F400F3426B /* KMPower.m */; };
-		3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22C710B31A790070FCDB /* KMAchievement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22C810B31A790070FCDB /* KMAchievement.m */; };
-		3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */; };
-		3AFA20E8109945D40038B52D /* KMWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA20E7109945D40038B52D /* KMWorkflowTests.m */; };
-		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
-		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		3A21616112A9D4D300D292C7 /* ECScript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A21615F12A9D4D300D292C7 /* ECScript.framework */; };
+		3A21616212A9D4D300D292C7 /* OCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A21616012A9D4D300D292C7 /* OCLog.framework */; };
+		3A21616812A9D4EE00D292C7 /* KMAchievement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21616412A9D4EE00D292C7 /* KMAchievement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21616912A9D4EE00D292C7 /* KMAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21616512A9D4EE00D292C7 /* KMAchievement.m */; };
+		3A21616A12A9D4EE00D292C7 /* KMAchievementEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21616612A9D4EE00D292C7 /* KMAchievementEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21616B12A9D4EE00D292C7 /* KMAchievementEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21616712A9D4EE00D292C7 /* KMAchievementEngine.m */; };
+		3A21617512A9D53B00D292C7 /* KMCharacter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21616E12A9D53B00D292C7 /* KMCharacter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21617612A9D53B00D292C7 /* KMCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21616F12A9D53B00D292C7 /* KMCharacter.m */; };
+		3A21617712A9D53B00D292C7 /* KMRequirement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21617012A9D53B00D292C7 /* KMRequirement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21617812A9D53B00D292C7 /* KMRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21617112A9D53B00D292C7 /* KMRequirement.m */; };
+		3A21617912A9D53B00D292C7 /* KMStat.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21617212A9D53B00D292C7 /* KMStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21617A12A9D53B00D292C7 /* KMStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21617312A9D53B00D292C7 /* KMStat.m */; };
+		3A21617B12A9D53B00D292C7 /* KMStatCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21617412A9D53B00D292C7 /* KMStatCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21618112A9D5A100D292C7 /* KMItemEnhancement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21617D12A9D5A100D292C7 /* KMItemEnhancement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21618212A9D5A100D292C7 /* KMItemEnhancement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21617E12A9D5A100D292C7 /* KMItemEnhancement.m */; };
+		3A21618312A9D5A100D292C7 /* KMItemTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21617F12A9D5A100D292C7 /* KMItemTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21618412A9D5A100D292C7 /* KMItemTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21618012A9D5A100D292C7 /* KMItemTemplate.m */; };
+		3A21618A12A9D5D400D292C7 /* KMExitInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21618612A9D5D400D292C7 /* KMExitInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21618B12A9D5D400D292C7 /* KMExitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21618712A9D5D400D292C7 /* KMExitInfo.m */; };
+		3A21618C12A9D5D400D292C7 /* KMRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21618812A9D5D400D292C7 /* KMRoom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21618D12A9D5D400D292C7 /* KMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21618912A9D5D400D292C7 /* KMRoom.m */; };
+		3A21619C12A9D5F300D292C7 /* KMClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21618E12A9D5F300D292C7 /* KMClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21619D12A9D5F300D292C7 /* KMClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21618F12A9D5F300D292C7 /* KMClass.m */; };
+		3A21619E12A9D5F300D292C7 /* KMDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619012A9D5F300D292C7 /* KMDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21619F12A9D5F300D292C7 /* KMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21619112A9D5F300D292C7 /* KMDataManager.m */; };
+		3A2161A012A9D5F300D292C7 /* KMDataStartup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619212A9D5F300D292C7 /* KMDataStartup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161A112A9D5F300D292C7 /* KMExtensibleDataLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619312A9D5F300D292C7 /* KMExtensibleDataLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161A212A9D5F300D292C7 /* KMExtensibleDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21619412A9D5F300D292C7 /* KMExtensibleDataLoader.m */; };
+		3A2161A312A9D5F300D292C7 /* KMExtensibleDataSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619512A9D5F300D292C7 /* KMExtensibleDataSchema.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161A412A9D5F300D292C7 /* KMPower.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619612A9D5F300D292C7 /* KMPower.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161A512A9D5F300D292C7 /* KMPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21619712A9D5F300D292C7 /* KMPower.m */; };
+		3A2161A612A9D5F300D292C7 /* KMRace.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619812A9D5F300D292C7 /* KMRace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161A712A9D5F300D292C7 /* KMRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21619912A9D5F300D292C7 /* KMRace.m */; };
+		3A2161A812A9D5F300D292C7 /* KMSpecial.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A21619A12A9D5F300D292C7 /* KMSpecial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161A912A9D5F300D292C7 /* KMSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21619B12A9D5F300D292C7 /* KMSpecial.m */; };
+		3A2161BF12A9D66B00D292C7 /* KMColorProcessWriteHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161AF12A9D66B00D292C7 /* KMColorProcessWriteHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161C012A9D66B00D292C7 /* KMColorProcessWriteHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161B012A9D66B00D292C7 /* KMColorProcessWriteHook.m */; };
+		3A2161C112A9D66B00D292C7 /* KMEnumFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161B112A9D66B00D292C7 /* KMEnumFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161C212A9D66B00D292C7 /* KMInfoDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161B212A9D66B00D292C7 /* KMInfoDisplay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161C312A9D66B00D292C7 /* KMInfoDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161B312A9D66B00D292C7 /* KMInfoDisplay.m */; };
+		3A2161C412A9D66B00D292C7 /* KMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161B412A9D66B00D292C7 /* KMObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161C512A9D66B00D292C7 /* KMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161B512A9D66B00D292C7 /* KMObject.m */; };
+		3A2161C612A9D66B00D292C7 /* KMStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161B612A9D66B00D292C7 /* KMStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161C712A9D66B00D292C7 /* KMStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161B712A9D66B00D292C7 /* KMStack.m */; };
+		3A2161C812A9D66B00D292C7 /* KMVariableHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161B812A9D66B00D292C7 /* KMVariableHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161C912A9D66B00D292C7 /* KMVariableHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161B912A9D66B00D292C7 /* KMVariableHook.m */; };
+		3A2161CA12A9D66B00D292C7 /* KMVariableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161BA12A9D66B00D292C7 /* KMVariableManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161CB12A9D66B00D292C7 /* KMVariableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161BB12A9D66B00D292C7 /* KMVariableManager.m */; };
+		3A2161CC12A9D66B00D292C7 /* KMWriteHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161BC12A9D66B00D292C7 /* KMWriteHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161CD12A9D66B00D292C7 /* NSString+KMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161BD12A9D66B00D292C7 /* NSString+KMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161CE12A9D66B00D292C7 /* NSString+KMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161BE12A9D66B00D292C7 /* NSString+KMAdditions.m */; };
+		3A2161D412A9D6A100D292C7 /* KMAccountMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161D012A9D6A100D292C7 /* KMAccountMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161D512A9D6A100D292C7 /* KMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161D112A9D6A100D292C7 /* KMMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161D612A9D6A100D292C7 /* KMMenuHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161D212A9D6A100D292C7 /* KMMenuHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161D712A9D6A100D292C7 /* KMMenuHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161D312A9D6A100D292C7 /* KMMenuHandler.m */; };
+		3A2161F512A9D6AA00D292C7 /* KMAccountMenuState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161D812A9D6AA00D292C7 /* KMAccountMenuState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161F612A9D6AA00D292C7 /* KMAccountMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161D912A9D6AA00D292C7 /* KMAccountMenuState.m */; };
+		3A2161F712A9D6AA00D292C7 /* KMAccountNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161DA12A9D6AA00D292C7 /* KMAccountNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161F812A9D6AA00D292C7 /* KMAccountNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161DB12A9D6AA00D292C7 /* KMAccountNameState.m */; };
+		3A2161F912A9D6AA00D292C7 /* KMChooseCharacterNameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161DC12A9D6AA00D292C7 /* KMChooseCharacterNameState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161FA12A9D6AA00D292C7 /* KMChooseCharacterNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161DD12A9D6AA00D292C7 /* KMChooseCharacterNameState.m */; };
+		3A2161FB12A9D6AA00D292C7 /* KMChooseCharacterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161DE12A9D6AA00D292C7 /* KMChooseCharacterState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161FC12A9D6AA00D292C7 /* KMChooseCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161DF12A9D6AA00D292C7 /* KMChooseCharacterState.m */; };
+		3A2161FD12A9D6AA00D292C7 /* KMChooseClassState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161E012A9D6AA00D292C7 /* KMChooseClassState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A2161FE12A9D6AA00D292C7 /* KMChooseClassState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161E112A9D6AA00D292C7 /* KMChooseClassState.m */; };
+		3A2161FF12A9D6AA00D292C7 /* KMChooseRaceState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161E212A9D6AA00D292C7 /* KMChooseRaceState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620012A9D6AA00D292C7 /* KMChooseRaceState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161E312A9D6AA00D292C7 /* KMChooseRaceState.m */; };
+		3A21620112A9D6AA00D292C7 /* KMConfirmPasswordState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161E412A9D6AA00D292C7 /* KMConfirmPasswordState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620212A9D6AA00D292C7 /* KMConfirmPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161E512A9D6AA00D292C7 /* KMConfirmPasswordState.m */; };
+		3A21620312A9D6AA00D292C7 /* KMConfirmStatAllocationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161E612A9D6AA00D292C7 /* KMConfirmStatAllocationState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620412A9D6AA00D292C7 /* KMConfirmStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161E712A9D6AA00D292C7 /* KMConfirmStatAllocationState.m */; };
+		3A21620512A9D6AA00D292C7 /* KMCreateCharacterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161E812A9D6AA00D292C7 /* KMCreateCharacterState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620612A9D6AA00D292C7 /* KMCreateCharacterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161E912A9D6AA00D292C7 /* KMCreateCharacterState.m */; };
+		3A21620712A9D6AA00D292C7 /* KMNewPasswordState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161EA12A9D6AA00D292C7 /* KMNewPasswordState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620812A9D6AA00D292C7 /* KMNewPasswordState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161EB12A9D6AA00D292C7 /* KMNewPasswordState.m */; };
+		3A21620912A9D6AA00D292C7 /* KMNullState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161EC12A9D6AA00D292C7 /* KMNullState.m */; };
+		3A21620A12A9D6AA00D292C7 /* KMPlayingState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161ED12A9D6AA00D292C7 /* KMPlayingState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620B12A9D6AA00D292C7 /* KMPlayingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161EE12A9D6AA00D292C7 /* KMPlayingState.m */; };
+		3A21620C12A9D6AA00D292C7 /* KMQuitState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161EF12A9D6AA00D292C7 /* KMQuitState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620D12A9D6AA00D292C7 /* KMQuitState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161F012A9D6AA00D292C7 /* KMQuitState.m */; };
+		3A21620E12A9D6AA00D292C7 /* KMStatAllocationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161F112A9D6AA00D292C7 /* KMStatAllocationState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21620F12A9D6AA00D292C7 /* KMStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161F212A9D6AA00D292C7 /* KMStatAllocationState.m */; };
+		3A21621012A9D6AA00D292C7 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161F312A9D6AA00D292C7 /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A21621112A9D6AA00D292C7 /* KMState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161F412A9D6AA00D292C7 /* KMState.m */; };
+		3AA378BD12AA941100ADE0F8 /* KMWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AA378B912AA941100ADE0F8 /* KMWorkflow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AA378BE12AA941100ADE0F8 /* KMWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA378BA12AA941100ADE0F8 /* KMWorkflow.m */; };
+		3AA378BF12AA941100ADE0F8 /* KMWorkflowStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AA378BB12AA941100ADE0F8 /* KMWorkflowStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AA378C012AA941100ADE0F8 /* KMWorkflowStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA378BC12AA941100ADE0F8 /* KMWorkflowStep.m */; };
+		3AA378C212AA95EA00ADE0F8 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA378C112AA95EA00ADE0F8 /* OCMock.framework */; };
+		3AA378C412AABCF700ADE0F8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA378C312AABCF700ADE0F8 /* libcrypto.dylib */; };
+		3ACD0F1612A9DB2B00CE8E92 /* KMConnectionCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F1012A9DB2B00CE8E92 /* KMConnectionCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F1712A9DB2B00CE8E92 /* KMConnectionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F1112A9DB2B00CE8E92 /* KMConnectionCoordinator.m */; };
+		3ACD0F1812A9DB2B00CE8E92 /* KMConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F1212A9DB2B00CE8E92 /* KMConnectionPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F1912A9DB2B00CE8E92 /* KMConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F1312A9DB2B00CE8E92 /* KMConnectionPool.m */; };
+		3ACD0F1A12A9DB2B00CE8E92 /* KMServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F1412A9DB2B00CE8E92 /* KMServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F1B12A9DB2B00CE8E92 /* KMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F1512A9DB2B00CE8E92 /* KMServer.m */; };
+		3ACD0F2112A9DBAB00CE8E92 /* KMPlayingLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F1D12A9DBAB00CE8E92 /* KMPlayingLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F2212A9DBAB00CE8E92 /* KMPlayingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F1E12A9DBAB00CE8E92 /* KMPlayingLogic.m */; };
+		3ACD0F2312A9DBAB00CE8E92 /* KMStatAllocationLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F1F12A9DBAB00CE8E92 /* KMStatAllocationLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F2412A9DBAB00CE8E92 /* KMStatAllocationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F2012A9DBAB00CE8E92 /* KMStatAllocationLogic.m */; };
+		3ACD0F2D12A9DBF500CE8E92 /* KMBasicInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F2512A9DBF500CE8E92 /* KMBasicInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F2E12A9DBF500CE8E92 /* KMBasicInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F2612A9DBF500CE8E92 /* KMBasicInterpreter.m */; };
+		3ACD0F2F12A9DBF500CE8E92 /* KMCommandInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F2712A9DBF500CE8E92 /* KMCommandInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F3012A9DBF500CE8E92 /* KMCommandInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F2812A9DBF500CE8E92 /* KMCommandInfo.m */; };
+		3ACD0F3112A9DBF500CE8E92 /* KMCommandInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F2912A9DBF500CE8E92 /* KMCommandInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F3212A9DBF500CE8E92 /* KMCommandInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F2A12A9DBF500CE8E92 /* KMCommandInterpreter.m */; };
+		3ACD0F3312A9DBF500CE8E92 /* KMCommandInterpreterLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F2B12A9DBF500CE8E92 /* KMCommandInterpreterLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F3412A9DBF500CE8E92 /* KMInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F2C12A9DBF500CE8E92 /* KMInterpreter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F3912A9DC1E00CE8E92 /* KMEventDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F3512A9DC1E00CE8E92 /* KMEventDuration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F3A12A9DC1E00CE8E92 /* KMEventDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F3612A9DC1E00CE8E92 /* KMEventDuration.m */; };
+		3ACD0F3B12A9DC1E00CE8E92 /* KMEventEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F3712A9DC1E00CE8E92 /* KMEventEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD0F3C12A9DC1E00CE8E92 /* KMEventEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD0F3812A9DC1E00CE8E92 /* KMEventEngine.m */; };
+		3ACD0F3E12A9DCA600CE8E92 /* KittyMUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACD0F3D12A9DCA600CE8E92 /* KittyMUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACD279B12A9D45000C399AC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01FF3E12A9CC3A005A9772 /* Cocoa.framework */; };
+		3ACD27A012A9D45000C399AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ACD279E12A9D45000C399AC /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3A29428D1251AA1100E51A70 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2942891251AA1100E51A70 /* OCLog.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3A29421A1251A85B00E51A70;
-			remoteInfo = OCLog;
-		};
-		3A2942911251AA1800E51A70 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2942891251AA1100E51A70 /* OCLog.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = OCLog;
-		};
-		3AC305C21258F9F600D43A85 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3ABB90061229AC5900046D3B;
-			remoteInfo = ECScript;
-		};
-		3AC305C41258F9F600D43A85 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3ABB90071229AC5900046D3B;
-			remoteInfo = ecs_tests;
-		};
-		3AC305D01258FA5800D43A85 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = ECScript;
-		};
-		3AC305D21258FA5C00D43A85 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A363C4F117F2C9100AB1D69;
-			remoteInfo = ecs_tests;
-		};
-		3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = KittyMUD;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3AEA2D161103786200F3426B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		32DBCF5E0370ADEE00C91783 /* KittyMUD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD_Prefix.pch; sourceTree = "<group>"; };
-		3A0B48BF10CB008F00F31850 /* KMSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMSpecial.h; sourceTree = "<group>"; };
-		3A0B48C010CB008F00F31850 /* KMSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMSpecial.m; sourceTree = "<group>"; };
-		3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExtensibleDataLoader.h; sourceTree = "<group>"; };
-		3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExtensibleDataLoader.m; sourceTree = "<group>"; };
-		3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExtensibleDataSchema.h; sourceTree = "<group>"; };
-		3A2942891251AA1100E51A70 /* OCLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCLog.xcodeproj; path = ../OCLog/OCLog.xcodeproj; sourceTree = SOURCE_ROOT; };
-		3A2F78411098C9B700EA69DC /* KMExitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMExitInfo.h; sourceTree = "<group>"; };
-		3A2F78421098C9B700EA69DC /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMExitInfo.m; sourceTree = "<group>"; };
-		3A2F78431098C9B700EA69DC /* KMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRoom.h; sourceTree = "<group>"; };
-		3A2F78441098C9B700EA69DC /* KMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRoom.m; sourceTree = "<group>"; };
-		3A2F78501098CA7700EA69DC /* KMPlayingLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingLogic.h; sourceTree = "<group>"; };
-		3A2F78511098CA7700EA69DC /* KMPlayingLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingLogic.m; sourceTree = "<group>"; };
-		3A2F78521098CA7700EA69DC /* KMStatAllocationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatAllocationLogic.h; sourceTree = "<group>"; };
-		3A2F78531098CA7700EA69DC /* KMStatAllocationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatAllocationLogic.m; sourceTree = "<group>"; };
-		3A2F785A1098CADC00EA69DC /* KMItemEnhancement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMItemEnhancement.h; sourceTree = "<group>"; };
-		3A2F785B1098CADC00EA69DC /* KMItemEnhancement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMItemEnhancement.m; sourceTree = "<group>"; };
-		3A2F785C1098CADC00EA69DC /* KMItemTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMItemTemplate.h; sourceTree = "<group>"; };
-		3A2F785D1098CADC00EA69DC /* KMItemTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMItemTemplate.m; sourceTree = "<group>"; };
-		3A2F78621098CB0800EA69DC /* KMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataManager.h; sourceTree = "<group>"; };
-		3A2F78631098CB0800EA69DC /* KMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataManager.m; sourceTree = "<group>"; };
-		3A2F78641098CB0800EA69DC /* KMDataStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataStartup.h; sourceTree = "<group>"; };
-		3A2F78651098CB0800EA69DC /* KMClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMClass.h; sourceTree = "<group>"; };
-		3A2F78661098CB0800EA69DC /* KMClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMClass.m; sourceTree = "<group>"; };
-		3A2F78671098CB0800EA69DC /* KMRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRace.h; sourceTree = "<group>"; };
-		3A2F78681098CB0800EA69DC /* KMRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRace.m; sourceTree = "<group>"; };
-		3A2F78711098CB9000EA69DC /* KMCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCharacter.h; sourceTree = "<group>"; };
-		3A2F78721098CB9000EA69DC /* KMCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCharacter.m; sourceTree = "<group>"; };
-		3A2F78731098CB9000EA69DC /* KMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStat.h; sourceTree = "<group>"; };
-		3A2F78741098CB9000EA69DC /* KMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStat.m; sourceTree = "<group>"; };
-		3A2F78751098CB9000EA69DC /* KMStatCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatCopy.h; sourceTree = "<group>"; };
-		3A2F787D1098CBBA00EA69DC /* KMBasicInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBasicInterpreter.h; sourceTree = "<group>"; };
-		3A2F787E1098CBBA00EA69DC /* KMBasicInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBasicInterpreter.m; sourceTree = "<group>"; };
-		3A2F787F1098CBBA00EA69DC /* KMCommandInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInfo.h; sourceTree = "<group>"; };
-		3A2F78801098CBBA00EA69DC /* KMCommandInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommandInfo.m; sourceTree = "<group>"; };
-		3A2F78811098CBBA00EA69DC /* KMCommandInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInterpreter.h; sourceTree = "<group>"; };
-		3A2F78821098CBBA00EA69DC /* KMCommandInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommandInterpreter.m; sourceTree = "<group>"; };
-		3A2F78831098CBBA00EA69DC /* KMCommandInterpreterLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommandInterpreterLogic.h; sourceTree = "<group>"; };
-		3A2F78841098CBBA00EA69DC /* KMInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInterpreter.h; sourceTree = "<group>"; };
-		3A2F788E1098CC2B00EA69DC /* KMColorProcessWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMColorProcessWriteHook.h; sourceTree = "<group>"; };
-		3A2F788F1098CC2B00EA69DC /* KMColorProcessWriteHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMColorProcessWriteHook.m; sourceTree = "<group>"; };
-		3A2F78901098CC2B00EA69DC /* KMInfoDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInfoDisplay.h; sourceTree = "<group>"; };
-		3A2F78911098CC2B00EA69DC /* KMInfoDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInfoDisplay.m; sourceTree = "<group>"; };
-		3A2F78921098CC2B00EA69DC /* KMStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStack.h; sourceTree = "<group>"; };
-		3A2F78931098CC2B00EA69DC /* KMStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStack.m; sourceTree = "<group>"; };
-		3A2F78941098CC2B00EA69DC /* NSString+KMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KMAdditions.h"; sourceTree = "<group>"; };
-		3A2F78951098CC2B00EA69DC /* NSString+KMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KMAdditions.m"; sourceTree = "<group>"; };
-		3A2F78961098CC2B00EA69DC /* KMVariableHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMVariableHook.h; sourceTree = "<group>"; };
-		3A2F78971098CC2B00EA69DC /* KMVariableHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMVariableHook.m; sourceTree = "<group>"; };
-		3A2F78981098CC2B00EA69DC /* KMVariableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMVariableManager.h; sourceTree = "<group>"; };
-		3A2F78991098CC2B00EA69DC /* KMVariableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMVariableManager.m; sourceTree = "<group>"; };
-		3A2F789A1098CC2B00EA69DC /* KMWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWriteHook.h; sourceTree = "<group>"; };
-		3A2F78AA1098CCC800EA69DC /* KMAccountMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenuState.h; sourceTree = "<group>"; };
-		3A2F78AB1098CCC800EA69DC /* KMAccountMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountMenuState.m; sourceTree = "<group>"; };
-		3A2F78AC1098CCC800EA69DC /* KMAccountNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountNameState.h; sourceTree = "<group>"; };
-		3A2F78AD1098CCC800EA69DC /* KMAccountNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAccountNameState.m; sourceTree = "<group>"; };
-		3A2F78AE1098CCC800EA69DC /* KMChooseCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterState.h; sourceTree = "<group>"; };
-		3A2F78AF1098CCC800EA69DC /* KMChooseCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterState.m; sourceTree = "<group>"; };
-		3A2F78B01098CCC800EA69DC /* KMChooseClassState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseClassState.h; sourceTree = "<group>"; };
-		3A2F78B11098CCC800EA69DC /* KMChooseClassState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseClassState.m; sourceTree = "<group>"; };
-		3A2F78B21098CCC800EA69DC /* KMChooseRaceState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseRaceState.h; sourceTree = "<group>"; };
-		3A2F78B31098CCC800EA69DC /* KMChooseRaceState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseRaceState.m; sourceTree = "<group>"; };
-		3A2F78B41098CCC800EA69DC /* KMConfirmPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConfirmPasswordState.h; sourceTree = "<group>"; };
-		3A2F78B51098CCC800EA69DC /* KMConfirmPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConfirmPasswordState.m; sourceTree = "<group>"; };
-		3A2F78B61098CCC800EA69DC /* KMConfirmStatAllocationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConfirmStatAllocationState.h; sourceTree = "<group>"; };
-		3A2F78B71098CCC800EA69DC /* KMConfirmStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConfirmStatAllocationState.m; sourceTree = "<group>"; };
-		3A2F78B81098CCC800EA69DC /* KMCreateCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCreateCharacterState.h; sourceTree = "<group>"; };
-		3A2F78B91098CCC800EA69DC /* KMCreateCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCreateCharacterState.m; sourceTree = "<group>"; };
-		3A2F78BA1098CCC800EA69DC /* KMNewPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMNewPasswordState.h; sourceTree = "<group>"; };
-		3A2F78BB1098CCC800EA69DC /* KMNewPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNewPasswordState.m; sourceTree = "<group>"; };
-		3A2F78BC1098CCC800EA69DC /* KMPlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlayingState.h; sourceTree = "<group>"; };
-		3A2F78BD1098CCC800EA69DC /* KMPlayingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlayingState.m; sourceTree = "<group>"; };
-		3A2F78BE1098CCC800EA69DC /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMQuitState.h; sourceTree = "<group>"; };
-		3A2F78BF1098CCC800EA69DC /* KMQuitState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMQuitState.m; sourceTree = "<group>"; };
-		3A2F78C01098CCC800EA69DC /* KMStatAllocationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStatAllocationState.h; sourceTree = "<group>"; };
-		3A2F78C11098CCC800EA69DC /* KMStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMStatAllocationState.m; sourceTree = "<group>"; };
-		3A2F78DA1098CCF400EA69DC /* KMAccountMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAccountMenu.h; sourceTree = "<group>"; };
-		3A2F78DB1098CCF400EA69DC /* KMMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMenu.h; sourceTree = "<group>"; };
-		3A2F78DC1098CCF400EA69DC /* KMMenuHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMenuHandler.h; sourceTree = "<group>"; };
-		3A2F78DD1098CCF400EA69DC /* KMMenuHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMenuHandler.m; sourceTree = "<group>"; };
-		3A2F78E31098CD1500EA69DC /* KMWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflow.h; sourceTree = "<group>"; };
-		3A2F78E41098CD1500EA69DC /* KMWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflow.m; sourceTree = "<group>"; };
-		3A2F78E51098CD1500EA69DC /* KMWorkflowStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowStep.h; sourceTree = "<group>"; };
-		3A2F78E61098CD1500EA69DC /* KMWorkflowStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowStep.m; sourceTree = "<group>"; };
-		3A2F78EC1098CD4600EA69DC /* KMConnectionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConnectionCoordinator.h; sourceTree = "<group>"; };
-		3A2F78ED1098CD4600EA69DC /* KMConnectionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConnectionCoordinator.m; sourceTree = "<group>"; };
-		3A2F78EE1098CD4600EA69DC /* KMConnectionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMConnectionPool.h; sourceTree = "<group>"; };
-		3A2F78EF1098CD4600EA69DC /* KMConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMConnectionPool.m; sourceTree = "<group>"; };
-		3A2F78F01098CD4600EA69DC /* KMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMServer.h; sourceTree = "<group>"; };
-		3A2F78F11098CD4600EA69DC /* KMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMServer.m; sourceTree = "<group>"; };
-		3A2F79041098CDC400EA69DC /* KMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMState.h; sourceTree = "<group>"; };
-		3A2F79631098D35D00EA69DC /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		3A369FCC116A309F00298324 /* KMState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMState.m; sourceTree = "<group>"; };
-		3A427B22109A2AD000E1C502 /* KittyMUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittyMUD.h; sourceTree = "<group>"; };
-		3A427B7C109A9A9F00E1C502 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		3A427B80109A9AB900E1C502 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		3A427B84109A9AC800E1C502 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = Local/Frameworks/OCHamcrest.framework; sourceTree = DEVELOPER_DIR; };
-		3A427B86109A9AC800E1C502 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
-		3A427E57109C7D6700E1C502 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMObject.h; sourceTree = "<group>"; };
-		3A427E58109C7D6700E1C502 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMObject.m; sourceTree = "<group>"; };
-		3A72DE3D12AC9927002D7839 /* KMEventEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEventEngine.h; sourceTree = "<group>"; };
-		3A72DE3E12AC9927002D7839 /* KMEventEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMEventEngine.m; sourceTree = "<group>"; };
-		3A8AA7D61252A33F005A9441 /* KittyMUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KittyMUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyMUDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AB8B7021153EC07005DE7AA /* KMRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMRequirement.h; sourceTree = "<group>"; };
-		3AB8B7031153EC07005DE7AA /* KMRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMRequirement.m; sourceTree = "<group>"; };
-		3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMChooseCharacterNameState.h; sourceTree = "<group>"; };
-		3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMChooseCharacterNameState.m; sourceTree = "<group>"; };
-		3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNullState.m; sourceTree = "<group>"; };
-		3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ECScript.xcodeproj; path = /Users/mtindal/Projects/ECScript/ECScript.xcodeproj; sourceTree = "<absolute>"; };
-		3AC305D41258FA6A00D43A85 /* ECScript.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ECScript.framework; sourceTree = SOURCE_ROOT; };
-		3ACDAA72111571B500108E16 /* KMEnumFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMEnumFactory.h; sourceTree = "<group>"; };
-		3AEA2D6A110388F400F3426B /* KMPower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPower.h; sourceTree = "<group>"; };
-		3AEA2D6B110388F400F3426B /* KMPower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPower.m; sourceTree = "<group>"; };
-		3AEF22C710B31A790070FCDB /* KMAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievement.h; sourceTree = "<group>"; };
-		3AEF22C810B31A790070FCDB /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievement.m; sourceTree = "<group>"; };
-		3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAchievementEngine.h; sourceTree = "<group>"; };
-		3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAchievementEngine.m; sourceTree = "<group>"; };
-		3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUDTests-Info.plist"; sourceTree = "<group>"; };
-		3AFA20E6109945D40038B52D /* KMWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowTests.h; sourceTree = "<group>"; };
-		3AFA20E7109945D40038B52D /* KMWorkflowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowTests.m; sourceTree = "<group>"; };
-		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		3A01FF3E12A9CC3A005A9772 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3A01FF4312A9CC3A005A9772 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A21615F12A9D4D300D292C7 /* ECScript.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ECScript.framework; sourceTree = SOURCE_ROOT; };
+		3A21616012A9D4D300D292C7 /* OCLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OCLog.framework; sourceTree = SOURCE_ROOT; };
+		3A21616412A9D4EE00D292C7 /* KMAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMAchievement.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Achievements/KMAchievement.h; sourceTree = "<absolute>"; };
+		3A21616512A9D4EE00D292C7 /* KMAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMAchievement.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Achievements/KMAchievement.m; sourceTree = "<absolute>"; };
+		3A21616612A9D4EE00D292C7 /* KMAchievementEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMAchievementEngine.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Achievements/KMAchievementEngine.h; sourceTree = "<absolute>"; };
+		3A21616712A9D4EE00D292C7 /* KMAchievementEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMAchievementEngine.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Achievements/KMAchievementEngine.m; sourceTree = "<absolute>"; };
+		3A21616E12A9D53B00D292C7 /* KMCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMCharacter.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMCharacter.h; sourceTree = "<absolute>"; };
+		3A21616F12A9D53B00D292C7 /* KMCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMCharacter.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMCharacter.m; sourceTree = "<absolute>"; };
+		3A21617012A9D53B00D292C7 /* KMRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMRequirement.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMRequirement.h; sourceTree = "<absolute>"; };
+		3A21617112A9D53B00D292C7 /* KMRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMRequirement.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMRequirement.m; sourceTree = "<absolute>"; };
+		3A21617212A9D53B00D292C7 /* KMStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMStat.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMStat.h; sourceTree = "<absolute>"; };
+		3A21617312A9D53B00D292C7 /* KMStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMStat.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMStat.m; sourceTree = "<absolute>"; };
+		3A21617412A9D53B00D292C7 /* KMStatCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMStatCopy.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Character/KMStatCopy.h; sourceTree = "<absolute>"; };
+		3A21617D12A9D5A100D292C7 /* KMItemEnhancement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMItemEnhancement.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Items/KMItemEnhancement.h; sourceTree = "<absolute>"; };
+		3A21617E12A9D5A100D292C7 /* KMItemEnhancement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMItemEnhancement.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Items/KMItemEnhancement.m; sourceTree = "<absolute>"; };
+		3A21617F12A9D5A100D292C7 /* KMItemTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMItemTemplate.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Items/KMItemTemplate.h; sourceTree = "<absolute>"; };
+		3A21618012A9D5A100D292C7 /* KMItemTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMItemTemplate.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/Items/KMItemTemplate.m; sourceTree = "<absolute>"; };
+		3A21618612A9D5D400D292C7 /* KMExitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMExitInfo.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/World/KMExitInfo.h; sourceTree = "<absolute>"; };
+		3A21618712A9D5D400D292C7 /* KMExitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMExitInfo.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/World/KMExitInfo.m; sourceTree = "<absolute>"; };
+		3A21618812A9D5D400D292C7 /* KMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMRoom.h; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/World/KMRoom.h; sourceTree = "<absolute>"; };
+		3A21618912A9D5D400D292C7 /* KMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMRoom.m; path = /Users/mtindal/Projects/EternityChronicles/KittyMUD/Classes/Data/World/KMRoom.m; sourceTree = "<absolute>"; };
+		3A21618E12A9D5F300D292C7 /* KMClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMClass.h; path = ./KMClass.h; sourceTree = "<group>"; };
+		3A21618F12A9D5F300D292C7 /* KMClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMClass.m; path = ./KMClass.m; sourceTree = "<group>"; };
+		3A21619012A9D5F300D292C7 /* KMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMDataManager.h; path = ./KMDataManager.h; sourceTree = "<group>"; };
+		3A21619112A9D5F300D292C7 /* KMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMDataManager.m; path = ./KMDataManager.m; sourceTree = "<group>"; };
+		3A21619212A9D5F300D292C7 /* KMDataStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMDataStartup.h; path = ./KMDataStartup.h; sourceTree = "<group>"; };
+		3A21619312A9D5F300D292C7 /* KMExtensibleDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMExtensibleDataLoader.h; path = ./KMExtensibleDataLoader.h; sourceTree = "<group>"; };
+		3A21619412A9D5F300D292C7 /* KMExtensibleDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMExtensibleDataLoader.m; path = ./KMExtensibleDataLoader.m; sourceTree = "<group>"; };
+		3A21619512A9D5F300D292C7 /* KMExtensibleDataSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMExtensibleDataSchema.h; path = ./KMExtensibleDataSchema.h; sourceTree = "<group>"; };
+		3A21619612A9D5F300D292C7 /* KMPower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMPower.h; path = ./KMPower.h; sourceTree = "<group>"; };
+		3A21619712A9D5F300D292C7 /* KMPower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMPower.m; path = ./KMPower.m; sourceTree = "<group>"; };
+		3A21619812A9D5F300D292C7 /* KMRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMRace.h; path = ./KMRace.h; sourceTree = "<group>"; };
+		3A21619912A9D5F300D292C7 /* KMRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMRace.m; path = ./KMRace.m; sourceTree = "<group>"; };
+		3A21619A12A9D5F300D292C7 /* KMSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMSpecial.h; path = ./KMSpecial.h; sourceTree = "<group>"; };
+		3A21619B12A9D5F300D292C7 /* KMSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMSpecial.m; path = ./KMSpecial.m; sourceTree = "<group>"; };
+		3A2161AF12A9D66B00D292C7 /* KMColorProcessWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMColorProcessWriteHook.h; path = ./KMColorProcessWriteHook.h; sourceTree = "<group>"; };
+		3A2161B012A9D66B00D292C7 /* KMColorProcessWriteHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMColorProcessWriteHook.m; path = ./KMColorProcessWriteHook.m; sourceTree = "<group>"; };
+		3A2161B112A9D66B00D292C7 /* KMEnumFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMEnumFactory.h; path = ./KMEnumFactory.h; sourceTree = "<group>"; };
+		3A2161B212A9D66B00D292C7 /* KMInfoDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMInfoDisplay.h; path = ./KMInfoDisplay.h; sourceTree = "<group>"; };
+		3A2161B312A9D66B00D292C7 /* KMInfoDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMInfoDisplay.m; path = ./KMInfoDisplay.m; sourceTree = "<group>"; };
+		3A2161B412A9D66B00D292C7 /* KMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMObject.h; path = ./KMObject.h; sourceTree = "<group>"; };
+		3A2161B512A9D66B00D292C7 /* KMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMObject.m; path = ./KMObject.m; sourceTree = "<group>"; };
+		3A2161B612A9D66B00D292C7 /* KMStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMStack.h; path = ./KMStack.h; sourceTree = "<group>"; };
+		3A2161B712A9D66B00D292C7 /* KMStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMStack.m; path = ./KMStack.m; sourceTree = "<group>"; };
+		3A2161B812A9D66B00D292C7 /* KMVariableHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMVariableHook.h; path = ./KMVariableHook.h; sourceTree = "<group>"; };
+		3A2161B912A9D66B00D292C7 /* KMVariableHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMVariableHook.m; path = ./KMVariableHook.m; sourceTree = "<group>"; };
+		3A2161BA12A9D66B00D292C7 /* KMVariableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMVariableManager.h; path = ./KMVariableManager.h; sourceTree = "<group>"; };
+		3A2161BB12A9D66B00D292C7 /* KMVariableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMVariableManager.m; path = ./KMVariableManager.m; sourceTree = "<group>"; };
+		3A2161BC12A9D66B00D292C7 /* KMWriteHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMWriteHook.h; path = ./KMWriteHook.h; sourceTree = "<group>"; };
+		3A2161BD12A9D66B00D292C7 /* NSString+KMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+KMAdditions.h"; path = "./NSString+KMAdditions.h"; sourceTree = "<group>"; };
+		3A2161BE12A9D66B00D292C7 /* NSString+KMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+KMAdditions.m"; path = "./NSString+KMAdditions.m"; sourceTree = "<group>"; };
+		3A2161D012A9D6A100D292C7 /* KMAccountMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMAccountMenu.h; path = ./KMAccountMenu.h; sourceTree = "<group>"; };
+		3A2161D112A9D6A100D292C7 /* KMMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMMenu.h; path = ./KMMenu.h; sourceTree = "<group>"; };
+		3A2161D212A9D6A100D292C7 /* KMMenuHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMMenuHandler.h; path = ./KMMenuHandler.h; sourceTree = "<group>"; };
+		3A2161D312A9D6A100D292C7 /* KMMenuHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMMenuHandler.m; path = ./KMMenuHandler.m; sourceTree = "<group>"; };
+		3A2161D812A9D6AA00D292C7 /* KMAccountMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMAccountMenuState.h; path = ./KMAccountMenuState.h; sourceTree = "<group>"; };
+		3A2161D912A9D6AA00D292C7 /* KMAccountMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMAccountMenuState.m; path = ./KMAccountMenuState.m; sourceTree = "<group>"; };
+		3A2161DA12A9D6AA00D292C7 /* KMAccountNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMAccountNameState.h; path = ./KMAccountNameState.h; sourceTree = "<group>"; };
+		3A2161DB12A9D6AA00D292C7 /* KMAccountNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMAccountNameState.m; path = ./KMAccountNameState.m; sourceTree = "<group>"; };
+		3A2161DC12A9D6AA00D292C7 /* KMChooseCharacterNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMChooseCharacterNameState.h; path = ./KMChooseCharacterNameState.h; sourceTree = "<group>"; };
+		3A2161DD12A9D6AA00D292C7 /* KMChooseCharacterNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMChooseCharacterNameState.m; path = ./KMChooseCharacterNameState.m; sourceTree = "<group>"; };
+		3A2161DE12A9D6AA00D292C7 /* KMChooseCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMChooseCharacterState.h; path = ./KMChooseCharacterState.h; sourceTree = "<group>"; };
+		3A2161DF12A9D6AA00D292C7 /* KMChooseCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMChooseCharacterState.m; path = ./KMChooseCharacterState.m; sourceTree = "<group>"; };
+		3A2161E012A9D6AA00D292C7 /* KMChooseClassState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMChooseClassState.h; path = ./KMChooseClassState.h; sourceTree = "<group>"; };
+		3A2161E112A9D6AA00D292C7 /* KMChooseClassState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMChooseClassState.m; path = ./KMChooseClassState.m; sourceTree = "<group>"; };
+		3A2161E212A9D6AA00D292C7 /* KMChooseRaceState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMChooseRaceState.h; path = ./KMChooseRaceState.h; sourceTree = "<group>"; };
+		3A2161E312A9D6AA00D292C7 /* KMChooseRaceState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMChooseRaceState.m; path = ./KMChooseRaceState.m; sourceTree = "<group>"; };
+		3A2161E412A9D6AA00D292C7 /* KMConfirmPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMConfirmPasswordState.h; path = ./KMConfirmPasswordState.h; sourceTree = "<group>"; };
+		3A2161E512A9D6AA00D292C7 /* KMConfirmPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMConfirmPasswordState.m; path = ./KMConfirmPasswordState.m; sourceTree = "<group>"; };
+		3A2161E612A9D6AA00D292C7 /* KMConfirmStatAllocationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMConfirmStatAllocationState.h; path = ./KMConfirmStatAllocationState.h; sourceTree = "<group>"; };
+		3A2161E712A9D6AA00D292C7 /* KMConfirmStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMConfirmStatAllocationState.m; path = ./KMConfirmStatAllocationState.m; sourceTree = "<group>"; };
+		3A2161E812A9D6AA00D292C7 /* KMCreateCharacterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMCreateCharacterState.h; path = ./KMCreateCharacterState.h; sourceTree = "<group>"; };
+		3A2161E912A9D6AA00D292C7 /* KMCreateCharacterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMCreateCharacterState.m; path = ./KMCreateCharacterState.m; sourceTree = "<group>"; };
+		3A2161EA12A9D6AA00D292C7 /* KMNewPasswordState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMNewPasswordState.h; path = ./KMNewPasswordState.h; sourceTree = "<group>"; };
+		3A2161EB12A9D6AA00D292C7 /* KMNewPasswordState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMNewPasswordState.m; path = ./KMNewPasswordState.m; sourceTree = "<group>"; };
+		3A2161EC12A9D6AA00D292C7 /* KMNullState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMNullState.m; path = ./KMNullState.m; sourceTree = "<group>"; };
+		3A2161ED12A9D6AA00D292C7 /* KMPlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMPlayingState.h; path = ./KMPlayingState.h; sourceTree = "<group>"; };
+		3A2161EE12A9D6AA00D292C7 /* KMPlayingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMPlayingState.m; path = ./KMPlayingState.m; sourceTree = "<group>"; };
+		3A2161EF12A9D6AA00D292C7 /* KMQuitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMQuitState.h; path = ./KMQuitState.h; sourceTree = "<group>"; };
+		3A2161F012A9D6AA00D292C7 /* KMQuitState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMQuitState.m; path = ./KMQuitState.m; sourceTree = "<group>"; };
+		3A2161F112A9D6AA00D292C7 /* KMStatAllocationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMStatAllocationState.h; path = ./KMStatAllocationState.h; sourceTree = "<group>"; };
+		3A2161F212A9D6AA00D292C7 /* KMStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMStatAllocationState.m; path = ./KMStatAllocationState.m; sourceTree = "<group>"; };
+		3A2161F312A9D6AA00D292C7 /* KMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMState.h; path = ./KMState.h; sourceTree = "<group>"; };
+		3A2161F412A9D6AA00D292C7 /* KMState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMState.m; path = ./KMState.m; sourceTree = "<group>"; };
+		3AA378B912AA941100ADE0F8 /* KMWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflow.h; sourceTree = "<group>"; };
+		3AA378BA12AA941100ADE0F8 /* KMWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflow.m; sourceTree = "<group>"; };
+		3AA378BB12AA941100ADE0F8 /* KMWorkflowStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflowStep.h; sourceTree = "<group>"; };
+		3AA378BC12AA941100ADE0F8 /* KMWorkflowStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMWorkflowStep.m; sourceTree = "<group>"; };
+		3AA378C112AA95EA00ADE0F8 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Local/Frameworks/OCMock.framework; sourceTree = DEVELOPER_DIR; };
+		3AA378C312AABCF700ADE0F8 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		3ACD0F1012A9DB2B00CE8E92 /* KMConnectionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMConnectionCoordinator.h; path = ./KMConnectionCoordinator.h; sourceTree = "<group>"; };
+		3ACD0F1112A9DB2B00CE8E92 /* KMConnectionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMConnectionCoordinator.m; path = ./KMConnectionCoordinator.m; sourceTree = "<group>"; };
+		3ACD0F1212A9DB2B00CE8E92 /* KMConnectionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMConnectionPool.h; path = ./KMConnectionPool.h; sourceTree = "<group>"; };
+		3ACD0F1312A9DB2B00CE8E92 /* KMConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMConnectionPool.m; path = ./KMConnectionPool.m; sourceTree = "<group>"; };
+		3ACD0F1412A9DB2B00CE8E92 /* KMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMServer.h; path = ./KMServer.h; sourceTree = "<group>"; };
+		3ACD0F1512A9DB2B00CE8E92 /* KMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMServer.m; path = ./KMServer.m; sourceTree = "<group>"; };
+		3ACD0F1D12A9DBAB00CE8E92 /* KMPlayingLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMPlayingLogic.h; path = ./KMPlayingLogic.h; sourceTree = "<group>"; };
+		3ACD0F1E12A9DBAB00CE8E92 /* KMPlayingLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMPlayingLogic.m; path = ./KMPlayingLogic.m; sourceTree = "<group>"; };
+		3ACD0F1F12A9DBAB00CE8E92 /* KMStatAllocationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMStatAllocationLogic.h; path = ./KMStatAllocationLogic.h; sourceTree = "<group>"; };
+		3ACD0F2012A9DBAB00CE8E92 /* KMStatAllocationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMStatAllocationLogic.m; path = ./KMStatAllocationLogic.m; sourceTree = "<group>"; };
+		3ACD0F2512A9DBF500CE8E92 /* KMBasicInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMBasicInterpreter.h; path = ./KMBasicInterpreter.h; sourceTree = "<group>"; };
+		3ACD0F2612A9DBF500CE8E92 /* KMBasicInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMBasicInterpreter.m; path = ./KMBasicInterpreter.m; sourceTree = "<group>"; };
+		3ACD0F2712A9DBF500CE8E92 /* KMCommandInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMCommandInfo.h; path = ./KMCommandInfo.h; sourceTree = "<group>"; };
+		3ACD0F2812A9DBF500CE8E92 /* KMCommandInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMCommandInfo.m; path = ./KMCommandInfo.m; sourceTree = "<group>"; };
+		3ACD0F2912A9DBF500CE8E92 /* KMCommandInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMCommandInterpreter.h; path = ./KMCommandInterpreter.h; sourceTree = "<group>"; };
+		3ACD0F2A12A9DBF500CE8E92 /* KMCommandInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMCommandInterpreter.m; path = ./KMCommandInterpreter.m; sourceTree = "<group>"; };
+		3ACD0F2B12A9DBF500CE8E92 /* KMCommandInterpreterLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMCommandInterpreterLogic.h; path = ./KMCommandInterpreterLogic.h; sourceTree = "<group>"; };
+		3ACD0F2C12A9DBF500CE8E92 /* KMInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMInterpreter.h; path = ./KMInterpreter.h; sourceTree = "<group>"; };
+		3ACD0F3512A9DC1E00CE8E92 /* KMEventDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMEventDuration.h; path = ./KMEventDuration.h; sourceTree = "<group>"; };
+		3ACD0F3612A9DC1E00CE8E92 /* KMEventDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMEventDuration.m; path = ./KMEventDuration.m; sourceTree = "<group>"; };
+		3ACD0F3712A9DC1E00CE8E92 /* KMEventEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMEventEngine.h; path = ./KMEventEngine.h; sourceTree = "<group>"; };
+		3ACD0F3812A9DC1E00CE8E92 /* KMEventEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMEventEngine.m; path = ./KMEventEngine.m; sourceTree = "<group>"; };
+		3ACD0F3D12A9DCA600CE8E92 /* KittyMUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KittyMUD.h; path = ./KittyMUD.h; sourceTree = "<group>"; };
+		3ACD279A12A9D44F00C399AC /* KittyMUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KittyMUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ACD279C12A9D45000C399AC /* KittyMUD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KittyMUD-Info.plist"; sourceTree = "<group>"; };
+		3ACD279D12A9D45000C399AC /* KittyMUD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KittyMUD-Prefix.pch"; sourceTree = "<group>"; };
+		3ACD279F12A9D45000C399AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3AFA20C11099437E0038B52D /* Frameworks */ = {
+		3ACD279612A9D44F00C399AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A427B7D109A9A9F00E1C502 /* Cocoa.framework in Frameworks */,
-				3A427B81109A9AB900E1C502 /* SenTestingKit.framework in Frameworks */,
-				3A427B85109A9AC800E1C502 /* OCHamcrest.framework in Frameworks */,
-				3A427B87109A9AC800E1C502 /* OCMock.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DC2EF560486A6940098B216 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3AC305D51258FA6A00D43A85 /* ECScript.framework in Frameworks */,
-				3A9FB2541252A72C00DF0425 /* OCLog.framework in Frameworks */,
-				3A7C262312036D9E004B2157 /* OCMock.framework in Frameworks */,
-				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
-				3A2F79641098D35D00EA69DC /* libcrypto.dylib in Frameworks */,
+				3AA378C412AABCF700ADE0F8 /* libcrypto.dylib in Frameworks */,
+				3AA378C212AA95EA00ADE0F8 /* OCMock.framework in Frameworks */,
+				3A21616112A9D4D300D292C7 /* ECScript.framework in Frameworks */,
+				3A21616212A9D4D300D292C7 /* OCLog.framework in Frameworks */,
+				3ACD279B12A9D45000C399AC /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		034768DFFF38A50411DB9C8B /* Products */ = {
+		3A01FF2C12A9CC3A005A9772 = {
 			isa = PBXGroup;
 			children = (
-				3A8AA7D61252A33F005A9441 /* KittyMUD.framework */,
-				3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */,
+				3AA378C312AABCF700ADE0F8 /* libcrypto.dylib */,
+				3AA378C112AA95EA00ADE0F8 /* OCMock.framework */,
+				3A21615F12A9D4D300D292C7 /* ECScript.framework */,
+				3A21616012A9D4D300D292C7 /* OCLog.framework */,
+				3A01FF3312A9CC3A005A9772 /* Classes */,
+				3A01FF3412A9CC3A005A9772 /* Other Sources */,
+				3A01FF3512A9CC3A005A9772 /* Resources */,
+				3A01FF3612A9CC3A005A9772 /* Frameworks */,
+				3A01FF3D12A9CC3A005A9772 /* Products */,
 			);
-			name = Products;
 			sourceTree = "<group>";
 		};
-		0867D691FE84028FC02AAC07 /* KittyMUD */ = {
+		3A01FF3312A9CC3A005A9772 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3AC305D41258FA6A00D43A85 /* ECScript.framework */,
-				08FB77AEFE84172EC02AAC07 /* Classes */,
-				32C88DFF0371C24200C91783 /* Other Sources */,
-				089C1665FE841158C02AAC07 /* Resources */,
-				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
-				034768DFFF38A50411DB9C8B /* Products */,
-				3A2F79631098D35D00EA69DC /* libcrypto.dylib */,
-				3AFA20C51099437E0038B52D /* KittyMUDTests-Info.plist */,
-				3A427B7C109A9A9F00E1C502 /* Cocoa.framework */,
-				3A427B80109A9AB900E1C502 /* SenTestingKit.framework */,
-				3A427B84109A9AC800E1C502 /* OCHamcrest.framework */,
-				3A427B86109A9AC800E1C502 /* OCMock.framework */,
+				3A2161AE12A9D65A00D292C7 /* Utility */,
+				3A2161AD12A9D65000D292C7 /* StateMachine */,
+				3A2161AC12A9D64500D292C7 /* Server */,
+				3A2161AB12A9D63800D292C7 /* Interpreters */,
+				3A2161AA12A9D62100D292C7 /* EventEngine */,
+				3A21616C12A9D52000D292C7 /* Data */,
+				3A21616312A9D4D900D292C7 /* Achievements */,
 			);
-			name = KittyMUD;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+		3A01FF3412A9CC3A005A9772 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */,
-				3A2942891251AA1100E51A70 /* OCLog.xcodeproj */,
-				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
-				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
-			);
-			name = "External Frameworks and Libraries";
-			sourceTree = "<group>";
-		};
-		089C1665FE841158C02AAC07 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8DC2EF5A0486A6940098B216 /* Info.plist */,
-				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		08FB77AEFE84172EC02AAC07 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3ACDAA1B1112FC3300108E16 /* EventEngine */,
-				3AEF22C410B31A170070FCDB /* Achievements */,
-				3A2F78EB1098CD2000EA69DC /* Server */,
-				3A2F78A81098CC4200EA69DC /* StateMachine */,
-				3A2F788D1098CBE600EA69DC /* Utility */,
-				3A2F78581098CA8C00EA69DC /* Data */,
-				3A2F78491098C9F300EA69DC /* Interpreters */,
-				3A427B22109A2AD000E1C502 /* KittyMUD.h */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
-		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
-				D2F7E79907B2D74100F64583 /* CoreData.framework */,
-				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		32C88DFF0371C24200C91783 /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				3AFA20E41099449F0038B52D /* Unit Tests */,
-				32DBCF5E0370ADEE00C91783 /* KittyMUD_Prefix.pch */,
+				3ACD0F3D12A9DCA600CE8E92 /* KittyMUD.h */,
+				3ACD279D12A9D45000C399AC /* KittyMUD-Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		3A29428A1251AA1100E51A70 /* Products */ = {
+		3A01FF3512A9CC3A005A9772 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A29428E1251AA1100E51A70 /* OCLog.framework */,
+				3A01FF4212A9CC3A005A9772 /* InfoPlist.strings */,
+				3ACD279C12A9D45000C399AC /* KittyMUD-Info.plist */,
+				3ACD279E12A9D45000C399AC /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3A01FF3612A9CC3A005A9772 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A01FF3E12A9CC3A005A9772 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A01FF3D12A9CC3A005A9772 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD279A12A9D44F00C399AC /* KittyMUD.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A2F78401098C98600EA69DC /* World */ = {
+		3A21616312A9D4D900D292C7 /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
-				3A2F78411098C9B700EA69DC /* KMExitInfo.h */,
-				3A2F78421098C9B700EA69DC /* KMExitInfo.m */,
-				3A2F78431098C9B700EA69DC /* KMRoom.h */,
-				3A2F78441098C9B700EA69DC /* KMRoom.m */,
-			);
-			path = World;
-			sourceTree = "<group>";
-		};
-		3A2F78491098C9F300EA69DC /* Interpreters */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F787D1098CBBA00EA69DC /* KMBasicInterpreter.h */,
-				3A2F787E1098CBBA00EA69DC /* KMBasicInterpreter.m */,
-				3A2F787F1098CBBA00EA69DC /* KMCommandInfo.h */,
-				3A2F78801098CBBA00EA69DC /* KMCommandInfo.m */,
-				3A2F78811098CBBA00EA69DC /* KMCommandInterpreter.h */,
-				3A2F78821098CBBA00EA69DC /* KMCommandInterpreter.m */,
-				3A2F78831098CBBA00EA69DC /* KMCommandInterpreterLogic.h */,
-				3A2F78841098CBBA00EA69DC /* KMInterpreter.h */,
-				3A2F784A1098CA0E00EA69DC /* Logic */,
-			);
-			path = Interpreters;
-			sourceTree = "<group>";
-		};
-		3A2F784A1098CA0E00EA69DC /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F78501098CA7700EA69DC /* KMPlayingLogic.h */,
-				3A2F78511098CA7700EA69DC /* KMPlayingLogic.m */,
-				3A2F78521098CA7700EA69DC /* KMStatAllocationLogic.h */,
-				3A2F78531098CA7700EA69DC /* KMStatAllocationLogic.m */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		3A2F78581098CA8C00EA69DC /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3AB8B7061153EC29005DE7AA /* Requirements */,
-				3A0B4E3F10CC26CB00F31850 /* KMExtensibleDataLoader.h */,
-				3A0B4E4010CC26CB00F31850 /* KMExtensibleDataLoader.m */,
-				3A0B4E4110CC26CB00F31850 /* KMExtensibleDataSchema.h */,
-				3A0B48BF10CB008F00F31850 /* KMSpecial.h */,
-				3A0B48C010CB008F00F31850 /* KMSpecial.m */,
-				3AEA2D6A110388F400F3426B /* KMPower.h */,
-				3AEA2D6B110388F400F3426B /* KMPower.m */,
-				3A2F78621098CB0800EA69DC /* KMDataManager.h */,
-				3A2F78631098CB0800EA69DC /* KMDataManager.m */,
-				3A2F78641098CB0800EA69DC /* KMDataStartup.h */,
-				3A2F78651098CB0800EA69DC /* KMClass.h */,
-				3A2F78661098CB0800EA69DC /* KMClass.m */,
-				3A2F78671098CB0800EA69DC /* KMRace.h */,
-				3A2F78681098CB0800EA69DC /* KMRace.m */,
-				3A2F78401098C98600EA69DC /* World */,
-				3A2F78701098CB6700EA69DC /* Character */,
-				3A2F78591098CA9F00EA69DC /* Items */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		3A2F78591098CA9F00EA69DC /* Items */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F785A1098CADC00EA69DC /* KMItemEnhancement.h */,
-				3A2F785B1098CADC00EA69DC /* KMItemEnhancement.m */,
-				3A2F785C1098CADC00EA69DC /* KMItemTemplate.h */,
-				3A2F785D1098CADC00EA69DC /* KMItemTemplate.m */,
-			);
-			path = Items;
-			sourceTree = "<group>";
-		};
-		3A2F78701098CB6700EA69DC /* Character */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F78711098CB9000EA69DC /* KMCharacter.h */,
-				3A2F78721098CB9000EA69DC /* KMCharacter.m */,
-				3A2F78731098CB9000EA69DC /* KMStat.h */,
-				3A2F78741098CB9000EA69DC /* KMStat.m */,
-				3A2F78751098CB9000EA69DC /* KMStatCopy.h */,
-				3AB8B7021153EC07005DE7AA /* KMRequirement.h */,
-				3AB8B7031153EC07005DE7AA /* KMRequirement.m */,
-			);
-			path = Character;
-			sourceTree = "<group>";
-		};
-		3A2F788D1098CBE600EA69DC /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				3A427E57109C7D6700E1C502 /* KMObject.h */,
-				3A427E58109C7D6700E1C502 /* KMObject.m */,
-				3A2F788E1098CC2B00EA69DC /* KMColorProcessWriteHook.h */,
-				3A2F788F1098CC2B00EA69DC /* KMColorProcessWriteHook.m */,
-				3A2F78901098CC2B00EA69DC /* KMInfoDisplay.h */,
-				3A2F78911098CC2B00EA69DC /* KMInfoDisplay.m */,
-				3A2F78921098CC2B00EA69DC /* KMStack.h */,
-				3A2F78931098CC2B00EA69DC /* KMStack.m */,
-				3A2F78941098CC2B00EA69DC /* NSString+KMAdditions.h */,
-				3A2F78951098CC2B00EA69DC /* NSString+KMAdditions.m */,
-				3A2F78961098CC2B00EA69DC /* KMVariableHook.h */,
-				3A2F78971098CC2B00EA69DC /* KMVariableHook.m */,
-				3A2F78981098CC2B00EA69DC /* KMVariableManager.h */,
-				3A2F78991098CC2B00EA69DC /* KMVariableManager.m */,
-				3A2F789A1098CC2B00EA69DC /* KMWriteHook.h */,
-				3ACDAA72111571B500108E16 /* KMEnumFactory.h */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		3A2F78A81098CC4200EA69DC /* StateMachine */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F79041098CDC400EA69DC /* KMState.h */,
-				3A369FCC116A309F00298324 /* KMState.m */,
-				3A2F78E21098CCFA00EA69DC /* Workflow */,
-				3A2F78AA1098CCC800EA69DC /* KMAccountMenuState.h */,
-				3A2F78AB1098CCC800EA69DC /* KMAccountMenuState.m */,
-				3A2F78AC1098CCC800EA69DC /* KMAccountNameState.h */,
-				3A2F78AD1098CCC800EA69DC /* KMAccountNameState.m */,
-				3A2F78AE1098CCC800EA69DC /* KMChooseCharacterState.h */,
-				3A2F78AF1098CCC800EA69DC /* KMChooseCharacterState.m */,
-				3A2F78B01098CCC800EA69DC /* KMChooseClassState.h */,
-				3A2F78B11098CCC800EA69DC /* KMChooseClassState.m */,
-				3A2F78B21098CCC800EA69DC /* KMChooseRaceState.h */,
-				3A2F78B31098CCC800EA69DC /* KMChooseRaceState.m */,
-				3A2F78B41098CCC800EA69DC /* KMConfirmPasswordState.h */,
-				3A2F78B51098CCC800EA69DC /* KMConfirmPasswordState.m */,
-				3A2F78B61098CCC800EA69DC /* KMConfirmStatAllocationState.h */,
-				3A2F78B71098CCC800EA69DC /* KMConfirmStatAllocationState.m */,
-				3A2F78B81098CCC800EA69DC /* KMCreateCharacterState.h */,
-				3A2F78B91098CCC800EA69DC /* KMCreateCharacterState.m */,
-				3A2F78BA1098CCC800EA69DC /* KMNewPasswordState.h */,
-				3A2F78BB1098CCC800EA69DC /* KMNewPasswordState.m */,
-				3A2F78BC1098CCC800EA69DC /* KMPlayingState.h */,
-				3A2F78BD1098CCC800EA69DC /* KMPlayingState.m */,
-				3A2F78BE1098CCC800EA69DC /* KMQuitState.h */,
-				3A2F78BF1098CCC800EA69DC /* KMQuitState.m */,
-				3A2F78C01098CCC800EA69DC /* KMStatAllocationState.h */,
-				3A2F78C11098CCC800EA69DC /* KMStatAllocationState.m */,
-				3ABC9BDF10BA05FF008BD6B0 /* KMChooseCharacterNameState.h */,
-				3ABC9BE010BA05FF008BD6B0 /* KMChooseCharacterNameState.m */,
-				3A2F78A91098CC5B00EA69DC /* Helpers */,
-				3ABC9D2D10BAF7BD008BD6B0 /* KMNullState.m */,
-			);
-			path = StateMachine;
-			sourceTree = "<group>";
-		};
-		3A2F78A91098CC5B00EA69DC /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F78DA1098CCF400EA69DC /* KMAccountMenu.h */,
-				3A2F78DB1098CCF400EA69DC /* KMMenu.h */,
-				3A2F78DC1098CCF400EA69DC /* KMMenuHandler.h */,
-				3A2F78DD1098CCF400EA69DC /* KMMenuHandler.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		3A2F78E21098CCFA00EA69DC /* Workflow */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F78E31098CD1500EA69DC /* KMWorkflow.h */,
-				3A2F78E41098CD1500EA69DC /* KMWorkflow.m */,
-				3A2F78E51098CD1500EA69DC /* KMWorkflowStep.h */,
-				3A2F78E61098CD1500EA69DC /* KMWorkflowStep.m */,
-			);
-			path = Workflow;
-			sourceTree = "<group>";
-		};
-		3A2F78EB1098CD2000EA69DC /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F78EC1098CD4600EA69DC /* KMConnectionCoordinator.h */,
-				3A2F78ED1098CD4600EA69DC /* KMConnectionCoordinator.m */,
-				3A2F78EE1098CD4600EA69DC /* KMConnectionPool.h */,
-				3A2F78EF1098CD4600EA69DC /* KMConnectionPool.m */,
-				3A2F78F01098CD4600EA69DC /* KMServer.h */,
-				3A2F78F11098CD4600EA69DC /* KMServer.m */,
-			);
-			path = Server;
-			sourceTree = "<group>";
-		};
-		3AB8B7061153EC29005DE7AA /* Requirements */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Requirements;
-			sourceTree = "<group>";
-		};
-		3AC305BE1258F9F500D43A85 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3AC305C31258F9F600D43A85 /* ECScript.framework */,
-				3AC305C51258F9F600D43A85 /* ecs_tests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3ACDAA1B1112FC3300108E16 /* EventEngine */ = {
-			isa = PBXGroup;
-			children = (
-				3A72DE3D12AC9927002D7839 /* KMEventEngine.h */,
-				3A72DE3E12AC9927002D7839 /* KMEventEngine.m */,
-			);
-			path = EventEngine;
-			sourceTree = "<group>";
-		};
-		3AEF22C410B31A170070FCDB /* Achievements */ = {
-			isa = PBXGroup;
-			children = (
-				3AEF22C710B31A790070FCDB /* KMAchievement.h */,
-				3AEF22C810B31A790070FCDB /* KMAchievement.m */,
-				3AEF22CD10B31B9F0070FCDB /* KMAchievementEngine.h */,
-				3AEF22CE10B31B9F0070FCDB /* KMAchievementEngine.m */,
+				3A21616412A9D4EE00D292C7 /* KMAchievement.h */,
+				3A21616512A9D4EE00D292C7 /* KMAchievement.m */,
+				3A21616612A9D4EE00D292C7 /* KMAchievementEngine.h */,
+				3A21616712A9D4EE00D292C7 /* KMAchievementEngine.m */,
 			);
 			path = Achievements;
 			sourceTree = "<group>";
 		};
-		3AFA20E41099449F0038B52D /* Unit Tests */ = {
+		3A21616C12A9D52000D292C7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3AFA20E6109945D40038B52D /* KMWorkflowTests.h */,
-				3AFA20E7109945D40038B52D /* KMWorkflowTests.m */,
+				3A21616D12A9D52A00D292C7 /* Character */,
+				3A21617C12A9D55A00D292C7 /* Items */,
+				3A21618512A9D5C500D292C7 /* World */,
+				3A21618E12A9D5F300D292C7 /* KMClass.h */,
+				3A21618F12A9D5F300D292C7 /* KMClass.m */,
+				3A21619012A9D5F300D292C7 /* KMDataManager.h */,
+				3A21619112A9D5F300D292C7 /* KMDataManager.m */,
+				3A21619212A9D5F300D292C7 /* KMDataStartup.h */,
+				3A21619312A9D5F300D292C7 /* KMExtensibleDataLoader.h */,
+				3A21619412A9D5F300D292C7 /* KMExtensibleDataLoader.m */,
+				3A21619512A9D5F300D292C7 /* KMExtensibleDataSchema.h */,
+				3A21619612A9D5F300D292C7 /* KMPower.h */,
+				3A21619712A9D5F300D292C7 /* KMPower.m */,
+				3A21619812A9D5F300D292C7 /* KMRace.h */,
+				3A21619912A9D5F300D292C7 /* KMRace.m */,
+				3A21619A12A9D5F300D292C7 /* KMSpecial.h */,
+				3A21619B12A9D5F300D292C7 /* KMSpecial.m */,
 			);
-			path = "Unit Tests";
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3A21616D12A9D52A00D292C7 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				3A21616E12A9D53B00D292C7 /* KMCharacter.h */,
+				3A21616F12A9D53B00D292C7 /* KMCharacter.m */,
+				3A21617012A9D53B00D292C7 /* KMRequirement.h */,
+				3A21617112A9D53B00D292C7 /* KMRequirement.m */,
+				3A21617212A9D53B00D292C7 /* KMStat.h */,
+				3A21617312A9D53B00D292C7 /* KMStat.m */,
+				3A21617412A9D53B00D292C7 /* KMStatCopy.h */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		3A21617C12A9D55A00D292C7 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3A21617D12A9D5A100D292C7 /* KMItemEnhancement.h */,
+				3A21617E12A9D5A100D292C7 /* KMItemEnhancement.m */,
+				3A21617F12A9D5A100D292C7 /* KMItemTemplate.h */,
+				3A21618012A9D5A100D292C7 /* KMItemTemplate.m */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		3A21618512A9D5C500D292C7 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				3A21618612A9D5D400D292C7 /* KMExitInfo.h */,
+				3A21618712A9D5D400D292C7 /* KMExitInfo.m */,
+				3A21618812A9D5D400D292C7 /* KMRoom.h */,
+				3A21618912A9D5D400D292C7 /* KMRoom.m */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		3A2161AA12A9D62100D292C7 /* EventEngine */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD0F3512A9DC1E00CE8E92 /* KMEventDuration.h */,
+				3ACD0F3612A9DC1E00CE8E92 /* KMEventDuration.m */,
+				3ACD0F3712A9DC1E00CE8E92 /* KMEventEngine.h */,
+				3ACD0F3812A9DC1E00CE8E92 /* KMEventEngine.m */,
+			);
+			path = EventEngine;
+			sourceTree = "<group>";
+		};
+		3A2161AB12A9D63800D292C7 /* Interpreters */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD0F2512A9DBF500CE8E92 /* KMBasicInterpreter.h */,
+				3ACD0F2612A9DBF500CE8E92 /* KMBasicInterpreter.m */,
+				3ACD0F2712A9DBF500CE8E92 /* KMCommandInfo.h */,
+				3ACD0F2812A9DBF500CE8E92 /* KMCommandInfo.m */,
+				3ACD0F2912A9DBF500CE8E92 /* KMCommandInterpreter.h */,
+				3ACD0F2A12A9DBF500CE8E92 /* KMCommandInterpreter.m */,
+				3ACD0F2B12A9DBF500CE8E92 /* KMCommandInterpreterLogic.h */,
+				3ACD0F2C12A9DBF500CE8E92 /* KMInterpreter.h */,
+				3ACD0F1C12A9DB4500CE8E92 /* Logic */,
+			);
+			path = Interpreters;
+			sourceTree = "<group>";
+		};
+		3A2161AC12A9D64500D292C7 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD0F1012A9DB2B00CE8E92 /* KMConnectionCoordinator.h */,
+				3ACD0F1112A9DB2B00CE8E92 /* KMConnectionCoordinator.m */,
+				3ACD0F1212A9DB2B00CE8E92 /* KMConnectionPool.h */,
+				3ACD0F1312A9DB2B00CE8E92 /* KMConnectionPool.m */,
+				3ACD0F1412A9DB2B00CE8E92 /* KMServer.h */,
+				3ACD0F1512A9DB2B00CE8E92 /* KMServer.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		3A2161AD12A9D65000D292C7 /* StateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD0FD312A9E64A00CE8E92 /* Workflow */,
+				3A2161D812A9D6AA00D292C7 /* KMAccountMenuState.h */,
+				3A2161D912A9D6AA00D292C7 /* KMAccountMenuState.m */,
+				3A2161DA12A9D6AA00D292C7 /* KMAccountNameState.h */,
+				3A2161DB12A9D6AA00D292C7 /* KMAccountNameState.m */,
+				3A2161DC12A9D6AA00D292C7 /* KMChooseCharacterNameState.h */,
+				3A2161DD12A9D6AA00D292C7 /* KMChooseCharacterNameState.m */,
+				3A2161DE12A9D6AA00D292C7 /* KMChooseCharacterState.h */,
+				3A2161DF12A9D6AA00D292C7 /* KMChooseCharacterState.m */,
+				3A2161E012A9D6AA00D292C7 /* KMChooseClassState.h */,
+				3A2161E112A9D6AA00D292C7 /* KMChooseClassState.m */,
+				3A2161E212A9D6AA00D292C7 /* KMChooseRaceState.h */,
+				3A2161E312A9D6AA00D292C7 /* KMChooseRaceState.m */,
+				3A2161E412A9D6AA00D292C7 /* KMConfirmPasswordState.h */,
+				3A2161E512A9D6AA00D292C7 /* KMConfirmPasswordState.m */,
+				3A2161E612A9D6AA00D292C7 /* KMConfirmStatAllocationState.h */,
+				3A2161E712A9D6AA00D292C7 /* KMConfirmStatAllocationState.m */,
+				3A2161E812A9D6AA00D292C7 /* KMCreateCharacterState.h */,
+				3A2161E912A9D6AA00D292C7 /* KMCreateCharacterState.m */,
+				3A2161EA12A9D6AA00D292C7 /* KMNewPasswordState.h */,
+				3A2161EB12A9D6AA00D292C7 /* KMNewPasswordState.m */,
+				3A2161EC12A9D6AA00D292C7 /* KMNullState.m */,
+				3A2161ED12A9D6AA00D292C7 /* KMPlayingState.h */,
+				3A2161EE12A9D6AA00D292C7 /* KMPlayingState.m */,
+				3A2161EF12A9D6AA00D292C7 /* KMQuitState.h */,
+				3A2161F012A9D6AA00D292C7 /* KMQuitState.m */,
+				3A2161F112A9D6AA00D292C7 /* KMStatAllocationState.h */,
+				3A2161F212A9D6AA00D292C7 /* KMStatAllocationState.m */,
+				3A2161F312A9D6AA00D292C7 /* KMState.h */,
+				3A2161F412A9D6AA00D292C7 /* KMState.m */,
+				3A2161CF12A9D69600D292C7 /* Helpers */,
+			);
+			path = StateMachine;
+			sourceTree = "<group>";
+		};
+		3A2161AE12A9D65A00D292C7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3A2161AF12A9D66B00D292C7 /* KMColorProcessWriteHook.h */,
+				3A2161B012A9D66B00D292C7 /* KMColorProcessWriteHook.m */,
+				3A2161B112A9D66B00D292C7 /* KMEnumFactory.h */,
+				3A2161B212A9D66B00D292C7 /* KMInfoDisplay.h */,
+				3A2161B312A9D66B00D292C7 /* KMInfoDisplay.m */,
+				3A2161B412A9D66B00D292C7 /* KMObject.h */,
+				3A2161B512A9D66B00D292C7 /* KMObject.m */,
+				3A2161B612A9D66B00D292C7 /* KMStack.h */,
+				3A2161B712A9D66B00D292C7 /* KMStack.m */,
+				3A2161B812A9D66B00D292C7 /* KMVariableHook.h */,
+				3A2161B912A9D66B00D292C7 /* KMVariableHook.m */,
+				3A2161BA12A9D66B00D292C7 /* KMVariableManager.h */,
+				3A2161BB12A9D66B00D292C7 /* KMVariableManager.m */,
+				3A2161BC12A9D66B00D292C7 /* KMWriteHook.h */,
+				3A2161BD12A9D66B00D292C7 /* NSString+KMAdditions.h */,
+				3A2161BE12A9D66B00D292C7 /* NSString+KMAdditions.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3A2161CF12A9D69600D292C7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A2161D012A9D6A100D292C7 /* KMAccountMenu.h */,
+				3A2161D112A9D6A100D292C7 /* KMMenu.h */,
+				3A2161D212A9D6A100D292C7 /* KMMenuHandler.h */,
+				3A2161D312A9D6A100D292C7 /* KMMenuHandler.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3ACD0F1C12A9DB4500CE8E92 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD0F1D12A9DBAB00CE8E92 /* KMPlayingLogic.h */,
+				3ACD0F1E12A9DBAB00CE8E92 /* KMPlayingLogic.m */,
+				3ACD0F1F12A9DBAB00CE8E92 /* KMStatAllocationLogic.h */,
+				3ACD0F2012A9DBAB00CE8E92 /* KMStatAllocationLogic.m */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		3ACD0FD312A9E64A00CE8E92 /* Workflow */ = {
+			isa = PBXGroup;
+			children = (
+				3AA378B912AA941100ADE0F8 /* KMWorkflow.h */,
+				3AA378BA12AA941100ADE0F8 /* KMWorkflow.m */,
+				3AA378BB12AA941100ADE0F8 /* KMWorkflowStep.h */,
+				3AA378BC12AA941100ADE0F8 /* KMWorkflowStep.m */,
+			);
+			path = Workflow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		8DC2EF500486A6940098B216 /* Headers */ = {
+		3ACD279712A9D44F00C399AC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2F78451098C9B700EA69DC /* KMExitInfo.h in Headers */,
-				3A2F78471098C9B700EA69DC /* KMRoom.h in Headers */,
-				3A2F78541098CA7700EA69DC /* KMPlayingLogic.h in Headers */,
-				3A2F78561098CA7700EA69DC /* KMStatAllocationLogic.h in Headers */,
-				3A2F785E1098CADC00EA69DC /* KMItemEnhancement.h in Headers */,
-				3A2F78601098CADC00EA69DC /* KMItemTemplate.h in Headers */,
-				3A2F78691098CB0800EA69DC /* KMDataManager.h in Headers */,
-				3A2F786B1098CB0800EA69DC /* KMDataStartup.h in Headers */,
-				3A2F786C1098CB0800EA69DC /* KMClass.h in Headers */,
-				3A2F786E1098CB0800EA69DC /* KMRace.h in Headers */,
-				3A2F78771098CB9000EA69DC /* KMCharacter.h in Headers */,
-				3A2F78791098CB9000EA69DC /* KMStat.h in Headers */,
-				3A2F787B1098CB9000EA69DC /* KMStatCopy.h in Headers */,
-				3A2F78851098CBBA00EA69DC /* KMBasicInterpreter.h in Headers */,
-				3A2F78871098CBBA00EA69DC /* KMCommandInfo.h in Headers */,
-				3A2F78891098CBBA00EA69DC /* KMCommandInterpreter.h in Headers */,
-				3A2F788B1098CBBA00EA69DC /* KMCommandInterpreterLogic.h in Headers */,
-				3A2F788C1098CBBA00EA69DC /* KMInterpreter.h in Headers */,
-				3A2F789B1098CC2B00EA69DC /* KMColorProcessWriteHook.h in Headers */,
-				3A2F789D1098CC2B00EA69DC /* KMInfoDisplay.h in Headers */,
-				3A2F789F1098CC2B00EA69DC /* KMStack.h in Headers */,
-				3A2F78A11098CC2B00EA69DC /* NSString+KMAdditions.h in Headers */,
-				3A2F78A31098CC2B00EA69DC /* KMVariableHook.h in Headers */,
-				3A2F78A51098CC2B00EA69DC /* KMVariableManager.h in Headers */,
-				3A2F78A71098CC2B00EA69DC /* KMWriteHook.h in Headers */,
-				3A2F78C21098CCC800EA69DC /* KMAccountMenuState.h in Headers */,
-				3A2F78C41098CCC800EA69DC /* KMAccountNameState.h in Headers */,
-				3A2F78C61098CCC800EA69DC /* KMChooseCharacterState.h in Headers */,
-				3A2F78C81098CCC800EA69DC /* KMChooseClassState.h in Headers */,
-				3A2F78CA1098CCC800EA69DC /* KMChooseRaceState.h in Headers */,
-				3A2F78CC1098CCC800EA69DC /* KMConfirmPasswordState.h in Headers */,
-				3A2F78CE1098CCC800EA69DC /* KMConfirmStatAllocationState.h in Headers */,
-				3A2F78D01098CCC800EA69DC /* KMCreateCharacterState.h in Headers */,
-				3A2F78D21098CCC800EA69DC /* KMNewPasswordState.h in Headers */,
-				3A2F78D41098CCC800EA69DC /* KMPlayingState.h in Headers */,
-				3A2F78D61098CCC800EA69DC /* KMQuitState.h in Headers */,
-				3A2F78D81098CCC800EA69DC /* KMStatAllocationState.h in Headers */,
-				3A2F78DE1098CCF400EA69DC /* KMAccountMenu.h in Headers */,
-				3A2F78DF1098CCF400EA69DC /* KMMenu.h in Headers */,
-				3A2F78E01098CCF400EA69DC /* KMMenuHandler.h in Headers */,
-				3A2F78F21098CD4600EA69DC /* KMConnectionCoordinator.h in Headers */,
-				3A2F78F41098CD4600EA69DC /* KMConnectionPool.h in Headers */,
-				3A2F78F61098CD4600EA69DC /* KMServer.h in Headers */,
-				3A427B23109A2B2700E1C502 /* KittyMUD.h in Headers */,
-				3A427B68109A99D000E1C502 /* KMWorkflow.h in Headers */,
-				3A427B6B109A99D000E1C502 /* KMWorkflowStep.h in Headers */,
-				3A427CB6109B42A500E1C502 /* KMState.h in Headers */,
-				3A427E59109C7D6700E1C502 /* KMObject.h in Headers */,
-				3AEF22C910B31A790070FCDB /* KMAchievement.h in Headers */,
-				3AEF22CF10B31B9F0070FCDB /* KMAchievementEngine.h in Headers */,
-				3ABC9BE110BA05FF008BD6B0 /* KMChooseCharacterNameState.h in Headers */,
-				3A0B48C110CB008F00F31850 /* KMSpecial.h in Headers */,
-				3A0B4E4210CC26CB00F31850 /* KMExtensibleDataLoader.h in Headers */,
-				3A0B4E4410CC26CB00F31850 /* KMExtensibleDataSchema.h in Headers */,
-				3AEA2D6C110388F400F3426B /* KMPower.h in Headers */,
-				3ACDAA73111571B500108E16 /* KMEnumFactory.h in Headers */,
-				3AB8B7041153EC07005DE7AA /* KMRequirement.h in Headers */,
-				3A72DE3F12AC9927002D7839 /* KMEventEngine.h in Headers */,
+				3A21616812A9D4EE00D292C7 /* KMAchievement.h in Headers */,
+				3A21616A12A9D4EE00D292C7 /* KMAchievementEngine.h in Headers */,
+				3A21617512A9D53B00D292C7 /* KMCharacter.h in Headers */,
+				3A21617712A9D53B00D292C7 /* KMRequirement.h in Headers */,
+				3A21617912A9D53B00D292C7 /* KMStat.h in Headers */,
+				3A21617B12A9D53B00D292C7 /* KMStatCopy.h in Headers */,
+				3A21618112A9D5A100D292C7 /* KMItemEnhancement.h in Headers */,
+				3A21618312A9D5A100D292C7 /* KMItemTemplate.h in Headers */,
+				3A21618A12A9D5D400D292C7 /* KMExitInfo.h in Headers */,
+				3A21618C12A9D5D400D292C7 /* KMRoom.h in Headers */,
+				3A21619C12A9D5F300D292C7 /* KMClass.h in Headers */,
+				3A21619E12A9D5F300D292C7 /* KMDataManager.h in Headers */,
+				3A2161A012A9D5F300D292C7 /* KMDataStartup.h in Headers */,
+				3A2161A112A9D5F300D292C7 /* KMExtensibleDataLoader.h in Headers */,
+				3A2161A312A9D5F300D292C7 /* KMExtensibleDataSchema.h in Headers */,
+				3A2161A412A9D5F300D292C7 /* KMPower.h in Headers */,
+				3A2161A612A9D5F300D292C7 /* KMRace.h in Headers */,
+				3A2161A812A9D5F300D292C7 /* KMSpecial.h in Headers */,
+				3A2161BF12A9D66B00D292C7 /* KMColorProcessWriteHook.h in Headers */,
+				3A2161C112A9D66B00D292C7 /* KMEnumFactory.h in Headers */,
+				3A2161C212A9D66B00D292C7 /* KMInfoDisplay.h in Headers */,
+				3A2161C412A9D66B00D292C7 /* KMObject.h in Headers */,
+				3A2161C612A9D66B00D292C7 /* KMStack.h in Headers */,
+				3A2161C812A9D66B00D292C7 /* KMVariableHook.h in Headers */,
+				3A2161CA12A9D66B00D292C7 /* KMVariableManager.h in Headers */,
+				3A2161CC12A9D66B00D292C7 /* KMWriteHook.h in Headers */,
+				3A2161CD12A9D66B00D292C7 /* NSString+KMAdditions.h in Headers */,
+				3A2161D412A9D6A100D292C7 /* KMAccountMenu.h in Headers */,
+				3A2161D512A9D6A100D292C7 /* KMMenu.h in Headers */,
+				3A2161D612A9D6A100D292C7 /* KMMenuHandler.h in Headers */,
+				3A2161F512A9D6AA00D292C7 /* KMAccountMenuState.h in Headers */,
+				3A2161F712A9D6AA00D292C7 /* KMAccountNameState.h in Headers */,
+				3A2161F912A9D6AA00D292C7 /* KMChooseCharacterNameState.h in Headers */,
+				3A2161FB12A9D6AA00D292C7 /* KMChooseCharacterState.h in Headers */,
+				3A2161FD12A9D6AA00D292C7 /* KMChooseClassState.h in Headers */,
+				3A2161FF12A9D6AA00D292C7 /* KMChooseRaceState.h in Headers */,
+				3A21620112A9D6AA00D292C7 /* KMConfirmPasswordState.h in Headers */,
+				3A21620312A9D6AA00D292C7 /* KMConfirmStatAllocationState.h in Headers */,
+				3A21620512A9D6AA00D292C7 /* KMCreateCharacterState.h in Headers */,
+				3A21620712A9D6AA00D292C7 /* KMNewPasswordState.h in Headers */,
+				3A21620A12A9D6AA00D292C7 /* KMPlayingState.h in Headers */,
+				3A21620C12A9D6AA00D292C7 /* KMQuitState.h in Headers */,
+				3A21620E12A9D6AA00D292C7 /* KMStatAllocationState.h in Headers */,
+				3A21621012A9D6AA00D292C7 /* KMState.h in Headers */,
+				3ACD0F1612A9DB2B00CE8E92 /* KMConnectionCoordinator.h in Headers */,
+				3ACD0F1812A9DB2B00CE8E92 /* KMConnectionPool.h in Headers */,
+				3ACD0F1A12A9DB2B00CE8E92 /* KMServer.h in Headers */,
+				3ACD0F2112A9DBAB00CE8E92 /* KMPlayingLogic.h in Headers */,
+				3ACD0F2312A9DBAB00CE8E92 /* KMStatAllocationLogic.h in Headers */,
+				3ACD0F2D12A9DBF500CE8E92 /* KMBasicInterpreter.h in Headers */,
+				3ACD0F2F12A9DBF500CE8E92 /* KMCommandInfo.h in Headers */,
+				3ACD0F3112A9DBF500CE8E92 /* KMCommandInterpreter.h in Headers */,
+				3ACD0F3312A9DBF500CE8E92 /* KMCommandInterpreterLogic.h in Headers */,
+				3ACD0F3412A9DBF500CE8E92 /* KMInterpreter.h in Headers */,
+				3ACD0F3912A9DC1E00CE8E92 /* KMEventDuration.h in Headers */,
+				3ACD0F3B12A9DC1E00CE8E92 /* KMEventEngine.h in Headers */,
+				3AA378BD12AA941100ADE0F8 /* KMWorkflow.h in Headers */,
+				3AA378BF12AA941100ADE0F8 /* KMWorkflowStep.h in Headers */,
+				3ACD0F3E12A9DCA600CE8E92 /* KittyMUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3AFA20C31099437E0038B52D /* KittyMUDTests */ = {
+		3ACD279912A9D44F00C399AC /* KittyMUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AFA20C91099437F0038B52D /* Build configuration list for PBXNativeTarget "KittyMUDTests" */;
+			buildConfigurationList = 3ACD27A312A9D45000C399AC /* Build configuration list for PBXNativeTarget "KittyMUD" */;
 			buildPhases = (
-				3AFA20BF1099437E0038B52D /* Resources */,
-				3AFA20C01099437E0038B52D /* Sources */,
-				3AFA20C11099437E0038B52D /* Frameworks */,
-				3AFA20C21099437E0038B52D /* ShellScript */,
-				3AEA2D161103786200F3426B /* CopyFiles */,
+				3ACD279512A9D44F00C399AC /* Sources */,
+				3ACD279612A9D44F00C399AC /* Frameworks */,
+				3ACD279712A9D44F00C399AC /* Headers */,
+				3ACD279812A9D44F00C399AC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3AFA20CB109943CF0038B52D /* PBXTargetDependency */,
-			);
-			name = KittyMUDTests;
-			productName = KittyMUDTests;
-			productReference = 3A8AA7D71252A340005A9441 /* KittyMUDTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
-		8DC2EF4F0486A6940098B216 /* KittyMUD */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "KittyMUD" */;
-			buildPhases = (
-				8DC2EF500486A6940098B216 /* Headers */,
-				8DC2EF520486A6940098B216 /* Resources */,
-				8DC2EF540486A6940098B216 /* Sources */,
-				8DC2EF560486A6940098B216 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3AC305D31258FA5C00D43A85 /* PBXTargetDependency */,
-				3AC305D11258FA5800D43A85 /* PBXTargetDependency */,
-				3A2942921251AA1800E51A70 /* PBXTargetDependency */,
 			);
 			name = KittyMUD;
-			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = KittyMUD;
-			productReference = 3A8AA7D61252A33F005A9441 /* KittyMUD.framework */;
+			productReference = 3ACD279A12A9D44F00C399AC /* KittyMUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0867D690FE84028FC02AAC07 /* Project object */ = {
+		3A01FF2E12A9CC3A005A9772 /* Project object */ = {
 			isa = PBXProject;
-			attributes = {
-				ORGANIZATIONNAME = "Michael Tindal";
-			};
-			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "KittyMUD" */;
-			compatibilityVersion = "Xcode 3.1";
+			buildConfigurationList = 3A01FF3112A9CC3A005A9772 /* Build configuration list for PBXProject "KittyMUD" */;
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
-			hasScannedForEncodings = 1;
+			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 0867D691FE84028FC02AAC07 /* KittyMUD */;
-			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			mainGroup = 3A01FF2C12A9CC3A005A9772;
+			productRefGroup = 3A01FF3D12A9CC3A005A9772 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3AC305BE1258F9F500D43A85 /* Products */;
-					ProjectRef = 3AC305BD1258F9F500D43A85 /* ECScript.xcodeproj */;
-				},
-				{
-					ProductGroup = 3A29428A1251AA1100E51A70 /* Products */;
-					ProjectRef = 3A2942891251AA1100E51A70 /* OCLog.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				8DC2EF4F0486A6940098B216 /* KittyMUD */,
-				3AFA20C31099437E0038B52D /* KittyMUDTests */,
+				3ACD279912A9D44F00C399AC /* KittyMUD */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		3A29428E1251AA1100E51A70 /* OCLog.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OCLog.framework;
-			remoteRef = 3A29428D1251AA1100E51A70 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3AC305C31258F9F600D43A85 /* ECScript.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ECScript.framework;
-			remoteRef = 3AC305C21258F9F600D43A85 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3AC305C51258F9F600D43A85 /* ecs_tests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ecs_tests.octest;
-			remoteRef = 3AC305C41258F9F600D43A85 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		3AFA20BF1099437E0038B52D /* Resources */ = {
+		3ACD279812A9D44F00C399AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DC2EF520486A6940098B216 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				3ACD27A012A9D45000C399AC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3AFA20C21099437E0038B52D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		3AFA20C01099437E0038B52D /* Sources */ = {
+		3ACD279512A9D44F00C399AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AFA20E8109945D40038B52D /* KMWorkflowTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DC2EF540486A6940098B216 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A2F78461098C9B700EA69DC /* KMExitInfo.m in Sources */,
-				3A2F78481098C9B700EA69DC /* KMRoom.m in Sources */,
-				3A2F78551098CA7700EA69DC /* KMPlayingLogic.m in Sources */,
-				3A2F78571098CA7700EA69DC /* KMStatAllocationLogic.m in Sources */,
-				3A2F785F1098CADC00EA69DC /* KMItemEnhancement.m in Sources */,
-				3A2F78611098CADC00EA69DC /* KMItemTemplate.m in Sources */,
-				3A2F786A1098CB0800EA69DC /* KMDataManager.m in Sources */,
-				3A2F786D1098CB0800EA69DC /* KMClass.m in Sources */,
-				3A2F786F1098CB0800EA69DC /* KMRace.m in Sources */,
-				3A2F78781098CB9000EA69DC /* KMCharacter.m in Sources */,
-				3A2F787A1098CB9000EA69DC /* KMStat.m in Sources */,
-				3A2F78861098CBBA00EA69DC /* KMBasicInterpreter.m in Sources */,
-				3A2F78881098CBBA00EA69DC /* KMCommandInfo.m in Sources */,
-				3A2F788A1098CBBA00EA69DC /* KMCommandInterpreter.m in Sources */,
-				3A2F789C1098CC2B00EA69DC /* KMColorProcessWriteHook.m in Sources */,
-				3A2F789E1098CC2B00EA69DC /* KMInfoDisplay.m in Sources */,
-				3A2F78A01098CC2B00EA69DC /* KMStack.m in Sources */,
-				3A2F78A21098CC2B00EA69DC /* NSString+KMAdditions.m in Sources */,
-				3A2F78A41098CC2B00EA69DC /* KMVariableHook.m in Sources */,
-				3A2F78A61098CC2B00EA69DC /* KMVariableManager.m in Sources */,
-				3A2F78C31098CCC800EA69DC /* KMAccountMenuState.m in Sources */,
-				3A2F78C51098CCC800EA69DC /* KMAccountNameState.m in Sources */,
-				3A2F78C71098CCC800EA69DC /* KMChooseCharacterState.m in Sources */,
-				3A2F78C91098CCC800EA69DC /* KMChooseClassState.m in Sources */,
-				3A2F78CB1098CCC800EA69DC /* KMChooseRaceState.m in Sources */,
-				3A2F78CD1098CCC800EA69DC /* KMConfirmPasswordState.m in Sources */,
-				3A2F78CF1098CCC800EA69DC /* KMConfirmStatAllocationState.m in Sources */,
-				3A2F78D11098CCC800EA69DC /* KMCreateCharacterState.m in Sources */,
-				3A2F78D31098CCC800EA69DC /* KMNewPasswordState.m in Sources */,
-				3A2F78D51098CCC800EA69DC /* KMPlayingState.m in Sources */,
-				3A2F78D71098CCC800EA69DC /* KMQuitState.m in Sources */,
-				3A2F78D91098CCC800EA69DC /* KMStatAllocationState.m in Sources */,
-				3A2F78E11098CCF400EA69DC /* KMMenuHandler.m in Sources */,
-				3A2F78F31098CD4600EA69DC /* KMConnectionCoordinator.m in Sources */,
-				3A2F78F51098CD4600EA69DC /* KMConnectionPool.m in Sources */,
-				3A2F78F71098CD4600EA69DC /* KMServer.m in Sources */,
-				3A427B69109A99D000E1C502 /* KMWorkflow.m in Sources */,
-				3A427B6A109A99D000E1C502 /* KMWorkflowStep.m in Sources */,
-				3A427E5A109C7D6700E1C502 /* KMObject.m in Sources */,
-				3AEF22CA10B31A790070FCDB /* KMAchievement.m in Sources */,
-				3AEF22D010B31B9F0070FCDB /* KMAchievementEngine.m in Sources */,
-				3ABC9BE210BA05FF008BD6B0 /* KMChooseCharacterNameState.m in Sources */,
-				3ABC9D2E10BAF7BD008BD6B0 /* KMNullState.m in Sources */,
-				3A0B48C210CB008F00F31850 /* KMSpecial.m in Sources */,
-				3A0B4E4310CC26CB00F31850 /* KMExtensibleDataLoader.m in Sources */,
-				3AEA2D6D110388F400F3426B /* KMPower.m in Sources */,
-				3AB8B7051153EC07005DE7AA /* KMRequirement.m in Sources */,
-				3A369FCD116A309F00298324 /* KMState.m in Sources */,
-				3A72DE4012AC9927002D7839 /* KMEventEngine.m in Sources */,
+				3A21616912A9D4EE00D292C7 /* KMAchievement.m in Sources */,
+				3A21616B12A9D4EE00D292C7 /* KMAchievementEngine.m in Sources */,
+				3A21617612A9D53B00D292C7 /* KMCharacter.m in Sources */,
+				3A21617812A9D53B00D292C7 /* KMRequirement.m in Sources */,
+				3A21617A12A9D53B00D292C7 /* KMStat.m in Sources */,
+				3A21618212A9D5A100D292C7 /* KMItemEnhancement.m in Sources */,
+				3A21618412A9D5A100D292C7 /* KMItemTemplate.m in Sources */,
+				3A21618B12A9D5D400D292C7 /* KMExitInfo.m in Sources */,
+				3A21618D12A9D5D400D292C7 /* KMRoom.m in Sources */,
+				3A21619D12A9D5F300D292C7 /* KMClass.m in Sources */,
+				3A21619F12A9D5F300D292C7 /* KMDataManager.m in Sources */,
+				3A2161A212A9D5F300D292C7 /* KMExtensibleDataLoader.m in Sources */,
+				3A2161A512A9D5F300D292C7 /* KMPower.m in Sources */,
+				3A2161A712A9D5F300D292C7 /* KMRace.m in Sources */,
+				3A2161A912A9D5F300D292C7 /* KMSpecial.m in Sources */,
+				3A2161C012A9D66B00D292C7 /* KMColorProcessWriteHook.m in Sources */,
+				3A2161C312A9D66B00D292C7 /* KMInfoDisplay.m in Sources */,
+				3A2161C512A9D66B00D292C7 /* KMObject.m in Sources */,
+				3A2161C712A9D66B00D292C7 /* KMStack.m in Sources */,
+				3A2161C912A9D66B00D292C7 /* KMVariableHook.m in Sources */,
+				3A2161CB12A9D66B00D292C7 /* KMVariableManager.m in Sources */,
+				3A2161CE12A9D66B00D292C7 /* NSString+KMAdditions.m in Sources */,
+				3A2161D712A9D6A100D292C7 /* KMMenuHandler.m in Sources */,
+				3A2161F612A9D6AA00D292C7 /* KMAccountMenuState.m in Sources */,
+				3A2161F812A9D6AA00D292C7 /* KMAccountNameState.m in Sources */,
+				3A2161FA12A9D6AA00D292C7 /* KMChooseCharacterNameState.m in Sources */,
+				3A2161FC12A9D6AA00D292C7 /* KMChooseCharacterState.m in Sources */,
+				3A2161FE12A9D6AA00D292C7 /* KMChooseClassState.m in Sources */,
+				3A21620012A9D6AA00D292C7 /* KMChooseRaceState.m in Sources */,
+				3A21620212A9D6AA00D292C7 /* KMConfirmPasswordState.m in Sources */,
+				3A21620412A9D6AA00D292C7 /* KMConfirmStatAllocationState.m in Sources */,
+				3A21620612A9D6AA00D292C7 /* KMCreateCharacterState.m in Sources */,
+				3A21620812A9D6AA00D292C7 /* KMNewPasswordState.m in Sources */,
+				3A21620912A9D6AA00D292C7 /* KMNullState.m in Sources */,
+				3A21620B12A9D6AA00D292C7 /* KMPlayingState.m in Sources */,
+				3A21620D12A9D6AA00D292C7 /* KMQuitState.m in Sources */,
+				3A21620F12A9D6AA00D292C7 /* KMStatAllocationState.m in Sources */,
+				3A21621112A9D6AA00D292C7 /* KMState.m in Sources */,
+				3ACD0F1712A9DB2B00CE8E92 /* KMConnectionCoordinator.m in Sources */,
+				3ACD0F1912A9DB2B00CE8E92 /* KMConnectionPool.m in Sources */,
+				3ACD0F1B12A9DB2B00CE8E92 /* KMServer.m in Sources */,
+				3ACD0F2212A9DBAB00CE8E92 /* KMPlayingLogic.m in Sources */,
+				3ACD0F2412A9DBAB00CE8E92 /* KMStatAllocationLogic.m in Sources */,
+				3ACD0F2E12A9DBF500CE8E92 /* KMBasicInterpreter.m in Sources */,
+				3ACD0F3012A9DBF500CE8E92 /* KMCommandInfo.m in Sources */,
+				3ACD0F3212A9DBF500CE8E92 /* KMCommandInterpreter.m in Sources */,
+				3ACD0F3A12A9DC1E00CE8E92 /* KMEventDuration.m in Sources */,
+				3ACD0F3C12A9DC1E00CE8E92 /* KMEventEngine.m in Sources */,
+				3AA378BE12AA941100ADE0F8 /* KMWorkflow.m in Sources */,
+				3AA378C012AA941100ADE0F8 /* KMWorkflowStep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		3A2942921251AA1800E51A70 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OCLog;
-			targetProxy = 3A2942911251AA1800E51A70 /* PBXContainerItemProxy */;
-		};
-		3AC305D11258FA5800D43A85 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ECScript;
-			targetProxy = 3AC305D01258FA5800D43A85 /* PBXContainerItemProxy */;
-		};
-		3AC305D31258FA5C00D43A85 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ecs_tests;
-			targetProxy = 3AC305D21258FA5C00D43A85 /* PBXContainerItemProxy */;
-		};
-		3AFA20CB109943CF0038B52D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* KittyMUD */;
-			targetProxy = 3AFA20CA109943CF0038B52D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+		3A01FF4212A9CC3A005A9772 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C1667FE841158C02AAC07 /* English */,
+				3A01FF4312A9CC3A005A9772 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3ACD279E12A9D45000C399AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ACD279F12A9D45000C399AC /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -984,567 +734,157 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1DEB91AE08733DA50010E9CD /* Debug */ = {
+		3A01FF4512A9CC3A005A9772 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3A01FF4612A9CC3A005A9772 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3ACD27A112A9D45000C399AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3ACD27A212A9D45000C399AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3ACD27A412A9D45000C399AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_DIR)/Local/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)",
+					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_PROTOTYPE_CONVERSION = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = YES;
-				GCC_WARN_UNUSED_VALUE = YES;
-				INFOPLIST_FILE = Info.plist;
+				GCC_PREFIX_HEADER = "KittyMUD-Prefix.pch";
+				INFOPLIST_FILE = "KittyMUD-Info.plist";
 				INSTALL_PATH = "@rpath";
-				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
-				PRODUCT_NAME = KittyMUD;
-				SYMROOT = build;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_EXPORT_DECL = "";
-				VERSION_INFO_PREFIX = KM;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
-		1DEB91AF08733DA50010E9CD /* Release */ = {
+		3ACD27A512A9D45000C399AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				CURRENT_PROJECT_VERSION = 1;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_DIR)/Local/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)",
+					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
-				GCC_MODEL_TUNING = G5;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_PROTOTYPE_CONVERSION = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = YES;
-				GCC_WARN_UNUSED_VALUE = YES;
-				INFOPLIST_FILE = Info.plist;
+				GCC_PREFIX_HEADER = "KittyMUD-Prefix.pch";
+				INFOPLIST_FILE = "KittyMUD-Info.plist";
 				INSTALL_PATH = "@rpath";
-				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
-				PRODUCT_NAME = KittyMUD;
-				SYMROOT = build;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_EXPORT_DECL = "";
-				VERSION_INFO_PREFIX = KM;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
-		1DEB91B208733DA50010E9CD /* Debug */ = {
+		3ACD27A612A9D45000C399AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				PRODUCT_NAME = KittyMUD;
 			};
 			name = Debug;
 		};
-		1DEB91B308733DA50010E9CD /* Release */ = {
+		3ACD27A712A9D45000C399AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
-			};
-			name = Release;
-		};
-		3A2F78FE1098CD7800EA69DC /* Analyze */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx10.6;
-			};
-			name = Analyze;
-		};
-		3A2F78FF1098CD7800EA69DC /* Analyze */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_DIR)/Local/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)",
-					"\"$(SRCROOT)\"",
-				);
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_PROTOTYPE_CONVERSION = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = YES;
-				GCC_WARN_UNUSED_VALUE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@rpath";
-				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
-				PRODUCT_NAME = KittyMUD;
-				SYMROOT = build;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_EXPORT_DECL = "";
-				VERSION_INFO_PREFIX = KM;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Analyze;
-		};
-		3A427D80109B4EBC00E1C502 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lgcov";
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
-			};
-			name = Coverage;
-		};
-		3A427D81109B4EBC00E1C502 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_DIR)/Local/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)",
-					"\"$(SRCROOT)\"",
-				);
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_PROTOTYPE_CONVERSION = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = YES;
-				GCC_WARN_UNUSED_VALUE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@rpath";
-				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
-				PRODUCT_NAME = KittyMUD;
-				SYMROOT = build;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_EXPORT_DECL = "";
-				VERSION_INFO_PREFIX = KM;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Coverage;
-		};
-		3A427D82109B4EBC00E1C502 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = KittyMUDTests;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Coverage;
-		};
-		3A427D83109B4EDF00E1C502 /* Analyze + Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = required;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lgcov";
-				PREBINDING = NO;
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx10.6;
-			};
-			name = "Analyze + Coverage";
-		};
-		3A427D84109B4EDF00E1C502 /* Analyze + Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_DIR)/Local/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)",
-					"\"$(SRCROOT)\"",
-				);
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = KittyMUD_Prefix.pch;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_PROTOTYPE_CONVERSION = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = NO;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = YES;
-				GCC_WARN_UNUSED_VALUE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@rpath";
-				LD_DYLIB_INSTALL_NAME = "$(INSTALL_PATH:standardized_path)/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/. $(DEVELOPER_DIR)/Local/Frameworks";
-				PRODUCT_NAME = KittyMUD;
-				SYMROOT = build;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_EXPORT_DECL = "";
-				VERSION_INFO_PREFIX = KM;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = "Analyze + Coverage";
-		};
-		3A427D85109B4EDF00E1C502 /* Analyze + Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = KittyMUDTests;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = "Analyze + Coverage";
-		};
-		3AFA20C61099437F0038B52D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = KittyMUDTests;
-				SYMROOT = build;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		3AFA20C71099437F0038B52D /* Analyze */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
-				PRODUCT_NAME = KittyMUDTests;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Analyze;
-		};
-		3AFA20C81099437F0038B52D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 				);
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "KittyMUDTests-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = KittyMUDTests;
-				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
+				PRODUCT_NAME = KittyMUD;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "KittyMUD" */ = {
+		3A01FF3112A9CC3A005A9772 /* Build configuration list for PBXProject "KittyMUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB91AE08733DA50010E9CD /* Debug */,
-				3A427D81109B4EBC00E1C502 /* Coverage */,
-				3A2F78FF1098CD7800EA69DC /* Analyze */,
-				3A427D84109B4EDF00E1C502 /* Analyze + Coverage */,
-				1DEB91AF08733DA50010E9CD /* Release */,
+				3A01FF4512A9CC3A005A9772 /* Debug */,
+				3A01FF4612A9CC3A005A9772 /* Release */,
+				3ACD27A112A9D45000C399AC /* Debug */,
+				3ACD27A212A9D45000C399AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "KittyMUD" */ = {
+		3ACD27A312A9D45000C399AC /* Build configuration list for PBXNativeTarget "KittyMUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB91B208733DA50010E9CD /* Debug */,
-				3A427D80109B4EBC00E1C502 /* Coverage */,
-				3A2F78FE1098CD7800EA69DC /* Analyze */,
-				3A427D83109B4EDF00E1C502 /* Analyze + Coverage */,
-				1DEB91B308733DA50010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3AFA20C91099437F0038B52D /* Build configuration list for PBXNativeTarget "KittyMUDTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3AFA20C61099437F0038B52D /* Debug */,
-				3A427D82109B4EBC00E1C502 /* Coverage */,
-				3AFA20C71099437F0038B52D /* Analyze */,
-				3A427D85109B4EDF00E1C502 /* Analyze + Coverage */,
-				3AFA20C81099437F0038B52D /* Release */,
+				3ACD27A412A9D45000C399AC /* Debug */,
+				3ACD27A512A9D45000C399AC /* Release */,
+				3ACD27A612A9D45000C399AC /* Debug */,
+				3ACD27A712A9D45000C399AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+	rootObject = 3A01FF2E12A9CC3A005A9772 /* Project object */;
 }

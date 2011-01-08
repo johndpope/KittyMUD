@@ -4,20 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>KittyMUDTests.xcscheme</key>
+		<key>KittyMUD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>6</integer>
+		</dict>
+		<key>OCLog.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key></key>
-		<true/>
-		<key>KittyMUD.framework</key>
-		<true/>
-		<key>KittyMUDTests.octest</key>
-		<true/>
+		<key>3A01FF3B12A9CC3A005A9772</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3ACD279912A9D44F00C399AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

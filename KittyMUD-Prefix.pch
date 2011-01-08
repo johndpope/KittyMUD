@@ -1,0 +1,15 @@
+//
+// Prefix header for all source files of the 'KittyMUD' target in the 'KittyMUD' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+
+    #include <OCLog/OCLog.h>
+
+    #define KMECS(n) extern NSString* const n
+
+    #define KMCS(n,v) NSString* const n = v
+
+    #define KMSoftRebootCheck if([coordinator isFlagSet:@"softreboot-displayed"]) return
+#endif
