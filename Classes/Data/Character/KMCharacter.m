@@ -116,5 +116,15 @@
 	return [[self valueForKeyPath:@"properties.name"] capitalizedString];
 }
 
+-(NSString*) stringValue {
+    return [self valueForKeyPath:@"properties.name"];
+}
+
+-(id) valueForUndefinedKey:(NSString*) key {
+    if([key isEqualToString:@"room"])
+        return [self valueForKeyPath:@"properties.current-room"];
+    return nil;
+}
+
 @synthesize stats;
 @end

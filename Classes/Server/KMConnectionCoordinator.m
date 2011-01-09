@@ -212,13 +212,12 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 	[fh closeFile];
 }
 
--(id) valueForUndefinedKey:(NSString *)key {
-    NSLog(@"undefined: %@",key);
-	return [NSNull null];
 }
 
--(void) setValue:(id)value forUndefinedKey:(NSString*)key {
-	return;
+-(id) valueForUndefinedKey:(NSString*) key {
+    if([key isEqualToString:@"character"])
+        return [self valueForKeyPath:@"properties.current-character"];
+    return nil;
 }
 
 @synthesize lastReadTime;
