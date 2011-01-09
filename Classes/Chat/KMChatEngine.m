@@ -42,7 +42,7 @@
 -(NSArray*) getRecipientsOfMessageFrom:(KMConnectionCoordinator *)coordinator {
     NSMutableArray* recipients = [NSMutableArray array];
     NSUInteger range = type == KMChatSay ? 2 : 5;
-    NSArray* allCoordinators = [[[KMServer getDefaultServer] getConnectionPool] connections];
+    NSArray* allCoordinators = [[[KMServer defaultServer] connectionPool] connections];
     NSArray* allRooms = [KMRoom getAllRooms];
     NSPredicate* roomPred;
     NSMutableArray* rooms = [NSMutableArray array];
@@ -138,7 +138,7 @@ static KMChatEngine* __KMChatEngine;
             _message = [NSString stringWithFormat:@"\n\r`w%@ says: %@",characterName,message];
             break;
     }
-    [[[KMServer getDefaultServer] getConnectionPool] writeMessage:_message toConnections:recipients];
+    [[[KMServer defaultServer] connectionPool] writeMessage:_message toConnections:recipients];
     if(_channel.type == KMChatWhisper) {
         for(KMConnectionCoordinator* coord in recipients) {
             [coord setValue:[coordinator valueForKeyPath:@"character.properties.name"] forKeyPath:@"properties.reply-target"];

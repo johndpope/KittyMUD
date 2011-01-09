@@ -38,7 +38,7 @@ static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters
 
 -(void) processState {
 	NSFileHandle* usedNamesFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(UsedCharacterFile)" replaceAllVariables]];
-	NSString* name = [coordinator getInputBuffer];
+	NSString* name = [coordinator inputBuffer];
 	if(usedNamesFile != nil)
 	{
 		NSArray* names = [[[NSString alloc] initWithData:[usedNamesFile readDataToEndOfFile] encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
@@ -60,14 +60,14 @@ static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters
 	[(KMConnectionCoordinator*)coordinator setFlag:@"has-character"];
 	KMCharacter* character = nil;
 	if(![coordinator valueForKeyPath:@"properties.current-character"]) {
-		character = [[KMCharacter alloc] initializeWithName:name];
+		character = [[KMCharacter alloc] initWithName:name];
 	} else {
 		character = [coordinator valueForKeyPath:@"properties.current-character"];
 	}
 	if([coordinator isFlagSet:@"race-before-character"]) {
 		NSString* r = [coordinator valueForKeyPath:@"properties.race"];
 		KMRace* race = [KMRace getRaceByName:r];
-		[[character getProperties] setObject:[race name] forKey:@"race"];
+		[[character properties] setObject:[race name] forKey:@"race"];
 		if(![coordinator isFlagSet:@"race-bonuses-after-allocation"]) {
 			[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
 		}
@@ -77,7 +77,7 @@ static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters
 	if([coordinator isFlagSet:@"class-before-character"]) {
 		NSString* c = [coordinator valueForKeyPath:@"properties.class"];
 		KMClass* klass = [KMClass getClassByName:c];
-		[[character getProperties] setObject:[klass name] forKey:@"class"];
+		[[character properties] setObject:[klass name] forKey:@"class"];
 		[coordinator setValue:nil forKeyPath:@"properties.class"];
 		[coordinator clearFlag:@"class-before-character"];
 	}
@@ -85,7 +85,7 @@ static NSMutableDictionary* tmpCharNames = nil; // so we can't create characters
 	[[character stats] setValueOfChildAtPath:[NSString stringWithFormat:@"class::%@",[character valueForKeyPath:@"properties.class"]] withValue:1];
 	[[character stats] setValueOfChildAtPath:[NSString stringWithFormat:@"race::%@",[character valueForKeyPath:@"properties.race"]] withValue:1];
 	[coordinator setValue:character forKeyPath:@"properties.current-character"];
-	[[coordinator getCharacters] addObject:character];
+	[[coordinator characters] addObject:character];
 	KMGetStateFromCoordinator(state);
 	if(state == self) {
 		KMSetStateForCoordinatorTo([KMNullState class]);

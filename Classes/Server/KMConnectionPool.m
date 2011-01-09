@@ -70,7 +70,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	if(callbackType != kCFSocketDataCallBack)
 		return;
 	
-	KMConnectionPool* pool = [[KMServer getDefaultServer] getConnectionPool];
+	KMConnectionPool* pool = [[KMServer defaultServer] connectionPool];
 	KMConnectionCoordinator* coordinator = (KMConnectionCoordinator*)info;
 	NSString* inputString = [[NSString alloc] initWithData:(NSData*)data encoding:NSUTF8StringEncoding];
 	if(![inputString length] || [inputString characterAtIndex:0] == '\x04') {

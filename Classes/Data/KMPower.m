@@ -28,7 +28,7 @@
 
 
 +(void) executePower:(id)coordinator withArgs:(NSArray*)args {
-	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	NSArray* commandmakeup = [[coordinator inputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
 #pragma unused(args)
 #pragma unused(commandName)

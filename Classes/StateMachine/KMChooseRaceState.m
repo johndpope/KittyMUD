@@ -36,9 +36,9 @@
 	KMRace* race = [menu getSelection:coordinator];
 	if(!race)
 		return;
-	KMCharacter* character = [[coordinator getProperties] objectForKey:@"properties.current-character"];
+	KMCharacter* character = [[coordinator properties] objectForKey:@"properties.current-character"];
 	if(character) {
-		[[character getProperties] setValue:[race name] forKeyPath:@"properties.race"];
+		[[character properties] setValue:[race name] forKeyPath:@"properties.race"];
 		[[character stats] copyStat:[race bonuses] withSettings:KMStatCopySettingsValue];
 	} else {
 		[coordinator setValue:[race name] forKeyPath:@"properties.race"];

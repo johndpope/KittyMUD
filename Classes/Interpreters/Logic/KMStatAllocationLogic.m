@@ -36,7 +36,7 @@
 -(void) changeStatBase:(KMConnectionCoordinator*)coordinator stat:(NSString*)stat value:(int)value type:(KMStatAllocationChangeType)type {
 	KMCharacter* character = [coordinator valueForKeyPath:@"properties.current-character"];
 	NSPredicate* allocatable = [NSPredicate predicateWithFormat:@"self.properties.allocatable.intValue > 0"];
-	NSArray* stillAllocatable = [[[character stats] getChildren] filteredArrayUsingPredicate:allocatable];
+	NSArray* stillAllocatable = [[[character stats] children] filteredArrayUsingPredicate:allocatable];
 	if([stillAllocatable count] == 0 && type == KMStatAllocationIncrease) {
 		[coordinator sendMessageToBuffer:@"No points remaining."];
 		return;
@@ -45,7 +45,7 @@
 	BOOL valid = YES;
 	KMStat* st =[[character stats] findStatWithPath:stat];
 	
-	if(st == nil || ![[st getProperties] objectForKey:@"changeable"])
+	if(st == nil || ![[st properties] objectForKey:@"changeable"])
 		valid = NO;
 	
 	if(!valid) {
@@ -62,7 +62,7 @@
 				return;
 			}
 			[st setStatvalue:([st statvalue] + value)];
-			[[[st parent] getProperties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] - value)] forKey:@"allocatable"];
+			[[[st parent] properties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] - value)] forKey:@"allocatable"];
 			break;
 		case KMStatAllocationDecrease:
 			if( value > ([st statvalue] - [baseStat statvalue]) ) {
@@ -70,12 +70,12 @@
 				return;
 			}
 			[st setStatvalue:([st statvalue] - value)];
-			[[[st parent] getProperties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + value)] forKey:@"allocatable"];
+			[[[st parent] properties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + value)] forKey:@"allocatable"];
 			break;
 		case KMStatAllocationReset:
 			difference = ([st statvalue] - [baseStat statvalue]);
 			[st setStatvalue:[baseStat statvalue]];
-			[[[st parent] getProperties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + difference)] forKey:@"allocatable"];
+			[[[st parent] properties] setObject:[NSNumber numberWithInt:([[[st parent] valueForKeyPath:@"properties.allocatable"] intValue] + difference)] forKey:@"allocatable"];
 			break;
 	}
 }
@@ -98,7 +98,7 @@ CIMPL(reset,reset:stat:,nil,nil,nil,1) stat:(NSString*)stat {
 CHELP(save,@"Saves the changes.  Confirms the save if you have points remaining.",nil)
 CIMPL(save,save:,nil,nil,nil,1) {
 	NSPredicate* allocatable = [NSPredicate predicateWithFormat:@"self.properties.allocatable > 0"];
-	NSArray* stillAllocatable = [[[[coordinator valueForKeyPath:@"properties.current-character"] stats] getChildren] filteredArrayUsingPredicate:allocatable];
+	NSArray* stillAllocatable = [[[[coordinator valueForKeyPath:@"properties.current-character"] stats] children] filteredArrayUsingPredicate:allocatable];
 	if([stillAllocatable count] > 0) {
 		[coordinator sendMessageToBuffer:@"Points still remaining to allocate.  Type quit if you wish to continue without spending those points."];
 		return;
@@ -127,11 +127,11 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 -(void) generateValidStats
 {
 	NSPredicate* changeableOnCollection = [NSPredicate predicateWithFormat:@"properties.changeable == yes"];
-	NSArray* changeableCollection = [[allocBase getChildren] filteredArrayUsingPredicate:changeableOnCollection];
+	NSArray* changeableCollection = [[allocBase children] filteredArrayUsingPredicate:changeableOnCollection];
 	for(KMStat* stat in changeableCollection) {
 		[validStats addObject:[NSString stringWithFormat:@"(%@|%@)",[stat name], [stat abbreviation]]];
 		NSPredicate* changeableOnCollectionReverse = [NSPredicate predicateWithFormat:@"children.@count.intValue == 0 and properties.changeable == yes"];
-		NSArray* changeableCollectionReverse = [[stat getChildren] filteredArrayUsingPredicate:changeableOnCollectionReverse];
+		NSArray* changeableCollectionReverse = [[stat children] filteredArrayUsingPredicate:changeableOnCollectionReverse];
 		for(KMStat* child in changeableCollectionReverse) {
 			if([[[child parent] name] isEqualToString:@"main"]) {
 				[validStats addObject:[NSString stringWithFormat:@"(%@|%@)",[child name], [child abbreviation]]];
@@ -142,7 +142,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	}
 }
 
--(id) initializeWithCommandInterpreter:(id) __unused cmdInterpreter
+-(id) initWithCommandInterpreter:(id) __unused cmdInterpreter
 {
 	self = [super init];
 	if(self) {
@@ -203,9 +203,9 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 		__block void (^setAllocatableTo0)(KMStat*) = nil;
 		
 		setAllocatableTo0 = ^void(KMStat* stat) {
-			[[stat getProperties] setObject:[NSNumber numberWithInt:0] forKey:@"allocatable"];
+			[[stat properties] setObject:[NSNumber numberWithInt:0] forKey:@"allocatable"];
 			if([stat hasChildren]) {
-				for(KMStat* child in [stat getChildren]) {
+				for(KMStat* child in [stat children]) {
 					setAllocatableTo0(child);
 				}
 			}
@@ -223,7 +223,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	
 	KMInfoDisplay* display = [[KMInfoDisplay alloc] init];
 	NSPredicate* changeable = [NSPredicate predicateWithFormat:@"properties.changeable == yes"];
-	NSArray* changeableCollections = [[current getChildren] filteredArrayUsingPredicate:changeable];
+	NSArray* changeableCollections = [[current children] filteredArrayUsingPredicate:changeable];
 	NSMutableString* allocatabledisplay = [[NSMutableString alloc] init];
 	for(KMStat* stat in changeableCollections)
 		[allocatabledisplay appendFormat:@"%@ ",[stat name]];
@@ -243,7 +243,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 		[display appendLine:allocatableEntry];
 		
 		NSPredicate* allocatableChildrenP = [NSPredicate predicateWithFormat:@"children.@count == 0 and properties.changeable == yes"];
-		NSArray* allocatableChildren = [[stat getChildren] filteredArrayUsingPredicate:allocatableChildrenP];
+		NSArray* allocatableChildren = [[stat children] filteredArrayUsingPredicate:allocatableChildrenP];
 		
 		for(KMStat* child in allocatableChildren) {
 			NSString* childEntry = [NSString stringWithFormat:@"        `c%@: `G%d`x", [child name], [child statvalue]];
@@ -253,7 +253,7 @@ CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	
 	int i = 0;
 	NSPredicate* allocatable = [NSPredicate predicateWithFormat:@"properties.allocatable.intValue > 0"];
-	NSArray* stillAllocatable = [[[[coordinator valueForKeyPath:@"properties.current-character"] stats] getChildren] filteredArrayUsingPredicate:allocatable];
+	NSArray* stillAllocatable = [[[[coordinator valueForKeyPath:@"properties.current-character"] stats] children] filteredArrayUsingPredicate:allocatable];
 	for(KMStat* stat in stillAllocatable)
 		i += [[stat valueForKeyPath:@"properties.allocatable"] intValue];
 	

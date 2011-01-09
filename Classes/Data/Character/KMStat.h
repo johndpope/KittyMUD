@@ -44,11 +44,11 @@ typedef enum
 
 -(id) init;
 
--(id) initializeWithName:(NSString*)sname andValue:(int)val;
+-(id) initWithName:(NSString*)sname andValue:(int)val;
 
--(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr;
+-(id) initWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr;
 
--(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr andValue:(int)val;
+-(id) initWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr andValue:(int)val;
 
 -(void) addChild:(KMStat*)child;
 
@@ -82,13 +82,11 @@ typedef enum
 
 -(NSXMLElement*) saveToXML;
 
--(NSArray*) getChildren;
-
 -(void) copyStat:(KMStat*)stat;
 
 -(void) copyStat:(KMStat*)stat withSettings:(KMStatCopySettings)settings;
 
-@property (retain,readonly,getter=getChildren) NSArray* children;
+@property (retain,readonly) NSArray* children;
 @property (assign) int statvalue;
 @property (copy) NSString* name;
 @property (retain) KMStat* parent;

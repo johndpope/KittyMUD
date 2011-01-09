@@ -68,9 +68,9 @@ typedef void(^KMOutputHook)(KMConnectionCoordinator*);
 
 -(void) addOutputHook:(NSString*)key block:(KMOutputHook)hook;
 
-@property (copy,getter=getLastReadTime) NSDate* lastReadTime;
-@property (copy,getter=getInputBuffer) NSString* inputBuffer;
+@property (copy) NSDate* lastReadTime;
+@property (copy) NSString* inputBuffer;
 @property (copy) NSString* outputBuffer;
-@property (retain,readonly,getter=getCharacters) NSMutableArray* characters;
+@property (retain,readonly) NSMutableArray* characters;
 @property (retain,readonly) NSMutableDictionary* outputHooks;
 @end

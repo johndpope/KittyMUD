@@ -28,7 +28,7 @@
 
 -(void) processState
 {
-	[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
+	[[[KMServer defaultServer] connectionPool] removeConnection:coordinator];
 }
 
 +(NSString*) getName

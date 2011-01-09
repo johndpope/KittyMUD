@@ -34,20 +34,20 @@
 
 -(id) init
 {
-	return [self initializeWithName:nil andValue:0];
+	return [self initWithName:nil andValue:0];
 }
 
--(id) initializeWithName:(NSString*)sname andValue:(int)val
+-(id) initWithName:(NSString*)sname andValue:(int)val
 {
-	return [self initializeWithName:sname andAbbreviation:nil andValue:val];
+	return [self initWithName:sname andAbbreviation:nil andValue:val];
 }
 
--(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr
+-(id) initWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr
 {
-	return [self initializeWithName:sname andAbbreviation:sabbr andValue:0];
+	return [self initWithName:sname andAbbreviation:sabbr andValue:0];
 }
 
--(id) initializeWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr andValue:(int)val
+-(id) initWithName:(NSString*)sname andAbbreviation:(NSString*)sabbr andValue:(int)val
 {
 	self = [super init];
 	if(self) {
@@ -134,7 +134,7 @@
 	
 	if(![self hasChildren])
 	{
-		KMStat* parentStat = [[[self class] alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
+		KMStat* parentStat = [[[self class] alloc] initWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
 		if(childString) {
 			[parentStat setValueOfChildAtPath:childString withValue:val];
 		} else {
@@ -150,7 +150,7 @@
 			else
 				return [[[children filteredArrayUsingPredicate:parentTest] objectAtIndex:0] setStatvalue:val];
 		} else {
-			KMStat* parentStat = [[[self class] alloc] initializeWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
+			KMStat* parentStat = [[[self class] alloc] initWithName:statName andAbbreviation:(statAbbreviation ? statAbbreviation : statName) andValue:0];
 			if(childString) {
 				[parentStat setValueOfChildAtPath:childString withValue:val];
 			} else {
@@ -215,7 +215,7 @@
 
 +(KMStat*) loadFromTemplateWithRootElement:(NSXMLElement *)root withType:(KMStatLoadType)loadType
 {
-	__block KMStat* main = [[self alloc] initializeWithName:@"main" andValue:0];
+	__block KMStat* main = [[self alloc] initWithName:@"main" andValue:0];
 	if(root == nil)
 		return main;
 	
@@ -232,7 +232,7 @@
 	if(loadType == KMStatLoadTypeAllocation) {
 		NSXMLNode* allocAttribute = [mainElement valueForKey:@"alloc"];
 		if(allocAttribute != nil)
-			[[main getProperties] setObject:[NSNumber numberWithInt:[[allocAttribute stringValue] intValue]] forKey:@"allocatable"];
+			[[main properties] setObject:[NSNumber numberWithInt:[[allocAttribute stringValue] intValue]] forKey:@"allocatable"];
 	}
 	
 	NSString* attributeToLookFor;
@@ -270,16 +270,16 @@
 		if(valueAttribute != nil)
 			_statvalue = [[valueAttribute stringValue] intValue];
 		
-		stat = [[self alloc] initializeWithName:statName andAbbreviation:statAbbr andValue:0];
+		stat = [[self alloc] initWithName:statName andAbbreviation:statAbbr andValue:0];
 		if(loadType == KMStatLoadTypeAllocation) {
-			[[stat getProperties] setObject:[NSNumber numberWithInt:_statvalue] forKey:@"allocatable"];
+			[[stat properties] setObject:[NSNumber numberWithInt:_statvalue] forKey:@"allocatable"];
 			NSXMLNode* changeableAttribute = [element valueForKey:@"changeable"];
 			if(changeableAttribute != nil)
 				changeable = [[changeableAttribute stringValue] boolValue];
 		} else
 			[stat setStatvalue:_statvalue];
 		
-		[[stat getProperties] setObject:[NSNumber numberWithBool:changeable] forKey:@"changeable"];
+		[[stat properties] setObject:[NSNumber numberWithBool:changeable] forKey:@"changeable"];
 		[stat setParent:statParent];
 		
 		return stat;
@@ -338,11 +338,11 @@
 	NSMutableString* line = [[NSMutableString alloc] init];
 	for(int i = 0; i < tabLevel; i++)
 		[line appendString:@"\t"];
-	[line appendFormat:@"%@(%@) = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self abbreviation], [self statvalue], [[self parent] name], [[[self getProperties] objectForKey:@"allocatable"] intValue],
-	 [[[self getProperties] objectForKey:@"changeable"] boolValue] ? @"YES" : @"NO"];
+	[line appendFormat:@"%@(%@) = %d (Parent name = %@) (allocatable = %d) (changeable = %@)", [self name], [self abbreviation], [self statvalue], [[self parent] name], [[[self properties] objectForKey:@"allocatable"] intValue],
+	 [[[self properties] objectForKey:@"changeable"] boolValue] ? @"YES" : @"NO"];
 	OCLog(@"kittymud",debug,@"%@", line);
 	if([self hasChildren]) {
-		NSArray* child = [self getChildren];
+		NSArray* child = [self children];
 		for(NSUInteger c = 0; c < [child count]; c++)
 			[[child objectAtIndex:c] KM_debugPrintTree:(tabLevel + 1)];
 	}
@@ -353,10 +353,6 @@
 {
 	KMStatLoadType type = *(KMStatLoadType*)context;
 	return [KMStat loadFromTemplateWithRootElement:xelem withType:type];
-}
-
--(NSArray*) getChildren {
-	return (NSArray*)children;
 }
 
 -(NSXMLElement*) saveToXML {
@@ -374,7 +370,7 @@
 	[mainElement addAttribute:abbreviationAttribute];
 	[mainElement addAttribute:valueAttribute];
 	if([self hasChildren]) {
-		for(KMStat* child in [self getChildren]) {
+		for(KMStat* child in [self children]) {
 			[mainElement addChild:[child saveToXML]];
 		}
 	}
@@ -399,11 +395,11 @@
 	if(settings & KMStatCopySettingsValue)
 		[self setStatvalue:[stat statvalue]];
 	if(settings & KMStatCopySettingsChangeable && [stat valueForKeyPath:@"properties.changeable"])
-		[[self getProperties] setObject:[[stat getProperties] objectForKey:@"changeable"] forKey:@"changeable"];
+		[[self properties] setObject:[[stat properties] objectForKey:@"changeable"] forKey:@"changeable"];
 	if(settings & KMStatCopySettingsAllocatable && [stat valueForKeyPath:@"properties.allocatable"])
-		[[self getProperties] setObject:[[stat getProperties] objectForKey:@"allocatable"] forKey:@"allocatable"];
+		[[self properties] setObject:[[stat properties] objectForKey:@"allocatable"] forKey:@"allocatable"];
 	if([stat hasChildren]) {
-		for(KMStat* child in [stat getChildren]) {
+		for(KMStat* child in [stat children]) {
 			if([child name] == nil || [child abbreviation] == nil)
 				continue;
 			KMStat* mychild = [self findStatWithPath:[child name]];

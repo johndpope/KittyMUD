@@ -30,7 +30,7 @@
 
 @implementation KMPlayingLogic
 
--(id) initializeWithCommandInterpreter:(id) __unused cmdInterpreter
+-(id) initWithCommandInterpreter:(id) __unused cmdInterpreter
 {
 	self = [super init];
 	return self;
@@ -60,7 +60,7 @@ CIMPL(save,save:,nil,nil,nil,1) {
 CHELP(quit,@"Quits the game with saving.",nil)
 CIMPL(quit,quit:,nil,nil,nil,1) {
     [self CMD(save)];
-	[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
+	[[[KMServer defaultServer] connectionPool] removeConnection:coordinator];
 }
 
 static void moveBase(KMConnectionCoordinator* coordinator, KMExitDirection exitDir, BOOL move) {
@@ -179,10 +179,10 @@ static int rebootTime = 0;
 			warningColor = @"`R";
 		}
 		if(displayWarning)
-			[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`W*** #!%@PERFORMING A SOFT REBOOT in %d minutes `!`W***#!`x",warningColor,rebootTime]];
+			[[[KMServer defaultServer] connectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`W*** #!%@PERFORMING A SOFT REBOOT in %d minutes `!`W***#!`x",warningColor,rebootTime]];
 	} else {
-		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:@"`!`W*** #!`RPERFORMING A SOFT REBOOT, PLEASE STANDBY... `!`W***#!`x"];
-		[[KMServer getDefaultServer] softReboot];
+		[[[KMServer defaultServer] connectionPool] writeToAllConnections:@"`!`W*** #!`RPERFORMING A SOFT REBOOT, PLEASE STANDBY... `!`W***#!`x"];
+		[[KMServer defaultServer] softReboot];
 	}
 }
 
@@ -194,7 +194,7 @@ CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 		NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 		NSTimer* timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(realSoftReboot:) userInfo:nil repeats:YES];
 		[runLoop addTimer:timer forMode:NSRunLoopCommonModes]; 
-		[[[KMServer getDefaultServer] getConnectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x",rebootTime]];
+		[[[KMServer defaultServer] connectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x",rebootTime]];
 	}
 	else {
 		[self realSoftReboot:nil];

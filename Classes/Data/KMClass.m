@@ -113,7 +113,7 @@ KMDataManager* KMClass_setUpDataManager() {
 	
 	__block BOOL ok = YES;
 	meetsRequirementsHelper = ^BOOL(KMStat* stat) {
-		for(KMStat* s in [stat getChildren]) {
+		for(KMStat* s in [stat children]) {
 			KMStack* stack = [[KMStack alloc] init];
 			
 			[stack push:[s name]];

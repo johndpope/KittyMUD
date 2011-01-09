@@ -34,7 +34,7 @@
 	return self;
 }
 
--(id) initializeWithConfigFile:(NSString*)configFile
+-(id) initWithConfigFile:(NSString*)configFile
 {
 	self = [self init];
 	if(self) {

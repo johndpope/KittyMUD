@@ -91,13 +91,13 @@
 		[myItems sortUsingFunction:sortFunction context:NULL];
 	}
 	[coordinator setFlag:@"no-message"];
-	NSUInteger sel = (NSUInteger)[[coordinator getInputBuffer] intValue];
+	NSUInteger sel = (NSUInteger)[[coordinator inputBuffer] intValue];
 	if(!sel || (sel > [myItems count]) || sel < 1) {
-		if(![[coordinator getInputBuffer] hasPrefix:@"info"])
+		if(![[coordinator inputBuffer] hasPrefix:@"info"])
 			[coordinator sendMessageToBuffer:@"\n\rInvalid selection.\n\r"];
 		else {
-			if([[coordinator getInputBuffer] hasPrefix:@"info"]) {
-				NSArray* infoMakeup = [[coordinator getInputBuffer] componentsSeparatedByString:@" "];
+			if([[coordinator inputBuffer] hasPrefix:@"info"]) {
+				NSArray* infoMakeup = [[coordinator inputBuffer] componentsSeparatedByString:@" "];
 				if([infoMakeup count] > 1) {
 					NSUInteger selection = (NSUInteger)[[infoMakeup objectAtIndex:1] intValue];
 					if(!selection || (selection > [myItems count]) || selection < 1) {

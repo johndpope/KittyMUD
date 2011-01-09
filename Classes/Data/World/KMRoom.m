@@ -283,7 +283,7 @@ extern KMExitDirection directionFromString( NSString* dir );
 	[string appendString:[self roomDescription]];
     [string appendString:@"\n\r\n\r"];
     [string appendString:@"`w("];
-    NSArray* conns = [[[KMServer getDefaultServer] getConnectionPool] connections];
+    NSArray* conns = [[[KMServer defaultServer] connectionPool] connections];
     NSPredicate* pred = [NSPredicate predicateWithFormat:@"self.character.room.sector == %@ and self.character.room.roomID == %@",self.sector,self.roomID];
     NSArray* array = [conns filteredArrayUsingPredicate:pred];
     for(KMConnectionCoordinator* coord in array) {

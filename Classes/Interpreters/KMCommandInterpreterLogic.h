@@ -42,7 +42,7 @@
 
 @protocol KMCommandInterpreterLogic <NSObject>
 
--(id) initializeWithCommandInterpreter:(id)cmdInterpreter;
+-(id) initWithCommandInterpreter:(id)cmdInterpreter;
 
 -(void) displayHelpToCoordinator:(id)coordinator;
 

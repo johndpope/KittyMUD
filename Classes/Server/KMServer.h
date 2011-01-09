@@ -39,11 +39,9 @@ typedef enum {
 	BOOL isRunning;
 }
 
-+(KMServer*)getDefaultServer;
++(KMServer*)defaultServer;
 
 -(id) init;
-
--(KMConnectionPool*) getConnectionPool;
 
 -(BOOL) initializeServerWithPort:(int)port error:(NSError**)error;
 
@@ -55,6 +53,6 @@ typedef enum {
 
 @property CFSocketRef serverSocket;
 @property int currentPoolId;
-@property (retain,getter=getConnectionPool) KMConnectionPool* connectionPool;
+@property (retain) KMConnectionPool* connectionPool;
 @property BOOL isRunning;
 @end

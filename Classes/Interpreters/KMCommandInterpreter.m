@@ -64,7 +64,7 @@
 		return;
 	id<KMCommandInterpreterLogic> logic;
 	if(!target) 
-		logic = [[clogic alloc] initializeWithCommandInterpreter:self];
+		logic = [[clogic alloc] initWithCommandInterpreter:self];
 	else
 		logic = target;
 	if(class_getSuperclass(clogic))
@@ -132,7 +132,7 @@
 
 -(void) interpret:(id)coordinator
 {
-	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	NSArray* commandmakeup = [[coordinator inputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
 	KMCommandInfo* command = [self KM_findCommandByName:[commandName lowercaseString]];
 	
@@ -193,7 +193,7 @@
 {
 	Method m = class_getInstanceMethod([[command target] class], NSSelectorFromString([command method]));
 	unsigned int numArgs = method_getNumberOfArguments(m);
-	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	NSArray* commandmakeup = [[coordinator inputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	if(!ofl) {
 		NSUInteger numOpt = [[command optArgs] count];
 		if([commandmakeup count] < (numArgs - 3 - numOpt)) {
@@ -208,7 +208,7 @@
 			}
 		}
 	}
-	KMCharacter* character = [[coordinator getProperties] objectForKey:@"current-character"];
+	KMCharacter* character = [[coordinator properties] objectForKey:@"current-character"];
 	if([[[character stats] findStatWithPath:@"level"] statvalue] < [command minLevel])
 		return NO;
 	return YES;
@@ -250,7 +250,7 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 CHELP(rebuildlogics,@"Rebuilds the logics for all command interpreters in use at the time.  Used when soft rebooting with changed commands.",nil)
 CIMPL(rebuildlogics,rebuildlogics:,nil,nil,@"admin",1) {
 	KMConnectionCoordinator* tc = coordinator;
-	for(KMConnectionCoordinator* coord in [[[KMServer getDefaultServer] getConnectionPool] connections]) {
+	for(KMConnectionCoordinator* coord in [[[KMServer defaultServer] connectionPool] connections]) {
 		coordinator = coord;
 		KMGetInterpreterForCoordinator(interpreter);
 		if([interpreter isKindOfClass:[KMCommandInterpreter class]]) {

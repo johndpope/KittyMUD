@@ -29,7 +29,7 @@
 
 -(id) init;
 
--(id) initializeWithConfigFile:(NSString*)configFile;
+-(id) initWithConfigFile:(NSString*)configFile;
 
 -(void) loadAllVariables;
 

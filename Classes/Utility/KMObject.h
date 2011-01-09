@@ -42,6 +42,6 @@
 
 -(void) debugPrintFlagStatus:(id)coordinator;
 
-@property (retain,readonly,getter=getProperties) NSMutableDictionary* properties;
+@property (retain,readonly) NSMutableDictionary* properties;
 
 @end

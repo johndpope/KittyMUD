@@ -37,7 +37,7 @@
 @implementation KMConnectionCoordinator
 
 +(KMConnectionCoordinator*) getCoordinatorForCharacterWithName:(NSString *)name {
-	for(KMConnectionCoordinator* coordinator in [[[KMServer getDefaultServer] getConnectionPool] connections]) {
+	for(KMConnectionCoordinator* coordinator in [[[KMServer defaultServer] connectionPool] connections]) {
 		if(![[coordinator valueForKeyPath:@"properties.current-character.properties.name"] caseInsensitiveCompare:name])
 			return coordinator;
 	}
@@ -62,7 +62,7 @@
 static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* message) {
 	message = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* (^sendMessageHelperStrip)(NSString*) = ^(NSString* input){
-		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
+		for(id<KMWriteHook> hook in [[[KMServer defaultServer] connectionPool] hooks]) {
 			input = [hook processHook:input replace:NO];
 		}
 		return input;
@@ -78,7 +78,7 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 	else if (isMenu)
 		message = [[message substringToIndex:([message length] - 1)] stringByAppendingString:@"\n\r\n\r"];
 	NSString* (^sendMessageHelper)(NSString*) = ^(NSString* input){
-		for(id<KMWriteHook> hook in [[[KMServer getDefaultServer] getConnectionPool] hooks]) {
+		for(id<KMWriteHook> hook in [[[KMServer defaultServer] connectionPool] hooks]) {
 			input = [hook processHook:input];
 		}
 		return input;
@@ -107,7 +107,7 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	if(CFSocketSendData(socket, NULL, (CFDataRef)data, 0) != kCFSocketSuccess) {
 		OCLog(@"kittymud",info,@"Error sending data to connection, closing connection...");
-		[[[KMServer getDefaultServer] getConnectionPool] removeConnection:self];
+		[[[KMServer defaultServer] connectionPool] removeConnection:self];
 		return NO;
 	}
 	return YES;
@@ -192,7 +192,7 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 		}
 	}
 	[rootElement addChild:flagsElement];
-	for(KMCharacter* character in [self getCharacters]) {
+	for(KMCharacter* character in [self characters]) {
 		[rootElement addChild:[character saveToXML]];
 	}
 	NSXMLDocument* xdoc = [[NSXMLDocument alloc] initWithRootElement:rootElement];
@@ -224,7 +224,7 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 	}
 	NSArray* characterElements = [rootElement elementsForName:@"character"];
 	for(NSXMLElement* characterElement in characterElements) {
-		[[self getCharacters] addObject:[KMCharacter loadFromXML:characterElement]];
+		[[self characters] addObject:[KMCharacter loadFromXML:characterElement]];
 	}
     if(withState) {
         [self setValue:[[NSClassFromString([[rootElement attributeForName:@"state"] stringValue]) alloc] initWithCoordinator:self] forKeyPath:@"properties.current-state"];
@@ -232,7 +232,7 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
         [self setValue:interp forKeyPath:@"properties.current-interpreter"];
         NSString* characterName = [[rootElement attributeForName:@"character"] stringValue];
         NSPredicate* pred = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@",characterName];
-        NSArray* _characters = [[self getCharacters] filteredArrayUsingPredicate:pred];
+        NSArray* _characters = [[self characters] filteredArrayUsingPredicate:pred];
         // this should not ever crash, but we'll add a check here just in case
         if(_characters.count) {
             [self setValue:[_characters objectAtIndex:0] forKeyPath:@"properties.current-character"];

@@ -28,7 +28,7 @@
 
 -(void) processState
 {
-	NSString* message = [coordinator getInputBuffer];
+	NSString* message = [coordinator inputBuffer];
 	NSPredicate* yesPredicate = [NSPredicate predicateWithFormat:@"self beginswith[cd] 'y'"];
 	if([yesPredicate evaluateWithObject:message]) {
 		KMGetStateFromCoordinator(state);

@@ -36,12 +36,12 @@ static void ServerBaseCallout(CFSocketRef __unused socket, CFSocketCallBackType 
 	KMServer* server = (KMServer*)info;
 	CFSocketNativeHandle nativeHandle = *(CFSocketNativeHandle*)data;
 	
-	[[server getConnectionPool] newConnectionWithSocketHandle:nativeHandle softReboot:NO];
+	[[server connectionPool] newConnectionWithSocketHandle:nativeHandle softReboot:NO];
 }
 
 @implementation KMServer
 
-+(KMServer*) getDefaultServer
++(KMServer*) defaultServer
 {
 	return defaultServerBase;
 }
@@ -59,11 +59,6 @@ static void ServerBaseCallout(CFSocketRef __unused socket, CFSocketCallBackType 
 		connectionPool = [[KMConnectionPool alloc] init];
 	}
 	return self;
-}
-
--(KMConnectionPool*) getConnectionPool
-{
-	return connectionPool;
 }
 
 -(BOOL) initializeServerWithPort:(int)port error:(NSError**)error

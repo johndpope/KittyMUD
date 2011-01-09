@@ -28,7 +28,7 @@
 	KMStat* stats;
 }
 
--(id)initializeWithName:(NSString*)name;
+-(id)initWithName:(NSString*)name;
 
 -(NSXMLElement*) saveToXML;
 

@@ -48,7 +48,7 @@
 	KMSoftRebootCheck;
 	KMGetMenuFromCoordinator(menu);
 	if(!menu) {
-		menu = [[KMMenuHandler alloc] initWithItems:[coordinator getCharacters]];
+		menu = [[KMMenuHandler alloc] initWithItems:[coordinator characters]];
 		KMSetMenuForCoordinatorTo(menu);
 	}
 	[menu displayMenu:coordinator];

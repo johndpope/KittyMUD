@@ -31,20 +31,20 @@
 
 -(void) processState
 {
-	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.xml", [coordinator getInputBuffer]] replaceAllVariables];
+	NSString* fileName = [[NSString stringWithFormat:@"$(SaveDir)/%@.xml", [coordinator inputBuffer]] replaceAllVariables];
 	id<KMState> returnState;
-	NSPredicate* accountNameTest = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@", [coordinator getInputBuffer]];
-	if([[[[[KMServer getDefaultServer] getConnectionPool] connections] filteredArrayUsingPredicate:accountNameTest] count] > 0) {
+	NSPredicate* accountNameTest = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@", [coordinator inputBuffer]];
+	if([[[[[KMServer defaultServer] connectionPool] connections] filteredArrayUsingPredicate:accountNameTest] count] > 0) {
 		[coordinator sendMessageToBuffer:@"Account name already logged in."];
 		[self softRebootMessage];
 		return;
 	}
-	[[coordinator getProperties] setObject:[coordinator getInputBuffer] forKey:@"name"];
+	[[coordinator properties] setObject:[coordinator inputBuffer] forKey:@"name"];
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
 		[coordinator loadFromXML:[@"$(SaveDir)" replaceAllVariables]];
 		if([coordinator isFlagSet:@"locked"]) {
 			[coordinator sendMessage:[@"Your account is locked.  Contact an administrator at $(AdminEmail) to unlock your account." replaceAllVariables]];
-			[[[KMServer getDefaultServer] getConnectionPool] removeConnection:coordinator];
+			[[[KMServer defaultServer] connectionPool] removeConnection:coordinator];
 			return;
 		}
 		returnState = (id<KMState>)[KMConfirmPasswordState class];
