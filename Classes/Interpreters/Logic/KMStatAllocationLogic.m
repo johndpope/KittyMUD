@@ -116,7 +116,7 @@ CIMPL(quit,quit:,nil,nil,nil,1) {
 	}
 }
 
-CHELP(showvalid,@"Shows which stats are valid for input the allocation commands.",nil)
+CHELP(showvalid,@"Shows which stats are valid for input to the allocation commands.",nil)
 CIMPL(showvalid,showvalid:,nil,@"valid",nil,1) {
 	[coordinator sendMessageToBuffer:@"Valid stat names are:>"];
 	for(NSString* valid in validStats) {
