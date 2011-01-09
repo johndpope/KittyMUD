@@ -88,8 +88,9 @@ static void moveBase(KMConnectionCoordinator* coordinator, KMExitDirection exitD
 	
 	KMRoom* dest = [moveTo room];
 	if(move) {
-		[coordinator clearFlag:@"no-display-room"];
+		[coordinator setFlag:@"no-display-room"];
 		[pc setValue:dest forKeyPath:@"properties.current-room"];
+        [dest displayRoom:coordinator];
 	} else {
         [dest displayRoom:coordinator];
     }
