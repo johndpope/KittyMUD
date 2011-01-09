@@ -49,8 +49,8 @@
     KMRoom* currentRoom;
     switch(type) {
         case KMChatWhisper:
-            // This is one of the easiest types
-            [recipients addObject:[KMConnectionCoordinator getCoordinatorForCharacterWithName:self.name]];
+            [recipients addObject:[KMConnectionCoordinator getCoordinatorForCharacterWithName:[self.name substringFromIndex:1]]];
+            [recipients addObject:coordinator];
             break;
         case KMChatGlobal:
             recipients = [NSMutableArray arrayWithArray:allCoordinators];
@@ -111,11 +111,11 @@ static KMChatEngine* __KMChatEngine;
     NSArray* coordinators = [_channel getRecipientsOfMessageFrom:coordinator];
     NSMutableArray* recipients = [NSMutableArray arrayWithArray:coordinators];
     // this is where we validate flags to make sure coordinators have permission to view this channel
-    for(KMConnectionCoordinator* coordinator in coordinators) {
-        KMCharacter* pc = [coordinator valueForKeyPath:@"properties.current-character"];
+    for(KMConnectionCoordinator* coord in coordinators) {
+        KMCharacter* pc = [coord valueForKeyPath:@"properties.current-character"];
         for(NSString* flag in _channel.flags) {
-            if(![coordinator isFlagSet:flag] && ![pc isFlagSet:flag])
-                [recipients removeObject:coordinator];
+            if(![coord isFlagSet:flag] && ![pc isFlagSet:flag])
+                [recipients removeObject:coord];
         }
     }
     NSString* _message;
@@ -139,19 +139,24 @@ static KMChatEngine* __KMChatEngine;
             break;
     }
     [[[KMServer getDefaultServer] getConnectionPool] writeMessage:_message toConnections:recipients];
+    if(_channel.type == KMChatWhisper) {
+        for(KMConnectionCoordinator* coord in recipients) {
+            [coord setValue:[coordinator valueForKeyPath:@"character.properties.name"] forKeyPath:@"properties.reply-target"];
+        }
+    }
 }
 
 -(void) addChatChannel:(NSString *)channel ofType:(KMChatType)type withFlags:(NSArray *)flags {
     NSString* key = channel;
     if(type == KMChatWhisper) {
-        key = [NSString stringWithFormat:@"whisper-{%@}",channel];
+        key = [NSString stringWithFormat:@"w%@",channel];
     }
-    [chatChannels setObject:[[KMChatChannel alloc] initWithName:channel type:type flags:flags] forKey:key];
+    [chatChannels setObject:[[KMChatChannel alloc] initWithName:key type:type flags:flags] forKey:key];
 }
 
 -(void) removeChatChannel:(NSString *)channel {
     NSString* normalKey = [channel copy];
-    NSString* whisperKey = [NSString stringWithFormat:@"whisper-{%@}",channel];
+    NSString* whisperKey = [NSString stringWithFormat:@"w%@",channel];
     if([chatChannels objectForKey:normalKey])
         [chatChannels removeObjectForKey:normalKey];
     else
