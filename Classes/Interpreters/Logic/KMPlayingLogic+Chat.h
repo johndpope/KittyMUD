@@ -17,4 +17,10 @@ CDECL(say) message:(NSString*)message;
 CHEDC(yell);
 CDECL(yell) message:(NSString*)message;
 
+CHEDC(whisper);
+CDECL(whisper) target:(NSString*)target message:(NSString*)message;
+
+CHEDC(reply);
+CDECL(reply) message:(NSString*)message;
+
 @end
