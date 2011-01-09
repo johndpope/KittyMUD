@@ -56,6 +56,11 @@ NSString* const KMConnectionPoolErrorDomain = @"KMConnectionPoolErrorDomain";
 			}
 			[coordinator clearFlag:@"no-message"];
 			[coordinator clearFlag:@"message-direct"];
+            // Here we process output hooks
+            for(NSString* key in coordinator.outputHooks.allKeys) {
+                KMOutputHook hook = [coordinator.outputHooks objectForKey:key];
+                hook(coordinator);
+            }
 		}
 	}
 }
@@ -100,8 +105,9 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	if(!softReboot) {
 		coordinator = [[KMConnectionCoordinator alloc] init];
 	} else {
-		coordinator = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",name] replaceAllVariables]];
-        NSLog(@"%@",coordinator.properties);
+        coordinator = [[KMConnectionCoordinator alloc] init];
+        [coordinator setValue:name forKeyPath:@"properties.name"];
+        [coordinator loadFromXML:[@"$(BundleDir)/tmp" replaceAllVariables] withState:YES];
 	}
 	
 	if([coordinator createSocketWithHandle:handle andCallback:(CFSocketCallBack)&ConnectionBaseCallback])
@@ -133,7 +139,13 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 -(void) writeToAllConnections:(NSString*)message
 {
 	for(KMConnectionCoordinator* coordinator in connections) {
-		[coordinator sendMessage:message];
+		[coordinator sendMessageToBuffer:message];
+	}
+}
+
+-(void) writeMessage:(NSString*)message toConnections:(NSArray*)conns {
+    for(KMConnectionCoordinator* coordinator in conns) {
+		[coordinator sendMessageToBuffer:message];
 	}
 }
 

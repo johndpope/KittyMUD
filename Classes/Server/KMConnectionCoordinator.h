@@ -24,6 +24,10 @@
 #import "KMInterpreter.h"
 #import "KMObject.h"
 
+@class KMConnectionCoordinator;
+
+typedef void(^KMOutputHook)(KMConnectionCoordinator*);
+
 @interface  KMConnectionCoordinator  : KMObject {
 	@private
 	CFSocketRef socket;
@@ -31,6 +35,7 @@
 	NSString* outputBuffer;
 	NSDate* lastReadTime;
 	NSMutableArray* characters;
+    NSMutableDictionary* outputHooks;
 }
 
 +(KMConnectionCoordinator*) getCoordinatorForCharacterWithName:(NSString*)name;
@@ -49,7 +54,11 @@
 
 -(void) saveToXML:(NSString*)path;
 
+-(void) saveToXML:(NSString*)path withState:(BOOL)state;
+
 -(void) loadFromXML:(NSString*)path;
+
+-(void) loadFromXML:(NSString*)dirToSave withState:(BOOL)state;
 
 // -(id) valueForUndefinedKey:(NSString *)key;
 
@@ -57,8 +66,11 @@
 
 -(void) releaseSocket;
 
+-(void) addOutputHook:(NSString*)key block:(KMOutputHook)hook;
+
 @property (copy,getter=getLastReadTime) NSDate* lastReadTime;
 @property (copy,getter=getInputBuffer) NSString* inputBuffer;
 @property (copy) NSString* outputBuffer;
 @property (retain,readonly,getter=getCharacters) NSMutableArray* characters;
+@property (retain,readonly) NSMutableDictionary* outputHooks;
 @end

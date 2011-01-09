@@ -43,11 +43,6 @@ static BOOL setUpOCLChannel = NO;
 		setUpOCLChannel = YES;
 		[[OCLogMaster defaultMaster] registerChannel:[OCLogChannel channelWithName:@"kittymud"]];
 	}
-	NSError* error = nil;
-	[ECSCodingSupportAspect addToClass:[self class] error:&error];
-	if(error) {
-		OCLog(@"kittymud",warning,@"Error adding support to %@...",NSStringFromClass([self class]));
-	}
 }
 
 -(id)init {

@@ -126,11 +126,8 @@ static void ServerBaseCallout(CFSocketRef __unused socket, CFSocketCallBackType 
 		[coordinator setFlag:@"soft-reboot"];
 		[coordinator clearFlag:@"softreboot-displayed"];
 		[coordinator setOutputBuffer:@""];
-		BOOL res = [NSKeyedArchiver archiveRootObject:coordinator toFile:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables]];
-		if(!res) {
-			OCLog(@"kittymud",info,@"Error archiving coordinator for account %@...", [coordinator valueForKeyPath:@"properties.name"]);
-			continue;
-		}
+
+        [coordinator saveToXML:[@"$(BundleDir)/tmp" replaceAllVariables] withState:YES];
 		[softRebootFile writeData:[[NSString stringWithFormat:@"%d %@\n\r",CFSocketGetNative([coordinator getSocket]),[coordinator valueForKeyPath:@"properties.name"]] dataUsingEncoding:NSUTF8StringEncoding]];
 	}
 	[softRebootFile closeFile];
@@ -144,7 +141,6 @@ static void ServerBaseCallout(CFSocketRef __unused socket, CFSocketCallBackType 
 	NSFileHandle* softRebootFile = [NSFileHandle fileHandleForReadingAtPath:[@"$(BundleDir)/tmp/sr" replaceAllVariables]];
 	NSArray* lines = [[[NSString alloc] initWithData:[softRebootFile readDataToEndOfFile] encoding:NSUTF8StringEncoding] 
 					  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    NSLog(@"lines: %@",lines);
 	CFSocketContext serverContext = {0, self, NULL, NULL, NULL};
 	[self setServerSocket:CFSocketCreateWithNative(kCFAllocatorDefault, socketHandle, kCFSocketAcceptCallBack, (CFSocketCallBack)&ServerBaseCallout, (CFSocketContext const*)&serverContext)];
 	for(NSString* line in lines) {
@@ -154,7 +150,7 @@ static void ServerBaseCallout(CFSocketRef __unused socket, CFSocketCallBackType 
 		CFSocketNativeHandle cfs = [[components objectAtIndex:0] intValue];
 		id coordinator = [connectionPool newConnectionWithSocketHandle:cfs softReboot:YES withName:[components objectAtIndex:1]];
 		[coordinator clearFlag:@"soft-reboot"];
-		[[NSFileManager defaultManager] removeItemAtPath:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.arc",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables] error:NULL];
+        [[NSFileManager defaultManager] removeItemAtPath:[[NSString stringWithFormat:@"$(BundleDir)/tmp/%@.xml",[coordinator valueForKeyPath:@"properties.name"]] replaceAllVariables] error:NULL];
 	}
 	CFRunLoopRef currentRunLoop = CFRunLoopGetCurrent();
 	CFRunLoopSourceRef serverRunLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 0);

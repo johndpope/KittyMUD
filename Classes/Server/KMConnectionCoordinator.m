@@ -53,6 +53,7 @@
 	self = [super init];
 	if( self ) {
 		characters = [[NSMutableArray alloc] init];
+        outputHooks = [NSMutableDictionary dictionary];
 		[self setValue:[[KMBasicInterpreter alloc] init] forKeyPath:@"properties.current-interpreter"];
 	}
 	return self;
@@ -160,6 +161,11 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 
 -(void) saveToXML:(NSString*)dirToSave
 {
+    return [self saveToXML:dirToSave withState:NO];
+}
+
+-(void) saveToXML:(NSString*)dirToSave withState:(BOOL)withState
+{
 	if(![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]])
 		[[NSFileManager defaultManager] createFileAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]] contents:nil attributes:nil];
 	NSFileHandle* fh = [NSFileHandle fileHandleForWritingAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]];
@@ -168,6 +174,12 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 	NSXMLNode* passwordAttribute = [NSXMLNode attributeWithName:@"password" stringValue:[self valueForKeyPath:@"properties.password"]];
 	[rootElement addAttribute:nameAttribute];
 	[rootElement addAttribute:passwordAttribute];
+    if(withState) {
+        NSXMLNode* stateAttribute = [NSXMLNode attributeWithName:@"state" stringValue:NSStringFromClass([[self valueForKeyPath:@"properties.current-state"] class])];
+        [rootElement addAttribute:stateAttribute];
+        NSXMLNode* currentCharacter = [NSXMLNode attributeWithName:@"character" stringValue:[self valueForKeyPath:@"properties.current-character.properties.name"]];
+        [rootElement addAttribute:currentCharacter];
+    }
 	NSXMLElement* flagsElement = [[NSXMLElement alloc] initWithName:@"flags"];
 	for(NSString* flag in [flags allKeys]) {
 		if([self isFlagSet:flag]) {
@@ -190,6 +202,11 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 
 -(void) loadFromXML:(NSString*)dirToSave
 {
+    [self loadFromXML:dirToSave withState:NO];
+}
+
+-(void) loadFromXML:(NSString*)dirToSave withState:(BOOL)withState
+{
 	NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:[NSString stringWithFormat:@"%@/%@.xml",dirToSave,[self valueForKeyPath:@"properties.name"]]];
 	NSXMLDocument* xdoc = [[NSXMLDocument alloc] initWithData:[fh readDataToEndOfFile] options:0 error:NULL];
 	NSXMLElement* rootElement = [xdoc rootElement];
@@ -209,9 +226,23 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 	for(NSXMLElement* characterElement in characterElements) {
 		[[self getCharacters] addObject:[KMCharacter loadFromXML:characterElement]];
 	}
+    if(withState) {
+        [self setValue:[[NSClassFromString([[rootElement attributeForName:@"state"] stringValue]) alloc] initWithCoordinator:self] forKeyPath:@"properties.current-state"];
+        KMGetInterpreterForState([self valueForKeyPath:@"properties.current-state"],interp);
+        [self setValue:interp forKeyPath:@"properties.current-interpreter"];
+        NSString* characterName = [[rootElement attributeForName:@"character"] stringValue];
+        NSPredicate* pred = [NSPredicate predicateWithFormat:@"self.properties.name like[cd] %@",characterName];
+        NSArray* _characters = [[self getCharacters] filteredArrayUsingPredicate:pred];
+        // this should not ever crash, but we'll add a check here just in case
+        if(_characters.count) {
+            [self setValue:[_characters objectAtIndex:0] forKeyPath:@"properties.current-character"];
+        }
+    }
 	[fh closeFile];
 }
 
+-(void) addOutputHook:(NSString*)key block:(KMOutputHook)hook {
+    [self.outputHooks setObject:hook forKey:key];
 }
 
 -(id) valueForUndefinedKey:(NSString*) key {
@@ -224,4 +255,5 @@ static NSString* sendMessageBase(KMConnectionCoordinator* _self, NSString* messa
 @synthesize outputBuffer;
 @synthesize characters;
 @synthesize inputBuffer;
+@synthesize outputHooks;
 @end
