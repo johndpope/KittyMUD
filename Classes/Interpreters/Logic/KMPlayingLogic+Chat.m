@@ -59,6 +59,10 @@ CIMPL(reply, reply:message:, nil, @"tt", nil, 1) message:(NSString *)message {
         [coordinator sendMessageToBuffer:@"No reply target."];
         return;
     }
+    if(![KMConnectionCoordinator getCoordinatorForCharacterWithName:target]) {
+        [coordinator sendMessageToBuffer:@"No character by that name exists."];
+        return;
+    }
     KMChatEngine* chat = [KMChatEngine chatEngine];
     NSString* channelName = [NSString stringWithFormat:@"w%@",target];
     if(![chat.chatChannels objectForKey:channelName]) {
