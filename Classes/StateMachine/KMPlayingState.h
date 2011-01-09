@@ -24,7 +24,7 @@
 #import "KMObject.h"
 
 @interface  KMPlayingState  : KMState <KMState> {
-
+    BOOL hasSeenCoordinator;
 }
 
 @end

@@ -35,6 +35,10 @@
 	return self;
 }
 
+-(NSString*) stringValue {
+    return [[self class] getName];
+}
+
 @synthesize coordinator;
 
 @end

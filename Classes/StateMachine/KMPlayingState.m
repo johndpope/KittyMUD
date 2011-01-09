@@ -54,15 +54,32 @@
         [coordinator setValue:[KMRoom getDefaultRoom] forKeyPath:@"properties.current-character.properties.current-room"];
         [coordinator clearFlag:@"no-display-room"];
     }
-	if(![coordinator isFlagSet:@"no-display-room"])
-		[[coordinator valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:coordinator];
-	NSString* prompt = [coordinator valueForKeyPath:@"properties.current-character.properties.prompt"];
-	NSMutableDictionary* context = [NSMutableDictionary dictionary];
-    [context createSymbolTable];
-    ECSSymbol* sym = [[context symbolTable] symbolWithName:@"c"];
-    sym.value = [coordinator valueForKeyPath:@"properties.current-character"];
-    NSLog(@"%@ %@",prompt,[prompt evaluateWithContext:context]);
-    [coordinator sendMessageToBuffer:[prompt evaluateWithContext:context]];
+    if(!hasSeenCoordinator) {
+        [coordinator addOutputHook:@"KMPlayingState" block:^(KMConnectionCoordinator* c) {
+            id<KMState> state = [c valueForKeyPath:@"properties.current-state"];
+            if(![state isKindOfClass:[KMPlayingState class]]) {
+                [c.outputHooks removeObjectForKey:@"KMPlayingState"];
+                return;
+            }
+            if([c isFlagSet:@"output-shown"]) {
+                [c clearFlag:@"output-shown"];
+                return;
+            }
+            if(![c isFlagSet:@"no-display-room"])
+                [[c valueForKeyPath:@"properties.current-character.properties.current-room"] displayRoom:c];
+            NSString* prompt = [c valueForKeyPath:@"properties.current-character.properties.prompt"];
+            NSMutableDictionary* context = [NSMutableDictionary dictionary];
+            [context createSymbolTable];
+            ECSSymbol* sym = [[context symbolTable] symbolWithName:@"c"];
+            sym.value = [c valueForKeyPath:@"properties.current-character"];
+            [c sendMessageToBuffer:[prompt evaluateWithContext:context]];
+            [c setFlag:@"output-shown"];
+        }];
+        KMOutputHook hook = [coordinator.outputHooks objectForKey:@"KMPlayingState"];
+        hook(coordinator);
+        [coordinator clearFlag:@"output-shown"];
+        hasSeenCoordinator = YES;
+    }
 }
 
 @end
