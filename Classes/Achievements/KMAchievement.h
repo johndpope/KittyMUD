@@ -48,10 +48,15 @@
 /*! @method displayAchievementHasBeenEarnedMessageTo:
 	@abstract Sends the achievement earned message.
 	@discussion Causes this achievement to send a message to the given coordinator letting it know it earned this achievement.
-	@param coordinator 
+	@param coordinator: The coordinator representing the connection to send the earn message to.
 */
 -(void) displayAchievementHasBeenEarnedMessageTo:(id)coordinator;
 
+/*! @method displayAchievementDetailMessageTo:
+    @abstract Sends detail about an achievement to a connection.
+    @discussion Tells this achievement to send detail about itself to a connection.
+    @param coordinator: The coordinator representing the connection to send the message to.
+*/
 -(void) displayAchievementDetailMessageTo:(id)coordinator;
 
 @property (retain) NSNumber* pointValue;
