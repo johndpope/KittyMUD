@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KMPlayingLogic.h"
 
+@interface KMPlayingLogic (ChatLogic)
 
-@interface KMPlayingLogic_Chat : NSObject {
-@private
-    
-}
+CHEDC(say);
+CDECL(say) message:(NSString*)message;
+
+CHEDC(yell);
+CDECL(yell) message:(NSString*)message;
 
 @end

@@ -7,11 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KMConnectionCoordinator.h"
 
+typedef enum {
+    KMChatSay,
+    KMChatYell,
+    KMChatWhisper,
+    KMChatSector,
+    KMChatGlobal
+} KMChatType;
 
 @interface KMChatEngine : NSObject {
-@private
-    
+    @private
+    NSMutableDictionary* chatChannels;
 }
 
++(KMChatEngine*) chatEngine;
+
+-(void) sendChatMessage:(NSString*)message toChannel:(NSString*)channel fromCoordinator:(KMConnectionCoordinator*)coordinator;
+
+-(void) addChatChannel:(NSString*)channel ofType:(KMChatType)type withFlags:(NSArray*)flags;
+
+-(void) removeChatChannel:(NSString*)channel;
+
+@property (retain,readonly) NSMutableDictionary* chatChannels;
 @end
