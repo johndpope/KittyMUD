@@ -23,4 +23,7 @@ CDECL(whisper) target:(NSString*)target message:(NSString*)message;
 CHEDC(reply);
 CDECL(reply) message:(NSString*)message;
 
+CHEDC(ooc);
+CDECL(ooc) message:(NSString*)message;
+
 @end

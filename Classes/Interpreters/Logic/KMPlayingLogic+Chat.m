@@ -70,4 +70,15 @@ CIMPL(reply, reply:message:, nil, @"tt", nil, 1) message:(NSString *)message {
     }
     [chat sendChatMessage:message toChannel:channelName fromCoordinator:coordinator];
 }
+
+// ooc
+CHELP(ooc, @"Sends a message to the global OOC chat channel.", nil)
+CIMPL(ooc, ooc:message:, nil, nil, nil, 1) message:(NSString *)message {
+    KMChatEngine* chat = [KMChatEngine chatEngine];
+    if(![chat.chatChannels objectForKey:@"OOC"]) {
+        [chat addChatChannel:@"OOC" ofType:KMChatGlobal withFlags:nil];
+    }
+    
+    [chat sendChatMessage:message toChannel:@"OOC" fromCoordinator:coordinator];
+}
 @end
