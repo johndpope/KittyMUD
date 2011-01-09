@@ -134,7 +134,7 @@
 {
 	NSArray* commandmakeup = [[coordinator getInputBuffer] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString* commandName = [commandmakeup objectAtIndex:0];
-	KMCommandInfo* command = [self KM_findCommandByName:commandName];
+	KMCommandInfo* command = [self KM_findCommandByName:[commandName lowercaseString]];
 	
 	if(command == NULL)
 	{
@@ -164,6 +164,12 @@
 	[invocation setTarget:[command target]];
 	[invocation setSelector:NSSelectorFromString([command method])];
 	[invocation setArgument:&coordinator atIndex:2];
+    if(([commandmakeup count] - 1) > ([sig numberOfArguments] - 3)) {
+        NSMutableArray* extra = [commandmakeup subarrayWithRange:NSMakeRange([command.optArgs count],[commandmakeup count] - ([sig numberOfArguments] - 3))];
+        NSMutableArray* new = [NSMutableArray arrayWithArray:[commandmakeup subarrayWithRange:NSMakeRange(0,([sig numberOfArguments] - 3))]];
+        [new addObject:[extra componentsJoinedByString:@" "]];
+        commandmakeup = new;
+    }
 	for(NSUInteger i = 1; i < [commandmakeup count]; i++) {
 		__strong char* argType = method_copyArgumentType(class_getInstanceMethod([[command target] class], NSSelectorFromString([command method])), (unsigned int)(i + 2));
 		if(!strcmp(argType,"i")) {

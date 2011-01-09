@@ -74,7 +74,7 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 		return;
 	}
 	// This next line will remove new-lines and extra whitespace so when we compare it to the commands it will work
-	inputString = [[inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
+	inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	[coordinator setInputBuffer:inputString];
 	[coordinator setLastReadTime:[NSDate date]];
 	if([pool readCallback] != nil) {
