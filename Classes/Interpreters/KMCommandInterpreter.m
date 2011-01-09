@@ -165,7 +165,7 @@
 	[invocation setSelector:NSSelectorFromString([command method])];
 	[invocation setArgument:&coordinator atIndex:2];
     if(([commandmakeup count] - 1) > ([sig numberOfArguments] - 3)) {
-        NSMutableArray* extra = [commandmakeup subarrayWithRange:NSMakeRange([command.optArgs count],[commandmakeup count] - ([sig numberOfArguments] - 3))];
+        NSArray* extra = [commandmakeup subarrayWithRange:NSMakeRange([sig numberOfArguments] - 3,[commandmakeup count] - ([sig numberOfArguments] - 3))];
         NSMutableArray* new = [NSMutableArray arrayWithArray:[commandmakeup subarrayWithRange:NSMakeRange(0,([sig numberOfArguments] - 3))]];
         [new addObject:[extra componentsJoinedByString:@" "]];
         commandmakeup = new;
