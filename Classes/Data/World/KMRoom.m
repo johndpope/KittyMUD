@@ -21,6 +21,8 @@
 
 #import "KMRoom.h"
 #import "KMConnectionCoordinator.h"
+#import "KMConnectionPool.h"
+#import "KMServer.h"
 
 static NSMutableArray* rooms;
 
@@ -140,7 +142,6 @@ extern KMExitDirection directionFromString( NSString* dir );
             }
         } while(roomsEdited);
 	}
-    [KMRoom debugPrintInfo];
 }
 
 +(KMRoom*) getRoomByName:(NSString*)name {
@@ -280,6 +281,15 @@ extern KMExitDirection directionFromString( NSString* dir );
 	[string appendString:[self roomTitle]];
 	[string appendString:@"\n\r\n\r"];
 	[string appendString:[self roomDescription]];
+    [string appendString:@"\n\r\n\r"];
+    [string appendString:@"`w("];
+    NSArray* conns = [[[KMServer getDefaultServer] getConnectionPool] connections];
+    NSPredicate* pred = [NSPredicate predicateWithFormat:@"self.character.room.sector == %@ and self.character.room.roomID == %@",self.sector,self.roomID];
+    NSArray* array = [conns filteredArrayUsingPredicate:pred];
+    for(KMConnectionCoordinator* coord in array) {
+        [string appendFormat:@" `y%@ ",[[coord valueForKeyPath:@"character.properties.name"] capitalizedString]];
+    }
+    [string appendString:@"`w)"];
 	[string appendString:@"\n\r`B[ "];
 	NSArray* exits = [NSArray arrayWithObjects:@"north",@"south",@"west",@"east",@"up",@"down",nil];
 	for(NSString* exit in exits) {
