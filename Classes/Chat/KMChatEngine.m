@@ -126,7 +126,7 @@ static KMChatEngine* __KMChatEngine;
             _message = [NSString stringWithFormat:@"\n\r`m%@ whispers: %@",characterName,message];
             break;
         case KMChatGlobal:
-            _message = [NSString stringWithFormat:@"\n\r`y[`w%@(`c%@`w)`y] %@",characterName,channel,message];
+            _message = [NSString stringWithFormat:@"\n\r`g%@ `r[`w%@`r] `w%@",channel,characterName,message];
             break;
         case KMChatSector:
             _message = [NSString stringWithFormat:@"\n\r`c[`w%@`c] %@",characterName,message];
