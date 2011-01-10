@@ -6,11 +6,16 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "KMPlayingLogic+Chat.h"
+#import "KMPlayingLogic+Social.h"
 #import "KMCommandInterpreter.h"
 #import "KMChatEngine.h"
+#import "KMInfoDisplay.h"
+#import "KMServer.h"
+#import "KMCharacter.h"
+#import "KMClass.h"
+#import "KMStat.h"
 
-@implementation KMPlayingLogic (ChatLogic)
+@implementation KMPlayingLogic (SocialLogic)
 
 // say
 
@@ -80,5 +85,27 @@ CIMPL(ooc, ooc:message:, nil, nil, nil, 1) message:(NSString *)message {
     }
     
     [chat sendChatMessage:message toChannel:@"OOC" fromCoordinator:coordinator];
+}
+
+// who
+CHELP(who, @"Shows you who is currently online.", nil)
+CIMPL(who, who:, nil, nil, nil, 1) {
+    KMInfoDisplay* whoDisplay = [[KMInfoDisplay alloc] init];
+    NSArray* coordinators = [[[KMServer defaultServer] connectionPool] connections];
+    int online = 0;
+    [whoDisplay appendSeperator];
+    for(KMConnectionCoordinator* c in coordinators) {
+        id<KMState> state = [c valueForKeyPath:@"properties.current-state"];
+        if(![NSStringFromClass([state class]) isEqualToString:@"KMPlayingState"])
+            continue;
+        KMCharacter* ch = [c valueForKeyPath:@"character"];
+        KMClass* cl = [KMClass getClassByName:[ch valueForKeyPath:@"properties.class"]];
+        [whoDisplay appendLine:[NSString stringWithFormat:@"`w[`g%d`w(`c%@`w)] `y%@",[ch.stats getValueOfChildAtPath:@"level"],cl.abbreviation,[ch valueForKeyPath:@"properties.name"]]];
+        online++;
+    }
+    [whoDisplay appendSeperator];
+    [whoDisplay appendLine:[NSString stringWithFormat:@"%d online.",online]];
+    [whoDisplay appendSeperator];
+    [coordinator sendMessageToBuffer:[whoDisplay finalOutput]];
 }
 @end

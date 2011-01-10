@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KMPlayingLogic.h"
 
-@interface KMPlayingLogic (ChatLogic)
+@interface KMPlayingLogic (SocialLogic)
 
 CHEDC(say);
 CDECL(say) message:(NSString*)message;
@@ -25,5 +25,8 @@ CDECL(reply) message:(NSString*)message;
 
 CHEDC(ooc);
 CDECL(ooc) message:(NSString*)message;
+
+CHEDC(who);
+CDECL(who);
 
 @end
