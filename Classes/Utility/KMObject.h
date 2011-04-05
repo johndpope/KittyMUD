@@ -45,3 +45,15 @@
 @property (retain,readonly) NSMutableDictionary* properties;
 
 @end
+
+#ifndef N
+#define N(n) [NSNumber numberWithFloat:n]
+#endif
+
+#ifndef I
+#define I(n) [NSNumber numberWithInt:n]
+#endif
+
+#ifndef BL
+#define BL(n) [NSNumber numberWithBool:n]
+#endif
