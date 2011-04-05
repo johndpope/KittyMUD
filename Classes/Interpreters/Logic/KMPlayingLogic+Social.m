@@ -3,7 +3,7 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 1/8/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Michael Tindal. All rights reserved.
 //
 
 #import "KMPlayingLogic+Social.h"
@@ -91,16 +91,73 @@ CIMPL(ooc, ooc:message:, nil, nil, nil, 1) message:(NSString *)message {
 CHELP(who, @"Shows you who is currently online.", nil)
 CIMPL(who, who:, nil, nil, nil, 1) {
     KMInfoDisplay* whoDisplay = [[KMInfoDisplay alloc] init];
-    NSArray* coordinators = [[[KMServer defaultServer] connectionPool] connections];
+    NSArray* coordinators = [[[[KMServer defaultServer] connectionPool] connections] sortedArrayUsingComparator:^NSComparisonResult(id obj1,id obj2) {
+        KMCharacter* ch1 = [obj1 valueForKeyPath:@"character"];
+        KMCharacter* ch2 = [obj2 valueForKeyPath:@"character"];
+        if(ch1 && !ch2) {
+            return NSOrderedAscending;
+        } else if(ch2 && !ch1) {
+            return NSOrderedDescending;
+        }
+        if([ch1.stats findStatWithPath:@"slvl"] && ![ch2.stats findStatWithPath:@"slvl"])
+            return NSOrderedAscending;
+        else if(![ch1.stats findStatWithPath:@"slvl"] && [ch2.stats findStatWithPath:@"slvl"])
+            return NSOrderedDescending;
+        else if([ch1.stats findStatWithPath:@"slvl"] && [ch2.stats findStatWithPath:@"slvl"]) {
+            int slvl1 = [ch1.stats getValueOfChildAtPath:@"slvl"];
+            int slvl2 = [ch2.stats getValueOfChildAtPath:@"slvl"];
+            if(slvl1 > slvl2)
+                return NSOrderedAscending;
+            else if(slvl1 == slvl2)
+                return NSOrderedSame;
+            else
+                return NSOrderedDescending;
+        } else {
+            int lvl1 = [ch1.stats getValueOfChildAtPath:@"level"];
+            int lvl2 = [ch2.stats getValueOfChildAtPath:@"level"];
+            if(lvl1 > lvl2)
+                return NSOrderedAscending;
+            else if(lvl1 == lvl2)
+                return NSOrderedSame;
+            else
+                return NSOrderedDescending;
+        }
+    }];
     int online = 0;
     [whoDisplay appendSeperator];
     for(KMConnectionCoordinator* c in coordinators) {
         id<KMState> state = [c valueForKeyPath:@"properties.current-state"];
         if(![NSStringFromClass([state class]) isEqualToString:@"KMPlayingState"])
             continue;
+        NSString* invis = @"";
         KMCharacter* ch = [c valueForKeyPath:@"character"];
+        if([c isFlagSet:@"invisible"] && ch && [ch.stats getValueOfChildAtPath:@"slvl"] > 0) {
+            KMCharacter* mch = [coordinator valueForKeyPath:@"character"];
+            if([mch.stats getValueOfChildAtPath:@"slvl"]) {
+                KMCharacter* och = [c valueForKeyPath:@"character"];
+                int mslvl = [mch.stats getValueOfChildAtPath:@"slvl"];
+                int oslvl = [och.stats getValueOfChildAtPath:@"slvl"];
+                if(mslvl < oslvl)
+                    continue;
+                else {
+                    invis = @"`C(`cInvis`C)";
+                }
+            } else {
+                continue;
+            }
+        }
         KMClass* cl = [KMClass getClassByName:[ch valueForKeyPath:@"properties.class"]];
-        [whoDisplay appendLine:[NSString stringWithFormat:@"`w[`g%d`w(`c%@`w)] `y%@",[ch.stats getValueOfChildAtPath:@"level"],cl.abbreviation,[ch valueForKeyPath:@"properties.name"]]];
+        NSString* clan = @"";
+        if([ch valueForKeyPath:@"properties.clan"]) {
+            clan = [NSString stringWithFormat:@"`G<%@`G>",[ch valueForKeyPath:@"properties.clan"]];
+        }
+        NSUInteger level = [ch.stats getValueOfChildAtPath:@"level"];
+        NSString* special = [ch valueForKeyPath:@"properties.special-rank"];
+        if(level < 30 && !special)
+            [whoDisplay appendLine:[NSString stringWithFormat:@"`w[`g%03d`w(`c%@`w)] `y%@ %@ %@",level,cl.abbreviation,[ch valueForKeyPath:@"properties.name"],clan,invis]];
+        else {
+            [whoDisplay appendLine:[NSString stringWithFormat:@"`w[`g%3@`w(`c%@`w)] `y%@ %@ %@",special,cl.abbreviation,[ch valueForKeyPath:@"properties.name"],clan,invis]];
+        }
         online++;
     }
     [whoDisplay appendSeperator];
