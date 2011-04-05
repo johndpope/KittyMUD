@@ -3,7 +3,7 @@
 //  KittyMUD
 //
 //  Created by Michael Tindal on 1/8/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Michael Tindal. All rights reserved.
 //
 
 #import "KMChatEngine.h"
@@ -83,7 +83,9 @@
     return recipients;
 }
 
+@synthesize name,flags,type;
 @end
+
 static KMChatEngine* __KMChatEngine;
 
 @implementation KMChatEngine
@@ -163,4 +165,5 @@ static KMChatEngine* __KMChatEngine;
         [chatChannels removeObjectForKey:whisperKey];
 }
 
+@synthesize chatChannels;
 @end
