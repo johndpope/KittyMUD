@@ -36,8 +36,8 @@
 }
 
 +(KMPower*) createPowerWithRootElement:(NSXMLElement*)root {
-	KMPowerType type;
-	KMPowerUsage usage;
+	KMPowerType type = -1;
+	KMPowerUsage usage = -1;
 	NSString* myId;
 	NSString* displayName;
 	ECSNode* definition;
