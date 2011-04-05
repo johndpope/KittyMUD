@@ -93,6 +93,8 @@
 		3A21620F12A9D6AA00D292C7 /* KMStatAllocationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161F212A9D6AA00D292C7 /* KMStatAllocationState.m */; };
 		3A21621012A9D6AA00D292C7 /* KMState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2161F312A9D6AA00D292C7 /* KMState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A21621112A9D6AA00D292C7 /* KMState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2161F412A9D6AA00D292C7 /* KMState.m */; };
+		3A23FF9B12DB821900C8CD8C /* KMPlayingLogic+Admin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A23FF9912DB821900C8CD8C /* KMPlayingLogic+Admin.h */; };
+		3A23FF9C12DB821900C8CD8C /* KMPlayingLogic+Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A23FF9A12DB821900C8CD8C /* KMPlayingLogic+Admin.m */; };
 		3A35E9C112D8C73500300695 /* KMPlayingLogic+Social.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A35E9BF12D8C73500300695 /* KMPlayingLogic+Social.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A35E9C212D8C73500300695 /* KMPlayingLogic+Social.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A35E9C012D8C73500300695 /* KMPlayingLogic+Social.m */; };
 		3AA378BD12AA941100ADE0F8 /* KMWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AA378B912AA941100ADE0F8 /* KMWorkflow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,6 +219,8 @@
 		3A2161F212A9D6AA00D292C7 /* KMStatAllocationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMStatAllocationState.m; path = ./KMStatAllocationState.m; sourceTree = "<group>"; };
 		3A2161F312A9D6AA00D292C7 /* KMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMState.h; path = ./KMState.h; sourceTree = "<group>"; };
 		3A2161F412A9D6AA00D292C7 /* KMState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMState.m; path = ./KMState.m; sourceTree = "<group>"; };
+		3A23FF9912DB821900C8CD8C /* KMPlayingLogic+Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KMPlayingLogic+Admin.h"; sourceTree = "<group>"; };
+		3A23FF9A12DB821900C8CD8C /* KMPlayingLogic+Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KMPlayingLogic+Admin.m"; sourceTree = "<group>"; };
 		3A35E9BF12D8C73500300695 /* KMPlayingLogic+Social.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KMPlayingLogic+Social.h"; sourceTree = "<group>"; };
 		3A35E9C012D8C73500300695 /* KMPlayingLogic+Social.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KMPlayingLogic+Social.m"; sourceTree = "<group>"; };
 		3AA378B912AA941100ADE0F8 /* KMWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMWorkflow.h; sourceTree = "<group>"; };
@@ -536,6 +540,8 @@
 				3ACD0F2012A9DBAB00CE8E92 /* KMStatAllocationLogic.m */,
 				3A35E9BF12D8C73500300695 /* KMPlayingLogic+Social.h */,
 				3A35E9C012D8C73500300695 /* KMPlayingLogic+Social.m */,
+				3A23FF9912DB821900C8CD8C /* KMPlayingLogic+Admin.h */,
+				3A23FF9A12DB821900C8CD8C /* KMPlayingLogic+Admin.m */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				3A35E9C112D8C73500300695 /* KMPlayingLogic+Social.h in Headers */,
 				3A10DB4412D923AE007F8032 /* KMChatEngine.h in Headers */,
 				3ACD0F3E12A9DCA600CE8E92 /* KittyMUD.h in Headers */,
+				3A23FF9B12DB821900C8CD8C /* KMPlayingLogic+Admin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +740,7 @@
 				3AA378C012AA941100ADE0F8 /* KMWorkflowStep.m in Sources */,
 				3A35E9C212D8C73500300695 /* KMPlayingLogic+Social.m in Sources */,
 				3A10DB4512D923AE007F8032 /* KMChatEngine.m in Sources */,
+				3A23FF9C12DB821900C8CD8C /* KMPlayingLogic+Admin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,7 +831,7 @@
 				GCC_PREFIX_HEADER = "KittyMUD-Prefix.pch";
 				INFOPLIST_FILE = "KittyMUD-Info.plist";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = /Xcode4/Local/Frameworks;
+				LD_RUNPATH_SEARCH_PATHS = /Developer/Local/Frameworks;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -849,7 +857,7 @@
 				GCC_PREFIX_HEADER = "KittyMUD-Prefix.pch";
 				INFOPLIST_FILE = "KittyMUD-Info.plist";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = /Xcode4/Local/Frameworks;
+				LD_RUNPATH_SEARCH_PATHS = /Developer/Local/Frameworks;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;

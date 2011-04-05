@@ -78,3 +78,4 @@
 #define KMSoftRebootCheck if([coordinator isFlagSet:@"softreboot-displayed"]) return; [coordinator setFlag:@"softreboot-displayed"]
 
 #define KMCurrentCharacter(coor) [coor valueForKeyPath:@"properties.current-character"]
+
