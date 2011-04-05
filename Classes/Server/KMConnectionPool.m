@@ -149,6 +149,19 @@ static void ConnectionBaseCallback(CFSocketRef socket, CFSocketCallBackType call
 	}
 }
 
+-(void) writeToAllConnectionsDirect:(NSString*)message
+{
+	for(KMConnectionCoordinator* coordinator in connections) {
+		[coordinator sendMessage:message];
+	}
+}
+
+-(void) writeMessageDirect:(NSString*)message toConnections:(NSArray*)conns {
+    for(KMConnectionCoordinator* coordinator in conns) {
+		[coordinator sendMessage:message];
+	}
+}
+
 -(void) removeConnection:(KMConnectionCoordinator*)connection
 {
 	if (![connections containsObject:connection]) {

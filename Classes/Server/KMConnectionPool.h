@@ -49,7 +49,11 @@ typedef void (^KMConnectionReadCallback) (id);
 
 -(void) writeToAllConnections:(NSString*)message;
 
+-(void) writeToAllConnectionsDirect:(NSString*)message;
+
 -(void) writeMessage:(NSString*)message toConnections:(NSArray*)connections;
+
+-(void) writeMessageDirect:(NSString*)message toConnections:(NSArray*)connections;
 
 -(void) removeConnection:(KMConnectionCoordinator*)connection;
 
