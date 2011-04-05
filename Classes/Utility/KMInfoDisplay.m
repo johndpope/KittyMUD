@@ -21,6 +21,7 @@
 
 #import "KMInfoDisplay.h"
 #import "NSString+KMAdditions.h"
+#import "KMColorProcessWriteHook.h"
 
 
 @implementation KMInfoDisplay
@@ -42,18 +43,21 @@
 
 -(void) appendLine:(NSString*)line
 {
-	if(([line length] + 4) >= 80) {
+    KMColorProcessWriteHook* hook = [[KMColorProcessWriteHook alloc] init];
+	if(([[hook processHook:line replace:NO] length] + 4) >= 80) {
 		NSArray* components = [line componentsSeparatedByString:@" "];
 		NSMutableString* tmpLine = [NSMutableString string];
 		NSUInteger i = 1;
 		NSString* areWeTooLong;
+        NSString* areWeTooLongNC;
 		[tmpLine appendString:[components objectAtIndex:0]];
 		NSUInteger o;
 		oldColor = @"";
 		do {
 			o = i;
 			areWeTooLong = [NSString stringWithFormat:@"%@ %@",tmpLine,[components objectAtIndex:i]];
-			if(([areWeTooLong length] + 4)  < 80) {
+            areWeTooLongNC = [hook processHook:areWeTooLong replace:NO];
+			if(([areWeTooLongNC length] + 4)  < 80) {
 				NSString* c = [components objectAtIndex:i++];
 				NSRange colorRange = [c rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"`"]];
 				if(colorRange.location != NSNotFound) {
@@ -61,7 +65,7 @@
 				}
 				[tmpLine appendString:[NSString stringWithFormat:@" %@",c]];
 			}
-		} while(o != i);
+		} while(o != i && i < [components count]);
 		NSString* lineToAppend = [NSString stringWithFormat:@"`w| %@", tmpLine];
 		lineToAppend = [NSString stringWithFormat:@"%@%@`w |`x\n\r", lineToAppend, [lineToAppend getSpacing]];
 		[display appendString:lineToAppend];
