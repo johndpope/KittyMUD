@@ -24,6 +24,7 @@
 #import "KMCharacter.h"
 #import "KMState.h"
 #import "KMServer.h"
+#import "NSString+KMAdditions.h"
 #import <objc/runtime.h>
 
 @interface KMCommandInterpreter ()
@@ -242,9 +243,16 @@ CIMPL(help,help:command:,@"command",nil,nil,1) command:(NSString*)command {
 		return;
 	}
 	if(![[cmd help] objectForKey:@"long"]) {
-		[coordinator sendMessageToBuffer:@"Help unavailable for command."];
+        if([[cmd help] objectForKey:@"short"]) {
+            [coordinator sendMessageToBuffer:[[cmd help] objectForKey:@"short"]];
+        } else
+            [coordinator sendMessageToBuffer:@"Help unavailable for command."];
 		return;
-	}
+	} else {
+        NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:[NSString stringWithFormat:[@"$(BundleDir)/lib/help/%@" replaceAllVariables],[[cmd help] objectForKey:@"long"]]];
+        NSData* data = [fh readDataToEndOfFile];
+        [coordinator sendMessageToBuffer:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+    }
 }
 
 CHELP(rebuildlogics,@"Rebuilds the logics for all command interpreters in use at the time.  Used when soft rebooting with changed commands.",nil)
@@ -260,7 +268,7 @@ CIMPL(rebuildlogics,rebuildlogics:,nil,nil,@"admin",1) {
 	coordinator = tc;
 }
 
-CIMPL(displaycommand,displaycommand:command:,nil,nil,nil,1) command:(NSString*)command {
+CIMPL(displaycommand,displaycommand:command:,nil,nil,@"staff",1) command:(NSString*)command {
 	KMCommandInfo* cmd = [self KM_findCommandByName:command];
 	if(cmd == nil) {
 		[coordinator sendMessageToBuffer:@"No command found."];
