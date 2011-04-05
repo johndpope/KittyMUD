@@ -51,13 +51,13 @@
 	return NO;
 }
 
-CHELP(save,@"Saves your account.",nil)
+CHELP(save,@"Saves your account.",@"save.hlp")
 CIMPL(save,save:,nil,nil,nil,1) {
     [coordinator clearFlag:@"no-display-room"];
 	[coordinator saveToXML:[@"$(SaveDir)" replaceAllVariables]];
 }
 
-CHELP(quit,@"Quits the game with saving.",nil)
+CHELP(quit,@"Quits the game with saving.",@"quit.hlp")
 CIMPL(quit,quit:,nil,nil,nil,1) {
     [self CMD(save)];
 	[[[KMServer defaultServer] connectionPool] removeConnection:coordinator];
@@ -113,37 +113,37 @@ KMExitDirection directionFromString( NSString* dir ) {
     return (KMExitDirection)-1;
 }
 
-CHELP(north,@"Moves your character north.",nil)
+CHELP(north,@"Moves your character north.",@"north.hlp")
 CIMPL(north,north:,nil,nil,nil,1) {
 	moveBase(coordinator, KMExitNorth, YES);
 }
 
-CHELP(south,@"Moves your character south.",nil)
+CHELP(south,@"Moves your character south.",@"south.hlp")
 CIMPL(south,south:,nil,nil,nil,1) {
 	moveBase(coordinator, KMExitSouth, YES);
 }
 
-CHELP(west,@"Moves your character west.",nil)
+CHELP(west,@"Moves your character west.",@"west.hlp")
 CIMPL(west,west:,nil,nil,nil,1) {
 	moveBase(coordinator, KMExitWest, YES);
 }
 
-CHELP(east,@"Moves your character east.",nil)
+CHELP(east,@"Moves your character east.",@"east.hlp")
 CIMPL(east,east:,nil,nil,nil,1) {
 	moveBase(coordinator, KMExitEast, YES);
 }
 
-CHELP(up,@"Moves your character up.",nil)
+CHELP(up,@"Moves your character up.",@"up.hlp")
 CIMPL(up,up:,nil,nil,nil,1) {
 	moveBase(coordinator, KMExitUp, YES);
 }
 
-CHELP(down,@"Moves your character down.",nil)
+CHELP(down,@"Moves your character down.",@"down.hlp")
 CIMPL(down,down:,nil,nil,nil,1) {
 	moveBase(coordinator, KMExitDown, YES);
 }
 
-CHELP(look, @"Looks around.  Optionally takes a direction to look in.", nil)
+CHELP(look, @"Looks around.  Optionally takes a direction to look in.", @"look.hlp")
 CIMPL(look,look:direction:,@"direction",nil,nil,1) direction:(NSString*)dir {
 	KMExitDirection edir;
 	BOOL lookDir = NO;
@@ -186,7 +186,7 @@ static int rebootTime = 0;
 	}
 }
 
-CHELP(reboot, @"Performs a soft reboot.", nil)
+CHELP(reboot, @"Performs a soft reboot.", @"reboot.hlp")
 CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 #pragma unused(coordinator)
 	rebootTime = time;
@@ -194,7 +194,7 @@ CIMPL(reboot,reboot:time:,@"time",nil,@"admin",1) time:(int)time {
 		NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 		NSTimer* timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(realSoftReboot:) userInfo:nil repeats:YES];
 		[runLoop addTimer:timer forMode:NSRunLoopCommonModes]; 
-		[[[KMServer defaultServer] connectionPool] writeToAllConnections:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x",rebootTime]];
+		[[[KMServer defaultServer] connectionPool] writeToAllConnectionsDirect:[NSString stringWithFormat:@"`!`R*** #!`WPERFORMING A SOFT REBOOT in %d minutes `!`R***#!`x",rebootTime--]];
 	}
 	else {
 		[self realSoftReboot:nil];
