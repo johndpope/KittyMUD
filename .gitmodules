@@ -1,0 +1,3 @@
+[submodule "external/Silver"]
+	path = external/Silver
+	url = git@github.com:shadowphoenix/Silver.git
